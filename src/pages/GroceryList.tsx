@@ -30,6 +30,10 @@ export default function GroceryList() {
   const [editValue, setEditValue] = useState("");
   const [collapsedCats, setCollapsedCats] = useState<string[]>([]);
 
+  React.useEffect(() => {
+    document.title = "Grocery List | Hreefrecipy";
+  }, []);
+
   const dynamicCategories = useMemo(() => {
     const cats = Array.from(new Set(groceryItems.map(i => i.category)));
     return cats.sort();

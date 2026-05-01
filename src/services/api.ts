@@ -83,7 +83,14 @@ export async function searchRecipes(query: string = '', category: string = 'all'
       return mapToRecipe(item, isCocktail);
     }));
 
-    const finalResults = results.filter((r): r is Recipe => r !== null);
+    // Combine with fallbacks to ensure high quality content is always present
+    const fallbacks = getFallbackRecipes(query, category, 6);
+    const combined = [...results.filter((r): r is Recipe => r !== null), ...fallbacks];
+    
+    // Remove duplicates by ID
+    const uniqueResults = Array.from(new Map(combined.map(r => [r.id, r])).values());
+    
+    const finalResults = uniqueResults.slice(0, number);
     if (finalResults.length > 0) setCachedData(cacheKey, finalResults);
     return finalResults;
   } catch (error) {
@@ -252,14 +259,26 @@ function getIngredientCategory(name: string): string {
   return 'Other';
 }
 
-function getFallbackRecipes(query: string, category: string): Recipe[] {
+export function getFallbackRecipes(query: string = '', category: string = 'all', limit: number = 20): Recipe[] {
   let filtered = [...FALLBACK_RECIPES];
-  if (category !== 'all') {
-    filtered = filtered.filter(r => r.category === category);
+  
+  if (category !== 'all' && category !== '') {
+    // Check both original and lowercase comparison for robustness
+    const lowerCat = category.toLowerCase();
+    filtered = filtered.filter(r => 
+      r.category.toLowerCase() === lowerCat || 
+      (CATEGORY_MAP[lowerCat] && r.category.toLowerCase() === CATEGORY_MAP[lowerCat].toLowerCase())
+    );
   }
+  
   if (query.trim()) {
     const q = query.toLowerCase();
-    filtered = filtered.filter(r => r.title.toLowerCase().includes(q));
+    filtered = filtered.filter(r => 
+      r.title.toLowerCase().includes(q) || 
+      r.summary?.toLowerCase().includes(q) ||
+      r.extendedIngredients.some(i => i.name.toLowerCase().includes(q))
+    );
   }
-  return filtered;
+  
+  return filtered.slice(0, limit);
 }

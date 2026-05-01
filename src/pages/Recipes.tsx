@@ -8,6 +8,8 @@ import { RecipeModal } from "../components/RecipeModal";
 import { FanReviews } from "../components/FanReviews";
 import { useApp } from "../context/AppContext";
 
+import { RecipeCard } from "../components/RecipeCard";
+
 function cn(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ');
 }
@@ -110,6 +112,10 @@ export default function Recipes() {
     { id: "FITNESS MEALS", name: "FITNESS MEALS" },
   ];
 
+  useEffect(() => {
+    document.title = "Browse Recipes | Hreefrecipy";
+  }, []);
+
   const handleOpenRecipe = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
     setIsModalOpen(true);
@@ -210,86 +216,14 @@ export default function Recipes() {
             ))
           ) : (
             filteredRecipes.map((recipe, index) => (
-              <motion.div
+              <RecipeCard 
                 key={recipe.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index % 6) * 0.05 }}
-              onClick={() => handleOpenRecipe(recipe)}
-              className="cursor-pointer"
-            >
-              <div className="group flex flex-col p-0 rounded-[20px] bg-white border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={recipe.image}
-                    alt={recipe.title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  
-                  {/* Floating Badges */}
-                  <div className="absolute top-4 left-4">
-                    <div className="flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1.5 shadow-sm">
-                      <Flame size={12} className="text-orange-500 fill-orange-500/10" />
-                      <span className="text-[11px] font-bold text-slate-900">
-                        {recipe.calories}kcal
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute bottom-4 left-4">
-                    <div className="flex items-center gap-1.5 rounded-full bg-black/50 backdrop-blur-md px-3 py-1.5 text-white border border-white/10">
-                      <Clock size={12} className="text-white/80" />
-                      <span className="text-[10px] font-bold">{recipe.readyInMinutes}m</span>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleFavorite(recipe.id);
-                    }}
-                    className={cn(
-                      "absolute top-4 right-4 p-2.5 rounded-full backdrop-blur-md shadow-lg transition-all z-10",
-                      favorites.includes(recipe.id) ? "bg-red-500 text-white" : "bg-white/90 text-slate-400 hover:text-red-500"
-                    )}
-                  >
-                    <Heart size={16} fill={favorites.includes(recipe.id) ? "currentColor" : "none"} />
-                  </button>
-                </div>
-                
-                <div className="p-5 flex flex-1 flex-col">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[10px] font-black uppercase tracking-[0.1em] text-brand-green">
-                      {recipe.category.toUpperCase()}
-                    </span>
-                    <div className="h-1 w-1 rounded-full bg-slate-200" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.1em] text-slate-400">
-                      {recipe.servings} Servings
-                    </span>
-                  </div>
-                  
-                  <h3 className="line-clamp-2 text-base font-bold text-slate-900 group-hover:text-brand-green transition-colors leading-tight mb-4">
-                    {recipe.title}
-                  </h3>
-                  
-                  <div className="mt-auto pt-4 flex items-center justify-between border-t border-slate-50">
-                    <div className="flex -space-x-2">
-                      {[1, 2, 3].map(i => (
-                        <div key={i} className="h-8 w-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center overflow-hidden">
-                          <img src={`https://i.pravatar.cc/100?img=${i + (index % 50)}`} alt="user" className="h-full w-full object-cover" />
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="flex items-center gap-1 text-brand-green font-bold text-xs uppercase tracking-widest">
-                      View Recipe
-                      <ChevronRight size={14} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))
-        )}
+                recipe={recipe}
+                index={index}
+                onClick={handleOpenRecipe}
+              />
+            ))
+          )}
         </motion.div>
       </AnimatePresence>
 

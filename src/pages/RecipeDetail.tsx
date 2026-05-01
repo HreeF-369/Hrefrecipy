@@ -55,6 +55,7 @@ export default function RecipeDetail() {
           const result = await getRecipeById(parseInt(id));
           if (result) {
             setRecipe(result);
+            document.title = `${result.title} | Hreefrecipy`;
           }
         }
       } catch (error) {
@@ -117,6 +118,12 @@ export default function RecipeDetail() {
       prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
     );
   };
+
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis.cancel();
+    };
+  }, []);
 
   if (loading) {
     return (

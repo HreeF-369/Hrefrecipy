@@ -13,6 +13,8 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+import { RecipeCard } from "../components/RecipeCard";
+
 export default function Favorites() {
   const { favorites, toggleFavorite } = useApp();
   const [favoriteRecipes, setFavoriteRecipes] = useState<Recipe[]>([]);
@@ -20,6 +22,10 @@ export default function Favorites() {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    document.title = "My Favorites | Hreefrecipy";
+  }, []);
 
   useEffect(() => {
     async function fetchFavorites() {
@@ -80,67 +86,12 @@ export default function Favorites() {
       ) : filteredRecipes.length > 0 ? (
         <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filteredRecipes.map((recipe, index) => (
-            <div
+            <RecipeCard 
               key={recipe.id}
-              onClick={() => handleOpenRecipe(recipe)}
-              className="group relative flex flex-col overflow-hidden rounded-[2.5rem] bg-white border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 cursor-pointer"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={recipe.image}
-                  alt={recipe.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleFavorite(recipe.id);
-                  }}
-                  className="absolute top-6 right-6 p-3 bg-red-500 text-white rounded-full shadow-lg transform transition-transform hover:scale-110 active:scale-95 z-10"
-                >
-                  <Heart size={18} fill="currentColor" />
-                </button>
-
-                <div className="absolute bottom-6 left-6 flex gap-2">
-                  <div className="flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1.5 shadow-sm">
-                    <Flame size={12} className="text-orange-500 fill-orange-500/10" />
-                    <span className="text-[11px] font-bold text-slate-900">{recipe.calories}kcal</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 rounded-full bg-black/50 backdrop-blur-md px-3 py-1.5 text-white border border-white/10">
-                    <Clock size={12} className="text-white/80" />
-                    <span className="text-[10px] font-bold">{recipe.readyInMinutes}m</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex flex-1 flex-col p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.15em] text-brand-green">
-                    {recipe.category.toUpperCase()}
-                  </span>
-                  <div className="h-1 w-1 rounded-full bg-slate-200" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
-                    {recipe.servings} Servings
-                  </span>
-                </div>
-                <h3 className="line-clamp-2 text-xl font-bold text-slate-900 group-hover:text-brand-green transition-colors leading-tight mb-6">
-                  {recipe.title}
-                </h3>
-                <div className="mt-auto flex items-center justify-between pt-6 border-t border-slate-50">
-                  <div className="flex -space-x-2">
-                      {[1, 2, 3].map(i => (
-                        <div key={i} className="h-8 w-8 rounded-full border-2 border-white bg-slate-100 overflow-hidden">
-                          <img src={`https://i.pravatar.cc/100?img=${i + (index % 50)}`} alt="user" className="h-full w-full object-cover" />
-                        </div>
-                      ))}
-                  </div>
-                  <span className="flex items-center gap-1 text-[10px] font-black text-brand-green uppercase tracking-widest">
-                    Cook Now <ChevronRight size={12} />
-                  </span>
-                </div>
-              </div>
-            </div>
+              recipe={recipe}
+              index={index}
+              onClick={handleOpenRecipe}
+            />
           ))}
         </div>
       ) : (

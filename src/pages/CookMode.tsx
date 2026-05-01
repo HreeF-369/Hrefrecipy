@@ -45,6 +45,7 @@ export default function CookMode() {
           const result = await getRecipeById(id);
           if (result) {
             setRecipe(result);
+            document.title = `Cooking: ${result.title} | Hreefrecipy`;
           } else {
             console.error(`Recipe with ID ${id} not found.`);
             setRecipe(null);
@@ -103,6 +104,7 @@ export default function CookMode() {
     onVoicesChanged();
     return () => {
       window.speechSynthesis.removeEventListener('voiceschanged', onVoicesChanged);
+      window.speechSynthesis.cancel();
     };
   }, []);
 

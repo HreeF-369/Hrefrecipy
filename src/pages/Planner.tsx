@@ -33,6 +33,10 @@ export default function Planner() {
 
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   
+  React.useEffect(() => {
+    document.title = "Weekly Meal Planner | Hreefrecipy";
+  }, []);
+
   const formatDateRange = () => {
     const start = weekDates[0];
     const end = weekDates[6];

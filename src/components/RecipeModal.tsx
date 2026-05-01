@@ -31,6 +31,12 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
   const [showDetailedNutrition, setShowDetailedNutrition] = useState(false);
   const [commentText, setCommentText] = useState('');
 
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis.cancel();
+    };
+  }, [isOpen]);
+
   const generateNutrition = (name: string, category: string) => {
     let baseCalories = category === 'drinks' ? 150 : 500;
     let baseProtein = category === 'drinks' ? 1 : 25;
