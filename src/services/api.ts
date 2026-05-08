@@ -1,10 +1,12 @@
 import { Recipe } from "../types";
 import { FALLBACK_RECIPES } from "./fallbackData";
+import { getRecipeImage } from "./imageService";
 
-// TheMealDB free API key
-const API_KEY = '1'; 
+// TheMealDB free API
+const BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
+const COCKTAIL_URL = 'https://www.thecocktaildb.com/api/json/v1/1';
 
-const CACHE_PREFIX = 'hreef_mealdb_cache_v2_';
+const CACHE_PREFIX = 'hreef_mealdb_cache_v4_';
 const CACHE_EXPIRY = 1000 * 60 * 60 * 24; // 24 hours
 
 function getCachedData<T>(key: string): T | null {
@@ -33,17 +35,14 @@ function setCachedData<T>(key: string, data: T): void {
   }
 }
 
-const BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
-const COCKTAIL_URL = 'https://www.thecocktaildb.com/api/json/v1/1';
-
 const CATEGORY_MAP: Record<string, string> = {
   "breakfast": "Breakfast",
   "lunch": "Chicken",
   "dinner": "Beef",
   "main-dishes": "Seafood",
   "desserts": "Dessert",
-  "drinks": "Cocktail", // Will use CocktailDB
-  "fitness": "Vegan"
+  "drinks": "Cocktail",
+  "fitness": "Vegetarian"
 };
 
 export async function searchRecipes(query: string = '', category: string = 'all', number: number = 12): Promise<Recipe[]> {
@@ -55,13 +54,14 @@ export async function searchRecipes(query: string = '', category: string = 'all'
     let url: string;
     let isCocktail = false;
     
-    if (category === 'drinks') {
+    const lowerCat = category.toLowerCase();
+    if (lowerCat === 'drinks') {
       isCocktail = true;
       url = query 
         ? `${COCKTAIL_URL}/search.php?s=${encodeURIComponent(query)}`
         : `${COCKTAIL_URL}/filter.php?c=Cocktail`;
-    } else if (category !== 'all' && !query) {
-      const dbCat = CATEGORY_MAP[category] || category;
+    } else if (lowerCat !== 'all' && lowerCat !== '' && !query) {
+      const dbCat = CATEGORY_MAP[lowerCat] || category;
       url = `${BASE_URL}/filter.php?c=${encodeURIComponent(dbCat)}`;
     } else {
       url = `${BASE_URL}/search.php?s=${encodeURIComponent(query)}`;
@@ -76,21 +76,19 @@ export async function searchRecipes(query: string = '', category: string = 'all'
     // Hydrate results that don't have instructions
     const results = await Promise.all(items.slice(0, number).map(async (item: any) => {
       const id = isCocktail ? item.idDrink : item.idMeal;
-      // If it's a filter result or missing instructions, fetch details
       if (!item.strInstructions) {
         return getRecipeById(id, isCocktail);
       }
       return mapToRecipe(item, isCocktail);
     }));
 
-    // Combine with fallbacks to ensure high quality content is always present
+    const validResults = results.filter((r): r is Recipe => r !== null);
     const fallbacks = getFallbackRecipes(query, category, 6);
-    const combined = [...results.filter((r): r is Recipe => r !== null), ...fallbacks];
+    const combined = [...validResults, ...fallbacks];
     
-    // Remove duplicates by ID
     const uniqueResults = Array.from(new Map(combined.map(r => [r.id, r])).values());
-    
     const finalResults = uniqueResults.slice(0, number);
+    
     if (finalResults.length > 0) setCachedData(cacheKey, finalResults);
     return finalResults;
   } catch (error) {
@@ -100,44 +98,30 @@ export async function searchRecipes(query: string = '', category: string = 'all'
 }
 
 export async function getRecipeById(id: string | number, isCocktail?: boolean): Promise<Recipe | null> {
-  // First check if we have it in fallback recipes
-  const fallback = FALLBACK_RECIPES.find(r => r.id === Number(id));
+  const numId = Number(id);
+  const fallback = FALLBACK_RECIPES.find(r => r.id === numId);
   if (fallback) return fallback;
 
-  if (typeof isCocktail === 'boolean') {
-    return fetchByIdAndType(id, isCocktail);
-  }
-
-  // Not defined, try MealDB first
-  let recipe = await fetchByIdAndType(id, false);
-  if (recipe) return recipe;
-  
-  // Try CocktailDB if MealDB failed
-  recipe = await fetchByIdAndType(id, true);
-  if (recipe) return recipe;
-  
-  return null;
-}
-
-async function fetchByIdAndType(id: string | number, isCocktail: boolean): Promise<Recipe | null> {
-  const cacheKey = `${isCocktail ? 'drink' : 'recipe'}_${id}`;
+  const cacheKey = `recipe_detail_${id}`;
   const cached = getCachedData<Recipe>(cacheKey);
   if (cached) return cached;
 
   try {
-    const baseUrl = isCocktail ? COCKTAIL_URL : BASE_URL;
+    const isActuallyCocktail = isCocktail ?? (numId > 9000);
+    const baseUrl = isActuallyCocktail ? COCKTAIL_URL : BASE_URL;
     const response = await fetch(`${baseUrl}/lookup.php?i=${id}`);
     if (!response.ok) return null;
     
     const data = await response.json();
-    const items = isCocktail ? data.drinks : data.meals;
+    const items = isActuallyCocktail ? data.drinks : data.meals;
     if (!items || items.length === 0) return null;
     
-    const recipe = mapToRecipe(items[0], isCocktail);
+    const recipe = mapToRecipe(items[0], isActuallyCocktail);
+    
     if (recipe) setCachedData(cacheKey, recipe);
     return recipe;
   } catch (error) {
-    console.error(`Error fetching details for type ${isCocktail ? 'drink' : 'meal'}:`, error);
+    console.error(`Error fetching detail:`, error);
     return null;
   }
 }
@@ -159,7 +143,8 @@ function mapToRecipe(m: any, isCocktail: boolean): Recipe {
         amount: 1,
         unit: measure?.trim() || '',
         original: `${measure || ''} ${name}`.trim(),
-        aisle: getIngredientCategory(name)
+        aisle: getIngredientCategory(name),
+        image: name.trim() // Pass exact name for image construction
       });
     }
   }
@@ -173,39 +158,14 @@ function mapToRecipe(m: any, isCocktail: boolean): Recipe {
           number: index + 1,
           step: step.trim().replace(/^\d+\.\s*/, ''),
           ingredients: [],
-          equipment: [],
-          length: {
-            number: 5,
-            unit: 'minutes'
-          }
+          equipment: []
         }))
     : [];
 
-  // Refined category-based nutrition estimation
-  let baseCalories = isCocktail ? 150 : 500;
-  let baseProtein = isCocktail ? 1 : 25;
-  let baseCarbs = isCocktail ? 20 : 45;
-  let baseFat = isCocktail ? 0 : 15;
-
-  const cat = m.strCategory?.toLowerCase() || "";
-  if (cat.includes("beef") || cat.includes("lamb") || cat.includes("pork") || cat.includes("chicken")) {
-    baseProtein += 15;
-    baseCalories += 100;
-    baseFat += 5;
-  } else if (cat.includes("pasta") || cat.includes("rice") || cat.includes("dessert")) {
-    baseCarbs += 30;
-    baseCalories += 150;
-  } else if (cat.includes("vege") || cat.includes("vegan") || cat.includes("salad")) {
-    baseProtein -= 10;
-    baseCarbs -= 10;
-    baseFat -= 5;
-    baseCalories -= 150;
-  }
-
-  const calories = Math.floor(Math.random() * 100) + baseCalories;
-  const protein = Math.floor(Math.random() * 10) + baseProtein;
-  const carbs = Math.floor(Math.random() * 15) + baseCarbs;
-  const fat = Math.floor(Math.random() * 10) + baseFat;
+  const calories = 250 + Math.floor(Math.random() * 400);
+  const protein = 5 + Math.floor(Math.random() * 30);
+  const carbs = 15 + Math.floor(Math.random() * 60);
+  const fat = 5 + Math.floor(Math.random() * 20);
 
   return {
     id: Number(id),
@@ -214,39 +174,15 @@ function mapToRecipe(m: any, isCocktail: boolean): Recipe {
     image: thumb,
     readyInMinutes: Math.max(15, instructionSteps.length * 5),
     servings: 4,
-    summary: isCocktail 
-      ? `A refreshing ${m.strAlcoholic} ${m.strCategory} drink served in a ${m.strGlass}.`
-      : `A delicious ${m.strArea || ''} ${m.strCategory || 'dish'}.`,
-    youtubeUrl: m.strYoutube || undefined,
+    summary: instructionsRaw.slice(0, 150) + '...',
     calories: calories,
     protein: `${protein}g`,
-    carbs: `${carbs}g`,
     fat: `${fat}g`,
-    nutrition: {
-      nutrients: [
-        { name: "Calories", amount: calories, unit: "kcal", percentOfDailyNeeds: Math.round((calories / 2000) * 100) },
-        { name: "Protein", amount: protein, unit: "g", percentOfDailyNeeds: Math.round((protein / 50) * 100) },
-        { name: "Carbohydrates", amount: carbs, unit: "g", percentOfDailyNeeds: Math.round((carbs / 300) * 100) },
-        { name: "Fat", amount: fat, unit: "g", percentOfDailyNeeds: Math.round((fat / 65) * 100) },
-        { name: "Fiber", amount: Math.floor(Math.random() * 12) + (cat.includes("veg") ? 8 : 2), unit: "g", percentOfDailyNeeds: Math.floor(Math.random() * 30) },
-        { name: "Sugar", amount: Math.floor(Math.random() * 15) + (cat.includes("dessert") ? 20 : 2), unit: "g", percentOfDailyNeeds: Math.floor(Math.random() * 20) },
-        { name: "Sodium", amount: Math.floor(Math.random() * 800) + 200, unit: "mg", percentOfDailyNeeds: Math.floor(Math.random() * 20) },
-        { name: "Vitamin D", amount: Math.floor(Math.random() * 5), unit: "µg", percentOfDailyNeeds: Math.floor(Math.random() * 25) }
-      ]
-    },
-    analyzedInstructions: [{ name: "", steps: instructionSteps }],
+    carbs: `${carbs}g`,
     extendedIngredients: ingredients,
+    analyzedInstructions: [{ name: "", steps: instructionSteps }],
     dishTypes: [m.strCategory]
   };
-}
-
-function mapToRecipeOld(m: any): Recipe {
-  // Keeping fallback logic signature if needed, but renamed to mapToRecipe
-  return mapToRecipe(m, false);
-}
-
-function mapMealDBToRecipe(m: any): Recipe {
-  return mapToRecipe(m, false);
 }
 
 function getIngredientCategory(name: string): string {

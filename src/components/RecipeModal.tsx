@@ -330,63 +330,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                 </div>
 
                 <div className="p-10 flex-1 flex flex-col space-y-8 overflow-y-auto">
-                  {/* Stats with dividers */}
-                  <div className="flex items-center justify-between pb-8 border-b border-slate-100 shrink-0">
-                    <div className="text-center group">
-                      <Clock size={20} className="mx-auto mb-1 flex text-brand-green" />
-                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Time</span>
-                      <p className="text-sm font-bold text-slate-900">{recipe.readyInMinutes}m</p>
-                    </div>
-                    <div className="w-px h-10 bg-slate-100" />
-                    <div className="text-center group">
-                      <Flame size={20} className="mx-auto mb-1 flex text-brand-orange" />
-                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Energy</span>
-                      <p className="text-sm font-bold text-slate-900">{recipe.calories}kcal</p>
-                    </div>
-                    <div className="w-px h-10 bg-slate-100" />
-                    <div className="text-center group">
-                      <Users size={20} className="mx-auto mb-1 flex text-blue-500" />
-                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Servings</span>
-                      <p className="text-sm font-bold text-slate-900">{recipe.servings}</p>
-                    </div>
-                  </div>
-
-                  {/* New Recipe Highlights Section */}
-                  <div className="shrink-0 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Recipe Highlights</h4>
-                    <div className="flex flex-wrap gap-2">
-                       {recipe.readyInMinutes <= 30 && (
-                         <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-700 rounded-lg border border-amber-100/50 shadow-sm transition-transform hover:scale-105">
-                           <span className="text-sm">⚡</span>
-                           <span className="text-[10px] font-black uppercase tracking-widest">Quick Prep</span>
-                         </div>
-                       )}
-                       {parseInt(recipe.protein || '0') >= 25 && (
-                         <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-lg border border-emerald-100/50 shadow-sm transition-transform hover:scale-105">
-                           <span className="text-sm">🔥</span>
-                           <span className="text-[10px] font-black uppercase tracking-widest">High Protein</span>
-                         </div>
-                       )}
-                       {recipe.nutrition?.nutrients.find(n => n.name === 'Fiber')?.amount && recipe.nutrition.nutrients.find(n => n.name === 'Fiber')!.amount >= 5 && (
-                         <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg border border-blue-100/50 shadow-sm transition-transform hover:scale-105">
-                           <span className="text-sm">🥗</span>
-                           <span className="text-[10px] font-black uppercase tracking-widest">High Fiber</span>
-                         </div>
-                       )}
-                       {(recipe.category || '').toLowerCase().includes('vege') && (
-                         <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 text-green-700 rounded-lg border border-green-100/50 shadow-sm transition-transform hover:scale-105">
-                           <span className="text-sm">🌿</span>
-                           <span className="text-[10px] font-black uppercase tracking-widest">Vegetarian</span>
-                         </div>
-                       )}
-                       <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-lg border border-slate-100/50 shadow-sm transition-transform hover:scale-105">
-                         <Sparkles className="w-3 h-3 text-brand-green" />
-                         <span className="text-[10px] font-black uppercase tracking-widest">Smart Recipe</span>
-                       </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 shrink-0 pb-4">
+                  <div className="space-y-4 shrink-0">
                     <button 
                       onClick={handleStartCooking}
                       className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-brand-green text-white rounded-2xl font-bold text-lg hover:bg-green-600 transition-all shadow-xl shadow-brand-green/20 transform active:scale-95"
@@ -466,6 +410,59 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       Interactive cook mode enabled
                     </p>
                   </div>
+
+                  {/* Stats with dividers */}
+                  <div className="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-sm space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="flex flex-col items-center justify-center p-5 rounded-[2rem] bg-brand-green/5 border border-brand-green/10 transition-transform hover:scale-105">
+                        <Clock size={32} strokeWidth={1} className="text-brand-green mb-2" />
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block">Time</span>
+                        <p className="text-lg font-bold text-slate-900">{recipe.readyInMinutes}m</p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center p-5 rounded-[2rem] bg-brand-orange/5 border border-brand-orange/10 transition-transform hover:scale-105">
+                        <Flame size={32} strokeWidth={1} className="text-brand-orange mb-2" />
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block">Energy</span>
+                        <p className="text-lg font-bold text-slate-900">{recipe.calories}kcal</p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center p-5 rounded-[2rem] bg-blue-50 border border-blue-100 transition-transform hover:scale-105">
+                        <Users size={32} strokeWidth={1} className="text-blue-500 mb-2" />
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block">Servings</span>
+                        <p className="text-lg font-bold text-slate-900">{recipe.servings}</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Recipe Selection</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {recipe.readyInMinutes <= 30 && (
+                          <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-700 rounded-full border border-amber-100 shadow-sm transition-all hover:bg-amber-100">
+                            <span className="text-xs">⚡</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest">Quick Prep</span>
+                          </div>
+                        )}
+                        {parseInt(recipe.protein || '0') >= 25 && (
+                          <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100 shadow-sm transition-all hover:bg-emerald-100">
+                            <span className="text-xs">💪</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest">High Protein</span>
+                          </div>
+                        )}
+                        {recipe.nutrition?.nutrients.find(n => n.name === 'Fiber')?.amount && recipe.nutrition.nutrients.find(n => n.name === 'Fiber')!.amount >= 5 && (
+                          <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full border border-blue-100 shadow-sm transition-all hover:bg-blue-100">
+                            <span className="text-xs">🥗</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest">High Fiber</span>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full border border-purple-100 shadow-sm transition-all hover:bg-purple-100">
+                          <span className="text-xs">✨</span>
+                          <span className="text-[10px] font-black uppercase tracking-widest">#1 Trendy</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-full border border-slate-100 shadow-sm transition-all hover:bg-slate-200">
+                          <Sparkles className="w-3 h-3 text-brand-green" />
+                          <span className="text-[10px] font-black uppercase tracking-widest">Smart Selection</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -539,15 +536,24 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                               }`}>
                                 {checkedIngredients[idx] && <CheckCircle2 size={14} strokeWidth={3} />}
                               </div>
-                              <div className="flex flex-col">
-                                <span className={`text-base font-bold transition-all ${
-                                  checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
-                                }`}>
-                                  {ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}
-                                </span>
-                                <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
-                                  {ing.amount} {ing.unit}
-                                </span>
+                              <div className="flex items-center gap-3 flex-1 overflow-hidden">
+                                {ing.image && (
+                                  <img 
+                                    src={`https://www.themealdb.com/images/ingredients/${ing.image}-Small.png`} 
+                                    alt={ing.name}
+                                    className="h-10 w-10 rounded-full object-cover bg-white p-1 shrink-0 shadow-sm"
+                                  />
+                                )}
+                                <div className="flex flex-col min-w-0">
+                                  <span className={`text-base font-bold transition-all truncate ${
+                                    checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
+                                  }`}>
+                                    {ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}
+                                  </span>
+                                  <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest truncate">
+                                    {ing.amount} {ing.unit}
+                                  </span>
+                                </div>
                               </div>
                               {/* Selection overlay animation */}
                               {checkedIngredients[idx] && (
@@ -667,7 +673,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                                 >
                                   <div className="flex items-start justify-between">
                                     <div className={`p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-white shadow-sm flex items-center justify-center ${color}`}>
-                                      {React.cloneElement(icon as React.ReactElement, { className: "w-5 h-5 md:w-6 md:h-6 stroke-[2.5]" })}
+                                      {React.cloneElement(icon as React.ReactElement<{ className?: string }>, { className: "w-5 h-5 md:w-6 md:h-6 stroke-[2.5]" })}
                                     </div>
                                   </div>
                                   <div>

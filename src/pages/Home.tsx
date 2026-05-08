@@ -106,7 +106,7 @@ export default function Home() {
       
       const batchResults = await Promise.all(
         categoriesToFetch.map(async ({cat, label}) => {
-          const results = await searchRecipes("", cat, 8);
+          const results = await searchRecipes("", cat, 20);
           // Set the category on the recipe to the exact label so filtering is simple
           return results.map(r => ({ ...r, category: label }));
         })

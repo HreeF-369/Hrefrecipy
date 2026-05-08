@@ -75,7 +75,7 @@ export default function Recipes() {
       
       const batchResults = await Promise.all(
         categoriesToFetch.map(async ({cat, label}) => {
-          const results = await searchRecipes("", cat, 8);
+          const results = await searchRecipes("", cat, 20);
           return results.map(r => ({ ...r, category: label }));
         })
       );

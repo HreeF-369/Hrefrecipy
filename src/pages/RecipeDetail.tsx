@@ -183,62 +183,90 @@ export default function RecipeDetail() {
               {recipe.title}
             </h1>
             
-            <div className="flex flex-wrap gap-6 text-sm font-medium text-gray-500">
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl ring-1 ring-gray-100 shadow-sm">
-                <Clock size={18} className="text-brand-light-green" />
-                <span>{recipe.readyInMinutes} mins</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl ring-1 ring-gray-100 shadow-sm">
-                <Users size={18} className="text-brand-light-green" />
-                <span>{recipe.servings} Servings</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl ring-1 ring-gray-100 shadow-sm">
-                <Flame size={18} className="text-brand-light-green" />
-                <span>~{Math.round(calories)} Cal</span>
+            <div className="flex gap-4 relative py-4">
+              <Link 
+                to={`/cook/${recipe.id}`}
+                className="flex flex-1 items-center justify-center gap-3 rounded-3xl bg-brand-green py-5 font-display text-xl font-bold text-white shadow-xl shadow-brand-green/20 transition-all hover:scale-[1.02] active:scale-98"
+              >
+                <Play size={24} fill="white" />
+                Start Cooking
+              </Link>
+              <div className="relative">
+                <button 
+                  onClick={() => setShowPlanMenu(!showPlanMenu)}
+                  className={`flex h-16 w-16 items-center justify-center rounded-3xl shadow-md ring-1 ring-gray-100 transition-all active:scale-90 ${
+                    showPlanMenu ? "bg-brand-green text-white" : "bg-white text-brand-green"
+                  }`}
+                  title="Add to Plan"
+                >
+                  <Calendar size={28} />
+                </button>
+                
+                <AnimatePresence>
+                  {showPlanMenu && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                      className="absolute bottom-20 right-0 z-50 w-48 rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-black/5"
+                    >
+                      <p className="px-3 py-2 text-xs font-bold uppercase tracking-widest text-gray-400">Select Day</p>
+                      {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
+                        <button
+                          key={day}
+                          onClick={() => handlePlanMeal(day)}
+                          className="w-full rounded-xl px-3 py-2 text-left text-sm font-semibold text-gray-700 hover:bg-brand-cream hover:text-brand-green transition-colors"
+                        >
+                          {day}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
-          </div>
+            
+            <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="grid grid-cols-3 gap-4">
+                <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-brand-green/5 border border-brand-green/10 transition-transform hover:scale-105">
+                  <Clock size={32} strokeWidth={1} className="text-brand-green mb-2" />
+                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Time</span>
+                  <p className="text-xl font-display font-bold text-gray-900">{recipe.readyInMinutes}m</p>
+                </div>
+                <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-brand-orange/5 border border-brand-orange/10 transition-transform hover:scale-105">
+                  <Flame size={32} strokeWidth={1} className="text-brand-orange mb-2" />
+                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Energy</span>
+                  <p className="text-xl font-display font-bold text-gray-900">{Math.round(calories)}kcal</p>
+                </div>
+                <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-blue-50 border border-blue-100 transition-transform hover:scale-105">
+                  <Users size={32} strokeWidth={1} className="text-blue-500 mb-2" />
+                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Servings</span>
+                  <p className="text-xl font-display font-bold text-gray-900">{recipe.servings}</p>
+                </div>
+              </div>
 
-          <div className="flex gap-4 relative">
-            <Link 
-              to={`/cook/${recipe.id}`}
-              className="flex flex-1 items-center justify-center gap-3 rounded-3xl bg-brand-green py-5 font-display text-xl font-bold text-white shadow-xl shadow-brand-green/20 transition-all hover:scale-[1.02] active:scale-98"
-            >
-              <Play size={24} fill="white" />
-              Start Cooking
-            </Link>
-            <div className="relative">
-              <button 
-                onClick={() => setShowPlanMenu(!showPlanMenu)}
-                className={`flex h-16 w-16 items-center justify-center rounded-3xl shadow-md ring-1 ring-gray-100 transition-all active:scale-90 ${
-                  showPlanMenu ? "bg-brand-green text-white" : "bg-white text-brand-green"
-                }`}
-                title="Add to Plan"
-              >
-                <Calendar size={28} />
-              </button>
-              
-              <AnimatePresence>
-                {showPlanMenu && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                    className="absolute bottom-20 right-0 z-50 w-48 rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-black/5"
-                  >
-                    <p className="px-3 py-2 text-xs font-bold uppercase tracking-widest text-gray-400">Select Day</p>
-                    {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
-                      <button
-                        key={day}
-                        onClick={() => handlePlanMeal(day)}
-                        className="w-full rounded-xl px-3 py-2 text-left text-sm font-semibold text-gray-700 hover:bg-brand-cream hover:text-brand-green transition-colors"
-                      >
-                        {day}
-                      </button>
-                    ))}
-                  </motion.div>
+              <div className="flex flex-wrap gap-2">
+                {parseInt(recipe.protein || '0') >= 25 && (
+                  <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100 shadow-sm transition-all hover:bg-emerald-100">
+                    <span className="text-xs">💪</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest">High Protein</span>
+                  </div>
                 )}
-              </AnimatePresence>
+                {recipe.nutrition?.nutrients.find(n => n.name === 'Fiber')?.amount && recipe.nutrition.nutrients.find(n => n.name === 'Fiber')!.amount >= 5 && (
+                  <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full border border-blue-100 shadow-sm transition-all hover:bg-blue-100">
+                    <span className="text-xs">🥗</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest">High Fiber</span>
+                  </div>
+                )}
+                <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-700 rounded-full border border-purple-100 shadow-sm transition-all hover:bg-purple-100">
+                  <span className="text-xs">✨</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">#1 Trendy</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-amber-50 text-amber-700 rounded-full border border-amber-100 shadow-sm transition-all hover:bg-amber-100">
+                  <span className="text-xs">📍</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">PinterestFav</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -297,13 +325,22 @@ export default function RecipeDetail() {
                       }`}>
                         {checkedIngredients.includes(ing.id) ? <CheckCircle2 size={18} /> : <span className="font-bold text-xs">{Math.round(ing.amount)}</span>}
                       </div>
-                      <div className="flex-1">
-                        <p className={`font-bold transition-all ${checkedIngredients.includes(ing.id) ? "text-gray-400 line-through" : "text-gray-800"}`}>
-                          {ing.name}
-                        </p>
-                        <p className="text-sm text-gray-400">
-                          {ing.original}
-                        </p>
+                      <div className="flex-1 flex items-center gap-3">
+                        {ing.image && (
+                          <img 
+                            src={`https://www.themealdb.com/images/ingredients/${ing.image}-Small.png`} 
+                            alt={ing.name}
+                            className="h-10 w-10 rounded-full object-cover bg-slate-50 p-1 border border-slate-100 shrink-0"
+                          />
+                        )}
+                        <div>
+                          <p className={`font-bold transition-all ${checkedIngredients.includes(ing.id) ? "text-gray-400 line-through" : "text-gray-800"}`}>
+                            {ing.name}
+                          </p>
+                          <p className="text-sm text-gray-400">
+                            {ing.original}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   ))}

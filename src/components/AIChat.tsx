@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { X, Send, User, Bot, Sparkles, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { GoogleGenAI } from "@google/genai";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   role: "user" | "bot";
@@ -34,30 +35,45 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
 
     const userMessage = input.trim();
     setInput("");
-    setMessages(prev => [...prev, { role: "user", content: userMessage }]);
+    const newMessages = [...messages, { role: "user" as const, content: userMessage }];
+    setMessages(newMessages);
     setIsLoading(true);
 
     try {
+      // In AI Studio, process.env.GEMINI_API_KEY is injected for the frontend
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
       
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: [
+          ...messages.slice(1).map(m => ({
+            role: m.role === "user" ? "user" : "model",
+            parts: [{ text: m.content }]
+          })),
           {
             role: "user",
             parts: [{ text: userMessage }]
           }
         ],
         config: {
-          systemInstruction: "You are a world-class professional chef assistant. You are friendly, helpful, and concise. You provide expert cooking advice, recipe tips, and substitution suggestions. Keep formatting clean and readable."
+          systemInstruction: "You are a world-class professional chef assistant for 'Hreef Recipy'. You are friendly, helpful, and concise. You provide expert cooking advice, recipe tips, and substitution suggestions. Format your response using clean Markdown for lists, tables, and bold text."
         }
       });
 
       const botResponse = response.text || "I'm sorry, I'm having trouble thinking right now. Could you try again?";
       setMessages(prev => [...prev, { role: "bot", content: botResponse }]);
-    } catch (error) {
-      console.error("AI Chat Error:", error);
-      setMessages(prev => [...prev, { role: "bot", content: "Oops! Something went wrong. My neural kitchen is a bit messy right now." }]);
+    } catch (error: any) {
+      console.error("AI Chat Error Details:", {
+        message: error.message,
+        stack: error.stack,
+        context: "Frontend Gemini Call"
+      });
+      
+      const errorMessage = error.message?.includes("API key not valid")
+        ? "AI Assistant is currently unavailable (Invalid API Key). Please ensure GEMINI_API_KEY is correctly set in the environment."
+        : "Oops! My neural kitchen is a bit messy right now. I've logged the error. Try asking something else!";
+        
+      setMessages(prev => [...prev, { role: "bot", content: errorMessage }]);
     } finally {
       setIsLoading(false);
     }
@@ -107,7 +123,13 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
                     ? "bg-brand-green text-white rounded-tr-none" 
                     : "bg-white text-gray-800 shadow-sm ring-1 ring-gray-100 rounded-tl-none"
                 }`}>
-                  {msg.content}
+                  {msg.role === "user" ? (
+                    msg.content
+                  ) : (
+                    <div className="prose prose-sm max-w-none">
+                      <ReactMarkdown>{msg.content}</ReactMarkdown>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

@@ -61,6 +61,7 @@ export interface Ingredient {
   unit: string;
   original: string;
   aisle?: string;
+  image?: string;
   originalName?: string;
   measures?: {
     us: { amount: number; unitShort: string };

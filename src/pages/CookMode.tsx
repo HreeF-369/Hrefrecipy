@@ -115,7 +115,10 @@ export default function CookMode() {
       const timer = setTimeout(() => {
         speak(stepText);
       }, 500);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        window.speechSynthesis.cancel();
+      };
     }
   }, [currentStep, loading, recipe, isCompleted, isMuted, speak]);
 

@@ -242,6 +242,366 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 4, step: "Finish with hemp seeds and a squeeze of lime juice.", ingredients: [], equipment: [] }
     ]}]
   },
+  {
+    id: 1009,
+    title: "Turkish Eggs (Cilbir)",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 320,
+    protein: "14g",
+    fat: "24g",
+    carbs: "12g",
+    dishTypes: ["breakfast"],
+    summary: "A creamy, Mediterranean delight of poached eggs over garlic-infused yogurt with spicy chili butter.",
+    extendedIngredients: [
+      { id: 1, name: "greek yogurt", amount: 1, unit: "cup", original: "1 cup thick greek yogurt", aisle: "Dairy" },
+      { id: 2, name: "garlic", amount: 1, unit: "clove", original: "1 small clove garlic, minced", aisle: "Produce" },
+      { id: 3, name: "eggs", amount: 4, unit: "", original: "4 large eggs", aisle: "Dairy" },
+      { id: 4, name: "butter", amount: 2, unit: "tbsp", original: "2 tbsp unsalted butter", aisle: "Dairy" },
+      { id: 5, name: "aleppo pepper", amount: 1, unit: "tsp", original: "1 tsp aleppo pepper or chili flakes", aisle: "Spices" },
+      { id: 6, name: "dill", amount: 1, unit: "tbsp", original: "1 tbsp fresh dill, chopped", aisle: "Produce" },
+      { id: 7, name: "olive oil", amount: 1, unit: "tsp", original: "1 tsp olive oil", aisle: "Pantry" },
+      { id: 8, name: "sourdough", amount: 2, unit: "slices", original: "Toasted sourdough for serving", aisle: "Bakery" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Mix yogurt with minced garlic and a pinch of salt; spread into two bowls.", ingredients: [], equipment: [] },
+      { number: 2, step: "Melt butter in a small pan until foaming, stir in chili flakes/aleppo pepper until red and fragrant.", ingredients: [], equipment: [] },
+      { number: 3, step: "Poach eggs in simmering water with vinegar for 3-4 minutes until whites are set.", ingredients: [], equipment: [] },
+      { number: 4, step: "Place eggs onto the yogurt, drizzle with chili butter, and garnish with fresh dill.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 1010,
+    title: "Japanese Soufflé Pancakes",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 25,
+    servings: 2,
+    calories: 340,
+    protein: "10g",
+    fat: "14g",
+    carbs: "42g",
+    dishTypes: ["breakfast"],
+    summary: "Cloud-like, ultra-fluffy pancakes that melt in your mouth, a modern Tokyo breakfast staple.",
+    extendedIngredients: [
+      { id: 1, name: "eggs", amount: 2, unit: "", original: "2 large eggs, separated", aisle: "Dairy" },
+      { id: 2, name: "milk", amount: 1.5, unit: "tbsp", original: "1.5 tbsp whole milk", aisle: "Dairy" },
+      { id: 3, name: "vanilla extract", amount: 0.25, unit: "tsp", original: "1/4 tsp vanilla", aisle: "Baking" },
+      { id: 4, name: "flour", amount: 4, unit: "tbsp", original: "4 tbsp cake flour", aisle: "Baking" },
+      { id: 5, name: "baking powder", amount: 0.5, unit: "tsp", original: "1/2 tsp baking powder", aisle: "Baking" },
+      { id: 6, name: "sugar", amount: 2, unit: "tbsp", original: "2 tbsp granulated sugar", aisle: "Pantry" },
+      { id: 7, name: "maple syrup", amount: 2, unit: "tbsp", original: "Maple syrup for serving", aisle: "Pantry" },
+      { id: 8, name: "berries", amount: 0.5, unit: "cup", original: "Fresh berries", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk egg yolks with milk and vanilla; sift in flour and baking powder and mix until thick.", ingredients: [], equipment: [] },
+      { number: 2, step: "Beat egg whites with sugar until stiff peaks form.", ingredients: [], equipment: [] },
+      { number: 3, step: "Gently fold the meringue into the yolk mixture in three batches.", ingredients: [], equipment: [] },
+      { number: 4, step: "Cook mounds of batter in a lidded non-stick pan with a teaspoon of water for 5 mins per side.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 1011,
+    title: "Chilaquiles Verdes",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 450,
+    protein: "16g",
+    fat: "25g",
+    carbs: "42g",
+    dishTypes: ["breakfast"],
+    summary: "Crispy corn tortillas simmered in a vibrant salsa verde, topped with eggs and crema.",
+    extendedIngredients: [
+      { id: 1, name: "tortilla chips", amount: 4, unit: "cups", original: "4 cups thick corn tortilla chips", aisle: "Pantry" },
+      { id: 2, name: "salsa verde", amount: 1.5, unit: "cups", original: "1.5 cups tomatillo salsa", aisle: "Pantry" },
+      { id: 3, name: "eggs", amount: 2, unit: "", original: "2 large eggs, fried", aisle: "Dairy" },
+      { id: 4, name: "queso fresco", amount: 0.25, unit: "cup", original: "1/4 cup crumbled queso fresco", aisle: "Dairy" },
+      { id: 5, name: "mexican crema", amount: 2, unit: "tbsp", original: "2 tbsp mexican crema", aisle: "Dairy" },
+      { id: 6, name: "red onion", amount: 2, unit: "tbsp", original: "2 tbsp finely diced red onion", aisle: "Produce" },
+      { id: 7, name: "cilantro", amount: 2, unit: "tbsp", original: "Fresh cilantro", aisle: "Produce" },
+      { id: 8, name: "avocado", amount: 0.5, unit: "", original: "1/2 ripe avocado", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Heat the salsa verde in a large skillet until simmering.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add tortilla chips and toss gently until coated but still slightly crisp.", ingredients: [], equipment: [] },
+      { number: 3, step: "Top with fried eggs and sprinkle with cheese and onions.", ingredients: [], equipment: [] },
+      { number: 4, step: "Drizzle with crema and garnish with cilantro and avocado before serving.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 1012,
+    title: "Croque Madame",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1493770348161-3695013b281f?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 1,
+    calories: 520,
+    protein: "22g",
+    fat: "35g",
+    carbs: "32g",
+    dishTypes: ["breakfast"],
+    summary: "The ultimate French breakfast: a ham and gruyère sandwich topped with béchamel and a fried egg.",
+    extendedIngredients: [
+      { id: 1, name: "brioche bread", amount: 2, unit: "slices", original: "2 thick slices brioche or sourdough", aisle: "Bakery" },
+      { id: 2, name: "ham", amount: 2, unit: "slices", original: "2 slices high-quality ham", aisle: "Meat" },
+      { id: 3, name: "gruyère cheese", amount: 0.5, unit: "cup", original: "1/2 cup shredded gruyère", aisle: "Dairy" },
+      { id: 4, name: "butter", amount: 1, unit: "tbsp", original: "1 tbsp butter", aisle: "Dairy" },
+      { id: 5, name: "flour", amount: 1, unit: "tsp", original: "1 tsp flour", aisle: "Baking" },
+      { id: 6, name: "milk", amount: 0.5, unit: "cup", original: "1/2 cup whole milk", aisle: "Dairy" },
+      { id: 7, name: "egg", amount: 1, unit: "", original: "1 large egg", aisle: "Dairy" },
+      { id: 8, name: "dijon mustard", amount: 1, unit: "tsp", original: "1 tsp dijon mustard", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Make a quick béchamel by melting butter, whisking in flour, then slowly adding milk.", ingredients: [], equipment: [] },
+      { number: 2, step: "Assemble sandwich with mustard, ham, and half the cheese; grill in butter until golden.", ingredients: [], equipment: [] },
+      { number: 3, step: "Spread béchamel over the top, sprinkle remaining cheese, and broil until bubbly.", ingredients: [], equipment: [] },
+      { number: 4, step: "Fry the egg sunny-side up and place on top of the toasted sandwich.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 1013,
+    title: "Moroccan Msemen with Honey",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1549931319-a5d13ea95146?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 45,
+    servings: 4,
+    calories: 310,
+    protein: "8g",
+    fat: "12g",
+    carbs: "45g",
+    dishTypes: ["breakfast"],
+    summary: "Traditional square-shaped laminated flatbread, crispy on the outside and flaky inside.",
+    extendedIngredients: [
+      { id: 1, name: "semolina", amount: 2, unit: "cups", original: "2 cups fine semolina", aisle: "Grains" },
+      { id: 2, name: "flour", amount: 1, unit: "cup", original: "1 cup all-purpose flour", aisle: "Baking" },
+      { id: 3, name: "butter", amount: 4, unit: "tbsp", original: "4 tbsp melted butter", aisle: "Dairy" },
+      { id: 4, name: "vegetable oil", amount: 0.25, unit: "cup", original: "1/4 cup oil for folding", aisle: "Pantry" },
+      { id: 5, name: "honey", amount: 0.25, unit: "cup", original: "Warm honey for drizzling", aisle: "Pantry" },
+      { id: 6, name: "salt", amount: 1, unit: "tsp", original: "1 tsp salt", aisle: "Spices" },
+      { id: 7, name: "sugar", amount: 2, unit: "tsp", original: "2 tsp sugar", aisle: "Pantry" },
+      { id: 8, name: "warm water", amount: 1.5, unit: "cups", original: "Warm water for kneading", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Knead semolina, flour, salt, sugar and water into a smooth, elastic dough.", ingredients: [], equipment: [] },
+      { number: 2, step: "Divide into balls, flatten thinly, brush with butter/oil and fold into squares.", ingredients: [], equipment: [] },
+      { number: 3, step: "Cook on a hot griddle until golden brown and puffed on both sides.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve hot, generously drizzled with warm honey and a side of mint tea.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 1014,
+    title: "Classic Eggs Benedict",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1600335895229-6e75511ee94b?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 480,
+    protein: "18g",
+    fat: "32g",
+    carbs: "28g",
+    dishTypes: ["breakfast"],
+    summary: "The quintessential brunch dish: perfectly poached eggs on toasted English muffins with hollandaise sauce.",
+    extendedIngredients: [
+      { id: 1, name: "english muffins", amount: 2, unit: "", original: "2 english muffins, split", aisle: "Bakery" },
+      { id: 2, name: "canadian bacon", amount: 4, unit: "slices", original: "4 slices canadian bacon", aisle: "Meat" },
+      { id: 3, name: "eggs", amount: 4, unit: "", original: "4 large eggs", aisle: "Dairy" },
+      { id: 4, name: "butter", amount: 0.5, unit: "cup", original: "1/2 cup unsalted butter, melted", aisle: "Dairy" },
+      { id: 5, name: "egg yolks", amount: 3, unit: "", original: "3 egg yolks for sauce", aisle: "Dairy" },
+      { id: 6, name: "lemon juice", amount: 1, unit: "tbsp", original: "1 tbsp lemon juice", aisle: "Produce" },
+      { id: 7, name: "cayenne pepper", amount: 1, unit: "pinch", original: "Pinch of cayenne", aisle: "Spices" },
+      { id: 8, name: "chives", amount: 1, unit: "tbsp", original: "Fresh chives, chopped", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk egg yolks and lemon juice; slowly drizzle in melted butter to make hollandaise.", ingredients: [], equipment: [] },
+      { number: 2, step: "Toast english muffins and lightly brown the canadian bacon in a pan.", ingredients: [], equipment: [] },
+      { number: 3, step: "Poach eggs in simmering water for 3-4 minutes.", ingredients: [], equipment: [] },
+      { number: 4, step: "Assemble by topping muffin with bacon, egg, and a generous spoonful of hollandaise.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 1015,
+    title: "Indian Masala Omelette",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1494597564530-8595aa459aa3?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 280,
+    protein: "14g",
+    fat: "18g",
+    carbs: "8g",
+    dishTypes: ["breakfast"],
+    summary: "Spiced Indian-style omelette with vibrant veggies and aromatic spices.",
+    extendedIngredients: [
+      { id: 1, name: "eggs", amount: 3, unit: "", original: "3 large eggs", aisle: "Dairy" },
+      { id: 2, name: "red onion", amount: 0.25, unit: "cup", original: "1/4 cup finely chopped onion", aisle: "Produce" },
+      { id: 3, name: "green chili", amount: 1, unit: "", original: "1 small green chili, minced", aisle: "Produce" },
+      { id: 4, name: "tomato", amount: 2, unit: "tbsp", original: "2 tbsp diced tomato", aisle: "Produce" },
+      { id: 5, name: "turmeric", amount: 0.25, unit: "tsp", original: "1/4 tsp turmeric powder", aisle: "Spices" },
+      { id: 6, name: "garam masala", amount: 0.25, unit: "tsp", original: "1/4 tsp garam masala", aisle: "Spices" },
+      { id: 7, name: "fresh cilantro", amount: 1, unit: "tbsp", original: "Fresh cilantro, chopped", aisle: "Produce" },
+      { id: 8, name: "butter", amount: 1, unit: "tbsp", original: "1 tbsp butter", aisle: "Dairy" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk eggs with onions, chilies, tomatoes, cilantro, and all dry spices.", ingredients: [], equipment: [] },
+      { number: 2, step: "Melt butter in a non-stick skillet over medium heat.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pour in egg mixture, cook until the bottom is set, and flip carefully.", ingredients: [], equipment: [] },
+      { number: 4, step: "Cook for another 1-2 minutes until both sides are perfectly golden brown.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 1016,
+    title: "Belgian Waffles with Strawberry Compote",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 25,
+    servings: 4,
+    calories: 420,
+    protein: "8g",
+    fat: "18g",
+    carbs: "58g",
+    dishTypes: ["breakfast"],
+    summary: "Classic deep-pocketed waffles served with a warm, homemade strawberry sauce and whipped cream.",
+    extendedIngredients: [
+      { id: 1, name: "flour", amount: 2, unit: "cups", original: "2 cups all-purpose flour", aisle: "Baking" },
+      { id: 2, name: "eggs", amount: 2, unit: "", original: "2 large eggs, separated", aisle: "Dairy" },
+      { id: 3, name: "milk", amount: 1.5, unit: "cups", original: "1.5 cups milk", aisle: "Dairy" },
+      { id: 4, name: "butter", amount: 0.5, unit: "cup", original: "1/2 cup melted butter", aisle: "Dairy" },
+      { id: 5, name: "strawberries", amount: 2, unit: "cups", original: "2 cups fresh strawberries", aisle: "Produce" },
+      { id: 6, name: "sugar", amount: 2, unit: "tbsp", original: "2 tbsp sugar", aisle: "Pantry" },
+      { id: 7, name: "baking powder", amount: 1, unit: "tbsp", original: "1 tbsp baking powder", aisle: "Baking" },
+      { id: 8, name: "vanilla", amount: 1, unit: "tsp", original: "1 tsp vanilla extract", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk dry ingredients; add egg yolks, milk, butter, and vanilla.", ingredients: [], equipment: [] },
+      { number: 2, step: "Beat egg whites until stiff and fold into the batter.", ingredients: [], equipment: [] },
+      { number: 3, step: "Cook in a preheated waffle iron until crispy and golden.", ingredients: [], equipment: [] },
+      { number: 4, step: "Simmer strawberries with sugar until syrupy; serve over hot waffles.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 1017,
+    title: "Tofu Scramble with Turmeric & Kale",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 280,
+    protein: "22g",
+    fat: "14g",
+    carbs: "18g",
+    dishTypes: ["breakfast"],
+    summary: "A protein-rich vegan alternative to scrambled eggs, bursting with anti-inflammatory turmeric and kale.",
+    extendedIngredients: [
+      { id: 1, name: "firm tofu", amount: 400, unit: "g", original: "400g firm tofu, crumbled", aisle: "Produce" },
+      { id: 2, name: "kale", amount: 2, unit: "cups", original: "2 cups chopped kale", aisle: "Produce" },
+      { id: 3, name: "nutritional yeast", amount: 2, unit: "tbsp", original: "2 tbsp nutritional yeast", aisle: "Pantry" },
+      { id: 4, name: "turmeric", amount: 0.5, unit: "tsp", original: "1/2 tsp turmeric", aisle: "Spices" },
+      { id: 5, name: "onion powder", amount: 0.5, unit: "tsp", original: "1/2 tsp onion powder", aisle: "Spices" },
+      { id: 6, name: "black salt (kala namak)", amount: 0.25, unit: "tsp", original: "1/4 tsp black salt (for eggy flavor)", aisle: "Spices" },
+      { id: 7, name: "garlic", amount: 1, unit: "clove", original: "1 clove garlic, minced", aisle: "Produce" },
+      { id: 8, name: "bell pepper", amount: 0.5, unit: "", original: "1/2 red bell pepper, diced", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sauté garlic and bell pepper in a pan until soft.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add crumbled tofu, turmeric, yeast, and onion powder.", ingredients: [], equipment: [] },
+      { number: 3, step: "Stir in kale and cook until wilted and tofu is heated through.", ingredients: [], equipment: [] },
+      { number: 4, step: "Season with black salt and serve with whole grain toast.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 1018,
+    title: "Swedish Cardamom Buns",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 120,
+    servings: 12,
+    calories: 290,
+    protein: "6g",
+    fat: "12g",
+    carbs: "42g",
+    dishTypes: ["breakfast"],
+    summary: "Fragrant, buttery yeast buns with a classic Swedish spiced filling and pearl sugar topping.",
+    extendedIngredients: [
+      { id: 1, name: "bread flour", amount: 4, unit: "cups", original: "4 cups bread flour", aisle: "Baking" },
+      { id: 2, name: "cardamom", amount: 2, unit: "tsp", original: "2 tsp ground cardamom", aisle: "Spices" },
+      { id: 3, name: "yeast", amount: 2.25, unit: "tsp", original: "1 packet active dry yeast", aisle: "Baking" },
+      { id: 4, name: "milk", amount: 1.25, unit: "cups", original: "1.25 cups milk", aisle: "Dairy" },
+      { id: 5, name: "butter", amount: 0.5, unit: "cup", original: "1/2 cup softened butter", aisle: "Dairy" },
+      { id: 6, name: "sugar", amount: 0.5, unit: "cup", original: "1/2 cup sugar", aisle: "Pantry" },
+      { id: 7, name: "brown sugar", amount: 0.25, unit: "cup", original: "1/4 cup brown sugar (for filling)", aisle: "Pantry" },
+      { id: 8, name: "pearl sugar", amount: 1, unit: "tbsp", original: "Pearl sugar for topping", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Mix dough ingredients and cardamom; let rise for 1 hour.", ingredients: [], equipment: [] },
+      { number: 2, step: "Roll out dough, spread with butter/brown sugar/cardamom mix.", ingredients: [], equipment: [] },
+      { number: 3, step: "Fold and cut into strips, twist into knots and rise for 30 mins.", ingredients: [], equipment: [] },
+      { number: 4, step: "Brush with egg wash, sprinkle pearl sugar, and bake at 375°F for 12 mins.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 1019,
+    title: "Smoked Salmon & Avocado Eggs Benedict",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1600335895229-6e75511ee94b?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 25,
+    servings: 2,
+    calories: 510,
+    protein: "24g",
+    fat: "38g",
+    carbs: "30g",
+    dishTypes: ["breakfast"],
+    summary: "A luxurious twist on the classic Benedict, replacing ham with cured salmon and adding creamy avocado.",
+    extendedIngredients: [
+      { id: 1, name: "english muffins", amount: 2, unit: "", original: "2 english muffins", aisle: "Bakery" },
+      { id: 2, name: "smoked salmon", amount: 4, unit: "oz", original: "4 oz smoked salmon", aisle: "Meat" },
+      { id: 3, name: "avocado", amount: 1, unit: "", original: "1 ripe avocado", aisle: "Produce" },
+      { id: 4, name: "eggs", amount: 4, unit: "", original: "4 large eggs", aisle: "Dairy" },
+      { id: 5, name: "hollandaise sauce", amount: 0.5, unit: "cup", original: "1/2 cup hollandaise sauce", aisle: "Pantry" },
+      { id: 6, name: "chives", amount: 1, unit: "tbsp", original: "Fresh chives", aisle: "Produce" },
+      { id: 7, name: "lemon", amount: 0.5, unit: "", original: "Squeeze of lemon", aisle: "Produce" },
+      { id: 8, name: "vinegar", amount: 1, unit: "tbsp", original: "1 tbsp white vinegar", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Poach eggs in simmering water with vinegar for 3 minutes.", ingredients: [], equipment: [] },
+      { number: 2, step: "Toast muffins and top with mashed avocado mixed with lemon.", ingredients: [], equipment: [] },
+      { number: 3, step: "Layer smoked salmon over avocado, followed by the poached eggs.", ingredients: [], equipment: [] },
+      { number: 4, step: "Drizzle with warm hollandaise and garnish with chives.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 1020,
+    title: "Baked Apple Cinnamon Steel-Cut Oats",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1490645935967-1356e8918bf5?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 50,
+    servings: 4,
+    calories: 320,
+    protein: "9g",
+    fat: "7g",
+    carbs: "58g",
+    dishTypes: ["breakfast"],
+    summary: "Hearty oats baked with sweet apples, pecans, and warming spices for a perfect family breakfast.",
+    extendedIngredients: [
+      { id: 1, name: "steel-cut oats", amount: 1.5, unit: "cups", original: "1.5 cups steel-cut oats", aisle: "Grains" },
+      { id: 2, name: "apples", amount: 2, unit: "", original: "2 gala apples, diced", aisle: "Produce" },
+      { id: 3, name: "pecans", amount: 0.25, unit: "cup", original: "1/4 cup chopped pecans", aisle: "Pantry" },
+      { id: 4, name: "maple syrup", amount: 0.25, unit: "cup", original: "1/4 cup maple syrup", aisle: "Pantry" },
+      { id: 5, name: "cinnamon", amount: 1, unit: "tsp", original: "1 tsp cinnamon", aisle: "Spices" },
+      { id: 6, name: "nutmeg", amount: 0.25, unit: "tsp", original: "Pinch of nutmeg", aisle: "Spices" },
+      { id: 7, name: "milk", amount: 3, unit: "cups", original: "3 cups milk of choice", aisle: "Dairy" },
+      { id: 8, name: "vanilla", amount: 1, unit: "tsp", original: "1 tsp vanilla", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Combine all ingredients in a greased baking dish.", ingredients: [], equipment: [] },
+      { number: 2, step: "Stir well to ensure spices and syrup and evenly distributed.", ingredients: [], equipment: [] },
+      { number: 3, step: "Bake at 350°F (175°C) for 45 minutes until liquid is absorbed.", ingredients: [], equipment: [] },
+      { number: 4, step: "Let stand for 5 minutes before serving with extra milk.", ingredients: [] }
+    ]}]
+  },
 
   // --- DINNER (8 RECIPES) ---
   {
@@ -484,6 +844,366 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 4, step: "Glaze with honey/soy mix and let rest before slicing.", ingredients: [], equipment: [] }
     ]}]
   },
+  {
+    id: 3009,
+    title: "French Coq au Vin",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 90,
+    servings: 4,
+    calories: 550,
+    protein: "42g",
+    fat: "28g",
+    carbs: "15g",
+    dishTypes: ["dinner"],
+    summary: "A classic French chicken stew braised with red wine, lardons, mushrooms, and pearl onions.",
+    extendedIngredients: [
+      { id: 1, name: "chicken", amount: 1.5, unit: "kg", original: "1.5kg chicken pieces", aisle: "Meat" },
+      { id: 2, name: "red wine", amount: 750, unit: "ml", original: "750ml Burgundy red wine", aisle: "Beverages" },
+      { id: 3, name: "bacon", amount: 150, unit: "g", original: "150g salt pork or thick-cut bacon", aisle: "Meat" },
+      { id: 4, name: "mushrooms", amount: 250, unit: "g", original: "250g cremini mushrooms", aisle: "Produce" },
+      { id: 5, name: "pearl onions", amount: 15, unit: "", original: "15-20 pearl onions, peeled", aisle: "Produce" },
+      { id: 6, name: "garlic", amount: 3, unit: "cloves", original: "3 cloves garlic, minced", aisle: "Produce" },
+      { id: 7, name: "thyme", amount: 3, unit: "sprigs", original: "3 sprigs fresh thyme", aisle: "Produce" },
+      { id: 8, name: "butter", amount: 2, unit: "tbsp", original: "2 tbsp butter", aisle: "Dairy" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Brown bacon in a large ovenproof pot; remove bacon and brown chicken in the fat.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add garlic, onions, and mushrooms; cook for 5 mins.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pour in wine and add thyme; simmer on low heat or bake at 150°C for 60-90 mins.", ingredients: [], equipment: [] },
+      { number: 4, step: "Remove chicken, whisk butter into the sauce to thicken, then return chicken and bacon to the pot.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 3010,
+    title: "Indian Butter Chicken (Murgh Makhani)",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1603894584202-9ca82439f092?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 40,
+    servings: 4,
+    calories: 480,
+    protein: "32g",
+    fat: "34g",
+    carbs: "12g",
+    dishTypes: ["dinner"],
+    summary: "Tender chicken in a velvety, spice-infused tomato and cream sauce.",
+    extendedIngredients: [
+      { id: 1, name: "chicken breast", amount: 800, unit: "g", original: "800g chicken breast, cubed", aisle: "Meat" },
+      { id: 2, name: "tomato puree", amount: 400, unit: "g", original: "400g tomato puree", aisle: "Produce" },
+      { id: 3, name: "heavy cream", amount: 150, unit: "ml", original: "150ml heavy cream", aisle: "Dairy" },
+      { id: 4, name: "butter", amount: 50, unit: "g", original: "50g unsalted butter", aisle: "Dairy" },
+      { id: 5, name: "ginger garlic paste", amount: 2, unit: "tbsp", original: "2 tbsp ginger garlic paste", aisle: "Produce" },
+      { id: 6, name: "garam masala", amount: 1, unit: "tsp", original: "1 tsp garam masala", aisle: "Spices" },
+      { id: 7, name: "kasuri methi", amount: 1, unit: "tbsp", original: "1 tbsp dried fenugreek leaves", aisle: "Spices" },
+      { id: 8, name: "kasmiri chili powder", amount: 1, unit: "tsp", original: "1 tsp kasmiri chili powder", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Marinate chicken in yogurt and spices, then sear in a pan until golden.", ingredients: [], equipment: [] },
+      { number: 2, step: "In the same pan, melt butter and cook tomato puree with ginger-garlic paste and chili.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add cream and garam masala, simmer for 10 minutes until thickened.", ingredients: [], equipment: [] },
+      { number: 4, step: "Stir in the chicken and fenugreek leaves; serve hot with naan.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 3011,
+    title: "Chicken Teriyaki with Steamed Broccoli",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1598514983318-29141990e14c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 420,
+    protein: "35g",
+    fat: "12g",
+    carbs: "38g",
+    dishTypes: ["dinner"],
+    summary: "Salty-sweet Japanese classic served with fresh greens and sticky rice.",
+    extendedIngredients: [
+      { id: 1, name: "chicken thighs", amount: 400, unit: "g", original: "400g boneless chicken thighs", aisle: "Meat" },
+      { id: 2, name: "soy sauce", amount: 0.25, unit: "cup", original: "1/4 cup soy sauce", aisle: "Pantry" },
+      { id: 3, name: "mirin", amount: 0.25, unit: "cup", original: "1/4 cup mirin", aisle: "Pantry" },
+      { id: 4, name: "sugar", amount: 2, unit: "tbsp", original: "2 tbsp brown sugar", aisle: "Pantry" },
+      { id: 5, name: "ginger", amount: 1, unit: "tsp", original: "1 tsp grated ginger", aisle: "Produce" },
+      { id: 6, name: "broccoli", amount: 1, unit: "head", original: "1 head broccoli", aisle: "Produce" },
+      { id: 7, name: "sesame seeds", amount: 1, unit: "tsp", original: "Sesame seeds for garnish", aisle: "Pantry" },
+      { id: 8, name: "cornstarch", amount: 1, unit: "tsp", original: "1 tsp cornstarch", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Cook soy sauce, mirin, sugar, and ginger in a pan until slightly thickened.", ingredients: [], equipment: [] },
+      { number: 2, step: "Sear chicken thighs in a separate skillet until crispy and cooked through.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pour teriyaki sauce over chicken and toss to glaze.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve chicken with steamed broccoli and a sprinkle of sesame seeds.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 3012,
+    title: "Beef Enchiladas with Red Sauce",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1533777324565-a040eb52faf1?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 40,
+    servings: 4,
+    calories: 580,
+    protein: "34g",
+    fat: "32g",
+    carbs: "45g",
+    dishTypes: ["dinner"],
+    summary: "Authentic Mexican-style comfort food: tortillas stuffed with seasoned beef and smothered in cheese.",
+    extendedIngredients: [
+      { id: 1, name: "ground beef", amount: 500, unit: "g", original: "500g lean ground beef", aisle: "Meat" },
+      { id: 2, name: "corn tortillas", amount: 8, unit: "", original: "8 corn tortillas", aisle: "Pantry" },
+      { id: 3, name: "enchilada sauce", amount: 2, unit: "cups", original: "2 cups red enchilada sauce", aisle: "Pantry" },
+      { id: 4, name: "cheddar cheese", amount: 2, unit: "cups", original: "2 cups shredded cheddar cheese", aisle: "Dairy" },
+      { id: 5, name: "onion", amount: 1, unit: "", original: "1 small onion, diced", aisle: "Produce" },
+      { id: 6, name: "chili powder", amount: 1, unit: "tbsp", original: "1 tbsp chili powder", aisle: "Spices" },
+      { id: 7, name: "cumin", amount: 1, unit: "tsp", original: "1 tsp cumin", aisle: "Spices" },
+      { id: 8, name: "sour cream", amount: 0.5, unit: "cup", original: "Sour cream for topping", aisle: "Dairy" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Brown beef with onions, cumin, and chili powder; stir in 1/2 cup of sauce.", ingredients: [], equipment: [] },
+      { number: 2, step: "Dip tortillas in sauce to soften, fill with beef mixture and roll tightly.", ingredients: [], equipment: [] },
+      { number: 3, step: "Place in a baking dish, cover with remaining sauce and cheese.", ingredients: [], equipment: [] },
+      { number: 4, step: "Bake at 190°C for 20 minutes until the cheese is bubbly and edges are crisp.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 3013,
+    title: "Peruvian Lomo Saltado",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 25,
+    servings: 2,
+    calories: 490,
+    protein: "38g",
+    fat: "22g",
+    carbs: "35g",
+    dishTypes: ["dinner"],
+    summary: "A high-heat stir-fry of beef, onions, tomatoes, and french fries, showcasing Peru's Chifa influence.",
+    extendedIngredients: [
+      { id: 1, name: "sirloin beef", amount: 400, unit: "g", original: "400g sirloin steak, sliced against the grain", aisle: "Meat" },
+      { id: 2, name: "red onion", amount: 1, unit: "", original: "1 red onion, sliced into wedges", aisle: "Produce" },
+      { id: 3, name: "tomatoes", amount: 2, unit: "", original: "2 plum tomatoes, sliced", aisle: "Produce" },
+      { id: 4, name: "french fries", amount: 2, unit: "cups", original: "2 cups cooked crispy french fries", aisle: "Frozen" },
+      { id: 5, name: "soy sauce", amount: 2, unit: "tbsp", original: "2 tbsp soy sauce", aisle: "Pantry" },
+      { id: 6, name: "vinegar", amount: 1, unit: "tbsp", original: "1 tbsp red wine vinegar", aisle: "Pantry" },
+      { id: 7, name: "cilantro", amount: 2, unit: "tbsp", original: "Fresh cilantro, chopped", aisle: "Produce" },
+      { id: 8, name: "aji amarillo", amount: 1, unit: "tbsp", original: "1 tbsp aji amarillo paste (optional)", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Stir-fry beef in a very hot wok until browned; remove and set aside.", ingredients: [], equipment: [] },
+      { number: 2, step: "Sauté onions and aji amarillo until just softened, then add tomatoes.", ingredients: [], equipment: [] },
+      { number: 3, step: "Deglaze with soy sauce and vinegar; return beef and juices to the pan.", ingredients: [], equipment: [] },
+      { number: 4, step: "Toss in the crispy fries and cilantro; serve with white rice.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 3014,
+    title: "Greek Moussaka",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1540185373-b39f1df93a11?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 75,
+    servings: 6,
+    calories: 520,
+    protein: "28g",
+    fat: "32g",
+    carbs: "30g",
+    dishTypes: ["dinner"],
+    summary: "Layers of eggplant, spiced meat sauce, and creamy béchamel baked to perfection.",
+    extendedIngredients: [
+      { id: 1, name: "eggplant", amount: 2, unit: "", original: "2 large eggplants, sliced", aisle: "Produce" },
+      { id: 2, name: "ground lamb", amount: 500, unit: "g", original: "500g ground lamb or beef", aisle: "Meat" },
+      { id: 3, name: "potatoes", amount: 3, unit: "", original: "3 large potatoes, sliced and fried", aisle: "Produce" },
+      { id: 4, name: "tomato sauce", amount: 1.5, unit: "cups", original: "1.5 cups tomato sauce", aisle: "Pantry" },
+      { id: 5, name: "cinnamon", amount: 0.5, unit: "tsp", original: "1/2 tsp ground cinnamon", aisle: "Spices" },
+      { id: 6, name: "milk", amount: 3, unit: "cups", original: "3 cups milk for béchamel", aisle: "Dairy" },
+      { id: 7, name: "flour", amount: 3, unit: "tbsp", original: "3 tbsp all-purpose flour", aisle: "Baking" },
+      { id: 8, name: "kefalotyri cheese", amount: 0.5, unit: "cup", original: "1/2 cup grated kefalotyri or parmesan", aisle: "Dairy" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Roast eggplant slices until golden; brown the meat with onions and cinnamon.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add tomato sauce to the meat and simmer until thick.", ingredients: [], equipment: [] },
+      { number: 3, step: "Layer potatoes, meat sauce, and eggplant in a large baking dish.", ingredients: [], equipment: [] },
+      { number: 4, step: "Top with thick béchamel sauce and cheese; bake at 180°C for 45 mins.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 3015,
+    title: "Thai Green Curry",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 30,
+    servings: 2,
+    calories: 460,
+    protein: "24g",
+    fat: "35g",
+    carbs: "18g",
+    dishTypes: ["dinner"],
+    summary: "Fragrant, spicy, and creamy curry with tender chicken and bamboo shoots.",
+    extendedIngredients: [
+      { id: 1, name: "green curry paste", amount: 3, unit: "tbsp", original: "3 tbsp Thai green curry paste", aisle: "Spices" },
+      { id: 2, name: "coconut milk", amount: 400, unit: "ml", original: "1 can full-fat coconut milk", aisle: "Dairy" },
+      { id: 3, name: "chicken breast", amount: 300, unit: "g", original: "300g chicken, thinly sliced", aisle: "Meat" },
+      { id: 4, name: "bamboo shoots", amount: 150, unit: "g", original: "150g canned bamboo shoots", aisle: "Produce" },
+      { id: 5, name: "fish sauce", amount: 1, unit: "tbsp", original: "1 tbsp fish sauce", aisle: "Pantry" },
+      { id: 6, name: "palm sugar", amount: 1, unit: "tsp", original: "1 tsp palm sugar", aisle: "Pantry" },
+      { id: 7, name: "kaffir lime leaves", amount: 3, unit: "", original: "3 kaffir lime leaves", aisle: "Produce" },
+      { id: 8, name: "thai basil", amount: 0.5, unit: "cup", original: "1/2 cup Thai basil leaves", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Fry curry paste with a bit of coconut cream until aromatic.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add chicken and cook until opaque; pour in the rest of the coconut milk.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add bamboo shoots, lime leaves, fish sauce, and sugar; simmer for 10 mins.", ingredients: [], equipment: [] },
+      { number: 4, step: "Stir in Thai basil at the very end and serve with jasmine rice.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 3016,
+    title: "Herb-Crusted Rack of Lamb",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1544025162-d7659a7a8d14?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 45,
+    servings: 2,
+    calories: 580,
+    protein: "42g",
+    fat: "45g",
+    carbs: "4g",
+    dishTypes: ["dinner"],
+    summary: "Elegant rack of lamb roasted with a fragrant crust of rosemary, thyme, and roasted garlic.",
+    extendedIngredients: [
+      { id: 1, name: "rack of lamb", amount: 1, unit: "lb", original: "1 lb rack of lamb", aisle: "Meat" },
+      { id: 2, name: "rosemary", amount: 2, unit: "tbsp", original: "2 tbsp fresh chopped rosemary", aisle: "Produce" },
+      { id: 3, name: "thyme", amount: 1, unit: "tbsp", original: "1 tbsp fresh chopped thyme", aisle: "Produce" },
+      { id: 4, name: "garlic", amount: 4, unit: "cloves", original: "4 cloves garlic, minced", aisle: "Produce" },
+      { id: 5, name: "dijon mustard", amount: 2, unit: "tbsp", original: "2 tbsp dijon mustard", aisle: "Pantry" },
+      { id: 6, name: "breadcrumbs", amount: 0.5, unit: "cup", original: "1/2 cup panko breadcrumbs", aisle: "Pantry" },
+      { id: 7, name: "olive oil", amount: 2, unit: "tbsp", original: "2 tbsp olive oil", aisle: "Pantry" },
+      { id: 8, name: "red wine", amount: 0.5, unit: "cup", original: "1/2 cup red wine for reduction", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sear the lamb in a hot pan to brown all sides.", ingredients: [], equipment: [] },
+      { number: 2, step: "Brush with mustard and press the herb-breadcrumb mixture onto the fat cap.", ingredients: [], equipment: [] },
+      { number: 3, step: "Roast at 400°F (200°C) for 15-20 minutes for medium-rare.", ingredients: [], equipment: [] },
+      { number: 4, step: "Rest for 10 minutes before carving into individual chops.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 3017,
+    title: "Crispy Skin Duck Breast with Cherry Sauce",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1511910849309-0dffb8785146?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 30,
+    servings: 2,
+    calories: 480,
+    protein: "28g",
+    fat: "32g",
+    carbs: "18g",
+    dishTypes: ["dinner"],
+    summary: "Perfectly seared duck breast served with a sophisticated sweet and tart cherry balsamic reduction.",
+    extendedIngredients: [
+      { id: 1, name: "duck breast", amount: 2, unit: "", original: "2 duck breasts, skin-on", aisle: "Meat" },
+      { id: 2, name: "cherries", amount: 1, unit: "cup", original: "1 cup pitted cherries", aisle: "Produce" },
+      { id: 3, name: "balsamic vinegar", amount: 2, unit: "tbsp", original: "2 tbsp balsamic vinegar", aisle: "Pantry" },
+      { id: 4, name: "shallot", amount: 1, unit: "", original: "1 shallot, minced", aisle: "Produce" },
+      { id: 5, name: "honey", amount: 1, unit: "tbsp", original: "1 tbsp honey", aisle: "Pantry" },
+      { id: 6, name: "red wine", amount: 0.25, unit: "cup", original: "1/4 cup red wine", aisle: "Pantry" },
+      { id: 7, name: "butter", amount: 1, unit: "tbsp", original: "1 tbsp cold butter", aisle: "Dairy" },
+      { id: 8, name: "stars anise", amount: 1, unit: "", original: "1 star anise", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Score the duck skin in a diamond pattern without cutting the meat.", ingredients: [], equipment: [] },
+      { number: 2, step: "Start skin-side down in a cold pan; cook on medium-low until fat renders and skin is crispy.", ingredients: [], equipment: [] },
+      { number: 3, step: "Flip and finish cooking to desired doneness; rest the meat.", ingredients: [], equipment: [] },
+      { number: 4, step: "In the same pan, sauté shallots and cherries with wine and honey to make the sauce.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 3018,
+    title: "Thai Red Curry with Roasted Duck",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 35,
+    servings: 4,
+    calories: 520,
+    protein: "26g",
+    fat: "38g",
+    carbs: "22g",
+    dishTypes: ["dinner"],
+    summary: "A rich and spicy coconut curry featuring succulent roasted duck, pineapple, and cherry tomatoes.",
+    extendedIngredients: [
+      { id: 1, name: "roasted duck", amount: 500, unit: "g", original: "500g roasted duck, sliced", aisle: "Meat" },
+      { id: 2, name: "red curry paste", amount: 3, unit: "tbsp", original: "3 tbsp Thai red curry paste", aisle: "International" },
+      { id: 3, name: "coconut milk", amount: 2, unit: "cups", original: "2 cups full-fat coconut milk", aisle: "Dairy" },
+      { id: 4, name: "pineapple", amount: 1, unit: "cup", original: "1 cup pineapple chunks", aisle: "Produce" },
+      { id: 5, name: "cherry tomatoes", amount: 10, unit: "", original: "10 cherry tomatoes", aisle: "Produce" },
+      { id: 6, name: "bamboo shoots", amount: 0.5, unit: "cup", original: "1/2 cup bamboo shoots", aisle: "International" },
+      { id: 7, name: "fish sauce", amount: 2, unit: "tbsp", original: "2 tbsp fish sauce", aisle: "International" },
+      { id: 8, name: "thai basil", amount: 0.5, unit: "cup", original: "Handful of Thai basil leaves", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Fry curry paste in a little coconut cream until fragrant.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add remaining coconut milk and bring to a simmer.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add duck, pineapple, tomatoes, and bamboo shoots; cook for 10 minutes.", ingredients: [], equipment: [] },
+      { number: 4, step: "Season with fish sauce and sugar; stir in basil just before serving.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 3019,
+    title: "Coq au Vin (French Chicken in Red Wine)",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 90,
+    servings: 4,
+    calories: 550,
+    protein: "45g",
+    fat: "30g",
+    carbs: "18g",
+    dishTypes: ["dinner"],
+    summary: "Classic French bistro fare: chicken braised with red wine, mushrooms, and lardon bacon.",
+    extendedIngredients: [
+      { id: 1, name: "chicken thighs", amount: 8, unit: "", original: "8 bone-in chicken thighs", aisle: "Meat" },
+      { id: 2, name: "red wine", amount: 750, unit: "ml", original: "1 bottle dry red wine (Pinot Noir)", aisle: "Pantry" },
+      { id: 3, name: "bacon lardons", amount: 150, unit: "g", original: "150g bacon lardons", aisle: "Meat" },
+      { id: 4, name: "mushrooms", amount: 250, unit: "g", original: "250g cremini mushrooms", aisle: "Produce" },
+      { id: 5, name: "pearl onions", amount: 1, unit: "cup", original: "1 cup peeled pearl onions", aisle: "Produce" },
+      { id: 6, name: "carrots", amount: 2, unit: "", original: "2 carrots, sliced", aisle: "Produce" },
+      { id: 7, name: "garlic", amount: 3, unit: "cloves", original: "3 cloves garlic", aisle: "Produce" },
+      { id: 8, name: "thyme", amount: 3, unit: "sprigs", original: "3 sprigs fresh thyme", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Brown the chicken and bacon in a large Dutch oven; remove.", ingredients: [], equipment: [] },
+      { number: 2, step: "Sauté vegetables and garlic until soft.", ingredients: [], equipment: [] },
+      { number: 3, step: "Return chicken and bacon; pour in wine and add thyme.", ingredients: [], equipment: [] },
+      { number: 4, step: "Braise in the oven at 325°F for 1 hour until chicken is fall-apart tender.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 3020,
+    title: "Moroccan Lamb Tagine",
+    category: "dinner",
+    image: "https://images.unsplash.com/photo-1541518763669-279f0491753a?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 120,
+    servings: 4,
+    calories: 620,
+    protein: "38g",
+    fat: "32g",
+    carbs: "45g",
+    dishTypes: ["dinner"],
+    summary: "A slow-cooked Moroccan stew with tender lamb, dried apricots, and warming cinnamon spices.",
+    extendedIngredients: [
+      { id: 1, name: "lamb shoulder", amount: 800, unit: "g", original: "800g lamb shoulder, cubed", aisle: "Meat" },
+      { id: 2, name: "dried apricots", amount: 1, unit: "cup", original: "1 cup dried apricots", aisle: "Produce" },
+      { id: 3, name: "chickpeas", amount: 1, unit: "can", original: "1 can chickpeas, drained", aisle: "Canned" },
+      { id: 4, name: "onion", amount: 2, unit: "", original: "2 large onions, chopped", aisle: "Produce" },
+      { id: 5, name: "ginger", amount: 1, unit: "tbsp", original: "1 tbsp fresh grated ginger", aisle: "Produce" },
+      { id: 6, name: "cinnamon", amount: 1, unit: "stick", original: "1 cinnamon stick", aisle: "Spices" },
+      { id: 7, name: "turmeric", amount: 1, unit: "tsp", original: "1 tsp turmeric", aisle: "Spices" },
+      { id: 8, name: "almonds", amount: 0.25, unit: "cup", original: "1/4 cup toasted slivered almonds", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sauté onions, ginger, and garlic; add lamb and brown well.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add spices, water, and cinnamon; cover and simmer for 1.5 hours.", ingredients: [], equipment: [] },
+      { number: 3, step: "Stir in apricots and chickpeas; cook for another 30 minutes.", ingredients: [], equipment: [] },
+      { number: 4, step: "Garnish with fresh cilantro and toasted almonds before serving.", ingredients: [] }
+    ]}]
+  },
 
   // --- MAIN DISHES (8 RECIPES) ---
   {
@@ -514,6 +1234,156 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 2, step: "Mix ricotta, egg, and spinach in a bowl.", ingredients: [], equipment: [] },
       { number: 3, step: "Layer sauce, noodles, ricotta mix, and mozzarella in a baking dish.", ingredients: [], equipment: [] },
       { number: 4, step: "Bake at 375°F (190°C) for 45 minutes until bubbly and golden.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4016,
+    title: "Whole Roasted Mediterranean Sea Bass",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 40,
+    servings: 2,
+    calories: 320,
+    protein: "45g",
+    fat: "14g",
+    carbs: "0g",
+    dishTypes: ["main course"],
+    summary: "Fresh whole sea bass stuffed with lemon and herbs, roasted to flaky perfection.",
+    extendedIngredients: [
+      { id: 1, name: "sea bass", amount: 1, unit: "whole", original: "1 whole sea bass (1.5 lbs)", aisle: "Meat" },
+      { id: 2, name: "lemon", amount: 2, unit: "", original: "2 lemons, sliced", aisle: "Produce" },
+      { id: 3, name: "parsley", amount: 1, unit: "bunch", original: "Handful of fresh parsley", aisle: "Produce" },
+      { id: 4, name: "rosemary", amount: 2, unit: "sprigs", original: "2 sprigs fresh rosemary", aisle: "Produce" },
+      { id: 5, name: "garlic", amount: 4, unit: "cloves", original: "4 cloves garlic, crushed", aisle: "Produce" },
+      { id: 6, name: "olive oil", amount: 3, unit: "tbsp", original: "3 tbsp extra virgin olive oil", aisle: "Pantry" },
+      { id: 7, name: "sea salt", amount: 1, unit: "tsp", original: "Flaky sea salt", aisle: "Spices" },
+      { id: 8, name: "white wine", amount: 0.25, unit: "cup", original: "1/4 cup dry white wine", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Clean and score the fish on both sides.", ingredients: [], equipment: [] },
+      { number: 2, step: "Stuff the cavity with lemon, herbs, and garlic.", ingredients: [], equipment: [] },
+      { number: 3, step: "Drizzle with oil and wine; roast at 400°F (200°C) for 25-30 minutes.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve immediately with a squeeze of fresh lemon juice.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 4017,
+    title: "Vegetarian Eggplant Mousaka",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1540185373-b39f1df93a11?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 60,
+    servings: 4,
+    calories: 350,
+    protein: "14g",
+    fat: "22g",
+    carbs: "38g",
+    dishTypes: ["main course"],
+    summary: "A Greek-inspired layered casserole with roasted eggplant, spiced lentils, and creamy béchamel.",
+    extendedIngredients: [
+      { id: 1, name: "eggplant", amount: 2, unit: "large", original: "2 large eggplants, sliced", aisle: "Produce" },
+      { id: 2, name: "lentils", amount: 1, unit: "cup", original: "1 cup dried green lentils", aisle: "Grains" },
+      { id: 3, name: "tomato sauce", amount: 2, unit: "cups", original: "2 cups tomato passata", aisle: "Canned" },
+      { id: 4, name: "onion", amount: 1, unit: "", original: "1 large onion, diced", aisle: "Produce" },
+      { id: 5, name: "cinnamon", amount: 0.5, unit: "tsp", original: "Pinch of cinnamon", aisle: "Spices" },
+      { id: 6, name: "milk", amount: 2, unit: "cups", original: "2 cups milk for béchamel", aisle: "Dairy" },
+      { id: 7, name: "butter", amount: 2, unit: "tbsp", original: "2 tbsp butter", aisle: "Dairy" },
+      { id: 8, name: "flour", amount: 2, unit: "tbsp", original: "2 tbsp flour", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Roast eggplant slices until tender; cook lentils with tomatoes and spices.", ingredients: [], equipment: [] },
+      { number: 2, step: "Make a thick béchamel sauce with butter, flour, and milk.", ingredients: [], equipment: [] },
+      { number: 3, step: "Layer eggplant and lentils in a dish; top with the béchamel.", ingredients: [], equipment: [] },
+      { number: 4, step: "Bake at 375°F for 30 minutes until the top is bubbly and golden.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 4018,
+    title: "Crispy Korean Fried Chicken",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 45,
+    servings: 4,
+    calories: 650,
+    protein: "38g",
+    fat: "35g",
+    carbs: "45g",
+    dishTypes: ["main course"],
+    summary: "Double-fried chicken wings glazed in a spicy, sweet gochujang sauce.",
+    extendedIngredients: [
+      { id: 1, name: "chicken wings", amount: 1, unit: "kg", original: "1kg chicken wings", aisle: "Meat" },
+      { id: 2, name: "potato starch", amount: 1, unit: "cup", original: "1 cup potato starch", aisle: "Baking" },
+      { id: 3, name: "gochujang", amount: 3, unit: "tbsp", original: "3 tbsp Korean chili paste", aisle: "International" },
+      { id: 4, name: "soy sauce", amount: 2, unit: "tbsp", original: "2 tbsp soy sauce", aisle: "International" },
+      { id: 5, name: "honey", amount: 0.25, unit: "cup", original: "1/4 cup honey", aisle: "Pantry" },
+      { id: 6, name: "garlic", amount: 4, unit: "cloves", original: "4 cloves garlic, minced", aisle: "Produce" },
+      { id: 7, name: "ginger", amount: 1, unit: "tsp", original: "1 tsp ginger, grated", aisle: "Produce" },
+      { id: 8, name: "sesame seeds", amount: 1, unit: "tbsp", original: "Toasted sesame seeds", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Coat chicken in potato starch and fry at 350°F for 10 minutes.", ingredients: [], equipment: [] },
+      { number: 2, step: "Let rest, then fry again at 375°F for 5 minutes until extra crispy.", ingredients: [], equipment: [] },
+      { number: 3, step: "Simmer gochujang, soy, honey, garlic and ginger to make the glaze.", ingredients: [], equipment: [] },
+      { number: 4, step: "Toss the hot chicken in the glaze and garnish with sesame seeds.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 4019,
+    title: "Swedish Meatballs with Lingonberry Jam",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1529692236671-fd7668612fab?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 40,
+    servings: 4,
+    calories: 520,
+    protein: "32g",
+    fat: "35g",
+    carbs: "22g",
+    dishTypes: ["main course"],
+    summary: "Savory beef and pork meatballs in a rich cream gravy, served with mashed potatoes and jam.",
+    extendedIngredients: [
+      { id: 1, name: "ground beef", amount: 300, unit: "g", original: "300g ground beef", aisle: "Meat" },
+      { id: 2, name: "ground pork", amount: 300, unit: "g", original: "300g ground pork", aisle: "Meat" },
+      { id: 3, name: "breadcrumbs", amount: 0.5, unit: "cup", original: "1/2 cup breadcrumbs", aisle: "Pantry" },
+      { id: 4, name: "milk", amount: 0.25, unit: "cup", original: "1/4 cup milk", aisle: "Dairy" },
+      { id: 5, name: "beef broth", amount: 2, unit: "cups", original: "2 cups beef broth", aisle: "Canned" },
+      { id: 6, name: "heavy cream", amount: 0.5, unit: "cup", original: "1/2 cup heavy cream", aisle: "Dairy" },
+      { id: 7, name: "allspice", amount: 0.25, unit: "tsp", original: "Pinch of ground allspice", aisle: "Spices" },
+      { id: 8, name: "lingonberry jam", amount: 0.25, unit: "cup", original: "Lingonberry jam for serving", aisle: "International" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Mix meats, breadcrumbs, milk, and spices; roll into small balls.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fry meatballs in butter until browned and cooked through; remove.", ingredients: [], equipment: [] },
+      { number: 3, step: "Whisk flour into the pan drippings, then stir in broth and cream for the gravy.", ingredients: [], equipment: [] },
+      { number: 4, step: "Add meatballs back to the gravy and serve with jam.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 4020,
+    title: "Indian Butter Chicken (Murgh Makhani)",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 50,
+    servings: 4,
+    calories: 580,
+    protein: "42g",
+    fat: "40g",
+    carbs: "12g",
+    dishTypes: ["main course"],
+    summary: "Tender tandoori-style chicken in a silky, mildly spiced tomato and butter sauce.",
+    extendedIngredients: [
+      { id: 1, name: "chicken thighs", amount: 800, unit: "g", original: "800g boneless chicken thighs", aisle: "Meat" },
+      { id: 2, name: "yogurt", amount: 0.5, unit: "cup", original: "1/2 cup plain yogurt", aisle: "Dairy" },
+      { id: 3, name: "garam masala", amount: 2, unit: "tsp", original: "2 tsp garam masala", aisle: "Spices" },
+      { id: 4, name: "tomato puree", amount: 2, unit: "cups", original: "2 cups tomato puree", aisle: "Canned" },
+      { id: 5, name: "butter", amount: 100, unit: "g", original: "100g unsalted butter", aisle: "Dairy" },
+      { id: 6, name: "heavy cream", amount: 1, unit: "cup", original: "1 cup heavy cream", aisle: "Dairy" },
+      { id: 7, name: "ginger-garlic paste", amount: 2, unit: "tbsp", original: "2 tbsp ginger-garlic paste", aisle: "International" },
+      { id: 8, name: "kasuri methi", amount: 1, unit: "tbsp", original: "1 tbsp dried fenugreek leaves", aisle: "International" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Marinate chicken in yogurt and garam masala for 1 hour; grilled until charred.", ingredients: [], equipment: [] },
+      { number: 2, step: "Simmer tomato puree with ginger-garlic paste and butter.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add grilled chicken and heavy cream; simmer for 15 minutes.", ingredients: [], equipment: [] },
+      { number: 4, step: "Stir in fenugreek leaves and serve with warm naan.", ingredients: [] }
     ]}]
   },
   {
@@ -724,6 +1594,212 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 2, step: "In a separate pan, create a gastrique with sugar and vinegar.", ingredients: [], equipment: [] },
       { number: 3, step: "Add orange juice and stock to gastrique; reduce until thickened.", ingredients: [], equipment: [] },
       { number: 4, step: "Finish sauce with cold butter and serve over sliced duck.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4009,
+    title: "Japanese Wagyu Ribeye Steak",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 820,
+    protein: "45g",
+    fat: "65g",
+    carbs: "0g",
+    dishTypes: ["main dish"],
+    summary: "Ultra-premium A5 Wagyu beef, lightly seared to highlight its incredible marbling and buttery texture.",
+    extendedIngredients: [
+      { id: 1, name: "wagyu ribeye", amount: 300, unit: "g", original: "300g A5 Japanese Wagyu ribeye", aisle: "Meat" },
+      { id: 2, name: "sea salt", amount: 1, unit: "tsp", original: "Flaky sea salt", aisle: "Spices" },
+      { id: 3, name: "wasabi", amount: 1, unit: "tsp", original: "Freshly grated wasabi", aisle: "Produce" },
+      { id: 4, name: "garlic chips", amount: 1, unit: "tbsp", original: "Crispy garlic chips", aisle: "Produce" },
+      { id: 5, name: "soy sauce", amount: 1, unit: "tsp", original: "Aged soy sauce", aisle: "Pantry" },
+      { id: 6, name: "black pepper", amount: 0.5, unit: "tsp", original: "Fresh cracked pepper", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Bring the steak to room temperature and season very lightly with salt.", ingredients: [], equipment: [] },
+      { number: 2, step: "Sear in a very hot dry pan (the fat will render instantly) for 1-2 mins per side.", ingredients: [], equipment: [] },
+      { number: 3, step: "Let the steak rest for at least 5 minutes to allow juices to redistribute.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve sliced thin with wasabi, sea salt, and a dash of aged soy sauce.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4010,
+    title: "Marseille-Style Bouillabaisse",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1534080564617-319a94168019?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 60,
+    servings: 4,
+    calories: 420,
+    protein: "38g",
+    fat: "18g",
+    carbs: "20g",
+    dishTypes: ["main dish"],
+    summary: "The celebrated French fisherman's stew, rich with saffron, fennel, and assorted Mediterranean seafood.",
+    extendedIngredients: [
+      { id: 1, name: "monkfish", amount: 400, unit: "g", original: "400g monkfish fillets", aisle: "Meat" },
+      { id: 2, name: "red snapper", amount: 400, unit: "g", original: "400g red snapper fillets", aisle: "Meat" },
+      { id: 3, name: "mussels", amount: 500, unit: "g", original: "500g fresh mussels", aisle: "Meat" },
+      { id: 4, name: "fennel", amount: 1, unit: "", original: "1 large fennel bulb, sliced", aisle: "Produce" },
+      { id: 5, name: "saffron", amount: 1, unit: "pinch", original: "Pinch of high-grade saffron", aisle: "Spices" },
+      { id: 6, name: "orange zest", amount: 1, unit: "tsp", original: "Strip of orange peel", aisle: "Produce" },
+      { id: 7, name: "pastis", amount: 1, unit: "tbsp", original: "1 tbsp Pernod or Pastis", aisle: "Pantry" },
+      { id: 8, name: "baguette", amount: 4, unit: "slices", original: "Toasted baguette with rouille", aisle: "Bakery" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sauté fennel, onions, and garlic in olive oil until soft.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add tomato, saffron, orange peel, and fish stock; simmer for 20 mins.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add the firm fish first, then the mussels and delicate fish; simmer until cooked through.", ingredients: [], equipment: [] },
+      { number: 4, step: "Stir in the pastis and serve with rouille-slathered toasts.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4011,
+    title: "Lucknowi Lamb Biryani",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 80,
+    servings: 6,
+    calories: 650,
+    protein: "35g",
+    fat: "25g",
+    carbs: "72g",
+    dishTypes: ["main dish"],
+    summary: "Fragrant, long-grain basmati rice layered with spiced lamb and slow-cooked in the Dum style.",
+    extendedIngredients: [
+      { id: 1, name: "basmati rice", amount: 3, unit: "cups", original: "3 cups aged basmati rice", aisle: "Grains" },
+      { id: 2, name: "lamb shoulder", amount: 750, unit: "g", original: "750g lamb shoulder, cubed", aisle: "Meat" },
+      { id: 3, name: "saffron", amount: 1, unit: "pinch", original: "Saffron soaked in milk", aisle: "Spices" },
+      { id: 4, name: "fried onions", amount: 1, unit: "cup", original: "1 cup crispy fried onions (Birista)", aisle: "Pantry" },
+      { id: 5, name: "ginger garlic paste", amount: 2, unit: "tbsp", original: "2 tbsp ginger garlic paste", aisle: "Produce" },
+      { id: 6, name: "whole spices", amount: 1, unit: "set", original: "Cardamom, cloves, and cinnamon sticks", aisle: "Spices" },
+      { id: 7, name: "yogurt", amount: 1, unit: "cup", original: "1 cup thick yogurt", aisle: "Dairy" },
+      { id: 8, name: "mint leaves", amount: 0.5, unit: "cup", original: "Fresh mint and cilantro", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Marinate lamb in yogurt, ginger-garlic paste, and spices for 2 hours.", ingredients: [], equipment: [] },
+      { number: 2, step: "Par-cook the basmati rice with whole spices until 70% done.", ingredients: [], equipment: [] },
+      { number: 3, step: "Layer the cooked lamb and par-boiled rice in a heavy pot; add birista and saffron milk.", ingredients: [], equipment: [] },
+      { number: 4, step: "Seal the pot with dough and cook on very low heat (Dum) for 45 minutes.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4012,
+    title: "Veal Saltimbocca alla Romana",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 410,
+    protein: "32g",
+    fat: "28g",
+    carbs: "5g",
+    dishTypes: ["main dish"],
+    summary: "Tender veal cutlets 'jump in the mouth' with savory prosciutto and fresh sage.",
+    extendedIngredients: [
+      { id: 1, name: "veal escalopes", amount: 4, unit: "", original: "4 thin veal escalopes", aisle: "Meat" },
+      { id: 2, name: "prosciutto di parma", amount: 4, unit: "slices", original: "4 thin slices prosciutto", aisle: "Meat" },
+      { id: 3, name: "fresh sage", amount: 8, unit: "leaves", original: "8 fresh sage leaves", aisle: "Produce" },
+      { id: 4, name: "white wine", amount: 0.5, unit: "cup", original: "1/2 cup dry white wine", aisle: "Pantry" },
+      { id: 5, name: "butter", amount: 2, unit: "tbsp", original: "2 tbsp butter", aisle: "Dairy" },
+      { id: 6, name: "flour", amount: 0.25, unit: "cup", original: "Flour for dredging", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Place a piece of prosciutto and two sage leaves on each veal cutlet; secure with a toothpick.", ingredients: [], equipment: [] },
+      { number: 2, step: "Lightly dredge the veal in flour, shaking off the excess.", ingredients: [], equipment: [] },
+      { number: 3, step: "Sauté in butter for 2 mins per side; remove and keep warm.", ingredients: [], equipment: [] },
+      { number: 4, step: "Deglaze pan with white wine and reduce; pour the sauce over the veal before serving.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4013,
+    title: "Moroccan Beef & Prune Tagine",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 120,
+    servings: 4,
+    calories: 520,
+    protein: "38g",
+    fat: "24g",
+    carbs: "42g",
+    dishTypes: ["main dish"],
+    summary: "A sublime balance of sweet and savory: slow-cooked beef with honey, cinnamon, and jammy prunes.",
+    extendedIngredients: [
+      { id: 1, name: "beef chuck", amount: 800, unit: "g", original: "800g beef chuck, cubed", aisle: "Meat" },
+      { id: 2, name: "prunes", amount: 150, unit: "g", original: "150g dried prunes", aisle: "Pantry" },
+      { id: 3, name: "cinnamon", amount: 1, unit: "stick", original: "1 cinnamon stick", aisle: "Spices" },
+      { id: 4, name: "ginger", amount: 1, unit: "tsp", original: "1 tsp ground ginger", aisle: "Spices" },
+      { id: 5, name: "honey", amount: 2, unit: "tbsp", original: "2 tbsp honey", aisle: "Pantry" },
+      { id: 6, name: "sesame seeds", amount: 1, unit: "tbsp", original: "Toasted sesame seeds", aisle: "Pantry" },
+      { id: 7, name: "almonds", amount: 0.25, unit: "cup", original: "Fried almonds for garnish", aisle: "Pantry" },
+      { id: 8, name: "onion", amount: 2, unit: "", original: "2 large onions, finely chopped", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Braise beef with onions, ginger, and cinnamon until meat is tender.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add prunes and honey; simmer for another 20 minutes until sauce is syrupy.", ingredients: [], equipment: [] },
+      { number: 3, step: "Garnish with toasted sesame seeds and crunchy fried almonds.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve directly from the tagine with Moroccan crusty bread.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4014,
+    title: "Thai Massaman Beef Curry",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 45,
+    servings: 2,
+    calories: 580,
+    protein: "32g",
+    fat: "38g",
+    carbs: "30g",
+    dishTypes: ["main dish"],
+    summary: "A rich, relatively mild Thai curry that's nutty and slightly sweet with star anise and cinnamon.",
+    extendedIngredients: [
+      { id: 1, name: "beef chunks", amount: 400, unit: "g", original: "400g beef chunks", aisle: "Meat" },
+      { id: 2, name: "massaman paste", amount: 3, unit: "tbsp", original: "3 tbsp massaman curry paste", aisle: "Spices" },
+      { id: 3, name: "coconut milk", amount: 400, unit: "ml", original: "1 can full-fat coconut milk", aisle: "Dairy" },
+      { id: 4, name: "potatoes", amount: 2, unit: "", original: "2 potatoes, cubed", aisle: "Produce" },
+      { id: 5, name: "peanuts", amount: 0.25, unit: "cup", original: "1/4 cup roasted peanuts", aisle: "Pantry" },
+      { id: 6, name: "star anise", amount: 2, unit: "", original: "2 whole star anise", aisle: "Spices" },
+      { id: 7, name: "fish sauce", amount: 1, unit: "tbsp", original: "1 tbsp fish sauce", aisle: "Pantry" },
+      { id: 8, name: "tamarind paste", amount: 1, unit: "tbsp", original: "1 tbsp tamarind paste", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Fry the curry paste with the cream from the top of the coconut milk can.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add beef and potatoes; pour in the remaining coconut milk.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add star anise, peanuts, fish sauce, and tamarind; simmer for 30 mins.", ingredients: [], equipment: [] },
+      { number: 4, step: "Adjust salt and sweetness to taste and serve with jasmine rice.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 4015,
+    title: "Mexican Chicken Mole Poblano",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 60,
+    servings: 4,
+    calories: 520,
+    protein: "38g",
+    fat: "32g",
+    carbs: "25g",
+    dishTypes: ["main dish"],
+    summary: "A complex, legendary sauce featuring multiple chilies, spices, and a hint of dark chocolate.",
+    extendedIngredients: [
+      { id: 1, name: "chicken pieces", amount: 1, unit: "kg", original: "1kg chicken thighs and breasts", aisle: "Meat" },
+      { id: 2, name: "mole poblano paste", amount: 1, unit: "cup", original: "1 cup authentic mole paste", aisle: "Pantry" },
+      { id: 3, name: "chicken broth", amount: 2, unit: "cups", original: "2 cups chicken stock", aisle: "Pantry" },
+      { id: 4, name: "dark chocolate", amount: 30, unit: "g", original: "30g Mexican chocolate", aisle: "Baking" },
+      { id: 5, name: "sesame seeds", amount: 1, unit: "tbsp", original: "Toasted sesame seeds", aisle: "Pantry" },
+      { id: 6, name: "onion", amount: 1, unit: "", original: "1 onion, sliced", aisle: "Produce" },
+      { id: 7, name: "garlic", amount: 2, unit: "cloves", original: "2 cloves garlic", aisle: "Produce" },
+      { id: 8, name: "tortillas", amount: 4, unit: "", original: "Warm corn tortillas", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Poach the chicken pieces in broth until cooked; set aside broth.", ingredients: [], equipment: [] },
+      { number: 2, step: "Sauté onions and garlic, then stir in the mole paste and 2 cups of broth.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add chocolate and simmer until rich and velvety.", ingredients: [], equipment: [] },
+      { number: 4, step: "Place chicken in the sauce, simmer to thicken, and garnish with sesame seeds.", ingredients: [], equipment: [] }
     ]}]
   },
 
@@ -965,6 +2041,366 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 2, step: "Toss lentils and spinach in a large bowl with half the dressing.", ingredients: [], equipment: [] },
       { number: 3, step: "Add walnuts and parsley; toss again.", ingredients: [], equipment: [] },
       { number: 4, step: "Top with pomegranate seeds and remaining dressing.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2009,
+    title: "Vietnamese Chicken Banh Mi",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 30,
+    servings: 2,
+    calories: 450,
+    protein: "24g",
+    fat: "18g",
+    carbs: "48g",
+    dishTypes: ["lunch"],
+    summary: "The iconic street food of Vietnam: a crispy baguette filled with savory chicken, pickled carrots, and fresh cilantro.",
+    extendedIngredients: [
+      { id: 1, name: "baguette", amount: 2, unit: "mini", original: "2 mini baguettes", aisle: "Bakery" },
+      { id: 2, name: "chicken thighs", amount: 250, unit: "g", original: "250g grilled chicken thighs", aisle: "Meat" },
+      { id: 3, name: "pickled carrots", amount: 0.5, unit: "cup", original: "1/2 cup pickled carrots and daikon", aisle: "Produce" },
+      { id: 4, name: "cucumber", amount: 0.5, unit: "", original: "1/2 cucumber, sliced into spears", aisle: "Produce" },
+      { id: 5, name: "cilantro", amount: 0.25, unit: "cup", original: "Fresh cilantro sprigs", aisle: "Produce" },
+      { id: 6, name: "mayo", amount: 2, unit: "tbsp", original: "2 tbsp mayonnaise", aisle: "Pantry" },
+      { id: 7, name: "jalapeño", amount: 1, unit: "", original: "1 jalapeño, sliced", aisle: "Produce" },
+      { id: 8, name: "soy sauce", amount: 1, unit: "tsp", original: "Optional dash of Maggi seasoning", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Lightly toast the baguettes until the outside is crispy.", ingredients: [], equipment: [] },
+      { number: 2, step: "Spread mayo on both sides and add a dash of soy sauce.", ingredients: [], equipment: [] },
+      { number: 3, step: "Layer grilled chicken, cucumber spears, and jalapeños.", ingredients: [], equipment: [] },
+      { number: 4, step: "Top generously with pickled vegetables and fresh cilantro.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2010,
+    title: "Mediterranean Falafel Wrap",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1593504049359-74330189a345?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 410,
+    protein: "12g",
+    fat: "22g",
+    carbs: "45g",
+    dishTypes: ["lunch"],
+    summary: "Crispy falafel balls wrapped in warm pita with hummus and a zesty tahini drizzle.",
+    extendedIngredients: [
+      { id: 1, name: "falafel", amount: 8, unit: "balls", original: "8 pre-cooked or fresh falafel balls", aisle: "Meat" },
+      { id: 2, name: "pita bread", amount: 2, unit: "large", original: "2 large warm pitas", aisle: "Bakery" },
+      { id: 3, name: "hummus", amount: 4, unit: "tbsp", original: "4 tbsp hummus", aisle: "Pantry" },
+      { id: 4, name: "tahini", amount: 2, unit: "tbsp", original: "2 tbsp tahini", aisle: "Pantry" },
+      { id: 5, name: "lemon", amount: 1, unit: "", original: "1/2 lemon, juiced", aisle: "Produce" },
+      { id: 6, name: "cucumber", amount: 0.5, unit: "cup", original: "Diced cucumber", aisle: "Produce" },
+      { id: 7, name: "tomatoes", amount: 0.5, unit: "cup", original: "Diced tomatoes", aisle: "Produce" },
+      { id: 8, name: "parsley", amount: 1, unit: "tbsp", original: "Fresh parsley", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Warm the pitas and falafel balls in a toaster or oven.", ingredients: [], equipment: [] },
+      { number: 2, step: "Spread hummus in the center of each pita.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add falafel, cucumber, and tomatoes.", ingredients: [], equipment: [] },
+      { number: 4, step: "Drizzle with tahini mixed with lemon juice and garnish with parsley.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2011,
+    title: "Classic Hawaiian Poke Bowl",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 1,
+    calories: 480,
+    protein: "32g",
+    fat: "14g",
+    carbs: "55g",
+    dishTypes: ["lunch"],
+    summary: "Fresh ahi tuna marinated in soy and ginger, served over rice with colorful vegetables.",
+    extendedIngredients: [
+      { id: 1, name: "ahi tuna", amount: 150, unit: "g", original: "150g raw ahi tuna, cubed", aisle: "Meat" },
+      { id: 2, name: "white rice", amount: 1, unit: "cup", original: "1 cup cooked white rice", aisle: "Grains" },
+      { id: 3, name: "soy sauce", amount: 2, unit: "tbsp", original: "2 tbsp soy sauce", aisle: "Pantry" },
+      { id: 4, name: "sesame oil", amount: 1, unit: "tsp", original: "1 tsp toasted sesame oil", aisle: "Pantry" },
+      { id: 5, name: "edamame", amount: 0.25, unit: "cup", original: "1/4 cup shelled edamame", aisle: "Produce" },
+      { id: 6, name: "cucumber", amount: 0.25, unit: "cup", original: "Sliced cucumber", aisle: "Produce" },
+      { id: 7, name: "seaweed salad", amount: 2, unit: "tbsp", original: "2 tbsp seaweed salad", aisle: "Produce" },
+      { id: 8, name: "ginger", amount: 1, unit: "tsp", original: "Grated fresh ginger", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Mix tuna with soy sauce, sesame oil, and ginger; let sit for 5 mins.", ingredients: [], equipment: [] },
+      { number: 2, step: "Place rice in a bowl and arrange edamame, cucumber, and seaweed salad on top.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add the marinated tuna in the center.", ingredients: [], equipment: [] },
+      { number: 4, step: "Garnish with sesame seeds and a drizzle of spicy mayo if desired.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2012,
+    title: "Andalusian Gazpacho Soup",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 4,
+    calories: 180,
+    protein: "3g",
+    fat: "12g",
+    carbs: "18g",
+    dishTypes: ["lunch"],
+    summary: "A refreshing chilled tomato and vegetable soup from southern Spain.",
+    extendedIngredients: [
+      { id: 1, name: "tomatoes", amount: 1, unit: "kg", original: "1kg ripe roma tomatoes", aisle: "Produce" },
+      { id: 2, name: "green pepper", amount: 1, unit: "", original: "1 small green pepper", aisle: "Produce" },
+      { id: 3, name: "cucumber", amount: 1, unit: "small", original: "1 small cucumber", aisle: "Produce" },
+      { id: 4, name: "garlic", amount: 1, unit: "clove", original: "1 clove garlic", aisle: "Produce" },
+      { id: 5, name: "olive oil", amount: 0.25, unit: "cup", original: "1/4 cup extra virgin olive oil", aisle: "Pantry" },
+      { id: 6, name: "sherry vinegar", amount: 2, unit: "tbsp", original: "2 tbsp sherry vinegar", aisle: "Pantry" },
+      { id: 7, name: "bread crumbs", amount: 2, unit: "tbsp", original: "2 tbsp bread crumbs for body", aisle: "Bakery" },
+      { id: 8, name: "salt", amount: 1, unit: "tsp", original: "Sea salt to taste", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Blend all vegetables, garlic, bread crumbs, and vinegar until very smooth.", ingredients: [], equipment: [] },
+      { number: 2, step: "With the blender running, slowly drizzle in the olive oil.", ingredients: [], equipment: [] },
+      { number: 3, step: "Strain through a fine-mesh sieve for a silky texture.", ingredients: [], equipment: [] },
+      { number: 4, step: "Chill for at least 2 hours; serve with a drizzle of oil and diced cucumber.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2013,
+    title: "Thai Pomelo Salad (Yam Som-O)",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1546793665-c74683f339cf?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 240,
+    protein: "10g",
+    fat: "14g",
+    carbs: "22g",
+    dishTypes: ["lunch"],
+    summary: "Sweet, sour, and spicy salad with juicy pomelo segments and toasted coconut.",
+    extendedIngredients: [
+      { id: 1, name: "pomelo", amount: 1, unit: "", original: "1 large pomelo, peeled and segmented", aisle: "Produce" },
+      { id: 2, name: "shrimp", amount: 6, unit: "large", original: "6 large boiled shrimp", aisle: "Meat" },
+      { id: 3, name: "peanuts", amount: 2, unit: "tbsp", original: "2 tbsp roasted peanuts", aisle: "Pantry" },
+      { id: 4, name: "shredded coconut", amount: 2, unit: "tbsp", original: "2 tbsp toasted coconut", aisle: "Pantry" },
+      { id: 5, name: "fish sauce", amount: 1, unit: "tbsp", original: "1 tbsp fish sauce", aisle: "Pantry" },
+      { id: 6, name: "lime juice", amount: 1, unit: "tbsp", original: "1 tbsp lime juice", aisle: "Produce" },
+      { id: 7, name: "sugar", amount: 1, unit: "tsp", original: "1 tsp palm sugar", aisle: "Pantry" },
+      { id: 8, name: "chili flakes", amount: 0.5, unit: "tsp", original: "Thai chili flakes", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk fish sauce, lime juice, sugar, and chili to make the dressing.", ingredients: [], equipment: [] },
+      { number: 2, step: "Tear pomelo into bite-sized chunks into a bowl.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add shrimp, peanuts, and coconut; pour over the dressing.", ingredients: [], equipment: [] },
+      { number: 4, step: "Toss gently and serve immediately garnished with shallots.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2014,
+    title: "Moroccan Couscous Salad",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 4,
+    calories: 320,
+    protein: "8g",
+    fat: "14g",
+    carbs: "45g",
+    dishTypes: ["lunch"],
+    summary: "Vibrant couscous with dried fruits, chickpeas, and a warm cumin-lemon dressing.",
+    extendedIngredients: [
+      { id: 1, name: "couscous", amount: 1, unit: "cup", original: "1 cup dried couscous", aisle: "Grains" },
+      { id: 2, name: "chickpeas", amount: 1, unit: "can", original: "1 can chickpeas, drained", aisle: "Pantry" },
+      { id: 3, name: "dried apricots", amount: 0.25, unit: "cup", original: "1/4 cup chopped dried apricots", aisle: "Pantry" },
+      { id: 4, name: "slivered almonds", amount: 2, unit: "tbsp", original: "2 tbsp toasted almonds", aisle: "Pantry" },
+      { id: 5, name: "cucumber", amount: 0.5, unit: "cup", original: "Diced cucumber", aisle: "Produce" },
+      { id: 6, name: "lemon", amount: 1, unit: "", original: "1 lemon, juiced", aisle: "Produce" },
+      { id: 7, name: "cumin", amount: 1, unit: "tsp", original: "1 tsp ground cumin", aisle: "Spices" },
+      { id: 8, name: "parsley", amount: 0.25, unit: "cup", original: "Fresh parsley and mint", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Pour boiling water over couscous; cover and let sit for 5 minutes.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fluff with a fork and add chickpeas, apricots, and vegetables.", ingredients: [], equipment: [] },
+      { number: 3, step: "Whisk lemon juice, oil, and cumin; pour over the salad.", ingredients: [], equipment: [] },
+      { number: 4, step: "Fold in the almonds and fresh herbs before serving.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2015,
+    title: "Baja Shrimp Tacos",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1512838243191-e81e8f66f1fd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 380,
+    protein: "24g",
+    fat: "18g",
+    carbs: "32g",
+    dishTypes: ["lunch"],
+    summary: "Seared shrimp with a tangy slaw and creamy cilantro sauce in soft tortillas.",
+    extendedIngredients: [
+      { id: 1, name: "shrimp", amount: 300, unit: "g", original: "300g large shrimp, peeled", aisle: "Meat" },
+      { id: 2, name: "corn tortillas", amount: 6, unit: "small", original: "6 small corn tortillas", aisle: "Pantry" },
+      { id: 3, name: "cabbage mix", amount: 2, unit: "cups", original: "2 cups shredded cabbage", aisle: "Produce" },
+      { id: 4, name: "sour cream", amount: 0.25, unit: "cup", original: "1/4 cup sour cream", aisle: "Dairy" },
+      { id: 5, name: "lime", amount: 1, unit: "", original: "1 lime, juiced", aisle: "Produce" },
+      { id: 6, name: "chili powder", amount: 1, unit: "tsp", original: "1 tsp chili powder", aisle: "Spices" },
+      { id: 7, name: "cilantro", amount: 2, unit: "tbsp", original: "Fresh cilantro", aisle: "Produce" },
+      { id: 8, name: "radish", amount: 2, unit: "", original: "Slices of radish for garnish", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Season shrimp with chili powder and sear in a pan for 2 mins per side.", ingredients: [], equipment: [] },
+      { number: 2, step: "Mix sour cream, lime juice, and cilantro for the sauce.", ingredients: [], equipment: [] },
+      { number: 3, step: "Warm tortillas; fill with cabbage slaw and shrimp.", ingredients: [], equipment: [] },
+      { number: 4, step: "Spoon sauce over the top and garnish with radishes.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 2016,
+    title: "Mediterranean Mezze Platter",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1544124499-58912cbddada?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 450,
+    protein: "12g",
+    fat: "28g",
+    carbs: "45g",
+    dishTypes: ["lunch"],
+    summary: "A vibrant assortment of hummus, falafel, olives, and fresh vegetables served with warm pita.",
+    extendedIngredients: [
+      { id: 1, name: "hummus", amount: 1, unit: "cup", original: "1 cup classic hummus", aisle: "International" },
+      { id: 2, name: "falafel", amount: 6, unit: "pieces", original: "6 ready-to-eat falafel", aisle: "International" },
+      { id: 3, name: "pita bread", amount: 2, unit: "", original: "2 warm pita breads", aisle: "Bakery" },
+      { id: 4, name: "kalamata olives", amount: 0.5, unit: "cup", original: "1/2 cup olives", aisle: "International" },
+      { id: 5, name: "cucumber", amount: 1, unit: "", original: "1 small cucumber, sliced", aisle: "Produce" },
+      { id: 6, name: "cherry tomatoes", amount: 1, unit: "cup", original: "1 cup cherry tomatoes", aisle: "Produce" },
+      { id: 7, name: "feta cheese", amount: 50, unit: "g", original: "50g feta cheese", aisle: "Dairy" },
+      { id: 8, name: "olive oil", amount: 1, unit: "tbsp", original: "Extra virgin olive oil", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Arrange hummus and falafel on a large platter.", ingredients: [], equipment: [] },
+      { number: 2, step: "Scatter olives, cucumbers, and tomatoes around the platter.", ingredients: [], equipment: [] },
+      { number: 3, step: "Crumble feta over the vegetables and drizzle with olive oil.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve with pita cut into triangles for dipping.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 2017,
+    title: "Vietnamese Chicken Banh Mi",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1600454021970-351feb4a503e?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 520,
+    protein: "32g",
+    fat: "18g",
+    carbs: "62g",
+    dishTypes: ["lunch"],
+    summary: "A fusion of crisp baguette, savory grilled chicken, and pickled vegetables with spicy mayo.",
+    extendedIngredients: [
+      { id: 1, name: "baguette", amount: 2, unit: "small", original: "2 small crusty baguettes", aisle: "Bakery" },
+      { id: 2, name: "chicken breast", amount: 2, unit: "", original: "2 grilled chicken breasts, sliced", aisle: "Meat" },
+      { id: 3, name: "pickled carrots", amount: 0.5, unit: "cup", original: "1/2 cup pickled carrots & daikon", aisle: "International" },
+      { id: 4, name: "cilantro", amount: 0.5, unit: "cup", original: "Fresh cilantro sprigs", aisle: "Produce" },
+      { id: 5, name: "jalapeno", amount: 1, unit: "", original: "1 jalapeno, thinly sliced", aisle: "Produce" },
+      { id: 6, name: "mayonnaise", amount: 2, unit: "tbsp", original: "2 tbsp mayonnaise", aisle: "Pantry" },
+      { id: 7, name: "sriracha", amount: 1, unit: "tsp", original: "1 tsp sriracha", aisle: "Spices" },
+      { id: 8, name: "cucumber", amount: 0.5, unit: "", original: "Cucumber strips", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Slice baguettes and spread with a mix of mayo and sriracha.", ingredients: [], equipment: [] },
+      { number: 2, step: "Layer grilled chicken and cucumber strips inside.", ingredients: [], equipment: [] },
+      { number: 3, step: "Top with pickled vegetables, jalapenos, and plenty of cilantro.", ingredients: [], equipment: [] },
+      { number: 4, step: "Press down slightly and serve immediately.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 2018,
+    title: "Classic Cobb Salad with Avocado",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 480,
+    protein: "35g",
+    fat: "32g",
+    carbs: "12g",
+    dishTypes: ["lunch"],
+    summary: "A composed American salad with layers of protein, healthy fats, and crisp greens.",
+    extendedIngredients: [
+      { id: 1, name: "romaine", amount: 4, unit: "cups", original: "4 cups chopped romaine lettuce", aisle: "Produce" },
+      { id: 2, name: "chicken", amount: 1, unit: "cup", original: "1 cup cooked chicken, cubed", aisle: "Meat" },
+      { id: 3, name: "hard-boiled eggs", amount: 2, unit: "", original: "2 hard-boiled eggs, chopped", aisle: "Dairy" },
+      { id: 4, name: "bacon", amount: 4, unit: "strips", original: "4 strips cooked bacon, crumbled", aisle: "Meat" },
+      { id: 5, name: "avocado", amount: 1, unit: "", original: "1 ripe avocado, diced", aisle: "Produce" },
+      { id: 6, name: "blue cheese", amount: 0.25, unit: "cup", original: "1/4 cup crumbled blue cheese", aisle: "Dairy" },
+      { id: 7, name: "tomatoes", amount: 1, unit: "cup", original: "1 cup cherry tomatoes", aisle: "Produce" },
+      { id: 8, name: "red wine vinaigrette", amount: 0.25, unit: "cup", original: "1/4 cup red wine vinaigrette", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Lay the lettuce as a base in a large bowl or platter.", ingredients: [], equipment: [] },
+      { number: 2, step: "Arrange chicken, eggs, bacon, avocado, cheese, and tomatoes in neat rows.", ingredients: [], equipment: [] },
+      { number: 3, step: "Drizzle vinaigrette evenly over the entire salad.", ingredients: [], equipment: [] },
+      { number: 4, step: "Toss just before eating to ensure even dressing coverage.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 2019,
+    title: "Thai Green Papaya Salad (Som Tum)",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1569058242253-92a9c73f0803?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 210,
+    protein: "6g",
+    fat: "8g",
+    carbs: "32g",
+    dishTypes: ["lunch"],
+    summary: "Exotically spicy, sour, and sweet salad made from shredded green papaya and peanuts.",
+    extendedIngredients: [
+      { id: 1, name: "green papaya", amount: 2, unit: "cups", original: "2 cups shredded green papaya", aisle: "International" },
+      { id: 2, name: "green beans", amount: 0.5, unit: "cup", original: "1/2 cup long beans, cut", aisle: "Produce" },
+      { id: 3, name: "peanuts", amount: 2, unit: "tbsp", original: "2 tbsp roasted peanuts", aisle: "Pantry" },
+      { id: 4, name: "lime", amount: 2, unit: "", original: "2 limes for juice", aisle: "Produce" },
+      { id: 5, name: "fish sauce", amount: 2, unit: "tbsp", original: "2 tbsp fish sauce", aisle: "International" },
+      { id: 6, name: "palm sugar", amount: 1, unit: "tbsp", original: "1 tbsp palm sugar", aisle: "International" },
+      { id: 7, name: "garlic", amount: 2, unit: "cloves", original: "2 cloves garlic", aisle: "Produce" },
+      { id: 8, name: "bird's eye chili", amount: 2, unit: "", original: "2 bird's eye chilies", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Pound garlic and chilies in a mortar and pestle.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add long beans and peanuts, pound lightly to bruise.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add sugar, lime juice, and fish sauce; mix until sugar dissolves.", ingredients: [], equipment: [] },
+      { number: 4, step: "Toss with shredded papaya and serve immediately.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 2020,
+    title: "Spinach & Goat Cheese Frittata",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1594968973184-9140fa24776e?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 4,
+    calories: 280,
+    protein: "18g",
+    fat: "22g",
+    carbs: "6g",
+    dishTypes: ["lunch"],
+    summary: "A light yet satisfying egg dish filled with baby spinach and pockets of creamy goat cheese.",
+    extendedIngredients: [
+      { id: 1, name: "eggs", amount: 8, unit: "", original: "8 large eggs", aisle: "Dairy" },
+      { id: 2, name: "spinach", amount: 4, unit: "cups", original: "4 cups baby spinach", aisle: "Produce" },
+      { id: 3, name: "goat cheese", amount: 100, unit: "g", original: "100g soft goat cheese", aisle: "Dairy" },
+      { id: 4, name: "milk", amount: 0.25, unit: "cup", original: "1/4 cup milk", aisle: "Dairy" },
+      { id: 5, name: "onion", amount: 1, unit: "small", original: "1 small yellow onion, diced", aisle: "Produce" },
+      { id: 6, name: "garlic", amount: 2, unit: "cloves", original: "2 cloves garlic, minced", aisle: "Produce" },
+      { id: 7, name: "olive oil", amount: 1, unit: "tbsp", original: "1 tbsp olive oil", aisle: "Pantry" },
+      { id: 8, name: "nutmeg", amount: 0.25, unit: "tsp", original: "Pinch of ground nutmeg", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sauté onion and garlic; add spinach until wilted.", ingredients: [], equipment: [] },
+      { number: 2, step: "Whisk eggs, milk, and nutmeg; pour into the pan over the spinach.", ingredients: [], equipment: [] },
+      { number: 3, step: "Dot with goat cheese and cook on low heat until edges are set.", ingredients: [], equipment: [] },
+      { number: 4, step: "Finish under the broiler for 2 minutes until top is golden.", ingredients: [] }
     ]}]
   },
 
@@ -1209,6 +2645,216 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 4, step: "Serve rice with fresh mango and remaining coconut sauce.", ingredients: [], equipment: [] }
     ]}]
   },
+  {
+    id: 5009,
+    title: "Parisian Almond Macarons",
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1558961776-6f5ec273639d?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 90,
+    servings: 12,
+    calories: 120,
+    protein: "2g",
+    fat: "6g",
+    carbs: "18g",
+    dishTypes: ["dessert"],
+    summary: "Delicate almond meringue cookies with a smooth, ganache filling.",
+    extendedIngredients: [
+      { id: 1, name: "almond flour", amount: 125, unit: "g", original: "125g superfine almond flour", aisle: "Baking" },
+      { id: 2, name: "powdered sugar", amount: 125, unit: "g", original: "125g powdered sugar", aisle: "Baking" },
+      { id: 3, name: "egg whites", amount: 2, unit: "large", original: "2 room temp egg whites", aisle: "Dairy" },
+      { id: 4, name: "granulated sugar", amount: 50, unit: "g", original: "50g granulated sugar", aisle: "Pantry" },
+      { id: 5, name: "vanilla bean", amount: 1, unit: "tsp", original: "1 tsp vanilla extract", aisle: "Baking" },
+      { id: 6, name: "food coloring", amount: 1, unit: "drop", original: "Gel food coloring (optional)", aisle: "Baking" },
+      { id: 7, name: "dark chocolate", amount: 100, unit: "g", original: "100g chocolate for ganache", aisle: "Baking" },
+      { id: 8, name: "heavy cream", amount: 50, unit: "ml", original: "50ml heavy cream", aisle: "Dairy" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sift almond flour and powdered sugar twice to ensure a smooth shell.", ingredients: [], equipment: [] },
+      { number: 2, step: "Whisk egg whites and granulated sugar to stiff peaks (meringue).", ingredients: [], equipment: [] },
+      { number: 3, step: "Fold dry ingredients into meringue (macaronage) until the batter flows like lava.", ingredients: [], equipment: [] },
+      { number: 4, step: "Pipe onto trays, let rest for 30 mins to form a skin, then bake at 300°F for 15 mins.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5010,
+    title: "Sicilian Pistachio Cannoli",
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 40,
+    servings: 6,
+    calories: 320,
+    protein: "6g",
+    fat: "18g",
+    carbs: "35g",
+    dishTypes: ["dessert"],
+    summary: "Crispy fried pastry shells filled with sweet ricotta cream and crushed pistachios.",
+    extendedIngredients: [
+      { id: 1, name: "cannoli shells", amount: 6, unit: "", original: "6 pre-baked cannoli shells", aisle: "Bakery" },
+      { id: 2, name: "ricotta cheese", amount: 500, unit: "g", original: "500g drained sheep's milk ricotta", aisle: "Dairy" },
+      { id: 3, name: "powdered sugar", amount: 0.75, unit: "cup", original: "3/4 cup powdered sugar", aisle: "Baking" },
+      { id: 4, name: "pistachios", amount: 0.25, unit: "cup", original: "1/4 cup crushed pistachios", aisle: "Pantry" },
+      { id: 5, name: "chocolate chips", amount: 2, unit: "tbsp", original: "2 tbsp mini chocolate chips", aisle: "Baking" },
+      { id: 6, name: "orange zest", amount: 1, unit: "tsp", original: "Fresh orange zest", aisle: "Produce" },
+      { id: 7, name: "vanilla", amount: 1, unit: "tsp", original: "1 tsp vanilla extract", aisle: "Baking" },
+      { id: 8, name: "cinnamon", amount: 0.5, unit: "tsp", original: "Pinch of ground cinnamon", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whip the drained ricotta with powdered sugar and vanilla until smooth.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fold in the orange zest, cinnamon, and chocolate chips.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pipe the cream into the cannoli shells from both ends just before serving.", ingredients: [], equipment: [] },
+      { number: 4, step: "Dip the ends into crushed pistachios and dust with powdered sugar.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5011,
+    title: "Matcha Mille Crepe Cake",
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1536551061288-29424859a68a?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 120,
+    servings: 10,
+    calories: 450,
+    protein: "8g",
+    fat: "25g",
+    carbs: "48g",
+    dishTypes: ["dessert"],
+    summary: "Twenty layers of paper-thin matcha crepes separated by light pastry cream.",
+    extendedIngredients: [
+      { id: 1, name: "matcha powder", amount: 3, unit: "tbsp", original: "3 tbsp culinary grade matcha", aisle: "Tea" },
+      { id: 2, name: "flour", amount: 2, unit: "cups", original: "2 cups all-purpose flour", aisle: "Baking" },
+      { id: 3, name: "milk", amount: 3, unit: "cups", original: "3 cups whole milk", aisle: "Dairy" },
+      { id: 4, name: "eggs", amount: 4, unit: "large", original: "4 large eggs", aisle: "Dairy" },
+      { id: 5, name: "heavy cream", amount: 2, unit: "cups", original: "2 cups heavy whipping cream", aisle: "Dairy" },
+      { id: 6, name: "butter", amount: 4, unit: "tbsp", original: "4 tbsp melted butter", aisle: "Dairy" },
+      { id: 7, name: "sugar", amount: 0.5, unit: "cup", original: "1/2 cup sugar", aisle: "Pantry" },
+      { id: 8, name: "vanilla", amount: 1, unit: "tsp", original: "1 tsp vanilla extract", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk crepe batter (flour, matcha, eggs, milk, butter) and let rest for 1 hour.", ingredients: [], equipment: [] },
+      { number: 2, step: "Cook 20 thin crepes in a non-stick pan and let them cool completely.", ingredients: [], equipment: [] },
+      { number: 3, step: "Whip cream with sugar and vanilla to stiff peaks.", ingredients: [], equipment: [] },
+      { number: 4, step: "Layer crepes with a thin spread of cream in between each; chill for 4 hours before slicing.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5012,
+    title: "Churros with Chocolate Ganache",
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1577224216956-65be797378fc?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 30,
+    servings: 4,
+    calories: 420,
+    protein: "4g",
+    fat: "22g",
+    carbs: "50g",
+    dishTypes: ["dessert"],
+    summary: "Golden, crispy Spanish fried dough tossed in cinnamon sugar with a rich dipping sauce.",
+    extendedIngredients: [
+      { id: 1, name: "all-purpose flour", amount: 1, unit: "cup", original: "1 cup all-purpose flour", aisle: "Baking" },
+      { id: 2, name: "water", amount: 1, unit: "cup", original: "1 cup boiling water", aisle: "Pantry" },
+      { id: 3, name: "butter", amount: 2, unit: "tbsp", original: "2 tbsp unsalted butter", aisle: "Dairy" },
+      { id: 4, name: "sugar", amount: 0.5, unit: "cup", original: "1/2 cup sugar for coating", aisle: "Pantry" },
+      { id: 5, name: "cinnamon", amount: 1, unit: "tbsp", original: "1 tbsp ground cinnamon", aisle: "Spices" },
+      { id: 6, name: "dark chocolate", amount: 100, unit: "g", original: "100g 70% dark chocolate", aisle: "Baking" },
+      { id: 7, name: "heavy cream", amount: 0.5, unit: "cup", original: "1/2 cup heavy cream", aisle: "Dairy" },
+      { id: 8, name: "vanilla", amount: 1, unit: "tsp", original: "1 tsp vanilla extract", aisle: "Baking" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Boil water with butter and salt; stir in flour until a dough ball forms.", ingredients: [], equipment: [] },
+      { number: 2, step: "Transfer dough to a piping bag with a star tip.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pipe 4-inch strips into hot oil and fry until golden brown.", ingredients: [], equipment: [] },
+      { number: 4, step: "Toss in cinnamon sugar and serve with melted chocolate ganache.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5013,
+    title: "Turkish Pistachio Baklava",
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 120,
+    servings: 12,
+    calories: 380,
+    protein: "5g",
+    fat: "24g",
+    carbs: "40g",
+    dishTypes: ["dessert"],
+    summary: "A rich, sweet pastry made of layers of thin phyllo dough with chopped pistachios and honey syrup.",
+    extendedIngredients: [
+      { id: 1, name: "phyllo dough", amount: 1, unit: "lb", original: "1 lb phyllo dough sheets", aisle: "Baking" },
+      { id: 2, name: "pistachios", amount: 300, unit: "g", original: "300g finely chopped pistachios", aisle: "Pantry" },
+      { id: 3, name: "butter", amount: 200, unit: "g", original: "200g clarified butter (ghee)", aisle: "Dairy" },
+      { id: 4, name: "honey", amount: 1, unit: "cup", original: "1 cup orange blossom honey", aisle: "Pantry" },
+      { id: 5, name: "sugar", amount: 1, unit: "cup", original: "1 cup sugar", aisle: "Pantry" },
+      { id: 6, name: "lemon juice", amount: 1, unit: "tbsp", original: "1 tbsp lemon juice", aisle: "Produce" },
+      { id: 7, name: "rose water", amount: 1, unit: "tsp", original: "1 tsp rose water", aisle: "Pantry" },
+      { id: 8, name: "water", amount: 1, unit: "cup", original: "1 cup water for syrup", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Layer 40 sheets of phyllo, brushing each with melted butter and adding pistachios between layers.", ingredients: [], equipment: [] },
+      { number: 2, step: "Cut into diamonds and bake at 325°F for 45 minutes until golden.", ingredients: [], equipment: [] },
+      { number: 3, step: "Boil water, sugar, honey, and lemon to create a thick syrup.", ingredients: [], equipment: [] },
+      { number: 4, step: "Pour cold syrup over the hot baklava immediately after baking.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5014,
+    title: "Arabic Rosewater Muhallabia",
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 4,
+    calories: 220,
+    protein: "6g",
+    fat: "8g",
+    carbs: "30g",
+    dishTypes: ["dessert"],
+    summary: "A silky Middle Eastern milk pudding scented with rose and orange blossom.",
+    extendedIngredients: [
+      { id: 1, name: "whole milk", amount: 4, unit: "cups", original: "4 cups whole milk", aisle: "Dairy" },
+      { id: 2, name: "cornstarch", amount: 4, unit: "tbsp", original: "4 tbsp cornstarch", aisle: "Pantry" },
+      { id: 3, name: "sugar", amount: 0.5, unit: "cup", original: "1/2 cup granulated sugar", aisle: "Pantry" },
+      { id: 4, name: "rose water", amount: 1, unit: "tbsp", original: "1 tbsp rose water", aisle: "Pantry" },
+      { id: 5, name: "orange blossom water", amount: 1, unit: "tsp", original: "1 tsp orange blossom water", aisle: "Pantry" },
+      { id: 6, name: "pistachios", amount: 2, unit: "tbsp", original: "Crushed pistachios for garnish", aisle: "Pantry" },
+      { id: 7, name: "rose petals", amount: 1, unit: "pinch", original: "Dried edible rose petals", aisle: "Pantry" },
+      { id: 8, name: "pomegranate", amount: 2, unit: "tbsp", original: "Fresh pomegranate seeds", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk cold milk and cornstarch until no lumps remain.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add sugar and heat over medium flame, stirring constantly until thick.", ingredients: [], equipment: [] },
+      { number: 3, step: "Stir in rose and orange blossom waters; pour into small dessert bowls.", ingredients: [], equipment: [] },
+      { number: 4, step: "Chill for 3 hours; garnish with pistachios and rose petals.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5015,
+    title: "Croquembouche Profiteroles",
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 90,
+    servings: 8,
+    calories: 450,
+    protein: "10g",
+    fat: "28g",
+    carbs: "40g",
+    dishTypes: ["dessert"],
+    summary: "French choux pastry puffs filled with vanilla crème pâtissière and dipped in spun sugar caramel.",
+    extendedIngredients: [
+      { id: 1, name: "choux pastry", amount: 1, unit: "batch", original: "1 batch homemade choux pastry", aisle: "Bakery" },
+      { id: 2, name: "heavy cream", amount: 2, unit: "cups", original: "2 cups heavy cream", aisle: "Dairy" },
+      { id: 3, name: "vanilla bean", amount: 1, unit: "", original: "1 vanilla bean", aisle: "Produce" },
+      { id: 4, name: "sugar", amount: 1, unit: "cup", original: "1 cup sugar for caramel", aisle: "Pantry" },
+      { id: 5, name: "eggs", amount: 4, unit: "", original: "4 large eggs", aisle: "Dairy" },
+      { id: 6, name: "butter", amount: 4, unit: "tbsp", original: "4 tbsp butter", aisle: "Dairy" },
+      { id: 7, name: "flour", amount: 1, unit: "cup", original: "1 cup flour", aisle: "Baking" },
+      { id: 8, name: "water", amount: 1, unit: "cup", original: "1 cup water", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Bake choux pastry puffs until golden and hollow.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fill each puff with homemade vanilla bean pastry cream.", ingredients: [], equipment: [] },
+      { number: 3, step: "Make a dry caramel by melting sugar until amber.", ingredients: [], equipment: [] },
+      { number: 4, step: "Carefully dip the top of each profiterole into the hot caramel; arrange into a tower.", ingredients: [], equipment: [] }
+    ]}]
+  },
 
   // --- DRINKS (8 RECIPES) ---
   {
@@ -1451,6 +3097,336 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 4, step: "Froth slightly and strain into a large mug.", ingredients: [], equipment: [] }
     ]}]
   },
+  {
+    id: 6009,
+    title: "Anti-Inflammatory Ginger Turmeric Tea",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 45,
+    protein: "1g",
+    fat: "1g",
+    carbs: "8g",
+    dishTypes: ["drink"],
+    summary: "Warming golden tea with fresh roots, black pepper, and raw honey.",
+    extendedIngredients: [
+      { id: 1, name: "fresh turmeric", amount: 1, unit: "inch", original: "1 inch fresh turmeric, sliced", aisle: "Produce" },
+      { id: 2, name: "fresh ginger", amount: 1, unit: "inch", original: "1 inch fresh ginger, sliced", aisle: "Produce" },
+      { id: 3, name: "black pepper", amount: 1, unit: "pinch", original: "Pinch of black pepper", aisle: "Spices" },
+      { id: 4, name: "honey", amount: 1, unit: "tsp", original: "1 tsp raw honey", aisle: "Pantry" },
+      { id: 5, name: "lemon", amount: 0.5, unit: "", original: "1/2 lemon, juiced", aisle: "Produce" },
+      { id: 6, name: "water", amount: 2, unit: "cups", original: "2 cups filtered water", aisle: "Pantry" },
+      { id: 7, name: "cinnamon", amount: 1, unit: "stick", original: "1 cinnamon stick", aisle: "Spices" },
+      { id: 8, name: "cayenne", amount: 1, unit: "pinch", original: "Optional pinch of cayenne", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Simmer ginger, turmeric, and cinnamon in water for 8 minutes.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add black pepper (to activate turmeric's curcumin).", ingredients: [], equipment: [] },
+      { number: 3, step: "Strain into a mug; stir in honey and lemon juice.", ingredients: [], equipment: [] },
+      { number: 4, step: "Enjoy hot as a morning revitalizer.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 6010,
+    title: "Mint & Cucumber Spa Water",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 4,
+    calories: 10,
+    protein: "0g",
+    fat: "0g",
+    carbs: "2g",
+    dishTypes: ["drink"],
+    summary: "Zesty, hydrating infusion that transforms plain water into a refreshing luxury.",
+    extendedIngredients: [
+      { id: 1, name: "cucumber", amount: 0.5, unit: "", original: "1/2 cucumber, thinly sliced", aisle: "Produce" },
+      { id: 2, name: "mint", amount: 15, unit: "leaves", original: "15 fresh mint leaves", aisle: "Produce" },
+      { id: 3, name: "lime", amount: 1, unit: "", original: "1 lime, sliced into rounds", aisle: "Produce" },
+      { id: 4, name: "water", amount: 1, unit: "liter", original: "1 liter chilled mineral water", aisle: "Pantry" },
+      { id: 5, name: "ice", amount: 1, unit: "cup", original: "1 cup ice cubes", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Place cucumber, mint, and lime in a large glass pitcher.", ingredients: [], equipment: [] },
+      { number: 2, step: "Lightly muddle the mint to release its oils.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pour in chilled water and let infuse for at least 30 minutes in the fridge.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve over ice with fresh cucumber garnishes.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 6011,
+    title: "Watermelon Lime Hydrator",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1525904097878-94fb15835963?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 2,
+    calories: 60,
+    protein: "1g",
+    fat: "0g",
+    carbs: "15g",
+    dishTypes: ["drink"],
+    summary: "Naturally sweet watermelon blended with zesty lime—perfect for hot summer days.",
+    extendedIngredients: [
+      { id: 1, name: "watermelon", amount: 3, unit: "cups", original: "3 cups seedless watermelon chunks", aisle: "Produce" },
+      { id: 2, name: "lime", amount: 1, unit: "", original: "1 lime, juiced", aisle: "Produce" },
+      { id: 3, name: "mint", amount: 4, unit: "leaves", original: "Fresh mint for blending", aisle: "Produce" },
+      { id: 4, name: "ice", amount: 0.5, unit: "cup", original: "Handful of ice", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Place watermelon, lime juice, and mint in a high-speed blender.", ingredients: [], equipment: [] },
+      { number: 2, step: "Pulse until smooth; avoid over-blending to keep it fresh.", ingredients: [], equipment: [] },
+      { number: 3, step: "Strain if you prefer a perfectly clear juice, or keep the fiber.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve in tall glasses with a sprig of mint.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 6012,
+    title: "Healthy Cacao Hot Chocolate",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 1,
+    calories: 140,
+    protein: "5g",
+    fat: "8g",
+    carbs: "12g",
+    dishTypes: ["drink"],
+    summary: "Guilt-free hot chocolate using antioxidant-rich raw cacao and creamy almond milk.",
+    extendedIngredients: [
+      { id: 1, name: "almond milk", amount: 1, unit: "cup", original: "1 cup unsweetened almond milk", aisle: "Dairy" },
+      { id: 2, name: "cacao powder", amount: 1, unit: "tbsp", original: "1 tbsp raw organic cacao", aisle: "Baking" },
+      { id: 3, name: "maple syrup", amount: 1, unit: "tsp", original: "1 tsp maple syrup", aisle: "Pantry" },
+      { id: 4, name: "cinnamon", amount: 1, unit: "pinch", original: "Pinch of ground cinnamon", aisle: "Spices" },
+      { id: 5, name: "vanilla", amount: 0.5, unit: "tsp", original: "1/2 tsp vanilla extract", aisle: "Baking" },
+      { id: 6, name: "sea salt", amount: 1, unit: "pinch", original: "The tiniest pinch of sea salt", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Heat almond milk in a small saucepan over medium-low heat.", ingredients: [], equipment: [] },
+      { number: 2, step: "Whisk in cacao powder, maple syrup, and spices.", ingredients: [], equipment: [] },
+      { number: 3, step: "Froth with a hand blender for 30 seconds for a creamy head.", ingredients: [], equipment: [] },
+      { number: 4, step: "Pour into a warm mug and dust with more cacao.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 6013,
+    title: "Blue Butterfly Pea flower Tea",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 8,
+    servings: 1,
+    calories: 20,
+    protein: "0g",
+    fat: "0g",
+    carbs: "5g",
+    dishTypes: ["drink"],
+    summary: "Magical blue tea that changes color to purple when you add a squeeze of lemon.",
+    extendedIngredients: [
+      { id: 1, name: "butterfly pea flowers", amount: 5, unit: "dried", original: "5 dried butterfly pea flowers", aisle: "Tea" },
+      { id: 2, name: "water", amount: 1, unit: "cup", original: "1 cup hot water", aisle: "Pantry" },
+      { id: 3, name: "lemon", amount: 0.5, unit: "", original: "1/2 lemon", aisle: "Produce" },
+      { id: 4, name: "honey", amount: 1, unit: "tsp", original: "1 tsp raw honey", aisle: "Pantry" },
+      { id: 5, name: "lavender", amount: 1, unit: "pinch", original: "Optional pinch of lavender", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Steep flowers in hot water for 5 minutes until deep blue.", ingredients: [], equipment: [] },
+      { number: 2, step: "Strain and stir in honey.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add a squeeze of lemon to watch the color transform to vibrant purple.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve hot or over ice as an aesthetic mocktail base.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 6014,
+    title: "Traditional Egyptian Karkade Tea",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 4,
+    calories: 45,
+    protein: "0g",
+    fat: "0g",
+    carbs: "12g",
+    dishTypes: ["drink"],
+    summary: "Vibrant ruby-red hibiscus tea, served stone-cold and perfectly balanced with sweetness.",
+    extendedIngredients: [
+      { id: 1, name: "dried hibiscus petals", amount: 1, unit: "cup", original: "1 cup dried hibiscus (Karkade)", aisle: "Pantry" },
+      { id: 2, name: "sugar", amount: 0.25, unit: "cup", original: "1/4 cup sugar or sweetener of choice", aisle: "Pantry" },
+      { id: 3, name: "water", amount: 6, unit: "cups", original: "6 cups water", aisle: "Pantry" },
+      { id: 4, name: "cloves", amount: 2, unit: "whole", original: "2 cloves", aisle: "Spices" },
+      { id: 5, name: "ice", amount: 2, unit: "cups", original: "Plenty of ice", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Bring water and hibiscus petals to a rolling boil.", ingredients: [], equipment: [] },
+      { number: 2, step: "Turn off heat, add cloves, and let steep for 10 minutes.", ingredients: [], equipment: [] },
+      { number: 3, step: "Strain and stir in sugar while still warm; then chill thoroughly in the fridge.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve over ice in tall glasses for the ultimate refreshement.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 6015,
+    title: "Ultimate Green Detox Juice",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 85,
+    protein: "3g",
+    fat: "0g",
+    carbs: "18g",
+    dishTypes: ["drink"],
+    summary: "Clear the fog with this nutrient-dense blend of kale, apple, and citrus.",
+    extendedIngredients: [
+      { id: 1, name: "kale", amount: 2, unit: "cups", original: "2 cups fresh kale", aisle: "Produce" },
+      { id: 2, name: "green apple", amount: 1, unit: "", original: "1 green apple, cored", aisle: "Produce" },
+      { id: 3, name: "ginger", amount: 0.5, unit: "inch", original: "1/2 inch fresh ginger", aisle: "Produce" },
+      { id: 4, name: "celery", amount: 2, unit: "stalks", original: "2 stalks celery", aisle: "Produce" },
+      { id: 5, name: "lemon", amount: 0.5, unit: "", original: "1/2 lemon, peeled", aisle: "Produce" },
+      { id: 6, name: "cucumber", amount: 0.5, unit: "", original: "1/2 cucumber", aisle: "Produce" },
+      { id: 7, name: "mint", amount: 4, unit: "leaves", original: "Fresh mint", aisle: "Produce" },
+      { id: 8, name: "salt", amount: 1, unit: "pinch", original: "Pinch of Pink Himalayan salt", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Wash all vegetables and fruit thoroughly.", ingredients: [], equipment: [] },
+      { number: 2, step: "Run all ingredients through a cold-press juicer.", ingredients: [], equipment: [] },
+      { number: 3, step: "Stir in the pinch of salt to balance the flavors.", ingredients: [], equipment: [] },
+      { number: 4, step: "Drink immediately to get the maximum vibration of nutrients.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 6016,
+    title: "Mango Lassi with Cardamom",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1571006682855-3fc35578c658?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 2,
+    calories: 180,
+    protein: "6g",
+    fat: "4g",
+    carbs: "30g",
+    dishTypes: ["drink"],
+    summary: "A creamy and refreshing traditional Indian drink made with yogurt and ripe mangoes.",
+    extendedIngredients: [
+      { id: 1, name: "mango", amount: 2, unit: "ripe", original: "2 ripe mangoes, diced", aisle: "Produce" },
+      { id: 2, name: "greek yogurt", amount: 1, unit: "cup", original: "1 cup plain Greek yogurt", aisle: "Dairy" },
+      { id: 3, name: "milk", amount: 0.5, unit: "cup", original: "1/2 cup milk (or water)", aisle: "Dairy" },
+      { id: 4, name: "honey", amount: 2, unit: "tbsp", original: "2 tbsp honey or sugar", aisle: "Pantry" },
+      { id: 5, name: "cardamom", amount: 0.5, unit: "tsp", original: "1/2 tsp ground cardamom", aisle: "Spices" },
+      { id: 6, name: "pistachios", amount: 1, unit: "tsp", original: "Crushed pistachios for garnish", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Combine all ingredients in a blender.", ingredients: [], equipment: [] },
+      { number: 2, step: "Blend on high until smooth and creamy.", ingredients: [], equipment: [] },
+      { number: 3, step: "Taste and adjust sweetness if necessary.", ingredients: [], equipment: [] },
+      { number: 4, step: "Pour into glasses and sprinkle with pistachios.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 6017,
+    title: "Classic Mojito Mocktail",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 1,
+    calories: 60,
+    protein: "0g",
+    fat: "0g",
+    carbs: "15g",
+    dishTypes: ["drink"],
+    summary: "A zesty and cooling blend of fresh lime, mint, and soda water.",
+    extendedIngredients: [
+      { id: 1, name: "lime", amount: 1, unit: "", original: "1 lime, cut into wedges", aisle: "Produce" },
+      { id: 2, name: "mint", amount: 10, unit: "leaves", original: "10 fresh mint leaves", aisle: "Produce" },
+      { id: 3, name: "sugar", amount: 2, unit: "tsp", original: "2 tsp sugar or simple syrup", aisle: "Pantry" },
+      { id: 4, name: "soda water", amount: 1, unit: "cup", original: "1 cup club soda", aisle: "Pantry" },
+      { id: 5, name: "ice", amount: 1, unit: "cup", original: "Crushed ice", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Muddle the lime wedges and mint leaves with sugar in a glass.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fill the glass with crushed ice.", ingredients: [], equipment: [] },
+      { number: 3, step: "Top with club soda and stir gently.", ingredients: [], equipment: [] },
+      { number: 4, step: "Garnish with a sprig of mint and a lime wheel.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 6018,
+    title: "Homemade Fresh Lemonade",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1523472721958-978152f4d69b?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 4,
+    calories: 120,
+    protein: "0g",
+    fat: "0g",
+    carbs: "30g",
+    dishTypes: ["drink"],
+    summary: "The quintessentially refreshing summer drink made with real lemons and simple syrup.",
+    extendedIngredients: [
+      { id: 1, name: "lemons", amount: 6, unit: "", original: "6 large lemons, juiced", aisle: "Produce" },
+      { id: 2, name: "sugar", amount: 1, unit: "cup", original: "1 cup sugar", aisle: "Pantry" },
+      { id: 3, name: "water", amount: 6, unit: "cups", original: "6 cups cold water", aisle: "Pantry" },
+      { id: 4, name: "ice", amount: 2, unit: "cups", original: "Ice cubes", aisle: "Pantry" },
+      { id: 5, name: "lemon slices", amount: 4, unit: "", original: "Lemon slices for garnish", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Make simple syrup by heating 1 cup water and 1 cup sugar until dissolved; let cool.", ingredients: [], equipment: [] },
+      { number: 2, step: "In a large pitcher, combine lemon juice, simple syrup, and rest of water.", ingredients: [], equipment: [] },
+      { number: 3, step: "Stir well and refrigerate until cold.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve over ice with lemon slices.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 6019,
+    title: "Iced Caramel Macchiato",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 210,
+    protein: "8g",
+    fat: "7g",
+    carbs: "32g",
+    dishTypes: ["drink"],
+    summary: "A coffeehouse favorite: sweet vanilla, rich espresso, and buttery caramel over ice.",
+    extendedIngredients: [
+      { id: 1, name: "espresso", amount: 2, unit: "shots", original: "2 shots of espresso", aisle: "Pantry" },
+      { id: 2, name: "milk", amount: 1, unit: "cup", original: "1 cup whole milk", aisle: "Dairy" },
+      { id: 3, name: "vanilla syrup", amount: 1, unit: "tbsp", original: "1 tbsp vanilla syrup", aisle: "Pantry" },
+      { id: 4, name: "caramel sauce", amount: 2, unit: "tbsp", original: "2 tbsp caramel sauce", aisle: "Pantry" },
+      { id: 5, name: "ice", amount: 1, unit: "cup", original: "Ice cubes", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Drizzle caramel sauce around the inside of a glass.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add vanilla syrup and milk to the glass, then fill with ice.", ingredients: [], equipment: [] },
+      { number: 3, step: "Slowly pour the espresso over the milk for a layered effect.", ingredients: [], equipment: [] },
+      { number: 4, step: "Drizzle more caramel on top and enjoy.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 6020,
+    title: "Watermelon Mint Cooler",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1547514701-427ec4462bdd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 2,
+    calories: 90,
+    protein: "1g",
+    fat: "0g",
+    carbs: "22g",
+    dishTypes: ["drink"],
+    summary: "Incredibly refreshing and hydrated blend of sweet watermelon and cool mint.",
+    extendedIngredients: [
+      { id: 1, name: "watermelon", amount: 4, unit: "cups", original: "4 cups cubed seedless watermelon", aisle: "Produce" },
+      { id: 2, name: "lime", amount: 1, unit: "", original: "1/2 lime, juiced", aisle: "Produce" },
+      { id: 3, name: "mint", amount: 1, unit: "tbsp", original: "Fresh mint leaves", aisle: "Produce" },
+      { id: 4, name: "ice", amount: 1, unit: "cup", original: "Small handful of ice (optional)", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Place all ingredients in a high-speed blender.", ingredients: [], equipment: [] },
+      { number: 2, step: "Process until completely smooth.", ingredients: [], equipment: [] },
+      { number: 3, step: "Strain through a mesh sieve if you prefer a thinner juice.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve chilled in glasses with a mint garnish.", ingredients: [] }
+    ]}]
+  },
 
   // --- FITNESS (8 RECIPES) ---
   {
@@ -1691,6 +3667,359 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 2, step: "Thread chicken and vegetables onto skewers.", ingredients: [], equipment: [] },
       { number: 3, step: "Grill for 8-10 minutes, turning occasionally until cooked through.", ingredients: [], equipment: [] },
       { number: 4, step: "Serve as-is or with a dollop of tzatziki.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7009,
+    title: "Mediterranean Baked Cod with Lemon",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 220,
+    protein: "32g",
+    fat: "6g",
+    carbs: "8g",
+    dishTypes: ["main dish", "fitness"],
+    summary: "Ultra-lean white fish flavored with fresh Mediterranean herbs and citrus.",
+    extendedIngredients: [
+      { id: 1, name: "cod fillets", amount: 300, unit: "g", original: "300g fresh cod fillets", aisle: "Meat" },
+      { id: 2, name: "lemon", amount: 1, unit: "", original: "1 lemon, sliced thin", aisle: "Produce" },
+      { id: 3, name: "parsley", amount: 0.25, unit: "cup", original: "Fresh parsley, chopped", aisle: "Produce" },
+      { id: 4, name: "garlic", amount: 2, unit: "cloves", original: "2 cloves garlic, minced", aisle: "Produce" },
+      { id: 5, name: "cherry tomatoes", amount: 1, unit: "cup", original: "1 cup halved cherry tomatoes", aisle: "Produce" },
+      { id: 6, name: "capers", amount: 1, unit: "tbsp", original: "1 tbsp brined capers", aisle: "Pantry" },
+      { id: 7, name: "olive oil", amount: 1, unit: "tsp", original: "1 tsp extra virgin olive oil", aisle: "Pantry" },
+      { id: 8, name: "paprika", amount: 1, unit: "pinch", original: "Smoked paprika", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Place cod fillets in a baking dish lined with parchment paper.", ingredients: [], equipment: [] },
+      { number: 2, step: "Top with lemon slices, garlic, tomatoes, and capers.", ingredients: [], equipment: [] },
+      { number: 3, step: "Bake at 400°F (200°C) for 12-15 minutes until fish flakes easily.", ingredients: [], equipment: [] },
+      { number: 4, step: "Garnish with fresh parsley and a squeeze of warm lemon.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7010,
+    title: "High-Protein Lentil & Halloumi Bowl",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1540420753444-42ea95267191?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 410,
+    protein: "28g",
+    fat: "22g",
+    carbs: "30g",
+    dishTypes: ["lunch", "fitness"],
+    summary: "Satiating combo of earthy lentils and salty grilled halloumi cheese.",
+    extendedIngredients: [
+      { id: 1, name: "cooked brown lentils", amount: 2, unit: "cups", original: "2 cups cooked brown lentils", aisle: "Pantry" },
+      { id: 2, name: "halloumi cheese", amount: 100, unit: "g", original: "100g light halloumi, sliced", aisle: "Dairy" },
+      { id: 3, name: "cucumber", amount: 1, unit: "small", original: "1 small cucumber, diced", aisle: "Produce" },
+      { id: 4, name: "radish", amount: 4, unit: "", original: "4 radishes, thinly sliced", aisle: "Produce" },
+      { id: 5, name: "mint", amount: 1, unit: "handful", original: "1 handful fresh mint", aisle: "Produce" },
+      { id: 6, name: "lemon", amount: 0.5, unit: "", original: "1/2 lemon, juiced", aisle: "Produce" },
+      { id: 7, name: "pomegranate seeds", amount: 2, unit: "tbsp", original: "2 tbsp pomegranate seeds", aisle: "Produce" },
+      { id: 8, name: "sumac", amount: 1, unit: "tsp", original: "1 tsp sumac", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Grill halloumi slices in a dry pan until golden on both sides.", ingredients: [], equipment: [] },
+      { number: 2, step: "Toss lentils with cucumber, radish, and mint.", ingredients: [], equipment: [] },
+      { number: 3, step: "Drizzle with lemon juice and sprinkle with sumac.", ingredients: [], equipment: [] },
+      { number: 4, step: "Top with grilled halloumi and pomegranate seeds.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7011,
+    title: "Lean Turkey and Spinach Meatballs",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 25,
+    servings: 4,
+    calories: 280,
+    protein: "34g",
+    fat: "10g",
+    carbs: "12g",
+    dishTypes: ["main dish", "fitness"],
+    summary: "Iron-rich meatballs with hidden spinach for a moist, high-protein meal.",
+    extendedIngredients: [
+      { id: 1, name: "ground turkey", amount: 500, unit: "g", original: "500g extra lean ground turkey", aisle: "Meat" },
+      { id: 2, name: "spinach", amount: 2, unit: "cups", original: "2 cups frozen spinach, thawed and squeezed dry", aisle: "Produce" },
+      { id: 3, name: "oats", amount: 0.25, unit: "cup", original: "1/4 cup rolled oats", aisle: "Grains" },
+      { id: 4, name: "egg", amount: 1, unit: "", original: "1 egg, beaten", aisle: "Dairy" },
+      { id: 5, name: "garlic powder", amount: 1, unit: "tsp", original: "1 tsp garlic powder", aisle: "Spices" },
+      { id: 6, name: "onion powder", amount: 1, unit: "tsp", original: "1 tsp onion powder", aisle: "Spices" },
+      { id: 7, name: "marinara", amount: 1, unit: "cup", original: "1 cup low-sugar marinara", aisle: "Pantry" },
+      { id: 8, name: "basil", amount: 4, unit: "leaves", original: "Fresh basil for garnish", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Mix turkey, chopped spinach, oats, egg, and spices in a bowl.", ingredients: [], equipment: [] },
+      { number: 2, step: "Form into 16 small meatballs.", ingredients: [], equipment: [] },
+      { number: 3, step: "Bake at 375°F for 18 minutes until cooked through.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve with warm marinara sauce over greens or zoodles.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7012,
+    title: "Protein Berry Breakfast Bowl",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 1,
+    calories: 320,
+    protein: "26g",
+    fat: "8g",
+    carbs: "35g",
+    dishTypes: ["breakfast", "fitness"],
+    summary: "Refreshing yogurt-based bowl packed with antioxidants and fiber.",
+    extendedIngredients: [
+      { id: 1, name: "Greek yogurt", amount: 1, unit: "cup", original: "1 cup non-fat Greek yogurt", aisle: "Dairy" },
+      { id: 2, name: "blueberries", amount: 0.5, unit: "cup", original: "1/2 cup fresh blueberries", aisle: "Produce" },
+      { id: 3, name: "almond butter", amount: 1, unit: "tbsp", original: "1 tbsp almond butter", aisle: "Pantry" },
+      { id: 4, name: "hemp seeds", amount: 1, unit: "tbsp", original: "1 tbsp hemp hearts", aisle: "Pantry" },
+      { id: 5, name: "granola", amount: 2, unit: "tbsp", original: "2 tbsp low-sugar granola", aisle: "Bakery" },
+      { id: 6, name: "honey", amount: 1, unit: "tsp", original: "1 tsp raw honey", aisle: "Pantry" },
+      { id: 7, name: "cinnamon", amount: 1, unit: "pinch", original: "Cinnamon sprinkle", aisle: "Spices" },
+      { id: 8, name: "mint", amount: 1, unit: "sprig", original: "1 small sprig of mint", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Place yogurt in a shallow bowl.", ingredients: [], equipment: [] },
+      { number: 2, step: "Arrange blueberries and almond butter in sections.", ingredients: [], equipment: [] },
+      { number: 3, step: "Top with hemp seeds, granola, and a dash of honey.", ingredients: [], equipment: [] },
+      { number: 4, step: "Finish with cinnamon and fresh mint.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7013,
+    title: "Teriyaki Tofu Fitness Stir-Fry",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 290,
+    protein: "22g",
+    fat: "14g",
+    carbs: "18g",
+    dishTypes: ["main dish", "fitness"],
+    summary: "Crispy tofu and vibrant vegetables in a light, salt-reduced ginger soy sauce.",
+    extendedIngredients: [
+      { id: 1, name: "firm tofu", amount: 400, unit: "g", original: "400g firm tofu, pressed and cubed", aisle: "Produce" },
+      { id: 2, name: "broccoli", amount: 2, unit: "cups", original: "2 cups broccoli florets", aisle: "Produce" },
+      { id: 3, name: "snap peas", amount: 1, unit: "cup", original: "1 cup sugar snap peas", aisle: "Produce" },
+      { id: 4, name: "ginger", amount: 1, unit: "tbsp", original: "1 tbsp fresh ginger, minced", aisle: "Produce" },
+      { id: 5, name: "low-sodium tamari", amount: 2, unit: "tbsp", original: "2 tbsp low-sodium soy sauce", aisle: "Pantry" },
+      { id: 6, name: "cashews", amount: 1, unit: "tbsp", original: "1 tbsp crushed raw cashews", aisle: "Pantry" },
+      { id: 7, name: "green onions", amount: 2, unit: "", original: "2 green onions, sliced", aisle: "Produce" },
+      { id: 8, name: "garlic", amount: 2, unit: "cloves", original: "2 cloves garlic", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Air-fry or sear tofu cubes until golden and crispy.", ingredients: [], equipment: [] },
+      { number: 2, step: "Stir-fry ginger, garlic, broccoli, and snap peas for 4 minutes.", ingredients: [], equipment: [] },
+      { number: 3, step: "Add tofu back to the pan with soy sauce and toss well.", ingredients: [], equipment: [] },
+      { number: 4, step: "Garnish with green onions and crushed cashews.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7014,
+    title: "Mexican Shredded Chicken Salad",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 340,
+    protein: "38g",
+    fat: "14g",
+    carbs: "12g",
+    dishTypes: ["lunch", "fitness"],
+    summary: "Spicy, zingy chicken salad with high volume and low calorie density.",
+    extendedIngredients: [
+      { id: 1, name: "shredded chicken", amount: 300, unit: "g", original: "300g cooked shredded chicken breast", aisle: "Meat" },
+      { id: 2, name: "mixed greens", amount: 4, unit: "cups", original: "4 cups mixed salad greens", aisle: "Produce" },
+      { id: 3, name: "jalapeno", amount: 1, unit: "tsp", original: "Minced jalapeno", aisle: "Produce" },
+      { id: 4, name: "cilantro", amount: 0.5, unit: "cup", original: "Fresh cilantro, chopped", aisle: "Produce" },
+      { id: 5, name: "lime", amount: 1, unit: "", original: "1 lime, juiced", aisle: "Produce" },
+      { id: 6, name: "avocado", amount: 0.25, unit: "", original: "1/4 avocado, sliced", aisle: "Produce" },
+      { id: 7, name: "salsa", amount: 2, unit: "tbsp", original: "2 tbsp fresh pico de gallo", aisle: "Pantry" },
+      { id: 8, name: "cumin", amount: 1, unit: "pinch", original: "Ground cumin", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Toss chicken with cumin, lime juice, and jalapeno.", ingredients: [], equipment: [] },
+      { number: 2, step: "Place greens in a large bowl.", ingredients: [], equipment: [] },
+      { number: 3, step: "Top with chicken, avocado, and salsa.", ingredients: [], equipment: [] },
+      { number: 4, step: "Mix in fresh cilantro and serve immediately.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7015,
+    title: "Quick Protein Oat Pancakes",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 2,
+    calories: 290,
+    protein: "24g",
+    fat: "6g",
+    carbs: "35g",
+    dishTypes: ["breakfast", "fitness"],
+    summary: "Guilt-free pancakes using simple, whole-food ingredients for a morning boost.",
+    extendedIngredients: [
+      { id: 1, name: "oats", amount: 1, unit: "cup", original: "1 cup instant oats", aisle: "Grains" },
+      { id: 2, name: "banana", amount: 1, unit: "", original: "1 ripe banana", aisle: "Produce" },
+      { id: 3, name: "egg whites", amount: 2, unit: "large", original: "2 egg whites", aisle: "Dairy" },
+      { id: 4, name: "protein powder", amount: 1, unit: "scoop", original: "1/2 scoop vanilla protein powder", aisle: "Fitness" },
+      { id: 5, name: "baking powder", amount: 0.5, unit: "tsp", original: "1/2 tsp baking powder", aisle: "Baking" },
+      { id: 6, name: "cinnamon", amount: 1, unit: "tsp", original: "1 tsp cinnamon", aisle: "Spices" },
+      { id: 7, name: "blueberries", amount: 0.25, unit: "cup", original: "1/4 cup fresh berries", aisle: "Produce" },
+      { id: 8, name: "honey", amount: 1, unit: "tsp", original: "1 tsp honey for drizzling", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Blend oats, banana, egg whites, protein powder, and baking powder until smooth.", ingredients: [], equipment: [] },
+      { number: 2, step: "Heat a non-stick skillet and pour small rounds of batter.", ingredients: [], equipment: [] },
+      { number: 3, step: "Cook until bubbles form, then flip and cook for 1 more minute.", ingredients: [], equipment: [] },
+      { number: 4, step: "Top with berries and a light honey drizzle.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 7016,
+    title: "Zesty Lemon Thyme Tilapia",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 20,
+    servings: 2,
+    calories: 280,
+    protein: "45g",
+    fat: "8g",
+    carbs: "2g",
+    dishTypes: ["main dish", "fitness"],
+    summary: "A light, high-protein white fish dish with vibrant citrus and fresh herbs.",
+    extendedIngredients: [
+      { id: 1, name: "tilapia fillets", amount: 2, unit: "", original: "2 tilapia fillets", aisle: "Meat" },
+      { id: 2, name: "lemon", amount: 1, unit: "", original: "1 lemon, sliced", aisle: "Produce" },
+      { id: 3, name: "olive oil", amount: 1, unit: "tbsp", original: "1 tbsp olive oil", aisle: "Pantry" },
+      { id: 4, name: "fresh thyme", amount: 2, unit: "sprigs", original: "2 sprigs fresh thyme", aisle: "Produce" },
+      { id: 5, name: "garlic", amount: 2, unit: "cloves", original: "2 cloves garlic, minced", aisle: "Produce" },
+      { id: 6, name: "black pepper", amount: 0.5, unit: "tsp", original: "1/2 tsp black pepper", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Season tilapia with garlic, pepper, and fresh thyme.", ingredients: [], equipment: [] },
+      { number: 2, step: "Place on a baking sheet and top with lemon slices.", ingredients: [], equipment: [] },
+      { number: 3, step: "Bake at 400°F (200°C) for 12-15 minutes until fish is flaky.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve with a side of steamed asparagus.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 7017,
+    title: "Lentil and Spinach Superfood Soup",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 35,
+    servings: 4,
+    calories: 320,
+    protein: "18g",
+    fat: "6g",
+    carbs: "45g",
+    dishTypes: ["lunch", "fitness"],
+    summary: "A warming and filling plant-based soup high in fiber and iron.",
+    extendedIngredients: [
+      { id: 1, name: "green lentils", amount: 1, unit: "cup", original: "1 cup dried green lentils", aisle: "Grains" },
+      { id: 2, name: "vegetable broth", amount: 4, unit: "cups", original: "4 cups low-sodium veggie broth", aisle: "Pantry" },
+      { id: 3, name: "baby spinach", amount: 4, unit: "cups", original: "4 cups fresh baby spinach", aisle: "Produce" },
+      { id: 4, name: "carrots", amount: 2, unit: "", original: "2 carrots, diced", aisle: "Produce" },
+      { id: 5, name: "celery", amount: 2, unit: "stalks", original: "2 stalks celery, sliced", aisle: "Produce" },
+      { id: 6, name: "onion", amount: 1, unit: "", original: "1 small onion, diced", aisle: "Produce" },
+      { id: 7, name: "turmeric", amount: 0.5, unit: "tsp", original: "1/2 tsp turmeric", aisle: "Spices" },
+      { id: 8, name: "cumin", amount: 0.5, unit: "tsp", original: "1/2 tsp cumin", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sauté onion, carrots, and celery in a pot with a touch of oil.", ingredients: [], equipment: [] },
+      { number: 2, step: "Add lentils, broth, and spices; bring to a boil then simmer for 25 mins.", ingredients: [], equipment: [] },
+      { number: 3, step: "Stir in spinach until wilted.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve hot, optionally with a bundle of herbs.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 7018,
+    title: "Mediterranean Egg White Omelet",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 220,
+    protein: "28g",
+    fat: "8g",
+    carbs: "6g",
+    dishTypes: ["breakfast", "fitness"],
+    summary: "High-protein, low-calorie breakfast choice with fresh Mediterranean herbs and veggies.",
+    extendedIngredients: [
+      { id: 1, name: "egg whites", amount: 4, unit: "large", original: "4 large egg whites", aisle: "Dairy" },
+      { id: 2, name: "cherry tomatoes", amount: 0.5, unit: "cup", original: "1/2 cup cherry tomatoes, halved", aisle: "Produce" },
+      { id: 3, name: "spinach", amount: 1, unit: "cup", original: "1 cup baby spinach", aisle: "Produce" },
+      { id: 4, name: "feta cheese", amount: 1, unit: "tbsp", original: "1 tbsp low-fat feta cheese", aisle: "Dairy" },
+      { id: 5, name: "oregano", amount: 0.5, unit: "tsp", original: "1/2 tsp dried oregano", aisle: "Spices" },
+      { id: 6, name: "black pepper", amount: 1, unit: "pinch", original: "Black pepper to taste", aisle: "Spices" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk egg whites with oregano and pepper.", ingredients: [], equipment: [] },
+      { number: 2, step: "Sauté spinach and tomatoes until slightly wilted.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pour in egg whites and cook until set.", ingredients: [], equipment: [] },
+      { number: 4, step: "Sprinkle with feta, fold, and serve immediately.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 7019,
+    title: "Buffalo Cauliflower Bites",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 25,
+    servings: 2,
+    calories: 180,
+    protein: "6g",
+    fat: "4g",
+    carbs: "30g",
+    dishTypes: ["snack", "fitness"],
+    summary: "A spicy, snackable low-carb alternative to traditional buffalo wings.",
+    extendedIngredients: [
+      { id: 1, name: "cauliflower", amount: 1, unit: "head", original: "1 head of cauliflower, cut into florets", aisle: "Produce" },
+      { id: 2, name: "buffalo sauce", amount: 0.25, unit: "cup", original: "1/4 cup mild buffalo sauce", aisle: "Pantry" },
+      { id: 3, name: "garlic powder", amount: 1, unit: "tsp", original: "1 tsp garlic powder", aisle: "Spices" },
+      { id: 4, name: "onion powder", amount: 1, unit: "tsp", original: "1 tsp onion powder", aisle: "Spices" },
+      { id: 5, name: "cornstarch", amount: 1, unit: "tbsp", original: "1 tbsp cornstarch", aisle: "Baking" },
+      { id: 6, name: "olive oil spray", amount: 1, unit: "", original: "Cooking spray", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Toss cauliflower with spices and cornstarch.", ingredients: [], equipment: [] },
+      { number: 2, step: "Air fry or bake at 400°F for 15-20 minutes.", ingredients: [], equipment: [] },
+      { number: 3, step: "Toss hot cauliflower with buffalo sauce.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve with light celery sticks.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 7020,
+    title: "Chipotle Lime Shrimp Tacos",
+    category: "fitness",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 320,
+    protein: "32g",
+    fat: "10g",
+    carbs: "25g",
+    dishTypes: ["main dish", "fitness"],
+    summary: "Zesty, high-protein tacos featuring succulent shrimp and a fresh slaw.",
+    extendedIngredients: [
+      { id: 1, name: "shrimp", amount: 300, unit: "g", original: "300g large shrimp, peeled", aisle: "Meat" },
+      { id: 2, name: "chipotle powder", amount: 1, unit: "tsp", original: "1 tsp chipotle powder", aisle: "Spices" },
+      { id: 3, name: "lime", amount: 2, unit: "", original: "2 limes, juiced", aisle: "Produce" },
+      { id: 4, name: "corn tortillas", amount: 4, unit: "small", original: "4 small corn tortillas", aisle: "Pantry" },
+      { id: 5, name: "shredded cabbage", amount: 1, unit: "cup", original: "1 cup purple cabbage slaw", aisle: "Produce" },
+      { id: 6, name: "cilantro", amount: 0.25, unit: "cup", original: "Fresh cilantro", aisle: "Produce" },
+      { id: 7, name: "avocado", amount: 0.25, unit: "", original: "1/4 avocado, sliced", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Sauté shrimp with chipotle powder and lime juice.", ingredients: [], equipment: [] },
+      { number: 2, step: "Warm the corn tortillas on a dry skillet.", ingredients: [], equipment: [] },
+      { number: 3, step: "Assemble tacos with slaw, shrimp, and avocado.", ingredients: [], equipment: [] },
+      { number: 4, step: "Garnish with fresh cilantro and lime.", ingredients: [] }
     ]}]
   }
 ];
