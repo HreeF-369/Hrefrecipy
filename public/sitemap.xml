@@ -3,55 +3,29 @@
   <url>
     <loc>https://hreefrecipy.com/</loc>
     <lastmod>2026-05-08</lastmod>
-    <changefreq>daily</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://hreefrecipy.com/recipes</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hreefrecipy.com/blog</loc>
     <lastmod>2026-05-08</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hreefrecipy.com/blog/1</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hreefrecipy.com/blog/2</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hreefrecipy.com/blog/3</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://hreefrecipy.com/about</loc>
     <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://hreefrecipy.com/contact</loc>
+    <lastmod>2026-05-08</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://hreefrecipy.com/privacy</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://hreefrecipy.com/terms</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>

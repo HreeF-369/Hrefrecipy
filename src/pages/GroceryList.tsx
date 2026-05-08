@@ -242,7 +242,7 @@ export default function GroceryList() {
                           </button>
                           
                           <div className="flex-1 flex items-center justify-between">
-                            <p className={`font-bold transition-all text-sm ${item.checked ? "line-through text-slate-400" : "text-slate-700"}`}>
+                            <p className={`font-bold transition-all text-sm grocery-item-text ${item.checked ? "line-through text-slate-400" : "text-slate-700"}`}>
                               {item.name}
                             </p>
                             

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Clock, Users, Flame, Heart, Share2, Play, Calendar, CheckCircle2, Volume2, Loader2, Youtube, Dumbbell, Wheat, Droplets, Zap, Sparkles, Award, Info } from 'lucide-react';
+import { X, Clock, Users, Flame, Heart, Share2, Play, Calendar, CheckCircle2, Volume2, Loader2, Youtube, Dumbbell, Wheat, Droplets, Zap, Sparkles, Award, Info, Printer } from 'lucide-react';
 import { Recipe } from '../types';
 import { useApp } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
@@ -216,18 +216,33 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
     toggleFavorite(recipe.id);
   };
 
-  const handleShare = (e: React.MouseEvent) => {
+  const handlePrint = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.print();
+  };
+
+  const handleShare = async (e: React.MouseEvent) => {
     e.stopPropagation();
     const url = `${window.location.origin}/recipe/${recipe.id}`;
-    if (navigator.share) {
-      navigator.share({
-        title: recipe.title,
-        text: `Check out this recipe: ${recipe.title}`,
-        url: url,
-      }).catch(console.error);
+    const shareData = {
+      title: `Hreef Recipes: ${recipe.title}`,
+      text: `Check out this amazing ${recipe.category} recipe: ${recipe.title}`,
+      url: url,
+    };
+
+    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
     } else {
-      navigator.clipboard.writeText(url);
-      alert("Recipe link copied to clipboard!");
+      try {
+        await navigator.clipboard.writeText(url);
+        alert("Link copied to clipboard! Share it with your friends.");
+      } catch (err) {
+        console.error("Clipboard error:", err);
+      }
     }
   };
 
@@ -306,7 +321,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                   <div className="absolute top-6 left-6 flex gap-2">
                     <button 
                       onClick={handleToggleFavorite}
-                      className={`p-3 backdrop-blur-md rounded-full shadow-lg transition-all ${
+                      className={`p-3 backdrop-blur-md rounded-full shadow-lg transition-all no-print ${
                         isFavorite ? "bg-red-500 text-white" : "bg-white/20 hover:bg-white hover:text-red-500 text-white"
                       }`}
                     >
@@ -314,9 +329,17 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                     </button>
                     <button 
                       onClick={handleShare}
-                      className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:bg-white hover:text-gray-900 text-white transition-all"
+                      className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:bg-white hover:text-gray-900 text-white transition-all no-print"
+                      title="Share Recipe"
                     >
                       <Share2 className="w-5 h-5" />
+                    </button>
+                    <button 
+                      onClick={handlePrint}
+                      className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:bg-white hover:text-gray-900 text-white transition-all no-print cursor-pointer"
+                      title="Print Recipe"
+                    >
+                      <Printer className="w-5 h-5" />
                     </button>
                   </div>
                   <div className="absolute bottom-6 left-8 right-8">
@@ -342,41 +365,12 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                     <div className="relative">
                       <button 
-                        onClick={() => setShowPlanMenu(!showPlanMenu)}
-                        className="w-14 h-14 flex items-center justify-center bg-white text-slate-700 rounded-2xl font-bold hover:bg-slate-50 transition-all shadow-md ring-1 ring-slate-100 active:scale-95"
+                        onClick={() => alert("Coming Soon: You will be able to plan this meal in your calendar!")}
+                        className="w-14 h-14 flex items-center justify-center bg-white text-slate-700 rounded-2xl font-bold hover:bg-slate-50 transition-all shadow-md ring-1 ring-slate-100 active:scale-95 cursor-pointer"
                         title="Plan for later"
                       >
                         <Calendar className="w-6 h-6" />
                       </button>
-                      
-                      <AnimatePresence>
-                        {showPlanMenu && (
-                          <motion.div 
-                            initial={{ opacity: 0, y: 10, x: -100 }}
-                            animate={{ opacity: 1, y: 0, x: -150 }}
-                            exit={{ opacity: 0, y: 10, x: -100 }}
-                            className="absolute bottom-full left-1/2 mb-4 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-20 min-w-[180px]"
-                          >
-                            <div className="p-3 grid grid-cols-1 gap-1 relative">
-                              {isPlanning && (
-                                <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
-                                  <div className="w-6 h-6 border-4 border-brand-green/30 border-t-brand-green rounded-full animate-spin"></div>
-                                </div>
-                              )}
-                              {days.map(day => (
-                                <button 
-                                  key={day}
-                                  onClick={() => createMealTask(day)}
-                                  disabled={isPlanning}
-                                  className="text-left w-full px-4 py-2 text-sm font-bold text-slate-600 hover:bg-brand-green hover:text-white rounded-xl transition-all disabled:opacity-50"
-                                >
-                                  {day}
-                                </button>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
                     </div>
                   </div>
 
@@ -444,7 +438,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
               {/* Right Column: Dynamic Content Tabs */}
               <div className="w-full md:w-[55%] flex flex-col bg-slate-50/50 relative">
                 {/* Tabs Header */}
-                <div className="hidden md:flex w-full flex-row items-center gap-6 sm:gap-8 md:gap-[2.5rem] justify-center sm:justify-start bg-white px-4 sm:pl-10 sm:pr-32 pt-6 sm:pt-10 pb-4 relative z-10 shrink-0 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div className="hidden md:flex w-full flex-row items-center gap-6 sm:gap-8 md:gap-[2.5rem] justify-center sm:justify-start bg-white px-4 sm:pl-10 sm:pr-32 pt-6 sm:pt-10 pb-4 relative z-10 shrink-0 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] no-print">
                   {tabs.map((tab) => (
                     <button
                       key={tab.id}
@@ -466,8 +460,8 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                 {/* Tab Content */}
                 <div className="p-4 sm:p-10 flex-1 overflow-y-auto pb-32 sm:pb-10 flex flex-col gap-12 md:block">
-                  <div className={activeTab === 'ingredients' ? 'block' : 'block md:hidden'}>
-                    <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
+                  <div className={activeTab === 'ingredients' ? 'block' : 'hidden print:block'}>
+                    <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
                       <div className="flex items-center justify-between">
                         <div>
                           <h3 className="text-2xl font-black text-slate-900 tracking-tight">Shopping List</h3>
@@ -475,7 +469,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                         </div>
                         <button 
                           onClick={handleAddAllToGrocery}
-                          className={`group flex items-center gap-2 px-4 py-2 ${addedToGrocery ? 'bg-brand-green text-white' : 'bg-brand-green/5 text-brand-green'} rounded-xl font-black text-xs uppercase tracking-widest hover:bg-brand-green hover:text-white transition-all shadow-sm cursor-pointer`}
+                          className={`group flex items-center gap-2 px-4 py-2 ${addedToGrocery ? 'bg-brand-green text-white' : 'bg-brand-green/5 text-brand-green'} rounded-xl font-black text-xs uppercase tracking-widest hover:bg-brand-green hover:text-white transition-all shadow-sm cursor-pointer no-print`}
                           disabled={addedToGrocery}
                         >
                           {addedToGrocery ? (
@@ -550,13 +544,13 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                     </div>
                   </div>
 
-                  <div className={activeTab === 'instructions' ? 'block' : 'block md:hidden'}>
+                  <div className={activeTab === 'instructions' ? 'block' : 'hidden print:block print:mt-10'}>
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
                         <h3 className="text-xl font-bold text-gray-900">Cook steps</h3>
                         <button 
                           onClick={handleSpeakInstructions}
-                          className="flex items-center gap-2 bg-green-50 px-3 py-1.5 rounded-lg text-green-600 font-bold text-xs hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                          className="flex items-center gap-2 bg-green-50 px-3 py-1.5 rounded-lg text-green-600 font-bold text-xs hover:bg-green-600 hover:text-white transition-all shadow-sm no-print"
                         >
                           <Volume2 size={14} /> Listen
                         </button>
@@ -589,7 +583,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                     </div>
                   </div>
 
-                  <div className={activeTab === 'nutrition' ? 'block' : 'block md:hidden'}>
+                  <div className={activeTab === 'nutrition' ? 'block' : 'hidden print:block print:mt-10'}>
                     {!recipe.nutrition ? (
                       <div className="flex flex-col items-center justify-center py-20">
                          <Loader2 className="w-10 h-10 text-brand-green animate-spin mb-4" />
@@ -757,7 +751,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                   )}
                   </div>
 
-                  <div className={activeTab === 'comments' ? 'block' : 'block md:hidden'}>
+                  <div className={activeTab === 'comments' ? 'block no-print' : 'hidden'}>
                     <div className="space-y-6">
                       <h3 className="text-xl font-bold text-gray-900">Community Feedback</h3>
                       <div className="space-y-4">

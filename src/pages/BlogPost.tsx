@@ -12,6 +12,34 @@ export default function BlogPost() {
     window.scrollTo(0, 0);
   }, [id]);
 
+  const handleShare = async () => {
+    const url = window.location.href;
+    const shareData = {
+      title: post.title,
+      text: `Read this article on Hreef Recipes: ${post.title}`,
+      url: url,
+    };
+
+    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(url);
+        alert("Article link copied to clipboard!");
+      } catch (err) {
+        console.error("Clipboard error:", err);
+      }
+    }
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
   if (!post) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
@@ -95,14 +123,17 @@ export default function BlogPost() {
                 </div>
               </div>
 
-              <div className="flex gap-2 pt-8 border-t border-slate-100">
-                <button className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-100 text-slate-500 hover:bg-slate-50 transition-all">
+              <div className="flex gap-2 pt-8 border-t border-slate-100 no-print">
+                <button 
+                  onClick={handleShare}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-100 text-slate-500 hover:bg-slate-50 transition-all font-bold cursor-pointer"
+                >
                   <Share2 size={16} />
                   <span className="text-xs font-bold">Share</span>
                 </button>
                 <button 
-                  onClick={() => window.print()}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-100 text-slate-500 hover:bg-slate-50 transition-all font-bold"
+                  onClick={handlePrint}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-100 text-slate-500 hover:bg-slate-50 transition-all font-bold cursor-pointer"
                 >
                   <Printer size={16} />
                   <span className="text-xs font-bold">Print</span>

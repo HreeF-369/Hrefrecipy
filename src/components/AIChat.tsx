@@ -136,16 +136,25 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     setMessages(prev => [...prev, { role: "user", content: userMessage }]);
     setIsLoading(true);
 
-    // Simulate Chef processing
+    // Simulate Chef processing with internal safety
     setTimeout(() => {
-      const response = findSmartResponse(userMessage);
-      setMessages(prev => [...prev, { 
-        role: "bot", 
-        content: response.content,
-        suggestedRecipes: response.suggestedRecipes,
-        isRecipeSuggestion: !!response.suggestedRecipes 
-      }]);
-      setIsLoading(false);
+      try {
+        const response = findSmartResponse(userMessage);
+        setMessages(prev => [...prev, { 
+          role: "bot", 
+          content: response.content || "I'm processing that request. Could you try rephrasing? I want to make sure I get the chef-quality recommendation right!",
+          suggestedRecipes: response.suggestedRecipes,
+          isRecipeSuggestion: !!response.suggestedRecipes 
+        }]);
+      } catch (error) {
+        console.error("AIChat Error:", error);
+        setMessages(prev => [...prev, { 
+          role: "bot", 
+          content: "I apologize, but my culinary database is experiencing a minor hiccup. Let me try that again, or feel free to ask about one of our main collections like **fitness meals** or **breakfast**!" 
+        }]);
+      } finally {
+        setIsLoading(false);
+      }
     }, 700);
   };
 

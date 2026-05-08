@@ -16,7 +16,8 @@ import {
   Calendar,
   MessageSquare,
   Send,
-  Volume2
+  Volume2,
+  Printer
 } from "lucide-react";
 import { Recipe } from "../types";
 import { getRecipeById } from "../services/api";
@@ -80,17 +81,31 @@ export default function RecipeDetail() {
     }
   };
 
-  const handleShare = () => {
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const handleShare = async () => {
     const url = window.location.href;
-    if (navigator.share) {
-      navigator.share({
-        title: recipe?.title,
-        text: `Check out this recipe for ${recipe?.title}!`,
-        url: url,
-      }).catch(console.error);
+    const shareData = {
+      title: `Hreef Recipes: ${recipe?.title}`,
+      text: `Check out this amazing recipe for ${recipe?.title}!`,
+      url: url,
+    };
+
+    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
     } else {
-      navigator.clipboard.writeText(url);
-      alert("Recipe link copied to clipboard!");
+      try {
+        await navigator.clipboard.writeText(url);
+        alert("Recipe link copied to clipboard!");
+      } catch (err) {
+        console.error("Clipboard error:", err);
+      }
     }
   };
 
@@ -146,7 +161,7 @@ export default function RecipeDetail() {
     >
       <button 
         onClick={() => navigate(-1)}
-        className="mb-6 flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand-green"
+        className="mb-6 flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand-green no-print"
       >
         <ArrowLeft size={16} /> Back
       </button>
@@ -171,9 +186,17 @@ export default function RecipeDetail() {
               </button>
               <button 
                 onClick={handleShare}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg backdrop-blur-md transition-transform active:scale-90"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg backdrop-blur-md transition-transform active:scale-90 no-print"
+                title="Share Recipe"
               >
                 <Share2 size={20} />
+              </button>
+              <button 
+                onClick={handlePrint}
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg backdrop-blur-md transition-transform active:scale-90 no-print cursor-pointer"
+                title="Print Recipe"
+              >
+                <Printer size={20} />
               </button>
             </div>
           </div>
@@ -289,20 +312,19 @@ export default function RecipeDetail() {
             ))}
           </div>
 
-          <AnimatePresence mode="wait">
-            {activeSegment === "ingredients" && (
+          <div className="relative">
+            <div className={activeSegment === "ingredients" ? "block" : "hidden print:block"}>
               <motion.div
                 key="ingredients"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
                 className="space-y-4"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-bold">What you'll need</h3>
                   <button 
                     onClick={handleAddToList}
-                    className="text-sm font-semibold text-brand-green hover:underline"
+                    className="text-sm font-semibold text-brand-green hover:underline no-print"
                   >
                     Add all to list
                   </button>
@@ -316,13 +338,13 @@ export default function RecipeDetail() {
                         checkedIngredients.includes(ing.id) 
                           ? "bg-brand-green/5 ring-brand-green/20 opacity-60" 
                           : "bg-white ring-gray-100 hover:ring-brand-light-green/30"
-                      }`}
+                      } print:bg-white print:ring-0 print:opacity-100`}
                     >
                       <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
                         checkedIngredients.includes(ing.id) 
                           ? "bg-brand-green text-white" 
                           : "bg-brand-cream text-brand-green ring-1 ring-brand-green/10"
-                      }`}>
+                      } print:hidden`}>
                         {checkedIngredients.includes(ing.id) ? <CheckCircle2 size={18} /> : <span className="font-bold text-xs">{Math.round(ing.amount)}</span>}
                       </div>
                       <div className="flex-1 flex items-center gap-3">
@@ -330,11 +352,11 @@ export default function RecipeDetail() {
                           <img 
                             src={`https://www.themealdb.com/images/ingredients/${ing.image}-Small.png`} 
                             alt={ing.name}
-                            className="h-10 w-10 rounded-full object-cover bg-slate-50 p-1 border border-slate-100 shrink-0"
+                            className="h-10 w-10 rounded-full object-cover bg-slate-50 p-1 border border-slate-100 shrink-0 print:hidden"
                           />
                         )}
                         <div>
-                          <p className={`font-bold transition-all ${checkedIngredients.includes(ing.id) ? "text-gray-400 line-through" : "text-gray-800"}`}>
+                          <p className={`font-bold transition-all grocery-item-text ${checkedIngredients.includes(ing.id) ? "text-gray-400 line-through" : "text-gray-800"}`}>
                             {ing.name}
                           </p>
                           <p className="text-sm text-gray-400">
@@ -346,21 +368,20 @@ export default function RecipeDetail() {
                   ))}
                 </div>
               </motion.div>
-            )}
+            </div>
 
-            {activeSegment === "instructions" && (
+            <div className={activeSegment === "instructions" ? "block mt-10 md:mt-0" : "hidden print:block print:mt-10"}>
               <motion.div
                 key="instructions"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
                 className="space-y-6"
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold">Preparation</h3>
                   <button 
                     onClick={handleSpeakInstructions}
-                    className="flex items-center gap-2 bg-brand-green-light px-4 py-2 rounded-xl text-brand-green font-bold text-xs hover:bg-brand-green hover:text-white transition-all shadow-sm"
+                    className="flex items-center gap-2 bg-brand-green-light px-4 py-2 rounded-xl text-brand-green font-bold text-xs hover:bg-brand-green hover:text-white transition-all shadow-sm no-print"
                   >
                     <Volume2 size={16} /> Listen to Steps
                   </button>
@@ -394,46 +415,34 @@ export default function RecipeDetail() {
                   </div>
                 )}
               </motion.div>
-            )}
+            </div>
 
-            {activeSegment === "nutrition" && (
+            <div className={activeSegment === "nutrition" ? "block mt-10 md:mt-0" : "hidden print:block print:mt-10"}>
               <motion.div
                 key="nutrition"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
                 className="space-y-6"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(recipe.nutrition?.nutrients || []).slice(0, 6).map((n) => (
-                    <div key={n.name} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100">
+                    <div key={n.name} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
                       <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">{n.name}</p>
                       <p className="mt-1 text-2xl font-bold text-gray-800">
                         {Math.round(n.amount)}
                         <span className="ml-1 text-sm font-medium text-gray-500">{n.unit}</span>
                       </p>
-                      <div className="mt-3 h-1.5 w-full rounded-full bg-gray-100 overflow-hidden">
-                        <div 
-                          className="h-full bg-brand-light-green transition-all" 
-                          style={{ width: `${Math.min(n.percentOfDailyNeeds || 0, 100)}%` }}
-                        />
-                      </div>
                     </div>
                   ))}
                 </div>
-                <div className="rounded-2xl bg-blue-50 p-4 flex gap-3 text-sm text-blue-700">
-                  <span className="shrink-0"><Info size={20} /></span>
-                  <p>Nutrition values are estimated based on ingredients and standard portion sizes.</p>
-                </div>
               </motion.div>
-            )}
+            </div>
 
-            {activeSegment === "comments" && (
+            <div className={activeSegment === "comments" ? "block mt-10 md:mt-0 no-print" : "hidden"}>
               <motion.div
                 key="comments"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
                 className="space-y-6"
               >
                 <div className="flex items-center justify-between">
@@ -479,8 +488,8 @@ export default function RecipeDetail() {
                   )}
                 </div>
               </motion.div>
-            )}
-          </AnimatePresence>
+            </div>
+          </div>
         </section>
       </div>
     </motion.div>
