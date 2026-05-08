@@ -33,10 +33,9 @@ export default function Recipes() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState(urlCat);
-  const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { favorites, toggleFavorite } = useApp();
+  const { favorites, toggleFavorite, allRecipes, setAllRecipes } = useApp();
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);

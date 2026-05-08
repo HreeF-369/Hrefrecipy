@@ -37,7 +37,10 @@ export default function Privacy() {
         <section className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
           <h2 className="text-xl font-bold text-brand-ink">4. Google DoubleClick DART Cookie</h2>
           <p className="text-sm mt-4">
-            Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to our site and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://policies.google.com/technologies/ads" className="text-brand-green underline" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>
+            Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to our site and other sites on the internet. We use Google AdSense to serve ads on our website. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
+          </p>
+          <p className="text-sm mt-2">
+            Users may opt-out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" className="text-brand-green underline">Ads Settings</a>. Alternatively, you can opt-out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="http://www.aboutads.info" className="text-brand-green underline">www.aboutads.info</a>.
           </p>
         </section>
 

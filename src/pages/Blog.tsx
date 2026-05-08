@@ -2,38 +2,7 @@ import { motion } from "motion/react";
 import { BookOpen, Clock, ChevronRight, Sparkles, Flame, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "5 Secret Tips for the Perfect Espresso",
-    excerpt: "Unlock the professional secrets to brewing the ultimate morning cup. From bean selection to water temperature.",
-    date: "May 5, 2026",
-    readTime: "4 min",
-    category: "Masterclass",
-    icon: <Sparkles className="text-amber-500" />,
-    image: "https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: 2,
-    title: "The Benefits of High-Protein Meal Prepping",
-    excerpt: "Why protein should be your priority and how to prep like a professional athlete for consistent energy.",
-    date: "May 2, 2026",
-    readTime: "6 min",
-    category: "Nutrition",
-    icon: <Flame className="text-orange-500" />,
-    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: 3,
-    title: "Mindful Eating: The Chef's Secret to Health",
-    excerpt: "Learn how slowing down and appreciating your ingredients can transform your metabolic health.",
-    date: "April 28, 2026",
-    readTime: "5 min",
-    category: "Lifestyle",
-    icon: <Brain className="text-blue-500" />,
-    image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=600&auto=format&fit=crop"
-  }
-];
+import { BLOG_POSTS } from "../services/blogData";
 
 export default function Blog() {
   return (
@@ -62,6 +31,7 @@ export default function Blog() {
             viewport={{ once: true }}
             className="group relative flex flex-col overflow-hidden rounded-[2.5rem] bg-white border border-slate-100 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1"
           >
+            <Link to={`/blog/${post.id}`} className="absolute inset-0 z-10" />
             <div className="aspect-[16/10] overflow-hidden">
               <img 
                 src={post.image} 
@@ -72,7 +42,6 @@ export default function Blog() {
             <div className="flex-1 p-8 flex flex-col">
               <div className="flex items-center justify-between mb-4">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-3 py-1 text-[10px] font-black text-slate-500 uppercase tracking-widest border border-slate-100">
-                  {post.icon}
                   {post.category}
                 </span>
                 <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
@@ -88,10 +57,10 @@ export default function Blog() {
               </p>
               <div className="mt-auto flex items-center justify-between pt-6 border-t border-slate-50">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{post.date}</span>
-                <button className="flex items-center gap-1 text-xs font-black text-brand-green group-hover:gap-2 transition-all">
+                <div className="flex items-center gap-1 text-xs font-black text-brand-green group-hover:gap-2 transition-all">
                   Read Article
                   <ChevronRight size={14} />
-                </button>
+                </div>
               </div>
             </div>
           </motion.article>

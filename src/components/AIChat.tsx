@@ -3,6 +3,8 @@ import { X, Send, User, Bot, Sparkles, Loader2, ChefHat, Utensils, Info } from "
 import { motion, AnimatePresence } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
+import { useApp } from "../context/AppContext";
+import { Recipe } from "../types";
 import { FALLBACK_RECIPES } from "../services/fallbackData";
 
 interface Message {
@@ -25,6 +27,10 @@ const CHEF_GREETINGS = [
 ];
 
 export default function AIChat({ isOpen, onClose }: AIChatProps) {
+  const { allRecipes } = useApp();
+  
+  const searchDataSource = allRecipes.length > 0 ? allRecipes : FALLBACK_RECIPES;
+
   const [messages, setMessages] = useState<Message[]>([
     { 
       role: "bot", 
@@ -56,7 +62,7 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     }
 
     // 2. Advanced Search Logic
-    let searchResults = FALLBACK_RECIPES;
+    let searchResults = searchDataSource;
     let contextPhrase = "I found these recipes for you:";
 
     // Smart Keyword Overrides
@@ -65,22 +71,22 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     const isBreakfastRequest = q.includes("breakfast") || q.includes("morning");
 
     if (isHealthyRequest) {
-      searchResults = FALLBACK_RECIPES.filter(r => 
+      searchResults = searchDataSource.filter(r => 
         r.category.toLowerCase() === "fitness" || 
         r.category.toLowerCase() === "salad" ||
         (r.calories && r.calories < 400)
       );
       contextPhrase = "Health is wealth! Based on your request for something healthy, these are our top nutrient-dense options:";
     } else if (isDrinkRequest) {
-      searchResults = FALLBACK_RECIPES.filter(r => r.category.toLowerCase() === "drinks");
+      searchResults = searchDataSource.filter(r => r.category.toLowerCase() === "drinks");
       contextPhrase = "Refreshing choice! Here are some of our most beautiful and refreshing drinks:";
     } else if (isBreakfastRequest) {
-      searchResults = FALLBACK_RECIPES.filter(r => r.category.toLowerCase() === "breakfast");
+      searchResults = searchDataSource.filter(r => r.category.toLowerCase() === "breakfast");
       contextPhrase = "Morning! Start your day right with these breakfast favorites:";
     } else {
       // General Keyword/Ingredient Search
       const keywords = q.split(" ").filter(k => k.length > 2);
-      searchResults = FALLBACK_RECIPES.filter(recipe => {
+      searchResults = searchDataSource.filter(recipe => {
         const inTitle = recipe.title.toLowerCase().includes(q);
         const inCat = recipe.category.toLowerCase().includes(q);
         const inIngredients = recipe.extendedIngredients?.some(ing => ing.name.toLowerCase().includes(q));

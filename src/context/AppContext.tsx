@@ -34,6 +34,8 @@ interface AppContextType {
   preferences: UserPreferences;
   updatePreferences: (prefs: Partial<UserPreferences>) => void;
   clearAllData: () => void;
+  allRecipes: Recipe[];
+  setAllRecipes: (recipes: Recipe[]) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -48,23 +50,24 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     marketingEmails: false,
     darkMode: false
   });
+  const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
 
-  // Local Storage persistence (optional but good for "functional" feel)
+  // Local Storage persistence
   useEffect(() => {
-    const savedFavs = localStorage.getItem("hreefrecipy_favorites");
-    if (savedFavs) setFavorites(JSON.parse(savedFavs));
+    const loadFromStorage = (key: string, setter: (val: any) => void) => {
+      try {
+        const item = localStorage.getItem(key);
+        if (item) setter(JSON.parse(item));
+      } catch (e) {
+        console.error(`Error loading ${key} from storage:`, e);
+      }
+    };
 
-    const savedPlan = localStorage.getItem("hreefrecipy_plan");
-    if (savedPlan) setPlan(JSON.parse(savedPlan));
-
-    const savedGrocery = localStorage.getItem("hreefrecipy_grocery");
-    if (savedGrocery) setGroceryItems(JSON.parse(savedGrocery));
-
-    const savedComments = localStorage.getItem("hreefrecipy_comments");
-    if (savedComments) setComments(JSON.parse(savedComments));
-
-    const savedPrefs = localStorage.getItem("hreefrecipy_preferences");
-    if (savedPrefs) setPreferences(JSON.parse(savedPrefs));
+    loadFromStorage("hreefrecipy_favorites", setFavorites);
+    loadFromStorage("hreefrecipy_plan", setPlan);
+    loadFromStorage("hreefrecipy_grocery", setGroceryItems);
+    loadFromStorage("hreefrecipy_comments", setComments);
+    loadFromStorage("hreefrecipy_preferences", setPreferences);
   }, []);
 
   useEffect(() => {
@@ -201,7 +204,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       groceryItems, addGroceryItem, addRecipeIngredientsToGroceryList, toggleGroceryItem, deleteGroceryItem, updateGroceryItemAmount, clearGroceryList,
       favorites, toggleFavorite,
       comments, addComment, deleteComment,
-      preferences, updatePreferences, clearAllData
+      preferences, updatePreferences, clearAllData,
+      allRecipes, setAllRecipes
     }}>
       {children}
     </AppContext.Provider>

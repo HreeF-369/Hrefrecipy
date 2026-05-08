@@ -27,7 +27,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
-  const { favorites, toggleFavorite } = useApp();
+  const { favorites, toggleFavorite, allRecipes, setAllRecipes } = useApp();
   
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
@@ -88,8 +88,6 @@ export default function Home() {
   useEffect(() => {
     document.title = "Hreefrecipy - Premium World-Class Recipes";
   }, []);
-
-  const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
     async function fetchInitial() {

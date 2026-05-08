@@ -52,6 +52,7 @@ import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
 import DataPreference from "./pages/DataPreference";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 // Utility for tailwind classes
 function cn(...inputs: ClassValue[]) {
@@ -231,6 +232,7 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/recipes" element={<Recipes />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogPost />} />
                 <Route path="/favorites" element={<Favorites />} />
                 <Route path="/recipe/:id" element={<RecipeDetail />} />
                 <Route path="/cook" element={<CookMode />} />
@@ -261,7 +263,7 @@ export default function App() {
                   <span className="font-display text-xl font-bold tracking-tight text-brand-ink">Hreef Recipes</span>
                 </Link>
                 <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-xs mx-auto sm:mx-0">
-                  Managed by the Ait oualhyane family. Fuel your body, master your health. Personalised nutrition and delicious, healthy recipes for every lifestyle.
+                  Managed by the AIT OUALHYANE family. Fuel your body, master your health. Personalised nutrition and delicious, healthy recipes for every lifestyle.
                 </p>
               </div>
               

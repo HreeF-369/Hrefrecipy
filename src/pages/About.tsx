@@ -27,7 +27,7 @@ export default function About() {
             The Hreef Legacy
           </h2>
           <p>
-            Hreef Recipes is a passionate culinary project managed by the <strong>Ait oualhyane</strong> family. Our heritage is rooted in the belief that modern, healthy cooking should be accessible to everyone without sacrificing the professional quality found in the world's best kitchens.
+            Hreef Recipes is a passionate culinary project managed by the <strong>AIT OUALHYANE</strong> family. Our heritage is rooted in the belief that modern, healthy cooking should be accessible to everyone without sacrificing the professional quality found in the world's best kitchens.
           </p>
           <p className="mt-4">
             Our mission is to provide high-quality culinary inspiration that combines traditional wisdom with modern nutritional science. Whether you are a professional athlete or a home cook looking to improve your lifestyle, our hand-picked collection is designed to help you succeed.
