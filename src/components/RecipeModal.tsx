@@ -330,64 +330,37 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                 </div>
 
                 <div className="p-10 flex-1 flex flex-col space-y-8 overflow-y-auto">
-                  <div className="space-y-4 shrink-0">
+                  {/* Action Row */}
+                  <div className="flex items-center gap-3">
                     <button 
                       onClick={handleStartCooking}
-                      className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-brand-green text-white rounded-2xl font-bold text-lg hover:bg-green-600 transition-all shadow-xl shadow-brand-green/20 transform active:scale-95"
+                      className="flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-brand-green text-white rounded-2xl font-bold text-lg hover:bg-green-600 transition-all shadow-lg shadow-brand-green/20 transform active:scale-95"
                     >
                       <Play className="w-5 h-5 fill-current" />
                       Start Cooking
                     </button>
 
-                    {recipe.youtubeUrl && (
-                      <button 
-                        onClick={handleWatchVideo}
-                        className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white rounded-2xl font-bold text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 transform active:scale-95"
-                      >
-                        <Youtube className="w-6 h-6" />
-                        Watch Video
-                      </button>
-                    )}
-                    
                     <div className="relative">
-                      {planSuccess && (
-                        <motion.div 
-                          initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                          className="absolute bottom-full left-0 right-0 mb-3 p-3 bg-brand-green text-white text-sm font-bold text-center rounded-xl shadow-lg"
-                        >
-                          <span className="flex items-center justify-center gap-2"><CheckCircle2 size={16} /> {planSuccess}</span>
-                        </motion.div>
-                      )}
-                      {planError && (
-                        <motion.div 
-                          initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                          className="absolute bottom-full left-0 right-0 mb-3 p-3 bg-red-100 text-red-700 border border-red-200 text-sm font-bold text-center rounded-xl shadow-lg"
-                        >
-                          {planError}
-                        </motion.div>
-                      )}
-
                       <button 
                         onClick={() => setShowPlanMenu(!showPlanMenu)}
-                        className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 text-slate-700 rounded-2xl font-bold hover:bg-slate-200 transition-all active:scale-95"
+                        className="w-14 h-14 flex items-center justify-center bg-white text-slate-700 rounded-2xl font-bold hover:bg-slate-50 transition-all shadow-md ring-1 ring-slate-100 active:scale-95"
+                        title="Plan for later"
                       >
-                        <Calendar className="w-5 h-5" />
-                        Plan for later
+                        <Calendar className="w-6 h-6" />
                       </button>
                       
                       <AnimatePresence>
                         {showPlanMenu && (
                           <motion.div 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            className="absolute bottom-full left-0 right-0 mb-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-20"
+                            initial={{ opacity: 0, y: 10, x: -100 }}
+                            animate={{ opacity: 1, y: 0, x: -150 }}
+                            exit={{ opacity: 0, y: 10, x: -100 }}
+                            className="absolute bottom-full left-1/2 mb-4 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-20 min-w-[180px]"
                           >
                             <div className="p-3 grid grid-cols-1 gap-1 relative">
                               {isPlanning && (
                                 <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
                                   <div className="w-6 h-6 border-4 border-brand-green/30 border-t-brand-green rounded-full animate-spin"></div>
-                                  <span className="text-xs font-bold text-slate-600 mt-2">Connecting to Backend...</span>
                                 </div>
                               )}
                               {days.map(day => (
@@ -397,7 +370,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                                   disabled={isPlanning}
                                   className="text-left w-full px-4 py-2 text-sm font-bold text-slate-600 hover:bg-brand-green hover:text-white rounded-xl transition-all disabled:opacity-50"
                                 >
-                                  {day} {isPlanning && selectedDate === day ? '...' : ''}
+                                  {day}
                                 </button>
                               ))}
                             </div>
@@ -405,63 +378,65 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                         )}
                       </AnimatePresence>
                     </div>
-
-                    <p className="text-center text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                      Interactive cook mode enabled
-                    </p>
                   </div>
 
-                  {/* Stats with dividers */}
-                  <div className="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-sm space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="flex flex-col items-center justify-center p-5 rounded-[2rem] bg-brand-green/5 border border-brand-green/10 transition-transform hover:scale-105">
-                        <Clock size={32} strokeWidth={1} className="text-brand-green mb-2" />
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block">Time</span>
-                        <p className="text-lg font-bold text-slate-900">{recipe.readyInMinutes}m</p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center p-5 rounded-[2rem] bg-brand-orange/5 border border-brand-orange/10 transition-transform hover:scale-105">
-                        <Flame size={32} strokeWidth={1} className="text-brand-orange mb-2" />
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block">Energy</span>
-                        <p className="text-lg font-bold text-slate-900">{recipe.calories}kcal</p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center p-5 rounded-[2rem] bg-blue-50 border border-blue-100 transition-transform hover:scale-105">
-                        <Users size={32} strokeWidth={1} className="text-blue-500 mb-2" />
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block">Servings</span>
-                        <p className="text-lg font-bold text-slate-900">{recipe.servings}</p>
-                      </div>
-                    </div>
+                  {planSuccess && (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+                      className="p-4 bg-green-50 text-brand-green text-sm font-bold text-center rounded-2xl border border-green-100 shadow-sm"
+                    >
+                      <span className="flex items-center justify-center gap-2"><CheckCircle2 size={16} /> {planSuccess}</span>
+                    </motion.div>
+                  )}
+                  {planError && (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+                      className="p-4 bg-red-50 text-red-700 border border-red-100 text-sm font-bold text-center rounded-2xl shadow-sm"
+                    >
+                      {planError}
+                    </motion.div>
+                  )}
 
-                    <div className="space-y-4">
-                      <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Recipe Selection</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {recipe.readyInMinutes <= 30 && (
-                          <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-700 rounded-full border border-amber-100 shadow-sm transition-all hover:bg-amber-100">
-                            <span className="text-xs">⚡</span>
-                            <span className="text-[10px] font-black uppercase tracking-widest">Quick Prep</span>
-                          </div>
-                        )}
-                        {parseInt(recipe.protein || '0') >= 25 && (
-                          <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100 shadow-sm transition-all hover:bg-emerald-100">
-                            <span className="text-xs">💪</span>
-                            <span className="text-[10px] font-black uppercase tracking-widest">High Protein</span>
-                          </div>
-                        )}
-                        {recipe.nutrition?.nutrients.find(n => n.name === 'Fiber')?.amount && recipe.nutrition.nutrients.find(n => n.name === 'Fiber')!.amount >= 5 && (
-                          <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full border border-blue-100 shadow-sm transition-all hover:bg-blue-100">
-                            <span className="text-xs">🥗</span>
-                            <span className="text-[10px] font-black uppercase tracking-widest">High Fiber</span>
-                          </div>
-                        )}
-                        <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full border border-purple-100 shadow-sm transition-all hover:bg-purple-100">
-                          <span className="text-xs">✨</span>
-                          <span className="text-[10px] font-black uppercase tracking-widest">#1 Trendy</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-full border border-slate-100 shadow-sm transition-all hover:bg-slate-200">
-                          <Sparkles className="w-3 h-3 text-brand-green" />
-                          <span className="text-[10px] font-black uppercase tracking-widest">Smart Selection</span>
-                        </div>
+                  {/* Information Card (Middle) */}
+                  <div className="bg-white p-2 rounded-[24px] shadow-soft border border-slate-50 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="flex flex-col items-center justify-center py-6 px-2 rounded-2xl bg-green-50/70 border border-green-100/50">
+                        <Clock size={24} strokeWidth={2} className="text-brand-green mb-2" />
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Time</span>
+                        <p className="text-base font-bold text-slate-900">{recipe.readyInMinutes}m</p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center py-6 px-2 rounded-2xl bg-orange-50/70 border border-orange-100/50">
+                        <Flame size={24} strokeWidth={2} className="text-brand-orange mb-2" />
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Energy</span>
+                        <p className="text-base font-bold text-slate-900">{recipe.calories}kcal</p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center py-6 px-2 rounded-2xl bg-blue-50/70 border border-blue-100/50">
+                        <Users size={24} strokeWidth={2} className="text-blue-500 mb-2" />
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Servings</span>
+                        <p className="text-base font-bold text-slate-900">{recipe.servings}</p>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Tags Section (Bottom) */}
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {parseInt(recipe.protein || '0') >= 25 && (
+                        <div className="px-4 py-1.5 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100 shadow-sm transition-all hover:bg-emerald-100">
+                          <span className="text-[10px] font-black uppercase tracking-widest">💪 High Protein</span>
+                        </div>
+                      )}
+                      <div className="px-4 py-1.5 bg-purple-50 text-purple-700 rounded-full border border-purple-100 shadow-sm transition-all hover:bg-purple-100">
+                        <span className="text-[10px] font-black uppercase tracking-widest">✨ #1 Trendy</span>
+                      </div>
+                      <div className="px-4 py-1.5 bg-pink-50 text-pink-700 rounded-full border border-pink-100 shadow-sm transition-all hover:bg-pink-100">
+                        <span className="text-[10px] font-black uppercase tracking-widest">📌 PinterestFav</span>
+                      </div>
+                    </div>
+                    
+                    <p className="text-center text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                      Cook with premium interactive mode
+                    </p>
                   </div>
                 </div>
               </div>

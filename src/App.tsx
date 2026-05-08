@@ -26,7 +26,8 @@ import {
   MessageCircle,
   Dumbbell,
   Sparkles,
-  Heart
+  Heart,
+  BookOpen
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AppProvider } from "./context/AppContext";
@@ -50,6 +51,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
 import DataPreference from "./pages/DataPreference";
+import Blog from "./pages/Blog";
 
 // Utility for tailwind classes
 function cn(...inputs: ClassValue[]) {
@@ -67,6 +69,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
   const navItems = [
     { name: "Home", path: "/", icon: HomeIcon },
     { name: "Recipes", path: "/recipes", icon: Search },
+    { name: "Journal", path: "/blog", icon: BookOpen },
     { name: "Breakfast", path: "/?cat=breakfast", icon: Coffee },
     { name: "Favorites", path: "/favorites", icon: Heart },
     { name: "Lunch", path: "/?cat=lunch", icon: Utensils },
@@ -86,7 +89,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
             H
           </div>
           <span className="font-display text-sm font-bold tracking-tight text-slate-900 uppercase">
-            HREEFRECIPY
+            HREEF RECIPES
           </span>
         </Link>
         <button 
@@ -148,7 +151,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
             H
           </div>
           <span className="font-display text-xl font-bold tracking-tight text-slate-900 uppercase">
-            HREEFRECIPY
+            HREEF RECIPES
           </span>
         </div>
 
@@ -227,6 +230,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/recipes" element={<Recipes />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/favorites" element={<Favorites />} />
                 <Route path="/recipe/:id" element={<RecipeDetail />} />
                 <Route path="/cook" element={<CookMode />} />
@@ -254,10 +258,10 @@ export default function App() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green text-white font-bold text-xl shadow-lg shadow-brand-green/20">
                     H
                   </div>
-                  <span className="font-display text-xl font-bold tracking-tight text-brand-ink">Hreefrecipy</span>
+                  <span className="font-display text-xl font-bold tracking-tight text-brand-ink">Hreef Recipes</span>
                 </Link>
                 <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-xs mx-auto sm:mx-0">
-                  Fuel your body, master your health. Personalised nutrition and delicious, healthy recipes for every lifestyle.
+                  Managed by the Ait oualhyane family. Fuel your body, master your health. Personalised nutrition and delicious, healthy recipes for every lifestyle.
                 </p>
               </div>
               
@@ -276,9 +280,9 @@ export default function App() {
               <div>
                 <h4 className="mb-6 text-xs font-black uppercase tracking-widest text-brand-ink">Support</h4>
                 <ul className="space-y-3 text-sm font-bold text-slate-500">
-                  <li><Link to="/about" className="hover:text-brand-green transition-colors">About Hreefrecipy</Link></li>
+                  <li><Link to="/about" className="hover:text-brand-green transition-colors">About Us</Link></li>
+                  <li><Link to="/blog" className="hover:text-brand-green transition-colors">Culinary Journal</Link></li>
                   <li><Link to="/guides" className="hover:text-brand-green transition-colors">Cooking Guides</Link></li>
-                  <li><Link to="/help" className="hover:text-brand-green transition-colors">Help & FAQ</Link></li>
                   <li><Link to="/contact" className="hover:text-brand-green transition-colors">Contact Us</Link></li>
                 </ul>
               </div>
@@ -295,7 +299,7 @@ export default function App() {
             
             <div className="mt-16 border-t border-slate-50 pt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="text-xs font-black text-slate-400 uppercase tracking-widest">
-                © 2026 Hreefrecipy. All rights reserved.
+                © 2026 Hreef Recipes. All rights reserved.
               </div>
               <div className="flex gap-6">
                 <a 

@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
-import { X, Send, User, Bot, Sparkles, Loader2 } from "lucide-react";
+import { X, Send, User, Bot, Sparkles, Loader2, ChefHat, Utensils, Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
 import { FALLBACK_RECIPES } from "../services/fallbackData";
 
 interface Message {
   role: "user" | "bot";
   content: string;
+  isRecipeSuggestion?: boolean;
+  suggestedRecipes?: any[];
 }
 
 interface AIChatProps {
@@ -14,17 +17,19 @@ interface AIChatProps {
   onClose: () => void;
 }
 
-const STATIC_RESPONSES: Record<string, string> = {
-  "hello": "Hello there! I'm your Kitchen Assistant. How can I help you cook something delicious today?",
-  "hi": "Hi! Ready to cook? Ask me about specific ingredients or for a meal suggestion!",
-  "who are you": "I'm the Hreef Recipy Smart Assistant. I can help you find recipes from our curated collection based on what you're craving or the ingredients you have.",
-  "suggest a healthy meal": "I highly recommend our **Quinoa & Roasted Vegetable Bowl** or the **Lemon Herb Grilled Salmon**. Both are packed with nutrients and very popular!",
-  "help": "You can ask me things like:\n- 'Show me some breakfast ideas'\n- 'Do you have recipes with avocado?'\n- 'I want a fitness meal'\n- 'Suggest a drink'"
-};
+const CHEF_GREETINGS = [
+  "Buongiorno! I am Chef Hreef. Ready to create a masterpiece?",
+  "Greetings! Your kitchen assistant is at your service. What's on the menu today?",
+  "Hello! I've been reviewing our recipes. Looking for something specific or shall I surprise you?",
+  "Welcome to the digital kitchen! I can help you find the perfect meal for any craving."
+];
 
 export default function AIChat({ isOpen, onClose }: AIChatProps) {
   const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", content: "Hi! I'm your Smart Kitchen Assistant. I can help you find recipes and suggest healthy meals from our collection. What would you like to cook?" }
+    { 
+      role: "bot", 
+      content: CHEF_GREETINGS[Math.floor(Math.random() * CHEF_GREETINGS.length)] + "\n\nI can suggest healthy meals, find recipes by ingredient, or guide you through our collections. Try asking: **'Show me some healthy chicken dishes'**" 
+    }
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -38,49 +43,83 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     scrollToBottom();
   }, [messages]);
 
-  const findLocalResponse = (query: string): string => {
+  const findSmartResponse = (query: string): { content: string, suggestedRecipes?: any[] } => {
     const q = query.toLowerCase().trim();
-
-    // 1. Check static responses
-    for (const [key, value] of Object.entries(STATIC_RESPONSES)) {
-      if (q.includes(key)) return value;
+    
+    // 1. Basic Personality / Identity
+    if (q.includes("who are you") || q.includes("your name")) {
+      return { content: "I am the **Hreef Smart Assistant**, but most people call me **Chef Hreef**. I'm here to help you navigate our local recipe database and find the perfect meal for your goals!" };
     }
 
-    // 2. Search recipes
-    const matches = FALLBACK_RECIPES.filter(recipe => {
-      const inTitle = recipe.title.toLowerCase().includes(q);
-      const inCategory = recipe.category.toLowerCase().includes(q);
-      const inIngredients = recipe.extendedIngredients?.some(ing => 
-        ing.name.toLowerCase().includes(q)
-      );
-      return inTitle || inCategory || inIngredients;
-    });
+    if (q === "hello" || q === "hi" || q === "hey") {
+      return { content: "Hello! I'm ready to help. Would you like a healthy suggestion, or are you looking for a specific ingredient?" };
+    }
 
-    if (matches.length > 0) {
-      const topMatches = matches.slice(0, 3);
-      let response = `I found **${matches.length}** recipes that might interest you! Here are the best matches:\n\n`;
+    // 2. Advanced Search Logic
+    let searchResults = FALLBACK_RECIPES;
+    let contextPhrase = "I found these recipes for you:";
+
+    // Smart Keyword Overrides
+    const isHealthyRequest = q.includes("healthy") || q.includes("low cal") || q.includes("diet") || q.includes("fitness");
+    const isDrinkRequest = q.includes("drink") || q.includes("beverage") || q.includes("smoothie") || q.includes("juice");
+    const isBreakfastRequest = q.includes("breakfast") || q.includes("morning");
+
+    if (isHealthyRequest) {
+      searchResults = FALLBACK_RECIPES.filter(r => 
+        r.category.toLowerCase() === "fitness" || 
+        r.category.toLowerCase() === "salad" ||
+        (r.calories && r.calories < 400)
+      );
+      contextPhrase = "Health is wealth! Based on your request for something healthy, these are our top nutrient-dense options:";
+    } else if (isDrinkRequest) {
+      searchResults = FALLBACK_RECIPES.filter(r => r.category.toLowerCase() === "drinks");
+      contextPhrase = "Refreshing choice! Here are some of our most beautiful and refreshing drinks:";
+    } else if (isBreakfastRequest) {
+      searchResults = FALLBACK_RECIPES.filter(r => r.category.toLowerCase() === "breakfast");
+      contextPhrase = "Morning! Start your day right with these breakfast favorites:";
+    } else {
+      // General Keyword/Ingredient Search
+      const keywords = q.split(" ").filter(k => k.length > 2);
+      searchResults = FALLBACK_RECIPES.filter(recipe => {
+        const inTitle = recipe.title.toLowerCase().includes(q);
+        const inCat = recipe.category.toLowerCase().includes(q);
+        const inIngredients = recipe.extendedIngredients?.some(ing => ing.name.toLowerCase().includes(q));
+        
+        // Also check if any individual word matches
+        const wordMatch = keywords.some(k => 
+          recipe.title.toLowerCase().includes(k) || 
+          recipe.category.toLowerCase().includes(k)
+        );
+
+        return inTitle || inCat || inIngredients || wordMatch;
+      });
+      contextPhrase = `I've searched our kitchen! For "${query}", these are the best matches:`;
+    }
+
+    if (searchResults.length > 0) {
+      const top3 = searchResults.slice(0, 3);
+      let text = `${contextPhrase}\n\n`;
       
-      topMatches.forEach(recipe => {
-        response += `- **${recipe.title}** (${recipe.category})\n  *Ready in ${recipe.readyInMinutes}m | ${recipe.calories} kcal*\n`;
+      top3.forEach(r => {
+        text += `- **${r.title}**: A delicious ${r.category} dish. Ready in ${r.readyInMinutes}m.\n`;
       });
 
-      if (matches.length > 3) {
-        response += `\n...and ${matches.length - 3} more! You can find them in the search bar above.`;
+      if (searchResults.length > 3) {
+        text += `\n...and **${searchResults.length - 3}** more options available in our full catalog!`;
+      } else {
+        text += `\nWould you like to see the full details for one of these?`;
       }
-      
-      return response;
+
+      return { 
+        content: text, 
+        suggestedRecipes: top3 
+      };
     }
 
-    // 3. Fallback suggestions
-    if (q.includes("drink") || q.includes("beverage")) {
-      return "I couldn't find that specific drink, but our **Healthy Drinks** section has some amazing options like the *Dragon Fruit Lemonade* or *Matcha Green Tea Latte*!";
-    }
-
-    if (q.includes("breakfast")) {
-      return "Looking for breakfast? Some of our favorites include the **Avocado & Poached Egg Sourdough** and **Berry Blast Smoothie Bowl**.";
-    }
-
-    return "I couldn't find a specific recipe for that, but I'm constantly learning! Try searching for categories like 'Breakfast', 'Fitness', or specific ingredients like 'Salmon' or 'Avocado'.";
+    // 3. True Fallback
+    return { 
+      content: "I couldn't find an exact match in our current recipes, but a true chef is always adaptable! \n\nHow about a **Fitness Bowl** or one of our **Healthy Smoothies**? They are crowd favorites that fit most requests!" 
+    };
   };
 
   const handleSend = async () => {
@@ -88,16 +127,20 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
 
     const userMessage = input.trim();
     setInput("");
-    const newMessages = [...messages, { role: "user" as const, content: userMessage }];
-    setMessages(newMessages);
+    setMessages(prev => [...prev, { role: "user", content: userMessage }]);
     setIsLoading(true);
 
-    // Simulate a brief "thinking" state for a better UX
+    // Simulate Chef processing
     setTimeout(() => {
-      const botResponse = findLocalResponse(userMessage);
-      setMessages(prev => [...prev, { role: "bot", content: botResponse }]);
+      const response = findSmartResponse(userMessage);
+      setMessages(prev => [...prev, { 
+        role: "bot", 
+        content: response.content,
+        suggestedRecipes: response.suggestedRecipes,
+        isRecipeSuggestion: !!response.suggestedRecipes 
+      }]);
       setIsLoading(false);
-    }, 600);
+    }, 700);
   };
 
   return (
@@ -139,16 +182,46 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
                 }`}>
                   {msg.role === "user" ? <User size={16} /> : <Bot size={16} />}
                 </div>
-                <div className={`max-w-[80%] rounded-2xl p-4 text-sm leading-relaxed ${
-                  msg.role === "user" 
-                    ? "bg-brand-green text-white rounded-tr-none" 
-                    : "bg-white text-gray-800 shadow-sm ring-1 ring-gray-100 rounded-tl-none"
-                }`}>
-                  {msg.role === "user" ? (
-                    msg.content
-                  ) : (
-                    <div className="prose prose-sm max-w-none">
-                      <ReactMarkdown>{msg.content}</ReactMarkdown>
+                <div className={`max-w-[80%] space-y-3`}>
+                  <div className={`rounded-2xl p-4 text-sm leading-relaxed ${
+                    msg.role === "user" 
+                      ? "bg-brand-green text-white rounded-tr-none" 
+                      : "bg-white text-gray-800 shadow-sm ring-1 ring-gray-100 rounded-tl-none"
+                  }`}>
+                    {msg.role === "user" ? (
+                      msg.content
+                    ) : (
+                      <div className="prose prose-sm max-w-none">
+                        <ReactMarkdown>{msg.content}</ReactMarkdown>
+                      </div>
+                    )}
+                  </div>
+
+                  {msg.role === "bot" && msg.suggestedRecipes && (
+                    <div className="grid gap-2">
+                      {msg.suggestedRecipes.map((recipe) => (
+                        <Link
+                          key={recipe.id}
+                          to={`/recipe/${recipe.id}`}
+                          onClick={onClose}
+                          className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm ring-1 ring-gray-100 hover:ring-brand-green transition-all group"
+                        >
+                          <img 
+                            src={recipe.image} 
+                            alt={recipe.title} 
+                            className="h-12 w-12 rounded-lg object-cover"
+                          />
+                          <div className="flex-1 overflow-hidden">
+                            <p className="text-xs font-bold text-gray-900 truncate group-hover:text-brand-green transition-colors">
+                              {recipe.title}
+                            </p>
+                            <p className="text-[10px] text-gray-500">
+                              {recipe.readyInMinutes} min • {recipe.calories} kcal
+                            </p>
+                          </div>
+                          <ChefHat size={14} className="text-brand-green opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>

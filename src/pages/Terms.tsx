@@ -13,20 +13,35 @@ export default function Terms() {
       <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
          <p className="text-sm font-bold text-slate-400 mb-8 border-b border-slate-100 pb-8">Last updated: {new Date().toLocaleDateString()}</p>
          
-         <h2 className="text-2xl font-bold text-brand-ink mt-8">1. Acceptance of Terms</h2>
-         <p>By accessing and using Hreefrecipy, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not use this service.</p>
+         <section>
+          <h2 className="text-2xl font-bold text-brand-ink mt-8">1. Acceptance of Terms</h2>
+          <p>By accessing and using Hreef Recipy, you accept and agree to be bound by the terms and provision of this agreement. Use of our services constitutes acceptance of these terms in full.</p>
+         </section>
 
-         <h2 className="text-2xl font-bold text-brand-ink mt-8">2. Description of Service</h2>
-         <p>Hreefrecipy provides users with access to recipe curations, meal planning tools, and grocery list generators. We reserve the right to modify or discontinue any feature at any time without notice.</p>
+         <section>
+          <h2 className="text-2xl font-bold text-brand-ink mt-8">2. Intellectual Property</h2>
+          <p>The content, layout, design, data, databases and graphics on this website are protected by intellectual property laws. You may not reproduce, download, transmit, or distribute any part of this website without prior written consent, except for personal, non-commercial use.</p>
+         </section>
 
-         <h2 className="text-2xl font-bold text-brand-ink mt-8">3. User Accounts</h2>
-         <p>When you create an account using Google OAuth, you agree to maintain the security of your password and accept all risks of unauthorized access to your account and the information you provide.</p>
+         <section>
+          <h2 className="text-2xl font-bold text-brand-ink mt-8">3. User Conduct</h2>
+          <p>Users agree to use Hreef Recipy only for lawful purposes. You are prohibited from posting or transmitting any material that is defamatory, offensive, or otherwise violates the rights of others.</p>
+         </section>
 
-         <h2 className="text-2xl font-bold text-brand-ink mt-8">4. Acceptable Use</h2>
-         <p>You agree not to use the platform in any way that causes damage to the website or impairment of the availability or accessibility of Hreefrecipy. The recipes and content are for personal, non-commercial use only.</p>
+         <section>
+          <h2 className="text-2xl font-bold text-brand-ink mt-8">4. Disclaimer of Warranties</h2>
+          <p>The recipes and nutritional information are provided for informational purposes only. Hreef Recipy does not warrant the accuracy or completeness of this information. Users should consult with health professionals before starting any new diet.</p>
+         </section>
 
-         <h2 className="text-2xl font-bold text-brand-ink mt-8">5. Limitation of Liability</h2>
-         <p>In no event shall Hreefrecipy, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
+         <section>
+          <h2 className="text-2xl font-bold text-brand-ink mt-8">5. Limitation of Liability</h2>
+          <p>Hreef Recipy shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or for the cost of procurement of substitute goods and services.</p>
+         </section>
+
+         <section>
+          <h2 className="text-2xl font-bold text-brand-ink mt-8">6. Governing Law</h2>
+          <p>These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which Hreef Recipy operates, and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
+         </section>
       </div>
     </motion.div>
   );
