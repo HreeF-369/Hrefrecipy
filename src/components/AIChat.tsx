@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Send, User, Bot, Sparkles, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, HarmCategory, HarmBlockThreshold } from "@google/genai";
 import ReactMarkdown from "react-markdown";
 
 interface Message {
@@ -40,10 +40,15 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     setIsLoading(true);
 
     try {
-      // In AI Studio, process.env.GEMINI_API_KEY is injected for the frontend
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+      const apiKey = process.env.GEMINI_API_KEY;
       
-      const response = await ai.models.generateContent({
+      if (!apiKey) {
+        throw new Error("API_KEY_MISSING");
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
+      
+      const responseArr = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: [
           ...messages.slice(1).map(m => ({
@@ -56,24 +61,32 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
           }
         ],
         config: {
-          systemInstruction: "You are a world-class professional chef assistant for 'Hreef Recipy'. You are friendly, helpful, and concise. You provide expert cooking advice, recipe tips, and substitution suggestions. Format your response using clean Markdown for lists, tables, and bold text."
+          systemInstruction: "You are a world-class professional chef assistant for 'Hreef Recipy'. You are friendly, helpful, and concise. You provide expert cooking advice, recipe tips, and substitution suggestions. Format your response using clean Markdown.",
+          safetySettings: [
+            { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+            { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+            { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+            { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH }
+          ]
         }
       });
 
-      const botResponse = response.text || "I'm sorry, I'm having trouble thinking right now. Could you try again?";
+      const botResponse = responseArr.text || "I'm sorry, I couldn't generate a response. Try rephrasing your question.";
       setMessages(prev => [...prev, { role: "bot", content: botResponse }]);
     } catch (error: any) {
-      console.error("AI Chat Error Details:", {
-        message: error.message,
-        stack: error.stack,
-        context: "Frontend Gemini Call"
-      });
+      console.error("Kitchen AI Full Error Object:", error);
       
-      const errorMessage = error.message?.includes("API key not valid")
-        ? "AI Assistant is currently unavailable (Invalid API Key). Please ensure GEMINI_API_KEY is correctly set in the environment."
-        : "Oops! My neural kitchen is a bit messy right now. I've logged the error. Try asking something else!";
+      let friendlyError = "Oops! My neural kitchen is a bit messy right now. Please try again.";
+      
+      if (error.message === "API_KEY_MISSING") {
+        friendlyError = "AI Assistant is offline (API Key Missing). Please check deployment settings.";
+      } else if (error.message?.includes("API key not valid")) {
+        friendlyError = "AI Assistant is offline (Invalid API Key). Please verify your credentials.";
+      } else if (error.message?.includes("quota")) {
+        friendlyError = "I'm a bit overwhelmed with orders! (Quota Exceeded). Please try again in a few minutes.";
+      }
         
-      setMessages(prev => [...prev, { role: "bot", content: errorMessage }]);
+      setMessages(prev => [...prev, { role: "bot", content: friendlyError }]);
     } finally {
       setIsLoading(false);
     }
