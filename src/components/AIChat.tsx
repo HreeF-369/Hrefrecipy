@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Send, User, Bot, Sparkles, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { GoogleGenAI, HarmCategory, HarmBlockThreshold } from "@google/genai";
 import ReactMarkdown from "react-markdown";
+import { FALLBACK_RECIPES } from "../services/fallbackData";
 
 interface Message {
   role: "user" | "bot";
@@ -14,9 +14,17 @@ interface AIChatProps {
   onClose: () => void;
 }
 
+const STATIC_RESPONSES: Record<string, string> = {
+  "hello": "Hello there! I'm your Kitchen Assistant. How can I help you cook something delicious today?",
+  "hi": "Hi! Ready to cook? Ask me about specific ingredients or for a meal suggestion!",
+  "who are you": "I'm the Hreef Recipy Smart Assistant. I can help you find recipes from our curated collection based on what you're craving or the ingredients you have.",
+  "suggest a healthy meal": "I highly recommend our **Quinoa & Roasted Vegetable Bowl** or the **Lemon Herb Grilled Salmon**. Both are packed with nutrients and very popular!",
+  "help": "You can ask me things like:\n- 'Show me some breakfast ideas'\n- 'Do you have recipes with avocado?'\n- 'I want a fitness meal'\n- 'Suggest a drink'"
+};
+
 export default function AIChat({ isOpen, onClose }: AIChatProps) {
   const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", content: "Hi! I'm your AI cooking assistant. I can help with recipe substitutions, cooking techniques, or meal ideas. What's on your mind?" }
+    { role: "bot", content: "Hi! I'm your Smart Kitchen Assistant. I can help you find recipes and suggest healthy meals from our collection. What would you like to cook?" }
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -30,6 +38,51 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     scrollToBottom();
   }, [messages]);
 
+  const findLocalResponse = (query: string): string => {
+    const q = query.toLowerCase().trim();
+
+    // 1. Check static responses
+    for (const [key, value] of Object.entries(STATIC_RESPONSES)) {
+      if (q.includes(key)) return value;
+    }
+
+    // 2. Search recipes
+    const matches = FALLBACK_RECIPES.filter(recipe => {
+      const inTitle = recipe.title.toLowerCase().includes(q);
+      const inCategory = recipe.category.toLowerCase().includes(q);
+      const inIngredients = recipe.extendedIngredients?.some(ing => 
+        ing.name.toLowerCase().includes(q)
+      );
+      return inTitle || inCategory || inIngredients;
+    });
+
+    if (matches.length > 0) {
+      const topMatches = matches.slice(0, 3);
+      let response = `I found **${matches.length}** recipes that might interest you! Here are the best matches:\n\n`;
+      
+      topMatches.forEach(recipe => {
+        response += `- **${recipe.title}** (${recipe.category})\n  *Ready in ${recipe.readyInMinutes}m | ${recipe.calories} kcal*\n`;
+      });
+
+      if (matches.length > 3) {
+        response += `\n...and ${matches.length - 3} more! You can find them in the search bar above.`;
+      }
+      
+      return response;
+    }
+
+    // 3. Fallback suggestions
+    if (q.includes("drink") || q.includes("beverage")) {
+      return "I couldn't find that specific drink, but our **Healthy Drinks** section has some amazing options like the *Dragon Fruit Lemonade* or *Matcha Green Tea Latte*!";
+    }
+
+    if (q.includes("breakfast")) {
+      return "Looking for breakfast? Some of our favorites include the **Avocado & Poached Egg Sourdough** and **Berry Blast Smoothie Bowl**.";
+    }
+
+    return "I couldn't find a specific recipe for that, but I'm constantly learning! Try searching for categories like 'Breakfast', 'Fitness', or specific ingredients like 'Salmon' or 'Avocado'.";
+  };
+
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
 
@@ -39,57 +92,12 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     setMessages(newMessages);
     setIsLoading(true);
 
-    try {
-      const apiKey = process.env.GEMINI_API_KEY;
-      
-      if (!apiKey) {
-        throw new Error("API_KEY_MISSING");
-      }
-
-      const ai = new GoogleGenAI({ apiKey });
-      
-      const responseArr = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: [
-          ...messages.slice(1).map(m => ({
-            role: m.role === "user" ? "user" : "model",
-            parts: [{ text: m.content }]
-          })),
-          {
-            role: "user",
-            parts: [{ text: userMessage }]
-          }
-        ],
-        config: {
-          systemInstruction: "You are a world-class professional chef assistant for 'Hreef Recipy'. You are friendly, helpful, and concise. You provide expert cooking advice, recipe tips, and substitution suggestions. Format your response using clean Markdown.",
-          safetySettings: [
-            { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
-            { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
-            { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
-            { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH }
-          ]
-        }
-      });
-
-      const botResponse = responseArr.text || "I'm sorry, I couldn't generate a response. Try rephrasing your question.";
+    // Simulate a brief "thinking" state for a better UX
+    setTimeout(() => {
+      const botResponse = findLocalResponse(userMessage);
       setMessages(prev => [...prev, { role: "bot", content: botResponse }]);
-    } catch (error: any) {
-      console.error("Kitchen AI Full Error Object:", error);
-      
-      let friendlyError = "Oops! My neural kitchen is a bit messy right now. Please try again.";
-      
-      if (error.message === "API_KEY_MISSING") {
-        friendlyError = "AI Assistant is offline (API Key Missing). Please check deployment settings.";
-      } else if (error.message?.includes("API key not valid")) {
-        friendlyError = "AI Assistant is offline (Invalid API Key). Please verify your credentials.";
-      } else if (error.message?.includes("quota")) {
-        friendlyError = "I'm a bit overwhelmed with orders! (Quota Exceeded). Please try again in a few minutes.";
-      }
-        
-      setMessages(prev => [...prev, { role: "bot", content: friendlyError }]);
-    } finally {
       setIsLoading(false);
-    }
+    }, 600);
   };
 
   return (
