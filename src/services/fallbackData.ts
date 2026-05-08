@@ -3427,6 +3427,116 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 4, step: "Serve chilled in glasses with a mint garnish.", ingredients: [] }
     ]}]
   },
+  {
+    id: 6021,
+    title: "Dragon Fruit Lemonade",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1546173159-315724a93c90?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 2,
+    calories: 120,
+    protein: "1g",
+    fat: "0g",
+    carbs: "30g",
+    dishTypes: ["drink"],
+    summary: "A vibrant pink, exotic lemonade made with fresh pitaya (dragon fruit).",
+    extendedIngredients: [
+      { id: 1, name: "dragon fruit", amount: 0.5, unit: "cup", original: "1/2 cup pink dragon fruit, cubed", aisle: "Produce" },
+      { id: 2, name: "lemon juice", amount: 0.5, unit: "cup", original: "1/2 cup fresh lemon juice", aisle: "Produce" },
+      { id: 3, name: "agave nectar", amount: 2, unit: "tbsp", original: "2 tbsp agave or simple syrup", aisle: "Pantry" },
+      { id: 4, name: "water", amount: 2, unit: "cups", original: "2 cups cold water", aisle: "Pantry" },
+      { id: 5, name: "ice", amount: 1, unit: "cup", original: "Ice cubes", aisle: "Pantry" },
+      { id: 6, name: "mint", amount: 1, unit: "sprig", original: "Fresh mint", aisle: "Produce" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Blend the dragon fruit cubes with a splash of water until smooth.", ingredients: [], equipment: [] },
+      { number: 2, step: "In a pitcher, combine lemon juice, agave, and water.", ingredients: [], equipment: [] },
+      { number: 3, step: "Stir in the dragon fruit puree for an instant vibrant pink color.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve over ice and garnish with mint.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 6022,
+    title: "Magic Butterfly Pea Lemonade",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 1,
+    calories: 60,
+    protein: "0g",
+    fat: "0g",
+    carbs: "15g",
+    dishTypes: ["drink"],
+    summary: "A stunning indigo tea that turns bright purple when you add a squeeze of lemon.",
+    extendedIngredients: [
+      { id: 1, name: "butterfly pea flowers", amount: 1, unit: "tbsp", original: "1 tbsp dried butterfly pea flowers", aisle: "Tea" },
+      { id: 2, name: "hot water", amount: 1, unit: "cup", original: "1 cup boiling water", aisle: "Pantry" },
+      { id: 3, name: "lemon juice", amount: 2, unit: "tbsp", original: "2 tbsp fresh lemon juice", aisle: "Produce" },
+      { id: 4, name: "honey", amount: 1, unit: "tbsp", original: "1 tbsp honey or agave", aisle: "Pantry" },
+      { id: 5, name: "ice", amount: 1, unit: "cup", original: "Plenty of ice", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Steep the dried flowers in boiling water for 5 minutes until deep blue.", ingredients: [], equipment: [] },
+      { number: 2, step: "Strain and stir in honey while still warm; let it cool.", ingredients: [], equipment: [] },
+      { number: 3, step: "Fill a glass with ice and pour in the blue tea.", ingredients: [], equipment: [] },
+      { number: 4, step: "Squeeze in the lemon juice and watch the color change to purple!", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 6023,
+    title: "Whipped Strawberry Milk",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1546452249-0b4caea408fe?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 240,
+    protein: "6g",
+    fat: "10g",
+    carbs: "32g",
+    dishTypes: ["drink"],
+    summary: "The viral aesthetic drink: fluffy strawberry cream over chilled milk.",
+    extendedIngredients: [
+      { id: 1, name: "heavy cream", amount: 0.25, unit: "cup", original: "1/4 cup heavy whipping cream", aisle: "Dairy" },
+      { id: 2, name: "strawberry powder", amount: 1, unit: "tbsp", original: "1 tbsp strawberry Nesquik or freeze-dried powder", aisle: "Baking" },
+      { id: 3, name: "milk", amount: 1, unit: "cup", original: "1 cup whole or almond milk", aisle: "Dairy" },
+      { id: 4, name: "sugar", amount: 1, unit: "tsp", original: "1 tsp sugar", aisle: "Pantry" },
+      { id: 5, name: "strawberries", amount: 2, unit: "", original: "Fresh strawberries for garnish", aisle: "Produce" },
+      { id: 6, name: "ice", amount: 0.5, unit: "cup", original: "Ice cubes", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk heavy cream, strawberry powder, and sugar until thick and fluffy.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fill a glass with ice and pour in the milk.", ingredients: [], equipment: [] },
+      { number: 3, step: "Spoon the whipped strawberry cream over the top of the milk.", ingredients: [], equipment: [] },
+      { number: 4, step: "Garnish with a fresh strawberry and enjoy the layers.", ingredients: [] }
+    ]}]
+  },
+  {
+    id: 6024,
+    title: "Iced Lavender Honey Latte",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1572286258217-4e559c74539c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 180,
+    protein: "4g",
+    fat: "6g",
+    carbs: "22g",
+    dishTypes: ["drink"],
+    summary: "Floral, soothing, and sophisticated latte with hints of French lavender.",
+    extendedIngredients: [
+      { id: 1, name: "espresso", amount: 2, unit: "shots", original: "2 shots of strong espresso", aisle: "Coffee" },
+      { id: 2, name: "honey", amount: 1, unit: "tbsp", original: "1 tbsp floral honey", aisle: "Pantry" },
+      { id: 3, name: "culinary lavender", amount: 0.5, unit: "tsp", original: "1/2 tsp dried culinary lavender", aisle: "Spices" },
+      { id: 4, name: "milk", amount: 1, unit: "cup", original: "1 cup oat or whole milk", aisle: "Dairy" },
+      { id: 5, name: "ice", amount: 1, unit: "cup", original: "Ice", aisle: "Pantry" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Muddle lavender into the honey or steep in the hot espresso for 2 minutes; strain.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fill a tall glass with ice.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pour in your milk choice.", ingredients: [], equipment: [] },
+      { number: 4, step: "Pour the lavender-infused honey espresso over the milk; stir gently.", ingredients: [] }
+    ]}]
+  },
 
   // --- FITNESS (8 RECIPES) ---
   {
