@@ -2,5 +2,5 @@
   "name": "Global Gastronomy",
   "description": "Premium international recipe platform featuring 100+ diverse recipes, high-quality Unsplash imagery, and complete nutritional details.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

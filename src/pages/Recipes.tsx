@@ -61,27 +61,16 @@ export default function Recipes() {
 
   useEffect(() => {
     async function fetchInitial() {
-      setLoading(true);
-      const categoriesToFetch = [
-        { cat: "breakfast", label: "BREAKFAST" },
-        { cat: "lunch", label: "LUNCH" },
-        { cat: "dinner", label: "DINNER" },
-        { cat: "main-dishes", label: "MAIN DISHES" },
-        { cat: "desserts", label: "DESSERTS" },
-        { cat: "drinks", label: "DRINKS" },
-        { cat: "fitness", label: "FITNESS MEALS" }
-      ];
-      
-      const batchResults = await Promise.all(
-        categoriesToFetch.map(async ({cat, label}) => {
-          const results = await searchRecipes("", cat, 20);
-          return results.map(r => ({ ...r, category: label }));
-        })
-      );
-      
-      const combined = batchResults.flat().sort(() => Math.random() - 0.5);
-      setAllRecipes(combined);
-      setLoading(false);
+      try {
+        setLoading(true);
+        // Just fetch all recipes since it's local now
+        const results = await searchRecipes("", "all", 100);
+        setAllRecipes(results);
+      } catch (error) {
+        console.error("Initial fetch failed:", error);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchInitial();
   }, []);
@@ -90,7 +79,10 @@ export default function Recipes() {
     let result = allRecipes;
     
     if (activeTab !== "ALL RECIPES") {
-      result = result.filter(recipe => recipe.category === activeTab);
+      result = result.filter(recipe => 
+        recipe.category.toUpperCase() === activeTab || 
+        (recipe.tags && recipe.tags.some(t => t.toUpperCase() === activeTab))
+      );
     }
 
     if (query) {
@@ -231,8 +223,8 @@ export default function Recipes() {
           <div className="mb-4 rounded-full bg-brand-green/10 p-6 text-brand-green">
             <Utensils size={48} />
           </div>
-          <h3 className="text-xl font-bold">No recipes found</h3>
-          <p className="text-gray-500">Try adjusting your search or filters</p>
+          <h3 className="text-xl font-bold">No recipes added yet. Stay tuned!</h3>
+          <p className="text-gray-500">Check back soon for new gourmet creations</p>
           <button 
             onClick={() => {setQuery(""); setActiveTab("ALL RECIPES");}}
             className="mt-6 text-brand-green font-semibold hover:underline"

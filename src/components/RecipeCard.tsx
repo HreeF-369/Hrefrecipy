@@ -64,7 +64,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
             <div className="flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1.5 shadow-sm">
               <Flame size={12} className="text-orange-500 fill-orange-500/10" />
               <span className="text-[11px] font-bold text-slate-900">
-                {recipe.calories}kcal
+                {typeof recipe.calories === 'string' && recipe.calories.includes('kcal') 
+                  ? recipe.calories 
+                  : `${recipe.calories}kcal`}
               </span>
             </div>
           </div>
@@ -72,7 +74,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
           <div className="absolute bottom-4 left-4">
             <div className="flex items-center gap-1.5 rounded-full bg-black/50 backdrop-blur-md px-3 py-1.5 text-white border border-white/10">
               <Clock size={12} className="text-white/80" />
-              <span className="text-[10px] font-bold">{recipe.readyInMinutes}m</span>
+              <span className="text-[10px] font-bold">{recipe.prepTime || `${recipe.readyInMinutes}m`}</span>
             </div>
           </div>
 

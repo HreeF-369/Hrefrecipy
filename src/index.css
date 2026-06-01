@@ -49,11 +49,14 @@
   nav, 
   header, 
   footer, 
-  button:not(.print-visible),
+  button,
   .no-print,
   .no-print-action,
   #ai-chat-trigger,
-  [role="dialog"] > button:first-child {
+  .chatbot-container,
+  [role="dialog"] button,
+  .fab-button,
+  .action-buttons {
     display: none !important;
   }
   
@@ -68,24 +71,41 @@
     left: 0 !important;
     width: 100% !important;
     background: transparent !important;
+    display: block !important;
   }
 
   .recipe-modal-container {
-    position: static !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
     height: auto !important;
     overflow: visible !important;
     box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: auto !important;
   }
 
   /* Force black text on list items for printing */
   .grocery-item-text {
     color: black !important;
     text-decoration: none !important;
+    opacity: 1 !important;
   }
 
-  /* Hide shadows and interactive backgrounds */
-  div, section, article {
-    box-shadow: none !important;
-    border-color: #eee !important;
+  /* Ensure content is visible */
+  .print-only {
+    display: block !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3, h4 {
+    break-after: avoid;
   }
 }

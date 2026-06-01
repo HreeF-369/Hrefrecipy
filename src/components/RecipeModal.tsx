@@ -33,7 +33,9 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
   useEffect(() => {
     return () => {
-      window.speechSynthesis.cancel();
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
     };
   }, [isOpen]);
 
@@ -102,8 +104,8 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
       }
 
       // MealDB recipes need details to get instructions/ingredients
-      const hasInstructions = initialRecipe.analyzedInstructions && initialRecipe.analyzedInstructions.length > 0 && initialRecipe.analyzedInstructions[0].steps.length > 0;
-      const hasIngredients = initialRecipe.extendedIngredients && initialRecipe.extendedIngredients.length > 0;
+      const hasInstructions = (initialRecipe.analyzedInstructions && initialRecipe.analyzedInstructions.length > 0 && initialRecipe.analyzedInstructions[0].steps.length > 0) || (initialRecipe.instructions && initialRecipe.instructions.length > 0);
+      const hasIngredients = (initialRecipe.extendedIngredients && initialRecipe.extendedIngredients.length > 0) || (initialRecipe.ingredients && initialRecipe.ingredients.length > 0);
       
       if (!hasInstructions || !hasIngredients) {
         const fetchFull = async () => {
@@ -261,10 +263,16 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
   const handleSpeakInstructions = () => {
     if (!recipe) return;
-    const steps = recipe.analyzedInstructions?.[0]?.steps || [];
-    if (steps.length === 0) return;
+    let textToSpeak = "";
     
-    const textToSpeak = steps.map(s => `Step ${s.number}: ${s.step}`).join(". ");
+    if (recipe.instructions) {
+      textToSpeak = recipe.instructions.map((step, idx) => `Step ${idx + 1}: ${step}`).join(". ");
+    } else {
+      const steps = recipe.analyzedInstructions?.[0]?.steps || [];
+      if (steps.length === 0) return;
+      textToSpeak = steps.map(s => `Step ${s.number}: ${s.step}`).join(". ");
+    }
+    
     speakText(textToSpeak);
   };
 
@@ -282,14 +290,14 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden"
+          className="fixed inset-0 z-50 flex items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden no-print"
           onClick={onClose}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="relative w-screen h-[100dvh] sm:w-[95%] sm:h-auto max-w-[1250px] sm:max-h-[90vh] bg-white sm:rounded-[40px] sm:shadow-2xl flex flex-col overflow-x-hidden overflow-y-auto sm:overflow-hidden"
+            className="relative w-screen h-[100dvh] sm:w-[95%] sm:h-auto max-w-7xl sm:max-h-[90vh] bg-white sm:rounded-[40px] sm:shadow-2xl flex flex-col overflow-x-hidden overflow-y-auto sm:overflow-hidden recipe-modal-container"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -310,7 +318,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                 </div>
               )}
               {/* Left Column: Image & Basic Info */}
-              <div className="w-full md:w-[45%] p-0 border-r border-gray-100 flex flex-col">
+              <div className="w-full md:w-[40%] p-0 border-r border-gray-100 flex flex-col">
                 <div className="relative aspect-[4/3] md:aspect-auto md:h-72 overflow-hidden shadow-inner">
                   <img
                     src={recipe.image}
@@ -337,7 +345,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                     <button 
                       onClick={handlePrint}
                       className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:bg-white hover:text-gray-900 text-white transition-all no-print cursor-pointer"
-                      title="Print Recipe"
+                      title="Print Recipe | انبريمي"
                     >
                       <Printer className="w-5 h-5" />
                     </button>
@@ -436,7 +444,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
               </div>
 
               {/* Right Column: Dynamic Content Tabs */}
-              <div className="w-full md:w-[55%] flex flex-col bg-slate-50/50 relative">
+              <div className="w-full md:w-[60%] flex flex-col bg-slate-50/50 relative">
                 {/* Tabs Header */}
                 <div className="hidden md:flex w-full flex-row items-center gap-6 sm:gap-8 md:gap-[2.5rem] justify-center sm:justify-start bg-white px-4 sm:pl-10 sm:pr-32 pt-6 sm:pt-10 pb-4 relative z-10 shrink-0 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] no-print">
                   {tabs.map((tab) => (
@@ -464,7 +472,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                     <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="text-2xl font-black text-slate-900 tracking-tight">Shopping List</h3>
+                          <h3 className="text-2xl font-black text-slate-900 tracking-tight">Ingredients</h3>
                           <p className="text-sm font-medium text-slate-400 mt-1">Check off items as you gather them</p>
                         </div>
                         <button 
@@ -486,8 +494,44 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                         </button>
                       </div>
                       
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
-                        {recipe.extendedIngredients?.length > 0 ? (
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
+                        {recipe.ingredients ? (
+                          recipe.ingredients.map((ing, idx) => (
+                            <motion.div 
+                              key={idx} 
+                              onClick={() => setCheckedIngredients(p => ({ ...p, [idx]: !p[idx] }))}
+                              className={`flex items-center gap-4 p-5 rounded-[24px] border transition-all cursor-pointer group relative overflow-hidden ${
+                                checkedIngredients[idx] 
+                                  ? "bg-slate-50 border-slate-200 opacity-60" 
+                                  : "bg-slate-50/50 border-slate-200 hover:border-brand-green/30 hover:shadow-xl hover:bg-white hover:shadow-slate-200/20"
+                              }`}
+                            >
+                              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
+                                checkedIngredients[idx] 
+                                  ? "bg-brand-green border-brand-green text-white" 
+                                  : "border-slate-200 group-hover:border-brand-green"
+                              }`}>
+                                {checkedIngredients[idx] && <CheckCircle2 size={14} strokeWidth={3} />}
+                              </div>
+                              <div className="flex items-center gap-3 flex-1">
+                                {ing.image && (
+                                  <img 
+                                    src={ing.image} 
+                                    alt={ing.name}
+                                    className="h-10 w-10 rounded-full object-cover bg-white p-1 shrink-0 shadow-sm"
+                                  />
+                                )}
+                                <div className="flex flex-col text-slate-800">
+                                   <span className={`text-base font-bold transition-all ${
+                                    checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
+                                  }`}>
+                                    {ing.name}
+                                  </span>
+                                </div>
+                              </div>
+                            </motion.div>
+                          ))
+                        ) : recipe.extendedIngredients?.length > 0 ? (
                           recipe.extendedIngredients.map((ing, idx) => (
                             <motion.div 
                               key={idx} 
@@ -505,21 +549,24 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                               }`}>
                                 {checkedIngredients[idx] && <CheckCircle2 size={14} strokeWidth={3} />}
                               </div>
-                              <div className="flex items-center gap-3 flex-1 overflow-hidden">
+                              <div className="flex items-center gap-3 flex-1">
                                 {ing.image && (
                                   <img 
-                                    src={`https://www.themealdb.com/images/ingredients/${ing.image}-Small.png`} 
+                                    src={`https://www.themealdb.com/images/ingredients/${ing.image.charAt(0).toUpperCase() + ing.image.slice(1)}-Small.png`} 
                                     alt={ing.name}
                                     className="h-10 w-10 rounded-full object-cover bg-white p-1 shrink-0 shadow-sm"
+                                    onError={(e) => {
+                                      (e.target as HTMLImageElement).src = `https://www.themealdb.com/images/ingredients/${ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}-Small.png`;
+                                    }}
                                   />
                                 )}
-                                <div className="flex flex-col min-w-0">
-                                  <span className={`text-base font-bold transition-all truncate ${
+                                <div className="flex flex-col">
+                                  <span className={`text-base font-bold transition-all ${
                                     checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
                                   }`}>
                                     {ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}
                                   </span>
-                                  <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest truncate">
+                                  <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
                                     {ing.amount} {ing.unit}
                                   </span>
                                 </div>
@@ -556,7 +603,20 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                         </button>
                       </div>
                       <div className="space-y-6">
-                        {recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
+                        {recipe.instructions ? (
+                          recipe.instructions.map((step, idx) => (
+                            <div key={idx} className="flex items-start gap-4 group mb-6">
+                              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">
+                                {idx + 1}
+                              </div>
+                              <div className="space-y-2 flex-1">
+                                <p className="text-base text-gray-700 leading-relaxed font-medium">
+                                  {step}
+                                </p>
+                              </div>
+                            </div>
+                          ))
+                        ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
                           recipe.analyzedInstructions[0].steps.map((step) => (
                           <div key={step.number} className="flex items-start gap-4 group mb-6">
                             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">

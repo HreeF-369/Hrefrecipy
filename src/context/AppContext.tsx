@@ -26,11 +26,11 @@ interface AppContextType {
   deleteGroceryItem: (id: string) => void;
   clearGroceryList: () => void;
   updateGroceryItemAmount: (id: string, amount: string) => void;
-  favorites: number[];
-  toggleFavorite: (recipeId: number) => void;
-  comments: Record<number, Comment[]>;
-  addComment: (recipeId: number, text: string, user: string) => void;
-  deleteComment: (recipeId: number, commentId: string) => void;
+  favorites: (string | number)[];
+  toggleFavorite: (recipeId: string | number) => void;
+  comments: Record<string | number, Comment[]>;
+  addComment: (recipeId: string | number, text: string, user: string) => void;
+  deleteComment: (recipeId: string | number, commentId: string) => void;
   preferences: UserPreferences;
   updatePreferences: (prefs: Partial<UserPreferences>) => void;
   clearAllData: () => void;
@@ -42,9 +42,9 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [plan, setPlan] = useState<Record<string, Recipe>>({});
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [favorites, setFavorites] = useState<(string | number)[]>([]);
   const [groceryItems, setGroceryItems] = useState<GroceryItem[]>([]);
-  const [comments, setComments] = useState<Record<number, Comment[]>>({});
+  const [comments, setComments] = useState<Record<string | number, Comment[]>>({});
   const [preferences, setPreferences] = useState<UserPreferences>({
     googleSync: false,
     marketingEmails: false,
@@ -57,7 +57,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const loadFromStorage = (key: string, setter: (val: any) => void) => {
       try {
         const item = localStorage.getItem(key);
-        if (item) setter(JSON.parse(item));
+        if (item) {
+          const parsed = JSON.parse(item);
+          setter(parsed);
+        }
       } catch (e) {
         console.error(`Error loading ${key} from storage:`, e);
       }
@@ -71,23 +74,43 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("hreefrecipy_favorites", JSON.stringify(favorites));
+    try {
+      localStorage.setItem("hreefrecipy_favorites", JSON.stringify(favorites));
+    } catch (e) {
+      console.warn("Failed to save favorites to localStorage", e);
+    }
   }, [favorites]);
 
   useEffect(() => {
-    localStorage.setItem("hreefrecipy_plan", JSON.stringify(plan));
+    try {
+      localStorage.setItem("hreefrecipy_plan", JSON.stringify(plan));
+    } catch (e) {
+      console.warn("Failed to save plan to localStorage", e);
+    }
   }, [plan]);
 
   useEffect(() => {
-    localStorage.setItem("hreefrecipy_grocery", JSON.stringify(groceryItems));
+    try {
+      localStorage.setItem("hreefrecipy_grocery", JSON.stringify(groceryItems));
+    } catch (e) {
+      console.warn("Failed to save grocery items to localStorage", e);
+    }
   }, [groceryItems]);
 
   useEffect(() => {
-    localStorage.setItem("hreefrecipy_comments", JSON.stringify(comments));
+    try {
+      localStorage.setItem("hreefrecipy_comments", JSON.stringify(comments));
+    } catch (e) {
+      console.warn("Failed to save comments to localStorage", e);
+    }
   }, [comments]);
 
   useEffect(() => {
-    localStorage.setItem("hreefrecipy_preferences", JSON.stringify(preferences));
+    try {
+      localStorage.setItem("hreefrecipy_preferences", JSON.stringify(preferences));
+    } catch (e) {
+      console.warn("Failed to save preferences to localStorage", e);
+    }
   }, [preferences]);
 
   const updatePreferences = (newPrefs: Partial<UserPreferences>) => {
@@ -107,7 +130,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     localStorage.clear();
   };
 
-  const addComment = (recipeId: number, text: string, user: string) => {
+  const addComment = (recipeId: string | number, text: string, user: string) => {
     const newComment: Comment = {
       id: Date.now().toString(),
       user,
@@ -121,14 +144,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }));
   };
 
-  const deleteComment = (recipeId: number, commentId: string) => {
+  const deleteComment = (recipeId: string | number, commentId: string) => {
     setComments(prev => ({
       ...prev,
       [recipeId]: (prev[recipeId] || []).filter(c => c.id !== commentId)
     }));
   };
 
-  const toggleFavorite = (recipeId: number) => {
+  const toggleFavorite = (recipeId: string | number) => {
     setFavorites(prev => 
       prev.includes(recipeId) 
         ? prev.filter(id => id !== recipeId) 
@@ -157,24 +180,38 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   };
 
   const addRecipeIngredientsToGroceryList = (recipe: Recipe) => {
-    const newItems: GroceryItem[] = (recipe.extendedIngredients || []).map(ing => {
-      // Use aisle from Spoonacular if available, otherwise try to guess
-      let category = "Other";
-      if (ing.aisle) {
-        // Spoonacular aisles are often like "Produce;Spices and Seasonings"
-        category = ing.aisle.split(';')[0];
-      } else {
-        category = getIngredientCategory(ing.name);
-      }
+    let newItems: GroceryItem[] = [];
 
-      return {
-        id: `recipe-${recipe.id}-${ing.id}-${Date.now()}-${Math.random()}`,
+    if (recipe.ingredients) {
+      // New structure
+      newItems = recipe.ingredients.map((ing, idx) => ({
+        id: `recipe-${recipe.id}-${idx}-${Date.now()}`,
         name: ing.name,
-        category: category,
+        category: getIngredientCategory(ing.name),
         checked: false,
-        amount: `${ing.amount} ${ing.unit || ""}`.trim() || "1 unit"
-      };
-    });
+        amount: "1 unit",
+        image: ing.image
+      }));
+    } else if (recipe.extendedIngredients) {
+      // Old structure
+      newItems = recipe.extendedIngredients.map(ing => {
+        let category = "Other";
+        if (ing.aisle) {
+          category = ing.aisle.split(';')[0];
+        } else {
+          category = getIngredientCategory(ing.name);
+        }
+
+        return {
+          id: `recipe-${recipe.id}-${ing.id}-${Date.now()}-${Math.random()}`,
+          name: ing.name,
+          category: category,
+          checked: false,
+          amount: `${ing.amount} ${ing.unit || ""}`.trim() || "1 unit"
+        };
+      });
+    }
+
     setGroceryItems(prev => [...prev, ...newItems]);
   };
 

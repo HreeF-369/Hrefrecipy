@@ -60,7 +60,25 @@ export default function CookMode() {
     fetchRecipe();
   }, [id]);
 
-  const steps = recipe?.analyzedInstructions?.[0]?.steps || [];
+  const getSteps = (recipe: Recipe | null) => {
+    if (!recipe) return [];
+    
+    // If the recipe has the new simple instructions array of strings
+    if (recipe.instructions && recipe.instructions.length > 0) {
+      return recipe.instructions.map((step, index) => ({
+        number: index + 1,
+        step: step,
+        ingredients: [],
+        equipment: [],
+        length: undefined
+      }));
+    }
+    
+    // Otherwise use the analyzedInstructions structure
+    return recipe.analyzedInstructions?.[0]?.steps || [];
+  };
+
+  const steps = getSteps(recipe);
   const progress = steps.length > 0 ? ((currentStep + 1) / steps.length) * 100 : 0;
 
   // Timer logic
@@ -96,6 +114,7 @@ export default function CookMode() {
   }, [isMuted]);
 
   useEffect(() => {
+    if (!window.speechSynthesis) return;
     // Ensure voices are loaded
     const onVoicesChanged = () => {
       getBestVoice();
@@ -117,7 +136,7 @@ export default function CookMode() {
       }, 500);
       return () => {
         clearTimeout(timer);
-        window.speechSynthesis.cancel();
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
       };
     }
   }, [currentStep, loading, recipe, isCompleted, isMuted, speak]);
@@ -148,6 +167,26 @@ export default function CookMode() {
   );
 
   if (!id || !recipe) return <div className="p-10 text-center">Select a recipe to start cooking</div>;
+
+  if (steps.length === 0) {
+    return (
+      <div className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center p-10 text-center space-y-6">
+        <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+          <X size={40} />
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-bold text-slate-900">No Instructions Found</h2>
+          <p className="text-slate-500 max-w-sm mx-auto">This recipe doesn't have step-by-step instructions available in Cook Mode yet.</p>
+        </div>
+        <button 
+          onClick={() => navigate(-1)}
+          className="rounded-2xl bg-brand-green px-8 py-3 font-bold text-white shadow-lg shadow-brand-green/20"
+        >
+          Go Back
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 z-[100] bg-white overflow-hidden flex flex-col w-screen h-[100dvh]">

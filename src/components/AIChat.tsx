@@ -73,8 +73,9 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     if (isHealthyRequest) {
       searchResults = searchDataSource.filter(r => 
         r.category.toLowerCase() === "fitness" || 
+        r.category.toLowerCase() === "fitness meals" ||
         r.category.toLowerCase() === "salad" ||
-        (r.calories && r.calories < 400)
+        (r.calories && (typeof r.calories === 'number' ? r.calories < 400 : parseInt(r.calories) < 400))
       );
       contextPhrase = "Health is wealth! Based on your request for something healthy, these are our top nutrient-dense options:";
     } else if (isDrinkRequest) {

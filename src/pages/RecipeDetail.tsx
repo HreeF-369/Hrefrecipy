@@ -31,7 +31,7 @@ export default function RecipeDetail() {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeSegment, setActiveSegment] = useState("ingredients");
-  const [checkedIngredients, setCheckedIngredients] = useState<number[]>([]);
+  const [checkedIngredients, setCheckedIngredients] = useState<(number | string)[]>([]);
   const [showPlanMenu, setShowPlanMenu] = useState(false);
   const [commentText, setCommentText] = useState("");
 
@@ -53,7 +53,7 @@ export default function RecipeDetail() {
       try {
         setRecipe(null);
         if (id) {
-          const result = await getRecipeById(parseInt(id));
+          const result = await getRecipeById(id);
           if (result) {
             setRecipe(result);
             document.title = `${result.title} | Hreefrecipy`;
@@ -111,24 +111,30 @@ export default function RecipeDetail() {
 
   const handleSpeakInstructions = () => {
     if (!recipe) return;
-    const steps = recipe.analyzedInstructions?.[0]?.steps || [];
-    if (steps.length === 0) return;
+    let textToSpeak = "";
     
-    const textToSpeak = steps.map(s => `Step ${s.number}: ${s.step}`).join(". ");
+    if (recipe.instructions) {
+      textToSpeak = recipe.instructions.map((step, idx) => `Step ${idx + 1}: ${step}`).join(". ");
+    } else {
+      const steps = recipe.analyzedInstructions?.[0]?.steps || [];
+      if (steps.length === 0) return;
+      textToSpeak = steps.map(s => `Step ${s.number}: ${s.step}`).join(". ");
+    }
+    
     speakText(textToSpeak);
   };
 
   const handlePlanMeal = (day: string) => {
     if (recipe) {
-      const mealType = recipe.dishTypes?.includes("breakfast") ? "breakfast" : 
-                       recipe.dishTypes?.includes("lunch") ? "lunch" : "dinner";
+      const mealType = recipe.category === "breakfast" ? "breakfast" : 
+                       recipe.category === "lunch" ? "lunch" : "dinner";
       addToPlan(day, mealType, recipe);
       setShowPlanMenu(false);
       alert(`Successfully added to ${day}'s ${mealType}!`);
     }
   };
 
-  const toggleIngredient = (id: number) => {
+  const toggleIngredient = (id: number | string) => {
     setCheckedIngredients(prev => 
       prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
     );
@@ -136,7 +142,9 @@ export default function RecipeDetail() {
 
   useEffect(() => {
     return () => {
-      window.speechSynthesis.cancel();
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
     };
   }, []);
 
@@ -150,7 +158,14 @@ export default function RecipeDetail() {
 
   if (!recipe) return <div className="p-20 text-center">Recipe not found</div>;
 
-  const calories = recipe.nutrition?.nutrients.find(n => n.name === "Calories")?.amount || 420;
+  let caloriesVal = 420;
+  if (recipe.nutrition) {
+    caloriesVal = recipe.nutrition.nutrients.find(n => n.name === "Calories")?.amount || 420;
+  } else if (typeof recipe.calories === 'string') {
+    caloriesVal = parseInt(recipe.calories) || 420;
+  } else if (typeof recipe.calories === 'number') {
+    caloriesVal = recipe.calories;
+  }
 
   return (
     <motion.div
@@ -194,7 +209,7 @@ export default function RecipeDetail() {
               <button 
                 onClick={handlePrint}
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg backdrop-blur-md transition-transform active:scale-90 no-print cursor-pointer"
-                title="Print Recipe"
+                title="Print Recipe | انبريمي"
               >
                 <Printer size={20} />
               </button>
@@ -254,12 +269,12 @@ export default function RecipeDetail() {
                 <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-brand-green/5 border border-brand-green/10 transition-transform hover:scale-105">
                   <Clock size={32} strokeWidth={1} className="text-brand-green mb-2" />
                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Time</span>
-                  <p className="text-xl font-display font-bold text-gray-900">{recipe.readyInMinutes}m</p>
+                  <p className="text-xl font-display font-bold text-gray-900">{recipe.prepTime || `${recipe.readyInMinutes}m`}</p>
                 </div>
                 <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-brand-orange/5 border border-brand-orange/10 transition-transform hover:scale-105">
                   <Flame size={32} strokeWidth={1} className="text-brand-orange mb-2" />
                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Energy</span>
-                  <p className="text-xl font-display font-bold text-gray-900">{Math.round(calories)}kcal</p>
+                  <p className="text-xl font-display font-bold text-gray-900">{Math.round(caloriesVal)}kcal</p>
                 </div>
                 <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-blue-50 border border-blue-100 transition-transform hover:scale-105">
                   <Users size={32} strokeWidth={1} className="text-blue-500 mb-2" />
@@ -275,20 +290,11 @@ export default function RecipeDetail() {
                     <span className="text-[10px] font-black uppercase tracking-widest">High Protein</span>
                   </div>
                 )}
-                {recipe.nutrition?.nutrients.find(n => n.name === 'Fiber')?.amount && recipe.nutrition.nutrients.find(n => n.name === 'Fiber')!.amount >= 5 && (
-                  <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full border border-blue-100 shadow-sm transition-all hover:bg-blue-100">
-                    <span className="text-xs">🥗</span>
-                    <span className="text-[10px] font-black uppercase tracking-widest">High Fiber</span>
+                {recipe.tags?.map(tag => (
+                   <div key={tag} className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full border border-blue-100 shadow-sm transition-all hover:bg-blue-100">
+                    <span className="text-[10px] font-black uppercase tracking-widest">{tag}</span>
                   </div>
-                )}
-                <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-700 rounded-full border border-purple-100 shadow-sm transition-all hover:bg-purple-100">
-                  <span className="text-xs">✨</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest">#1 Trendy</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-amber-50 text-amber-700 rounded-full border border-amber-100 shadow-sm transition-all hover:bg-amber-100">
-                  <span className="text-xs">📍</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest">PinterestFav</span>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -321,7 +327,7 @@ export default function RecipeDetail() {
                 className="space-y-4"
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">What you'll need</h3>
+                  <h3 className="text-lg font-bold">Ingredients</h3>
                   <button 
                     onClick={handleAddToList}
                     className="text-sm font-semibold text-brand-green hover:underline no-print"
@@ -330,7 +336,41 @@ export default function RecipeDetail() {
                   </button>
                 </div>
                 <div className="grid gap-3">
-                  {(recipe.extendedIngredients || []).map((ing) => (
+                  {recipe.ingredients ? (
+                    recipe.ingredients.map((ing, idx) => (
+                      <div 
+                        key={idx} 
+                        onClick={() => toggleIngredient(`ing-${idx}`)}
+                        className={`flex items-center gap-4 rounded-3xl p-4 shadow-sm ring-1 transition-all cursor-pointer ${
+                          checkedIngredients.includes(`ing-${idx}`) 
+                            ? "bg-brand-green/5 ring-brand-green/20 opacity-60" 
+                            : "bg-white ring-gray-100 hover:ring-brand-light-green/30"
+                        } print:bg-white print:ring-0 print:opacity-100`}
+                      >
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
+                          checkedIngredients.includes(`ing-${idx}`) 
+                            ? "bg-brand-green text-white" 
+                            : "bg-brand-cream text-brand-green ring-1 ring-brand-green/10"
+                        } print:hidden`}>
+                          {checkedIngredients.includes(`ing-${idx}`) ? <CheckCircle2 size={18} /> : <span className="font-bold text-xs">{idx + 1}</span>}
+                        </div>
+                        <div className="flex-1 flex items-center gap-3">
+                          {ing.image && (
+                            <img 
+                              src={ing.image} 
+                              alt={ing.name}
+                              className="h-10 w-10 rounded-full object-cover bg-slate-50 p-1 border border-slate-100 shrink-0 print:hidden"
+                            />
+                          )}
+                          <div>
+                            <p className={`font-bold transition-all grocery-item-text ${checkedIngredients.includes(`ing-${idx}`) ? "text-gray-400 line-through" : "text-gray-800"}`}>
+                              {ing.name}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  ) : (recipe.extendedIngredients || []).map((ing) => (
                     <div 
                       key={ing.id} 
                       onClick={() => toggleIngredient(ing.id)}
@@ -344,15 +384,18 @@ export default function RecipeDetail() {
                         checkedIngredients.includes(ing.id) 
                           ? "bg-brand-green text-white" 
                           : "bg-brand-cream text-brand-green ring-1 ring-brand-green/10"
-                      } print:hidden`}>
+                        } print:hidden`}>
                         {checkedIngredients.includes(ing.id) ? <CheckCircle2 size={18} /> : <span className="font-bold text-xs">{Math.round(ing.amount)}</span>}
                       </div>
                       <div className="flex-1 flex items-center gap-3">
                         {ing.image && (
                           <img 
-                            src={`https://www.themealdb.com/images/ingredients/${ing.image}-Small.png`} 
+                            src={`https://www.themealdb.com/images/ingredients/${ing.image.charAt(0).toUpperCase() + ing.image.slice(1)}-Small.png`} 
                             alt={ing.name}
                             className="h-10 w-10 rounded-full object-cover bg-slate-50 p-1 border border-slate-100 shrink-0 print:hidden"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = `https://www.themealdb.com/images/ingredients/${ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}-Small.png`;
+                            }}
                           />
                         )}
                         <div>
@@ -370,7 +413,7 @@ export default function RecipeDetail() {
               </motion.div>
             </div>
 
-            <div className={activeSegment === "instructions" ? "block mt-10 md:mt-0" : "hidden print:block print:mt-10"}>
+            <div className={activeSegment === "instructions" ? "block" : "hidden print:block print:mt-10"}>
               <motion.div
                 key="instructions"
                 initial={{ opacity: 0, x: 20 }}
@@ -386,7 +429,21 @@ export default function RecipeDetail() {
                     <Volume2 size={16} /> Listen to Steps
                   </button>
                 </div>
-                {recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
+                {recipe.instructions ? (
+                  recipe.instructions.map((step, idx) => (
+                    <div key={idx} className="flex gap-6 group">
+                      <div className="flex flex-col items-center">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-green text-sm font-bold text-white shadow-lg shadow-brand-green/20 group-hover:scale-110 transition-transform">
+                          {idx + 1}
+                        </div>
+                        <div className="mt-2 h-full w-px bg-gray-200 group-last:hidden" />
+                      </div>
+                      <div className="pb-8 flex-1">
+                        <p className="text-base leading-relaxed text-gray-700 font-medium">{step}</p>
+                      </div>
+                    </div>
+                  ))
+                ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
                   recipe.analyzedInstructions[0].steps.map((step) => (
                     <div key={step.number} className="flex gap-6 group">
                       <div className="flex flex-col items-center">
@@ -417,7 +474,7 @@ export default function RecipeDetail() {
               </motion.div>
             </div>
 
-            <div className={activeSegment === "nutrition" ? "block mt-10 md:mt-0" : "hidden print:block print:mt-10"}>
+            <div className={activeSegment === "nutrition" ? "block" : "hidden print:block print:mt-10"}>
               <motion.div
                 key="nutrition"
                 initial={{ opacity: 0, x: 20 }}
@@ -425,20 +482,28 @@ export default function RecipeDetail() {
                 className="space-y-6"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {(recipe.nutrition?.nutrients || []).slice(0, 6).map((n) => (
-                    <div key={n.name} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">{n.name}</p>
-                      <p className="mt-1 text-2xl font-bold text-gray-800">
-                        {Math.round(n.amount)}
-                        <span className="ml-1 text-sm font-medium text-gray-500">{n.unit}</span>
-                      </p>
+                  {recipe.nutrition ? (
+                    recipe.nutrition.nutrients.slice(0, 6).map((n) => (
+                      <div key={n.name} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">{n.name}</p>
+                        <p className="mt-1 text-2xl font-bold text-gray-800">
+                          {Math.round(n.amount)}
+                          <span className="ml-1 text-sm font-medium text-gray-500">{n.unit}</span>
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="col-span-2 p-10 text-center bg-slate-50 rounded-3xl border border-slate-100">
+                       <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">Nutritional data unavailable for this local recipe.</p>
+                       <p className="text-slate-500 mt-2">Estimated Calories: {recipe.calories}</p>
+                       <p className="text-slate-500">Estimated Protein: {recipe.protein}</p>
                     </div>
-                  ))}
+                  )}
                 </div>
               </motion.div>
             </div>
 
-            <div className={activeSegment === "comments" ? "block mt-10 md:mt-0 no-print" : "hidden"}>
+            <div className={activeSegment === "comments" ? "block no-print" : "hidden"}>
               <motion.div
                 key="comments"
                 initial={{ opacity: 0, x: 20 }}

@@ -1,28 +1,35 @@
 export interface Recipe {
-  id: number;
+  id: string | number;
   title: string;
+  titleArabic?: string;
   category: string;
   image: string;
   imageType?: string;
   readyInMinutes: number;
+  prepTime?: string; // New field from user
   servings: number;
   sourceUrl?: string;
   youtubeUrl?: string;
   summary?: string;
+  description?: string; // New field from user
   nutrition?: {
     nutrients: Nutrient[];
   };
-  analyzedInstructions: InstructionStep[];
-  extendedIngredients: Ingredient[];
+  analyzedInstructions?: InstructionStep[];
+  instructions?: string[]; // New field from user (simple array)
+  extendedIngredients?: Ingredient[];
+  ingredients?: { name: string; image: string }[]; // New field from user
   dishTypes: string[];
+  tags?: string[]; // New field from user
   diets?: string[];
   spoonacularScore?: number;
   healthScore?: number;
-  calories: number;
+  calories: string | number;
   protein?: string;
   fat?: string;
   carbs?: string;
   comments?: Comment[];
+  pinterestImage?: string;
 }
 
 export interface Comment {
@@ -84,4 +91,5 @@ export interface GroceryItem {
   category: string;
   amount?: string;
   checked: boolean;
+  image?: string; // Added image for ingredients icons
 }

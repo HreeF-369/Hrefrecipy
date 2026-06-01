@@ -4131,6 +4131,272 @@ export const FALLBACK_RECIPES: Recipe[] = [
       { number: 3, step: "Assemble tacos with slaw, shrimp, and avocado.", ingredients: [], equipment: [] },
       { number: 4, step: "Garnish with fresh cilantro and lime.", ingredients: [] }
     ]}]
+  },
+  {
+    id: 5001,
+    title: "Honey Garlic Chicken Meal Prep",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 30,
+    servings: 4,
+    calories: 450,
+    protein: "38g",
+    fat: "12g",
+    carbs: "45g",
+    dishTypes: ["#1 Trendy", "PinterestFav", "Healthy", "Meal Prep"],
+    summary: "High-protein meal prep featuring tender honey garlic chicken, roasted broccoli, and colorful bell peppers over fluffy jasmine rice.",
+    extendedIngredients: [
+      { id: 1, name: "chicken breast", amount: 2, unit: "lb", original: "2 lbs chicken breast, cubed", aisle: "Meat", image: "https://cdn-icons-png.flaticon.com/128/1041/1041636.png" },
+      { id: 2, name: "honey", amount: 0.25, unit: "cup", original: "1/4 cup raw honey", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/4144/4144554.png" },
+      { id: 3, name: "garlic", amount: 4, unit: "cloves", original: "4 cloves garlic, minced", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/1041/1041624.png" },
+      { id: 4, name: "soy sauce", amount: 3, unit: "tbsp", original: "3 tbsp low-sodium soy sauce", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/3443/3443329.png" },
+      { id: 5, name: "broccoli", amount: 2, unit: "heads", original: "2 heads broccoli, florets", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/2347/2347074.png" },
+      { id: 6, name: "bell pepper", amount: 2, unit: "", original: "2 bell peppers, sliced", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/3361/3361816.png" },
+      { id: 7, name: "rice", amount: 2, unit: "cups", original: "2 cups cooked jasmine rice", aisle: "Grains", image: "https://cdn-icons-png.flaticon.com/128/1471/1471262.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk honey, soy sauce, and minced garlic in a small bowl.", ingredients: [], equipment: [] },
+      { number: 2, step: "Sear chicken in a large pan until golden brown and cooked through.", ingredients: [], equipment: [] },
+      { number: 3, step: "Pour the sauce over the chicken and simmer until thickened and glossy.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve alongside roasted broccoli and peppers over a bed of jasmine rice.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5002,
+    title: "Tiramisu Overnight Oats",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1541339946196-5eb5b23a56f2?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 1,
+    calories: 320,
+    protein: "18g",
+    fat: "8g",
+    carbs: "42g",
+    dishTypes: ["#1 Trendy", "PinterestFav", "Healthy", "Quick"],
+    summary: "A luxury healthy breakfast that tastes like dessert. Creamy oats infused with espresso, layered with Greek yogurt and dusted with cocoa.",
+    extendedIngredients: [
+      { id: 1, name: "oats", amount: 0.5, unit: "cup", original: "1/2 cup rolled oats", aisle: "Grains", image: "https://cdn-icons-png.flaticon.com/128/3014/3014522.png" },
+      { id: 2, name: "espresso", amount: 1, unit: "shot", original: "1 shot of brewed espresso", aisle: "Beverages", image: "https://cdn-icons-png.flaticon.com/128/1041/1041697.png" },
+      { id: 3, name: "greek yogurt", amount: 0.5, unit: "cup", original: "1/2 cup Greek yogurt", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 4, name: "chia seeds", amount: 1, unit: "tbsp", original: "1 tbsp chia seeds", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/2144/2144176.png" },
+      { id: 5, name: "maple syrup", amount: 1, unit: "tsp", original: "1 tsp maple syrup", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/1041/1041655.png" },
+      { id: 6, name: "cocoa powder", amount: 1, unit: "tsp", original: "1 tsp unsweetened cocoa powder", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/3443/3443329.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "In a jar, mix oats, espresso, chia seeds, and half the yogurt.", ingredients: [], equipment: [] },
+      { number: 2, step: "Refrigerate overnight or for at least 4 hours.", ingredients: [], equipment: [] },
+      { number: 3, step: "Top with a fresh layer of Greek yogurt mixed with maple syrup.", ingredients: [], equipment: [] },
+      { number: 4, step: "Dust with cocoa powder before serving for the characteristic tiramisu finish.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5003,
+    title: "Strawberry Spinach Salad",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 2,
+    calories: 280,
+    protein: "6g",
+    fat: "18g",
+    carbs: "24g",
+    dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Quick"],
+    summary: "A gourmet, aesthetic salad featuring fresh strawberries, baby spinach, candied pecans, and creamy goat cheese with a balsamic glaze.",
+    extendedIngredients: [
+      { id: 1, name: "baby spinach", amount: 4, unit: "cups", original: "4 cups baby spinach", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/2347/2347012.png" },
+      { id: 2, name: "strawberries", amount: 1, unit: "cup", original: "1 cup fresh sliced strawberries", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/590/590666.png" },
+      { id: 3, name: "goat cheese", amount: 2, unit: "oz", original: "2 oz crumbled goat cheese", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 4, name: "pecans", amount: 0.25, unit: "cup", original: "1/4 cup candied pecans", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/3014/3014522.png" },
+      { id: 5, name: "balsamic glaze", amount: 2, unit: "tbsp", original: "2 tbsp balsamic glaze", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/1041/1041655.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Arrange baby spinach in a large aesthetic bowl.", ingredients: [], equipment: [] },
+      { number: 2, step: "Top with sliced strawberries and crumbled goat cheese.", ingredients: [], equipment: [] },
+      { number: 3, step: "Sprinkle candied pecans over the top for crunch.", ingredients: [], equipment: [] },
+      { number: 4, step: "Drizzle with balsamic glaze right before serving.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5004,
+    title: "Air Fryer Crispy Parmesan Potatoes",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1518013391915-e44359849fbf?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 25,
+    servings: 2,
+    calories: 350,
+    protein: "8g",
+    fat: "15g",
+    carbs: "48g",
+    dishTypes: ["Viral", "PinterestFav", "Quick", "Snack"],
+    summary: "The ultimate viral snack style: ultra-crispy air-fried potato wedges coated in a savory garlic parmesan crust.",
+    extendedIngredients: [
+      { id: 1, name: "russet potatoes", amount: 3, unit: "", original: "3 large russet potatoes", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/2347/2347078.png" },
+      { id: 2, name: "parmesan cheese", amount: 0.5, unit: "cup", original: "1/2 cup grated parmesan", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 3, name: "garlic powder", amount: 1, unit: "tsp", original: "1 tsp garlic powder", aisle: "Spices", image: "https://cdn-icons-png.flaticon.com/128/1041/1041624.png" },
+      { id: 4, name: "olive oil", amount: 2, unit: "tbsp", original: "2 tbsp olive oil", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/1041/1041655.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Cut potatoes into even wedges and soak in cold water for 15 minutes.", ingredients: [], equipment: [] },
+      { number: 2, step: "Pat dry and toss with olive oil, parmesan, and garlic powder.", ingredients: [], equipment: [] },
+      { number: 3, step: "Arrange in air fryer basket and cook at 400°F for 18-22 minutes.", ingredients: [], equipment: [] },
+      { number: 4, step: "Toss halfway through until golden brown and extra crispy.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5005,
+    title: "The Ultimate Iced Pistachio Latte",
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1572286258217-3067332f143c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 5,
+    servings: 1,
+    calories: 210,
+    protein: "4g",
+    fat: "9g",
+    carbs: "28g",
+    dishTypes: ["Professional", "PinterestFav", "Quick", "Coffee"],
+    summary: "Professional coffee culture at home. A creamy, aesthetic iced latte with nutty pistachio notes and velvety oat milk.",
+    extendedIngredients: [
+      { id: 1, name: "espresso", amount: 2, unit: "shots", original: "2 shots of blonde espresso", aisle: "Beverages", image: "https://cdn-icons-png.flaticon.com/128/1041/1041697.png" },
+      { id: 2, name: "pistachio syrup", amount: 2, unit: "tbsp", original: "2 tbsp pistachio syrup", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/1041/1041655.png" },
+      { id: 3, name: "oat milk", amount: 1, unit: "cup", original: "1 cup creamy oat milk", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 4, name: "crushed pistachios", amount: 1, unit: "tsp", original: "1 tsp crushed roasted pistachios", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/3014/3014522.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Drizzle pistachio syrup down the sides of a tall aesthetic glass.", ingredients: [], equipment: [] },
+      { number: 2, step: "Fill glass with ice and pour in the cold oat milk.", ingredients: [], equipment: [] },
+      { number: 3, step: "Slowly pour the espresso shots over the milk for a layered effect.", ingredients: [], equipment: [] },
+      { number: 4, step: "Top with crushed pistachios and serve immediately with a straw.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5006,
+    title: "Viral 10-Minute High Protein Wrap",
+    category: "lunch",
+    image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 420,
+    protein: "34g",
+    fat: "16g",
+    carbs: "35g",
+    dishTypes: ["Viral", "PinterestFav", "Quick", "Healthy"],
+    summary: "The trending high-protein hack: layered turkey, avocado, and spinach in a toasted tortilla wrap.",
+    extendedIngredients: [
+      { id: 1, name: "large tortilla", amount: 1, unit: "", original: "1 large whole wheat tortilla", aisle: "Bakery", image: "https://cdn-icons-png.flaticon.com/128/3361/3361816.png" },
+      { id: 2, name: "turkey breast", amount: 4, unit: "slices", original: "4 slices nitrate-free turkey", aisle: "Meat", image: "https://cdn-icons-png.flaticon.com/128/1041/1041636.png" },
+      { id: 3, name: "avocado", amount: 0.5, unit: "", original: "1/2 ripe avocado", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/2347/2347074.png" },
+      { id: 4, name: "greek yogurt sauce", amount: 2, unit: "tbsp", original: "2 tbsp garlic yogurt sauce", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Lay tortilla flat and spread with yogurt sauce.", ingredients: [], equipment: [] },
+      { number: 2, step: "Layer turkey slices, mashed avocado, and fresh spinach.", ingredients: [], equipment: [] },
+      { number: 3, step: "Fold into a tight wrap and toast on a dry skillet until golden on both sides.", ingredients: [], equipment: [] },
+      { number: 4, step: "Slice diagonally and enjoy warm.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5007,
+    title: "Avocado & Hot Honey Halloumi Toast",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 1,
+    calories: 480,
+    protein: "22g",
+    fat: "28g",
+    carbs: "36g",
+    dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Trendy"],
+    summary: "Crispy seared halloumi cheese drizzled with chili-infused hot honey on a bed of smashed avocado and sourdough.",
+    extendedIngredients: [
+      { id: 1, name: "sourdough bread", amount: 1, unit: "slice", original: "1 thick slice sourdough", aisle: "Bakery", image: "https://cdn-icons-png.flaticon.com/128/3361/3361816.png" },
+      { id: 2, name: "halloumi cheese", amount: 3, unit: "slices", original: "3 slices halloumi", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 3, name: "avocado", amount: 0.5, unit: "", original: "1/2 ripe avocado", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/2347/2347074.png" },
+      { id: 4, name: "hot honey", amount: 1, unit: "tbsp", original: "1 tbsp hot honey", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/1041/1041655.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Toast sourdough until very crispy.", ingredients: [], equipment: [] },
+      { number: 2, step: "Pan-sear halloumi slices until golden brown on both sides.", ingredients: [], equipment: [] },
+      { number: 3, step: "Mash avocado with lemon and salt; spread on toast.", ingredients: [], equipment: [] },
+      { number: 4, step: "Top with halloumi and a generous drizzle of hot honey.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5008,
+    title: "Crispy Rice & Spicy Salmon Bites",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 35,
+    servings: 2,
+    calories: 420,
+    protein: "26g",
+    fat: "22g",
+    carbs: "32g",
+    dishTypes: ["Viral", "PinterestFav", "Gourmet", "Seafood"],
+    summary: "The viral sushi alternative: pan-fried crispy sushi rice cubes topped with spicy diced salmon and jalapeño.",
+    extendedIngredients: [
+      { id: 1, name: "sushi rice", amount: 1, unit: "cup", original: "1 cup cooked sushi rice", aisle: "Grains", image: "https://cdn-icons-png.flaticon.com/128/1471/1471262.png" },
+      { id: 2, name: "fresh salmon", amount: 250, unit: "g", original: "250g fresh Atlantic salmon", aisle: "Meat", image: "https://cdn-icons-png.flaticon.com/128/1041/1041636.png" },
+      { id: 3, name: "sriracha mayo", amount: 2, unit: "tbsp", original: "2 tbsp spicy sriracha mayo", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/1041/1041655.png" },
+      { id: 4, name: "jalapeño", amount: 1, unit: "", original: "1 small sliced jalapeño", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/3361/3361816.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Press cooked rice into a square container and refrigerate for 2 hours.", ingredients: [], equipment: [] },
+      { number: 2, step: "Cut into bite-sized cubes and pan-fry in oil until crispy and golden.", ingredients: [], equipment: [] },
+      { number: 3, step: "Finely dice salmon and mix with spicy mayo.", ingredients: [], equipment: [] },
+      { number: 4, step: "Spoon salmon onto rice cubes and top with a jalapeño slice.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5009,
+    title: "Matcha Chia Pudding with Berries",
+    category: "breakfast",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 10,
+    servings: 1,
+    calories: 280,
+    protein: "12g",
+    fat: "14g",
+    carbs: "28g",
+    dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Quick"],
+    summary: "A nutrient-dense, aesthetic breakfast with premium ceremonial matcha and fresh seasonal berries.",
+    extendedIngredients: [
+      { id: 1, name: "chia seeds", amount: 3, unit: "tbsp", original: "3 tbsp black chia seeds", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/2144/2144176.png" },
+      { id: 2, name: "matcha powder", amount: 1, unit: "tsp", original: "1 tsp ceremonial grade matcha", aisle: "Beverages", image: "https://cdn-icons-png.flaticon.com/128/1041/1041655.png" },
+      { id: 3, name: "almond milk", amount: 1, unit: "cup", original: "1 cup unsweetened almond milk", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 4, name: "raspberries", amount: 0.5, unit: "cup", original: "1/2 cup fresh raspberries", aisle: "Produce", image: "https://cdn-icons-png.flaticon.com/128/590/590666.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Whisk matcha powder into the almond milk until no lumps remain.", ingredients: [], equipment: [] },
+      { number: 2, step: "Stir in chia seeds and let sit for 5 minutes, then stir again.", ingredients: [], equipment: [] },
+      { number: 3, step: "Refrigerate for at least 2 hours or overnight.", ingredients: [], equipment: [] },
+      { number: 4, step: "Top with fresh raspberries and a tiny drizzle of maple syrup.", ingredients: [], equipment: [] }
+    ]}]
+  },
+  {
+    id: 5010,
+    title: "Mediterranean Hummus Board",
+    category: "main-dishes",
+    image: "https://images.unsplash.com/photo-1541518763669-279f0491753a?auto=format&fit=crop&q=80&w=800",
+    readyInMinutes: 15,
+    servings: 2,
+    calories: 380,
+    protein: "12g",
+    fat: "22g",
+    carbs: "45g",
+    dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Gourmet"],
+    summary: "A stunning, shareable aesthetic board featuring creamy hummus topped with roasted chickpeas, olives, and fresh herbs.",
+    extendedIngredients: [
+      { id: 1, name: "hummus", amount: 1.5, unit: "cups", original: "1.5 cups classic smooth hummus", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 2, name: "kalamata olives", amount: 0.5, unit: "cup", original: "1/2 cup pitted kalamata olives", aisle: "Pantry", image: "https://cdn-icons-png.flaticon.com/128/3361/3361816.png" },
+      { id: 3, name: "feta cheese", amount: 2, unit: "oz", original: "2 oz crumbled feta", aisle: "Dairy", image: "https://cdn-icons-png.flaticon.com/128/2346/2346908.png" },
+      { id: 4, name: "sourdough crackers", amount: 1, unit: "box", original: "Artisanal sourdough crackers", aisle: "Bakery", image: "https://cdn-icons-png.flaticon.com/128/3361/3361816.png" }
+    ],
+    analyzedInstructions: [{ name: "", steps: [
+      { number: 1, step: "Spread hummus onto a large aesthetic wooden board or flat plate.", ingredients: [], equipment: [] },
+      { number: 2, step: "Create swirls with a spoon and fill with high-quality olive oil.", ingredients: [], equipment: [] },
+      { number: 3, step: "Scatter olives, feta, herbs, and roasted chickpeas over the top.", ingredients: [], equipment: [] },
+      { number: 4, step: "Serve with sourdough crackers and crisp vegetable crudités.", ingredients: [], equipment: [] }
+    ]}]
   }
 ];
 

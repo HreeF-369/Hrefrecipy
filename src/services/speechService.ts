@@ -1,5 +1,6 @@
 
 export const getBestVoice = (): SpeechSynthesisVoice | null => {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return null;
   const voices = window.speechSynthesis.getVoices();
   if (voices.length === 0) return null;
 
@@ -24,6 +25,7 @@ export const getBestVoice = (): SpeechSynthesisVoice | null => {
 };
 
 export const speakText = (text: string, options: { rate?: number; pitch?: number } = {}) => {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   
   const utterance = new SpeechSynthesisUtterance(text);

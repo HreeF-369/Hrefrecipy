@@ -91,28 +91,16 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchInitial() {
-      setLoading(true);
-      const categoriesToFetch = [
-        { cat: "breakfast", label: "BREAKFAST" },
-        { cat: "lunch", label: "LUNCH" },
-        { cat: "dinner", label: "DINNER" },
-        { cat: "main-dishes", label: "MAIN DISHES" },
-        { cat: "desserts", label: "DESSERTS" },
-        { cat: "drinks", label: "DRINKS" },
-        { cat: "fitness", label: "FITNESS MEALS" }
-      ];
-      
-      const batchResults = await Promise.all(
-        categoriesToFetch.map(async ({cat, label}) => {
-          const results = await searchRecipes("", cat, 20);
-          // Set the category on the recipe to the exact label so filtering is simple
-          return results.map(r => ({ ...r, category: label }));
-        })
-      );
-      
-      const combined = batchResults.flat().sort(() => Math.random() - 0.5);
-      setAllRecipes(combined);
-      setLoading(false);
+      try {
+        setLoading(true);
+        // Just fetch all recipes since it's local now
+        const results = await searchRecipes("", "all", 100);
+        setAllRecipes(results);
+      } catch (error) {
+        console.error("Initial fetch failed:", error);
+      } finally {
+        setLoading(false);
+      }
     }
     
     fetchInitial();
@@ -122,14 +110,18 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchFavorites() {
-       if (favorites.length === 0) {
-         setFavoriteRecipes([]);
-         return;
+       try {
+         if (favorites.length === 0) {
+           setFavoriteRecipes([]);
+           return;
+         }
+         const favoriteResults = await Promise.all(
+           favorites.map(id => getRecipeById(id).catch(() => null))
+         );
+         setFavoriteRecipes(favoriteResults.filter((r): r is Recipe => r !== null));
+       } catch (error) {
+         console.error("Error fetching favorites:", error);
        }
-       const favoriteResults = await Promise.all(
-         favorites.map(id => getRecipeById(id).catch(() => null))
-       );
-       setFavoriteRecipes(favoriteResults.filter((r): r is Recipe => r !== null));
     }
     fetchFavorites();
   }, [favorites]);
@@ -140,7 +132,10 @@ export default function Home() {
     if (activeCategory === "FAVORITES") {
       result = favoriteRecipes;
     } else if (activeCategory !== "ALL RECIPES") {
-      result = result.filter(recipe => recipe.category === activeCategory);
+      result = result.filter(recipe => 
+        recipe.category.toUpperCase() === activeCategory || 
+        (recipe.tags && recipe.tags.some(t => t.toUpperCase() === activeCategory))
+      );
     }
 
     if (searchQuery) {
@@ -428,8 +423,8 @@ export default function Home() {
               <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-slate-100 text-slate-400 mb-4">
                 <Utensils size={32} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900">No recipes found</h3>
-              <p className="text-slate-500 mt-2">Try adjusting your search or filters</p>
+              <h3 className="text-xl font-bold text-slate-900">No recipes added yet. Stay tuned!</h3>
+              <p className="text-slate-500 mt-2">Check back soon for new gourmet creations</p>
             </div>
           )}
           </motion.div>
