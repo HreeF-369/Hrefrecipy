@@ -122,7 +122,7 @@ export function FanReviews() {
           {reviews.map((review, idx) => (
             <div 
               key={idx} 
-              className="snap-center shrink-0 w-[80%] sm:w-[320px] md:w-[350px] bg-white border border-slate-100 rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow"
+              className="snap-center shrink-0 w-[85vw] max-w-sm bg-white border border-slate-100 rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => {

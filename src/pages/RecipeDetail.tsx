@@ -181,7 +181,7 @@ export default function RecipeDetail() {
         <ArrowLeft size={16} /> Back
       </button>
 
-      <div className="grid gap-10 lg:grid-cols-2">
+      <div className="grid gap-10 grid-cols-1 lg:grid-cols-2">
         {/* Left Col: Image and Basic Info */}
         <section className="space-y-8">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] shadow-2xl">
@@ -217,7 +217,7 @@ export default function RecipeDetail() {
           </div>
 
           <div className="space-y-4">
-            <h1 className="font-display text-4xl font-bold leading-tight text-gray-900">
+            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-gray-900">
               {recipe.title}
             </h1>
             
@@ -243,6 +243,7 @@ export default function RecipeDetail() {
                 <AnimatePresence>
                   {showPlanMenu && (
                     <motion.div 
+                      key="plan-menu-dropdown"
                       initial={{ opacity: 0, y: 10, scale: 0.9 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -265,7 +266,7 @@ export default function RecipeDetail() {
             </div>
             
             <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-brand-green/5 border border-brand-green/10 transition-transform hover:scale-105">
                   <Clock size={32} strokeWidth={1} className="text-brand-green mb-2" />
                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Time</span>
@@ -290,8 +291,8 @@ export default function RecipeDetail() {
                     <span className="text-[10px] font-black uppercase tracking-widest">High Protein</span>
                   </div>
                 )}
-                {recipe.tags?.map(tag => (
-                   <div key={tag} className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full border border-blue-100 shadow-sm transition-all hover:bg-blue-100">
+                {recipe.tags?.map((tag, idx) => (
+                   <div key={`${tag}-${idx}`} className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full border border-blue-100 shadow-sm transition-all hover:bg-blue-100">
                     <span className="text-[10px] font-black uppercase tracking-widest">{tag}</span>
                   </div>
                 ))}
@@ -370,9 +371,9 @@ export default function RecipeDetail() {
                         </div>
                       </div>
                     ))
-                  ) : (recipe.extendedIngredients || []).map((ing) => (
+                  ) : (recipe.extendedIngredients || []).map((ing, idx) => (
                     <div 
-                      key={ing.id} 
+                      key={`${ing.id || idx}-${idx}`} 
                       onClick={() => toggleIngredient(ing.id)}
                       className={`flex items-center gap-4 rounded-3xl p-4 shadow-sm ring-1 transition-all cursor-pointer ${
                         checkedIngredients.includes(ing.id) 
@@ -444,8 +445,8 @@ export default function RecipeDetail() {
                     </div>
                   ))
                 ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
-                  recipe.analyzedInstructions[0].steps.map((step) => (
-                    <div key={step.number} className="flex gap-6 group">
+                  recipe.analyzedInstructions[0].steps.map((step, idx) => (
+                    <div key={`${step.number}-${idx}`} className="flex gap-6 group">
                       <div className="flex flex-col items-center">
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-green text-sm font-bold text-white shadow-lg shadow-brand-green/20 group-hover:scale-110 transition-transform">
                           {step.number}
@@ -468,7 +469,7 @@ export default function RecipeDetail() {
                   <div className="text-center py-20 bg-slate-50 rounded-[2.5rem] border border-slate-100 border-dashed">
                     <Clock className="mx-auto text-slate-300 mb-3" size={40} />
                     <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">No step-by-step instructions available</p>
-                    <p className="text-slate-500 mt-1 max-w-[200px] mx-auto text-sm">Please check the recipe summary or external link for details.</p>
+                    <p className="text-slate-500 mt-1 max-w-sm mx-auto text-sm">Please check the recipe summary or external link for details.</p>
                   </div>
                 )}
               </motion.div>
@@ -483,8 +484,8 @@ export default function RecipeDetail() {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {recipe.nutrition ? (
-                    recipe.nutrition.nutrients.slice(0, 6).map((n) => (
-                      <div key={n.name} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
+                    recipe.nutrition.nutrients.slice(0, 6).map((n, idx) => (
+                      <div key={`${n.name}-${idx}`} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
                         <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">{n.name}</p>
                         <p className="mt-1 text-2xl font-bold text-gray-800">
                           {Math.round(n.amount)}
@@ -533,8 +534,8 @@ export default function RecipeDetail() {
 
                 <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 scrollbar-hide">
                   {recipeComments.length > 0 ? (
-                    recipeComments.map((comment) => (
-                      <div key={comment.id} className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-100">
+                    recipeComments.map((comment, idx) => (
+                      <div key={`${comment.id}-${idx}`} className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-100">
                         <img src={comment.avatar} alt={comment.user} className="h-10 w-10 rounded-full bg-slate-100" />
                         <div className="flex-1 space-y-1">
                           <div className="flex items-center justify-between">

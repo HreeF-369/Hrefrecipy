@@ -970,7 +970,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Salmon Teriyaki Bowl",
     description: "A vibrant gourmet rice bowl featuring perfectly seared salmon glazed in rich teriyaki sauce, layered with creamy avocado cubes, fresh cherry tomatoes, and a shower of chopped herbs over fluffy white rice.",
     summary: "A vibrant gourmet rice bowl featuring perfectly seared salmon glazed in rich teriyaki sauce, layered with creamy avocado cubes, fresh cherry tomatoes, and a shower of chopped herbs over fluffy white rice.",
-    image: "https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/476610106_122141652152433347_4997706826970846285_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=HVZNbA-8dI8Q7kNvwEDERfP&_nc_oc=Adq0wcGCF7Qy-D801G8_1XRaCgi9Mfp59XK33TJ5BWzVqiljOdrcOFIZ2qnvM27gjYQ&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=tXD2cBLOcfmOH_OaI1jvpA&_nc_ss=7a289&oh=00_Af67jok9GyGRVGoZpE5Y3-kCVxWNx33cc1mUf8_4t4q22g&oe=6A12C002",
+    image: "https://images.squarespace-cdn.com/content/v1/5ed666a6924cd0017d343b01/1593466332546-0FAWQJ5DT3ZMVIRO9H38/bite-me-more-apple-teriyaki-salmon-rice-bowl-recipe.jpg",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 2,

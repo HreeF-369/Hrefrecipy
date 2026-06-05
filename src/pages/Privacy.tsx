@@ -8,7 +8,7 @@ export default function Privacy() {
       exit={{ opacity: 0, y: -10 }}
       className="mx-auto max-w-3xl px-4 py-20 lg:py-32"
     >
-      <h1 className="text-4xl font-black tracking-tight text-brand-ink sm:text-5xl mb-8">Privacy Policy</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl mb-8">Privacy Policy</h1>
       
       <div className="space-y-8 text-slate-600 text-lg leading-relaxed">
         <p className="text-sm font-bold text-slate-400 mb-8 border-b border-slate-100 pb-8">Last updated: {new Date().toLocaleDateString()}</p>

@@ -61,7 +61,7 @@ export default function Favorites() {
     >
       <header className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tighter">Your Favorites</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter">Your Favorites</h1>
           <p className="text-slate-400 font-bold text-sm uppercase tracking-widest mt-1">Saved for your next meal</p>
         </div>
         
@@ -87,7 +87,7 @@ export default function Favorites() {
         <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filteredRecipes.map((recipe, index) => (
             <RecipeCard 
-              key={recipe.id}
+              key={`${recipe.id}-${index}`}
               recipe={recipe}
               index={index}
               onClick={handleOpenRecipe}

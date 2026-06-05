@@ -11,10 +11,10 @@ export default function About() {
       className="mx-auto max-w-4xl px-4 py-20 lg:py-32"
     >
       <div className="mb-12 text-center flex flex-col items-center">
-        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-green text-white font-bold text-4xl shadow-lg shadow-brand-green/20">
+        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-green text-white font-bold text-2xl md:text-3xl lg:text-4xl shadow-lg shadow-brand-green/20">
           H
         </div>
-        <h1 className="text-4xl font-black tracking-tight text-brand-ink sm:text-5xl">About Hreef Recipy</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl">About Hreef Recipy</h1>
         <p className="mt-4 text-lg text-slate-500 max-w-2xl font-medium">
           Your premier destination for high-performance nutrition and culinary excellence.
         </p>
@@ -41,7 +41,7 @@ export default function About() {
           </p>
         </section>
         
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
           <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
              <Utensils className="h-8 w-8 text-brand-green mb-4" />
              <h3 className="text-xl font-bold mt-0 text-brand-ink mb-2">Expert Curation</h3>

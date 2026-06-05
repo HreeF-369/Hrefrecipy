@@ -3,6 +3,7 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import axios from "axios";
 import dotenv from "dotenv";
+import { RECIPES_DATA } from "./src/services/recipesData";
 
 dotenv.config();
 
@@ -230,6 +231,60 @@ app.get("/api/spoon/search", async (req, res) => {
       details: error.response?.data || error.message
     });
   }
+});
+
+app.get("/sitemap.xml", (req, res) => {
+  res.header("Content-Type", "application/xml");
+  const baseUrl = \`\${req.protocol}://\${req.get("host")}\`;
+  
+  // List all static routes
+  const staticRoutes = [
+    "",
+    "/recipes",
+    "/blog",
+    "/favorites",
+    "/planner",
+    "/grocery",
+    "/about",
+    "/guides",
+    "/contact",
+    "/privacy",
+    "/terms",
+    "/disclaimer",
+    "/data-preference"
+  ];
+  
+  // Dynamic routes could be appended here if we imported RECIPES_DATA
+  // Since we don't import it in server right now to keep it lightweight, 
+  // we'll just serve the static ones as the primary map.
+  
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n';
+  
+  staticRoutes.forEach(route => {
+    xml += '  <url>\\n';
+    xml += \`    <loc>\${baseUrl}\${route}</loc>\\n\`;
+    xml += '    <changefreq>weekly</changefreq>\\n';
+    if (route === "") {
+        xml += '    <priority>1.0</priority>\\n';
+    } else {
+        xml += '    <priority>0.8</priority>\\n';
+    }
+    xml += '  </url>\\n';
+  });
+  
+  // Dynamic Recipe Routes
+  RECIPES_DATA.forEach(recipe => {
+    xml += '  <url>\\n';
+    xml += \`    <loc>\${baseUrl}/recipe/\${recipe.id}</loc>\\n\`;
+    xml += '    <changefreq>monthly</changefreq>\\n';
+    xml += '    <priority>0.6</priority>\\n';
+    xml += '  </url>\\n';
+  });
+  
+  xml += '</urlset>';
+  
+  res.send(xml);
 });
 
 async function startServer() {

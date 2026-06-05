@@ -163,10 +163,11 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          key="ai-chat-window"
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="fixed bottom-6 right-6 z-[100] flex h-[600px] w-[90vw] max-w-[440px] flex-col overflow-hidden rounded-[2.5rem] bg-white shadow-2xl ring-1 ring-gray-100 lg:bottom-10 lg:right-10"
+          className="fixed bottom-4 right-4 left-4 lg:left-auto sm:right-6 sm:bottom-6 z-[100] flex h-[85vh] sm:h-[600px] w-auto lg:w-[440px] max-w-md flex-col overflow-hidden rounded-[2.5rem] bg-white shadow-2xl ring-1 ring-gray-100 lg:bottom-10 lg:right-10"
         >
           {/* Header */}
           <header className="flex items-center justify-between bg-brand-green p-6 text-white">
@@ -215,9 +216,9 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
 
                   {msg.role === "bot" && msg.suggestedRecipes && (
                     <div className="grid gap-2">
-                      {msg.suggestedRecipes.map((recipe) => (
+                      {msg.suggestedRecipes.map((recipe, index) => (
                         <Link
-                          key={recipe.id}
+                          key={`${recipe.id}-${index}`}
                           to={`/recipe/${recipe.id}`}
                           onClick={onClose}
                           className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm ring-1 ring-gray-100 hover:ring-brand-green transition-all group"

@@ -49,10 +49,14 @@ import About from "./pages/About";
 import HelpFAQ from "./pages/HelpFAQ";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Disclaimer from "./pages/Disclaimer";
 import Contact from "./pages/Contact";
 import DataPreference from "./pages/DataPreference";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import CookieBanner from "./components/CookieBanner";
+import NotFound from "./pages/NotFound";
+
 
 // Utility for tailwind classes
 function cn(...inputs: ClassValue[]) {
@@ -105,6 +109,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            key="mobile-nav-menu"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
@@ -146,7 +151,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       </AnimatePresence>
 
       {/* Desktop Sidebar */}
-      <nav className="fixed left-0 top-0 hidden h-full w-[280px] flex-col border-r border-slate-100 bg-white p-8 lg:flex">
+      <nav className="fixed left-0 top-0 hidden h-full w-full max-w-sm flex-col border-r border-slate-100 bg-white p-8 lg:flex">
         <div className="mb-12 flex items-center gap-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green text-white font-black text-2xl shadow-lg shadow-brand-green/20">
             H
@@ -222,11 +227,11 @@ export default function App() {
   return (
     <AppProvider>
       <Router>
-        <div className="min-h-screen flex flex-col max-w-[100vw] overflow-x-hidden">
+        <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
           <Navigation onOpenAI={setIsAIChatOpen} />
           
-          <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 lg:pl-72 flex-1 items-stretch w-full max-w-[100vw] overflow-x-hidden">
-          <div className="mx-auto w-full p-4 lg:p-12">
+          <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 lg:pl-72 flex-1 flex flex-col w-full overflow-x-hidden">
+          <div className="mx-auto w-full max-w-7xl px-4 py-6 md:px-8 lg:py-12 lg:px-12">
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -245,11 +250,16 @@ export default function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
+                <Route path="/disclaimer" element={<Disclaimer />} />
                 <Route path="/data-preference" element={<DataPreference />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatePresence>
           </div>
         </main>
+
+        {/* Cookie Consent Banner */}
+        <CookieBanner />
 
         {/* Professional Footer */}
         <footer className="border-t border-slate-100 bg-white py-16 lg:pl-72">
@@ -294,6 +304,7 @@ export default function App() {
                 <ul className="space-y-3 text-sm font-bold text-slate-500">
                   <li><Link to="/privacy" className="hover:text-brand-green transition-colors">Privacy Policy</Link></li>
                   <li><Link to="/terms" className="hover:text-brand-green transition-colors">Terms of Service</Link></li>
+                  <li><Link to="/disclaimer" className="hover:text-brand-green transition-colors">Disclaimer</Link></li>
                   <li><Link to="/data-preference" className="hover:text-brand-green transition-colors">Data Preference</Link></li>
                 </ul>
               </div>

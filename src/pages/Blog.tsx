@@ -16,13 +16,13 @@ export default function Blog() {
           <BookOpen size={16} />
           <span className="text-xs font-black uppercase tracking-widest">Hreef Editorial</span>
         </div>
-        <h1 className="text-4xl font-black text-brand-ink sm:text-6xl mb-6">Culinary Journal</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-brand-ink sm:text-4xl md:text-5xl lg:text-6xl mb-6">Culinary Journal</h1>
         <p className="text-lg text-slate-500 max-w-2xl mx-auto">
           Deep dives into nutrition, cooking techniques, and the science behind professional healthy meals.
         </p>
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {BLOG_POSTS.map((post) => (
           <motion.article
             key={post.id}

@@ -121,7 +121,7 @@ export default function Recipes() {
     >
       <header className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase mb-1">Discovery</h1>
+          <h1 className="text-3xl md:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter uppercase mb-1">Discovery</h1>
           <p className="text-slate-400 font-bold text-[10px] md:text-sm uppercase tracking-widest">Explore live world-class recipes</p>
         </div>
         
@@ -208,7 +208,7 @@ export default function Recipes() {
           ) : (
             filteredRecipes.map((recipe, index) => (
               <RecipeCard 
-                key={recipe.id}
+                key={`${recipe.id}-${index}`}
                 recipe={recipe}
                 index={index}
                 onClick={handleOpenRecipe}

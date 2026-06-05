@@ -79,7 +79,7 @@ export default function BlogPost() {
                 {post.category}
               </span>
             </div>
-            <h1 className="text-3xl font-black text-white sm:text-5xl lg:text-6xl leading-tight">
+            <h1 className="text-3xl font-black text-white sm:text-3xl md:text-4xl lg:text-5xl lg:text-4xl md:text-5xl lg:text-6xl leading-tight">
               {post.title}
             </h1>
           </div>
@@ -102,7 +102,7 @@ export default function BlogPost() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 pt-8 border-t border-slate-100">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 pt-8 border-t border-slate-100">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400">
                     <Calendar size={18} />

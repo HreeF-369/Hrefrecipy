@@ -31,7 +31,7 @@ export default function HelpFAQ() {
       exit={{ opacity: 0, y: -10 }}
       className="mx-auto max-w-3xl px-4 py-20 lg:py-32"
     >
-      <h1 className="text-4xl font-black tracking-tight text-brand-ink sm:text-5xl mb-4 text-center">Help & FAQ</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl mb-4 text-center">Help & FAQ</h1>
       <p className="text-center text-slate-500 mb-12 text-lg">Cooking Guides and answers to common questions.</p>
 
       <div className="space-y-4">

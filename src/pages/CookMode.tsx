@@ -189,7 +189,7 @@ export default function CookMode() {
   }
 
   return (
-    <div className="fixed inset-0 z-[100] bg-white overflow-hidden flex flex-col w-screen h-[100dvh]">
+    <div className="fixed inset-0 z-[100] bg-white overflow-hidden flex flex-col w-full h-[100dvh]">
       {/* Header */}
       <header className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-white shrink-0 mt-safe">
         <button onClick={() => navigate(-1)} className="rounded-full bg-slate-50 p-4 sm:p-3 hover:bg-slate-100 transition-colors" aria-label="Close Cook Mode">
@@ -197,7 +197,7 @@ export default function CookMode() {
         </button>
         <div className="text-center">
           <p className="text-[10px] font-black uppercase tracking-widest text-brand-green mb-1">Step {currentStep + 1} of {steps.length}</p>
-          <h2 className="text-sm font-bold text-slate-800 line-clamp-1 max-w-[200px]">{recipe.title}</h2>
+          <h2 className="text-sm font-bold text-slate-800 line-clamp-1 max-w-xs">{recipe.title}</h2>
         </div>
         <button 
           onClick={() => {
@@ -249,7 +249,7 @@ export default function CookMode() {
                        </button>
                     </div>
                     
-                    <h2 className="text-xl sm:text-3xl font-bold leading-relaxed md:leading-tight md:text-5xl text-slate-900 tracking-tight">
+                    <h2 className="text-xl sm:text-3xl font-bold leading-relaxed md:leading-tight md:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight">
                       {steps[currentStep]?.step}
                     </h2>
                   </div>
@@ -263,7 +263,7 @@ export default function CookMode() {
                         </div>
                         <div>
                           <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Step Timer</p>
-                          <p className="text-3xl md:text-4xl font-black font-mono tracking-tighter">{formatTime(timeLeft)}</p>
+                          <p className="text-3xl md:text-2xl md:text-3xl lg:text-4xl font-black font-mono tracking-tighter">{formatTime(timeLeft)}</p>
                         </div>
                       </div>
                       <div className="flex gap-3 w-full sm:w-auto justify-center sm:justify-start">
@@ -306,8 +306,8 @@ export default function CookMode() {
                     <div className="space-y-4">
                       <p className="text-xs font-black uppercase tracking-widest text-slate-400">Equipment</p>
                       <div className="flex flex-wrap gap-4">
-                        {steps[currentStep].equipment.map((eq: any) => (
-                          <div key={eq.id} className="flex items-center gap-2 text-slate-500 font-bold text-sm">
+                        {steps[currentStep].equipment.map((eq: any, idx: number) => (
+                          <div key={`${eq.id || idx}-${eq.name}`} className="flex items-center gap-2 text-slate-500 font-bold text-sm">
                             <div className="w-1.5 h-1.5 rounded-full bg-brand-green"></div>
                             {eq.name}
                           </div>
@@ -331,7 +331,7 @@ export default function CookMode() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h2 className="text-6xl font-black tracking-tighter text-slate-900">Bon Appétit!</h2>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900">Bon Appétit!</h2>
                 <p className="text-xl text-slate-500 font-medium max-w-md mx-auto leading-relaxed">
                   You've successfully mastered <span className="text-brand-green font-bold">{recipe.title}</span>. Time to enjoy your masterpiece!
                 </p>

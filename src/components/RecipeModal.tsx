@@ -30,6 +30,22 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
   const [planError, setPlanError] = useState('');
   const [showDetailedNutrition, setShowDetailedNutrition] = useState(false);
   const [commentText, setCommentText] = useState('');
+  const [isMealPlannerOpen, setIsMealPlannerOpen] = useState(false);
+  const [scheduleDate, setScheduleDate] = useState(new Date().toISOString().split('T')[0]);
+  const [scheduleMealType, setScheduleMealType] = useState('lunch');
+
+  const getDayAbbreviation = (dateStr: string) => {
+    const parts = dateStr.split('-');
+    if (parts.length === 3) {
+      const year = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10) - 1;
+      const day = parseInt(parts[2], 10);
+      const dateObj = new Date(year, month, day);
+      const daysAbbrev = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      return daysAbbrev[dateObj.getDay()];
+    }
+    return "Mon"; // default fallback
+  };
 
   useEffect(() => {
     return () => {
@@ -287,6 +303,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          key="recipe-modal-backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -297,7 +314,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="relative w-screen h-[100dvh] sm:w-[95%] sm:h-auto max-w-7xl sm:max-h-[90vh] bg-white sm:rounded-[40px] sm:shadow-2xl flex flex-col overflow-x-hidden overflow-y-auto sm:overflow-hidden recipe-modal-container"
+            className="relative w-full h-[100dvh] sm:w-[95%] sm:h-auto max-w-7xl sm:max-h-[90vh] bg-white sm:rounded-[40px] sm:shadow-2xl flex flex-col overflow-x-hidden overflow-y-auto sm:overflow-hidden recipe-modal-container"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -373,7 +390,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                     <div className="relative">
                       <button 
-                        onClick={() => alert("Coming Soon: You will be able to plan this meal in your calendar!")}
+                        onClick={() => setIsMealPlannerOpen(true)}
                         className="w-14 h-14 flex items-center justify-center bg-white text-slate-700 rounded-2xl font-bold hover:bg-slate-50 transition-all shadow-md ring-1 ring-slate-100 active:scale-95 cursor-pointer"
                         title="Plan for later"
                       >
@@ -401,7 +418,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                   {/* Information Card (Middle) */}
                   <div className="bg-white p-2 rounded-[24px] shadow-soft border border-slate-50 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                       <div className="flex flex-col items-center justify-center py-6 px-2 rounded-2xl bg-green-50/70 border border-green-100/50">
                         <Clock size={24} strokeWidth={2} className="text-brand-green mb-2" />
                         <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Time</span>
@@ -445,29 +462,36 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
               {/* Right Column: Dynamic Content Tabs */}
               <div className="w-full md:w-[60%] flex flex-col bg-slate-50/50 relative">
-                {/* Tabs Header */}
-                <div className="hidden md:flex w-full flex-row items-center gap-6 sm:gap-8 md:gap-[2.5rem] justify-center sm:justify-start bg-white px-4 sm:pl-10 sm:pr-32 pt-6 sm:pt-10 pb-4 relative z-10 shrink-0 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] no-print">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`pb-3 px-2 text-xs sm:text-sm font-black uppercase tracking-widest transition-all relative whitespace-nowrap ${
-                        activeTab === tab.id ? 'text-brand-green' : 'text-gray-400 hover:text-gray-600'
-                      }`}
-                    >
-                      {tab.label}
-                      {activeTab === tab.id && (
-                        <motion.div
-                          layoutId="activeTabPlan"
-                          className="absolute bottom-0 left-0 right-0 h-1.5 bg-brand-green rounded-full"
-                        />
-                      )}
-                    </button>
-                  ))}
+                {/* Tabs Header Wrapper to host indicators */}
+                <div className="relative w-full shrink-0 no-print">
+                  {/* Tabs Header - Fully responsive and touch-scrollable on mobile */}
+                  <div className="flex w-full flex-row items-center gap-4 sm:gap-6 md:gap-[2.5rem] justify-start bg-white px-4 sm:pl-10 sm:pr-10 pt-4 sm:pt-10 pb-3 md:pb-4 border-b border-slate-100 relative z-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    {tabs.map((tab) => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActiveTab(tab.id)}
+                        className={`pb-3 px-2 text-xs sm:text-sm font-black uppercase tracking-widest transition-all relative whitespace-nowrap ${
+                          activeTab === tab.id ? 'text-brand-green' : 'text-gray-400 hover:text-gray-600'
+                        }`}
+                      >
+                        {tab.label}
+                        {activeTab === tab.id && (
+                          <motion.div
+                            layoutId="activeTabPlan"
+                            className="absolute bottom-0 left-0 right-0 h-1.5 bg-brand-green rounded-full"
+                          />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  {/* Visual indication fade/arrow on right edge of scrollable list (only on mobile screens) */}
+                  <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white/85 to-transparent pointer-events-none md:hidden z-20 flex items-center justify-end pr-3">
+                    <span className="text-brand-green animate-pulse font-black text-sm">→</span>
+                  </div>
                 </div>
 
                 {/* Tab Content */}
-                <div className="p-4 sm:p-10 flex-1 overflow-y-auto pb-32 sm:pb-10 flex flex-col gap-12 md:block">
+                <div className="p-4 sm:p-10 flex-1 overflow-y-auto pb-32 sm:pb-10">
                   <div className={activeTab === 'ingredients' ? 'block' : 'hidden print:block'}>
                     <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
                       <div className="flex items-center justify-between">
@@ -493,14 +517,13 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                           )}
                         </button>
                       </div>
-                      
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
+                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         {recipe.ingredients ? (
                           recipe.ingredients.map((ing, idx) => (
                             <motion.div 
                               key={idx} 
                               onClick={() => setCheckedIngredients(p => ({ ...p, [idx]: !p[idx] }))}
-                              className={`flex items-center gap-4 p-5 rounded-[24px] border transition-all cursor-pointer group relative overflow-hidden ${
+                              className={`flex items-center gap-3 sm:gap-4 p-3.5 sm:p-5 rounded-2xl sm:rounded-[24px] border transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                                 checkedIngredients[idx] 
                                   ? "bg-slate-50 border-slate-200 opacity-60" 
                                   : "bg-slate-50/50 border-slate-200 hover:border-brand-green/30 hover:shadow-xl hover:bg-white hover:shadow-slate-200/20"
@@ -513,7 +536,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                               }`}>
                                 {checkedIngredients[idx] && <CheckCircle2 size={14} strokeWidth={3} />}
                               </div>
-                              <div className="flex items-center gap-3 flex-1">
+                              <div className="flex items-center gap-3 flex-1 min-w-0">
                                 {ing.image && (
                                   <img 
                                     src={ing.image} 
@@ -521,8 +544,8 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                                     className="h-10 w-10 rounded-full object-cover bg-white p-1 shrink-0 shadow-sm"
                                   />
                                 )}
-                                <div className="flex flex-col text-slate-800">
-                                   <span className={`text-base font-bold transition-all ${
+                                <div className="flex flex-col text-slate-800 min-w-0">
+                                   <span className={`text-sm sm:text-base font-bold transition-all break-words leading-tight ${
                                     checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
                                   }`}>
                                     {ing.name}
@@ -536,7 +559,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                             <motion.div 
                               key={idx} 
                               onClick={() => setCheckedIngredients(p => ({ ...p, [idx]: !p[idx] }))}
-                              className={`flex items-center gap-4 p-5 rounded-[24px] border transition-all cursor-pointer group relative overflow-hidden ${
+                              className={`flex items-center gap-3 sm:gap-4 p-3.5 sm:p-5 rounded-2xl sm:rounded-[24px] border transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                                 checkedIngredients[idx] 
                                   ? "bg-slate-50 border-slate-200 opacity-60" 
                                   : "bg-slate-50/50 border-slate-200 hover:border-brand-green/30 hover:shadow-xl hover:bg-white hover:shadow-slate-200/20"
@@ -549,7 +572,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                               }`}>
                                 {checkedIngredients[idx] && <CheckCircle2 size={14} strokeWidth={3} />}
                               </div>
-                              <div className="flex items-center gap-3 flex-1">
+                              <div className="flex items-center gap-3 flex-1 min-w-0">
                                 {ing.image && (
                                   <img 
                                     src={`https://www.themealdb.com/images/ingredients/${ing.image.charAt(0).toUpperCase() + ing.image.slice(1)}-Small.png`} 
@@ -560,13 +583,13 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                                     }}
                                   />
                                 )}
-                                <div className="flex flex-col">
-                                  <span className={`text-base font-bold transition-all ${
+                                <div className="flex flex-col min-w-0">
+                                  <span className={`text-sm sm:text-base font-bold transition-all break-words leading-tight ${
                                     checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
                                   }`}>
                                     {ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}
                                   </span>
-                                  <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
+                                  <span className="text-[10px] sm:text-[11px] font-black text-slate-400 uppercase tracking-widest mt-0.5">
                                     {ing.amount} {ing.unit}
                                   </span>
                                 </div>
@@ -592,7 +615,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                   </div>
 
                   <div className={activeTab === 'instructions' ? 'block' : 'hidden print:block print:mt-10'}>
-                    <div className="space-y-6">
+                    <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
                       <div className="flex items-center justify-between">
                         <h3 className="text-xl font-bold text-gray-900">Cook steps</h3>
                         <button 
@@ -602,33 +625,33 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                           <Volume2 size={14} /> Listen
                         </button>
                       </div>
-                      <div className="space-y-6">
+                      <div className="space-y-4">
                         {recipe.instructions ? (
                           recipe.instructions.map((step, idx) => (
-                            <div key={idx} className="flex items-start gap-4 group mb-6">
-                              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">
+                            <div key={idx} className="flex items-start gap-3 sm:gap-4 group mb-4 sm:mb-6">
+                              <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-xs sm:text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">
                                 {idx + 1}
                               </div>
-                              <div className="space-y-2 flex-1">
-                                <p className="text-base text-gray-700 leading-relaxed font-medium">
+                              <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
+                                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-semibold break-words">
                                   {step}
                                 </p>
                               </div>
                             </div>
                           ))
                         ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
-                          recipe.analyzedInstructions[0].steps.map((step) => (
-                          <div key={step.number} className="flex items-start gap-4 group mb-6">
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">
+                          recipe.analyzedInstructions[0].steps.map((step, idx) => (
+                          <div key={`${step.number}-${idx}`} className="flex items-start gap-3 sm:gap-4 group mb-4 sm:mb-6">
+                            <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-xs sm:text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">
                               {step.number}
                             </div>
-                            <div className="space-y-2 flex-1">
-                              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 flex-wrap">
-                                <p className="text-base text-gray-700 leading-relaxed font-medium">
+                            <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
+                              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 flex-wrap">
+                                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-semibold break-words">
                                   {step.step}
                                 </p>
                                 {step.length && (
-                                  <div className="flex items-center gap-1 bg-slate-100 px-2 py-0.5 rounded text-[10px] font-black text-slate-500 shrink-0 h-fit">
+                                  <div className="flex items-center gap-1 bg-slate-100 px-2 py-0.5 rounded text-[10px] font-black text-slate-500 shrink-0 h-fit w-fit">
                                     <Clock size={10} /> {step.length.number} {step.length.unit}
                                   </div>
                                 )}
@@ -650,12 +673,12 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                          <p className="text-sm font-bold text-slate-400">Analyzing Nutritional Composition...</p>
                        </div>
                     ) : (
-                    <div className="space-y-12">
+                     <div className="space-y-8 md:space-y-12 animate-in fade-in slide-in-from-right-4 duration-500">
                       {/* Dashboard Header & Health Score */}
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-                        <div className="space-y-2">
-                          <h3 className="text-4xl font-black text-slate-900 tracking-tight">Nutrition Analysis</h3>
-                          <p className="text-base font-medium text-slate-400">Scientifically estimated macros and healthy score per serving</p>
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
+                        <div className="space-y-1 md:space-y-2">
+                          <h3 className="text-2xl md:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">Nutrition Analysis</h3>
+                          <p className="text-xs sm:text-sm md:text-base font-medium text-slate-400">Scientifically estimated macros and healthy score per serving</p>
                         </div>
                         
                         <motion.div 
@@ -664,25 +687,25 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                             scale: [1, 1.02, 1]
                           }}
                           transition={{ duration: 3, repeat: Infinity }}
-                          className="flex items-center gap-4 md:gap-5 bg-white p-3 pr-6 md:p-4 md:pr-10 rounded-[32px] md:rounded-[40px] border border-brand-green/20 shadow-xl shadow-brand-green/5 relative group cursor-help w-full md:w-auto overflow-hidden sm:overflow-visible"
+                          className="flex items-center gap-3 sm:gap-4 md:gap-5 bg-white p-3 pr-4 sm:pr-6 md:p-4 md:pr-10 rounded-2xl md:rounded-[40px] border border-brand-green/20 shadow-xl shadow-brand-green/5 relative group cursor-help w-full md:w-auto overflow-hidden sm:overflow-visible"
                         >
-                          <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 bg-gradient-to-br from-brand-green to-emerald-600 rounded-[20px] md:rounded-[28px] flex items-center justify-center text-white shadow-lg shadow-brand-green/30 relative overflow-hidden">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 bg-gradient-to-br from-brand-green to-emerald-600 rounded-xl sm:rounded-[20px] md:rounded-[28px] flex items-center justify-center text-white shadow-lg shadow-brand-green/30 relative overflow-hidden">
                             <motion.div 
                               animate={{ y: [0, -8, 0], rotate: [0, 5, -5, 0] }}
                               transition={{ duration: 4, repeat: Infinity }}
                             >
-                              <Award className="w-8 h-8 md:w-10 md:h-10" />
+                              <Award className="w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10" />
                             </motion.div>
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent pointer-events-none" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <span className="text-[10px] md:text-[12px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-0.5 md:mb-1 truncate">Wellness Rating</span>
-                            <div className="flex items-center gap-3 md:gap-4">
-                              <span className="text-3xl md:text-4xl font-black text-slate-900 leading-none shrink-0">A+</span>
-                              <span className="h-6 w-px md:h-8 md:w-[2px] bg-slate-100 shrink-0" />
+                            <span className="text-[9px] sm:text-[10px] md:text-[12px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-0.5 md:mb-1 truncate">Wellness Rating</span>
+                            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                              <span className="text-2xl sm:text-3xl md:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-none shrink-0 border-b-2 border-brand-green pb-0.5">A+</span>
+                              <span className="h-4 w-px sm:h-6 md:h-8 md:w-full max-w-sm bg-slate-100 shrink-0" />
                               <div className="flex flex-col min-w-0">
-                                <span className="text-lg md:text-xl font-black text-brand-green leading-none">9.2</span>
-                                <span className="text-[8px] md:text-[10px] font-bold text-slate-300 uppercase tracking-widest truncate mt-0.5">Score / 10</span>
+                                <span className="text-base sm:text-lg md:text-xl font-black text-brand-green leading-none">9.2</span>
+                                <span className="text-[7px] sm:text-[8px] md:text-[10px] font-bold text-slate-300 uppercase tracking-widest truncate mt-0.5">Score / 10</span>
                               </div>
                             </div>
                           </div>
@@ -690,26 +713,27 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       </div>
 
                       {/* Primary Macro Cards Grid */}
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
                          {(() => {
                             const nutrients = recipe.nutrition?.nutrients || [];
                             const getCard = (name: string, icon: React.ReactNode, color: string, bgLight: string) => {
                               const nut = nutrients.find(n => n.name === name) || nutrients.find(n => n.name.toLowerCase().includes(name.toLowerCase()));
                               return (
                                 <motion.div 
+                                  key={name}
                                   whileHover={{ scale: 1.05 }}
-                                  className={`${bgLight} flex flex-col justify-between p-3 md:p-6 rounded-3xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 aspect-square md:aspect-[4/5]`}
+                                  className={`${bgLight} flex flex-col justify-between p-4 sm:p-6 rounded-[20px] sm:rounded-3xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 min-w-0 h-28 sm:h-auto aspect-auto sm:aspect-square md:aspect-[4/5] gap-3`}
                                 >
                                   <div className="flex items-start justify-between">
-                                    <div className={`p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-white shadow-sm flex items-center justify-center ${color}`}>
-                                      {React.cloneElement(icon as React.ReactElement<{ className?: string }>, { className: "w-5 h-5 md:w-6 md:h-6 stroke-[2.5]" })}
+                                    <div className={`p-2 sm:p-3 rounded-lg sm:rounded-2xl bg-white shadow-sm flex items-center justify-center ${color}`}>
+                                      {React.cloneElement(icon as React.ReactElement<{ className?: string }>, { className: "w-4 h-4 sm:w-6 sm:h-6 stroke-[2.5]" })}
                                     </div>
                                   </div>
                                   <div>
-                                    <span className="text-[10px] md:text-[11px] font-black text-slate-500 uppercase tracking-widest block mb-1 truncate">{name}</span>
-                                    <span className="text-xl md:text-3xl font-black text-slate-900 leading-none flex items-baseline gap-1">
+                                    <span className="text-[9px] sm:text-[11px] font-black text-slate-500 uppercase tracking-widest block mb-0.5 sm:mb-1 truncate">{name}</span>
+                                    <span className="text-lg sm:text-2xl md:text-3xl font-black text-slate-900 leading-none flex items-baseline gap-0.5 sm:gap-1 truncate">
                                       {Math.round(nut?.amount || 0)}
-                                      <span className="text-xs md:text-sm font-bold opacity-50">{nut?.unit || 'g'}</span>
+                                      <span className="text-[10px] sm:text-xs md:text-sm font-bold opacity-50">{nut?.unit || 'g'}</span>
                                     </span>
                                   </div>
                                 </motion.div>
@@ -728,21 +752,21 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       </div>
 
                       {/* Detailed Breakdown Section */}
-                      <div className="bg-white rounded-[32px] md:rounded-[56px] p-6 md:p-12 border border-slate-100 shadow-sm space-y-6 md:space-y-12">
+                      <div className="bg-white rounded-2xl md:rounded-[56px] p-4 sm:p-6 md:p-12 border border-slate-100 shadow-sm space-y-6 md:space-y-12">
                         <button 
                           onClick={() => setShowDetailedNutrition(!showDetailedNutrition)}
-                          className="w-full flex items-center justify-between group"
+                          className="w-full flex items-center justify-between group text-left"
                         >
-                          <h4 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-3 md:gap-4">
-                             <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shadow-inner">
-                               <Zap size={24} className="md:w-7 md:h-7" />
+                          <h4 className="text-base sm:text-lg md:text-2xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-2 sm:gap-4">
+                             <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shadow-inner shrink-0">
+                               <Zap size={20} className="md:w-7 md:h-7" />
                              </div>
                              Detailed Composition
                           </h4>
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                             <span className="hidden sm:block text-[10px] md:text-xs font-black text-slate-400 bg-slate-50 px-3 md:px-5 py-1.5 md:py-2 rounded-full uppercase tracking-[0.2em]">Micro-nutrients</span>
-                            <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 ${showDetailedNutrition ? 'rotate-180' : ''}`}>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 ${showDetailedNutrition ? 'rotate-180' : ''}`}>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                             </div>
                           </div>
                         </button>
@@ -755,17 +779,17 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                               exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden md:!h-auto md:!opacity-100"
                             >
-                              <div className="grid md:grid-cols-2 gap-x-20 gap-y-8 md:gap-y-12 pt-6 md:pt-0">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-6 md:gap-y-12 pt-4 md:pt-0">
                                  {recipe.nutrition?.nutrients.slice(4).map((nut, i) => (
-                                   <div key={i} className="space-y-3 md:space-y-4 group">
+                                   <div key={`${nut.name}-${i}`} className="space-y-2 md:space-y-4 group">
                                      <div className="flex justify-between items-end">
-                                       <div className="flex flex-col">
-                                         <span className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.15em] mb-0.5 md:mb-1">{nut.name}</span>
-                                         <span className="text-xs md:text-sm font-bold text-slate-500 opacity-60">Estimated content</span>
+                                       <div className="flex flex-col min-w-0">
+                                         <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.15em] mb-0.5 truncate">{nut.name}</span>
+                                         <span className="text-[10px] sm:text-xs font-bold text-slate-500 opacity-60">Estimated content</span>
                                        </div>
-                                       <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">{Math.round(nut.amount)}<span className="text-[10px] md:text-xs ml-1 opacity-40 font-bold">{nut.unit}</span></span>
+                                       <span className="text-base sm:text-lg md:text-2xl font-black text-slate-900 tracking-tight shrink-0">{Math.round(nut.amount)}<span className="text-[9px] sm:text-[10px] md:text-xs ml-1 opacity-40 font-bold">{nut.unit}</span></span>
                                      </div>
-                                     <div className="h-2 md:h-3 bg-slate-100 rounded-full overflow-hidden relative">
+                                     <div className="h-1.5 sm:h-2 md:h-3 bg-slate-100 rounded-full overflow-hidden relative">
                                        <motion.div 
                                          initial={{ width: 0 }}
                                          animate={{ width: `${Math.min(100, nut.percentOfDailyNeeds || 0)}%` }}
@@ -776,7 +800,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                                        </motion.div>
                                      </div>
                                      <div className="flex justify-between">
-                                       <span className="text-[9px] md:text-[11px] font-black text-slate-300 uppercase tracking-[0.15em]">{nut.percentOfDailyNeeds}% OF YOUR DAILY GOAL</span>
+                                       <span className="text-[8px] sm:text-[9px] md:text-[11px] font-black text-slate-300 uppercase tracking-[0.15em]">{nut.percentOfDailyNeeds}% OF YOUR DAILY GOAL</span>
                                      </div>
                                    </div>
                                  ))}
@@ -787,23 +811,23 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       </div>
 
                       {/* Pro Tip Callout */}
-                      <div className="bg-slate-900 p-6 md:p-12 rounded-[32px] md:rounded-[56px] text-white flex flex-col lg:flex-row items-center gap-8 md:gap-12 relative overflow-hidden group">
+                      <div className="bg-slate-900 p-5 sm:p-8 md:p-12 rounded-2xl md:rounded-[56px] text-white flex flex-col lg:flex-row items-center gap-6 md:gap-12 relative overflow-hidden group">
                         <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:scale-125 group-hover:rotate-45 transition-transform duration-1000">
                           <CheckCircle2 size={240} />
                         </div>
-                        <div className="w-24 h-24 bg-brand-green/20 backdrop-blur-2xl rounded-[32px] flex items-center justify-center shrink-0 border border-brand-green/30 relative z-10 transform group-hover:-rotate-3 transition-transform duration-500">
-                          <Info className="w-12 h-12 text-brand-green" />
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-brand-green/20 backdrop-blur-2xl rounded-xl sm:rounded-[32px] flex items-center justify-center shrink-0 border border-brand-green/30 relative z-10 transform group-hover:-rotate-3 transition-transform duration-500">
+                          <Info className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-brand-green" />
                         </div>
-                        <div className="space-y-4 relative z-10 text-center lg:text-left">
-                          <div className="flex items-center justify-center lg:justify-start gap-3 mb-1">
+                        <div className="space-y-2 sm:space-y-4 relative z-10 text-center lg:text-left min-w-0">
+                          <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-1">
                              <div className="flex gap-1">
-                               {[1,2,3].map(i => <span key={i} className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />)}
+                                {[1,2,3].map(i => <span key={i} className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-brand-green animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />)}
                              </div>
-                             <p className="text-[12px] font-black uppercase tracking-[0.4em] text-brand-green">Professional Intake Opinion</p>
+                             <p className="text-[9px] sm:text-[12px] font-black uppercase tracking-[0.4em] text-brand-green">Professional Intake Opinion</p>
                           </div>
-                          <p className="text-2xl font-medium text-slate-100 leading-relaxed max-w-2xl">
+                          <p className="text-base sm:text-xl lg:text-2xl font-medium text-slate-100 leading-relaxed max-w-2xl break-words">
                             This {recipe.category} selection is {parseInt(recipe.protein || '0') > 25 ? 'an excellent source of bioactive protein' : 'strategically balanced for sustained metabolic efficiency'}. 
-                            <span className="text-slate-400 block mt-4 text-base font-normal">Expert insight: Consuming this meal within 45 minutes of preparation preserves heat-sensitive micronutrients.</span>
+                            <span className="text-slate-400 block mt-2 sm:mt-4 text-xs sm:text-base font-normal">Expert insight: Consuming this meal within 45 minutes of preparation preserves heat-sensitive micronutrients.</span>
                           </p>
                         </div>
                       </div>
@@ -812,42 +836,42 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                   </div>
 
                   <div className={activeTab === 'comments' ? 'block no-print' : 'hidden'}>
-                    <div className="space-y-6">
-                      <h3 className="text-xl font-bold text-gray-900">Community Feedback</h3>
-                      <div className="space-y-4">
+                    <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+                      <h3 className="text-xl font-bold text-gray-900 p-1">Community Feedback</h3>
+                      <div className="space-y-4 w-full">
                         {(comments[recipe.id] || []).length === 0 ? (
                           <div className="text-center py-8 text-slate-400 text-sm font-medium">
                             No comments yet. Be the first to share your experience!
                           </div>
                         ) : (
-                          (comments[recipe.id] || []).map((comm) => (
-                            <div key={comm.id} className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm space-y-3 relative group">
+                          (comments[recipe.id] || []).map((comm, idx) => (
+                            <div key={`${comm.id}-${idx}`} className="p-4 md:p-6 bg-white rounded-2xl border border-slate-100 shadow-sm space-y-3 relative group w-full">
                               <div className="flex justify-between items-start">
                                 <div className="flex items-center gap-3">
-                                  <img src={comm.avatar} alt={comm.user} className="w-8 h-8 rounded-full bg-slate-100" />
-                                  <div>
-                                    <span className="text-sm font-bold text-slate-900 block">{comm.user}</span>
+                                  <img src={comm.avatar} alt={comm.user} className="w-8 h-8 rounded-full bg-slate-100 shrink-0" />
+                                  <div className="min-w-0">
+                                    <span className="text-sm font-bold text-slate-900 block truncate">{comm.user}</span>
                                     <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">{comm.date}</span>
                                   </div>
                                 </div>
                                 <button 
                                   onClick={() => deleteComment(recipe.id, comm.id)}
-                                  className="text-slate-300 hover:text-red-500 transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 p-1"
+                                  className="text-slate-300 hover:text-red-500 transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 p-1 shrink-0"
                                 >
                                   <X className="w-4 h-4" />
                                 </button>
                               </div>
-                              <p className="text-sm text-slate-600 pl-11">{comm.text}</p>
+                              <p className="text-sm text-slate-600 pl-0 sm:pl-11 break-words">{comm.text}</p>
                             </div>
                           ))
                         )}
                       </div>
-                      <div className="pt-4 mt-8 border-t border-slate-100">
+                      <div className="pt-6 mt-8 border-t border-slate-100 p-4 md:p-6 bg-slate-50 rounded-3xl space-y-4 w-full">
                         <textarea
                           placeholder="Share your experience..."
                           value={commentText}
                           onChange={(e) => setCommentText(e.target.value)}
-                          className="w-full p-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green transition-all text-sm resize-none"
+                          className="w-full p-4 bg-white rounded-2xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green transition-all text-sm resize-none"
                           rows={3}
                         />
                         <button 
@@ -857,7 +881,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                             setCommentText('');
                           }}
                           disabled={!commentText.trim()}
-                          className="mt-3 w-full py-3 bg-brand-ink text-white rounded-xl text-sm font-bold hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                          className="w-full py-3 bg-brand-ink text-white rounded-xl text-sm font-bold hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
                         >
                           Post Comment
                         </button>
@@ -870,6 +894,103 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
           </motion.div>
         </motion.div>
       )}
+
+      {/* Meal Planner Modal */}
+      <AnimatePresence>
+        {isMealPlannerOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsMealPlannerOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 md:p-8 space-y-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center text-brand-green">
+                    <Calendar size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-black text-slate-900 tracking-tight">Schedule this Meal</h3>
+                    <p className="text-xs font-semibold text-slate-400">Add to your weekly planning slate</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsMealPlannerOpen(false)}
+                  className="p-1.5 hover:bg-slate-100 rounded-full text-slate-400 hover:text-slate-600 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="space-y-4">
+                {/* Date Picker */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-black uppercase tracking-widest text-slate-500">Choose Day / Date</label>
+                  <input
+                    type="date"
+                    value={scheduleDate}
+                    onChange={(e) => setScheduleDate(e.target.value)}
+                    className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green text-sm font-semibold text-slate-800"
+                  />
+                </div>
+
+                {/* Meal Type Select */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-black uppercase tracking-widest text-slate-500">Meal Session</label>
+                  <div className="relative">
+                    <select
+                      value={scheduleMealType}
+                      onChange={(e) => setScheduleMealType(e.target.value)}
+                      className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green text-sm font-semibold text-slate-800 appearance-none cursor-pointer"
+                    >
+                      <option value="breakfast">Breakfast 🍳</option>
+                      <option value="lunch">Lunch 🥗</option>
+                      <option value="dinner">Dinner 🌙</option>
+                      <option value="snack">Snack 🍎</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                      <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <button
+                onClick={() => {
+                  if (!scheduleDate) return;
+                  const dayAbbrev = getDayAbbreviation(scheduleDate);
+                  
+                  // Save to App State (automatically synchronizes with our Local Storage and Planner page!)
+                  addToPlan(dayAbbrev, scheduleMealType, recipe);
+                  
+                  // Formatted name for notification feedback
+                  const formattedDay = new Date(scheduleDate).toLocaleDateString('en-US', { weekday: 'long' });
+                  setPlanSuccess(`Successfully added to your Meal Plan for ${formattedDay}!`);
+                  
+                  setIsMealPlannerOpen(false);
+                  setTimeout(() => setPlanSuccess(''), 5000);
+                }}
+                className="w-full py-4 bg-brand-green text-white rounded-2xl text-sm font-bold hover:bg-green-600 transition-all shadow-lg shadow-brand-green/20 cursor-pointer text-center"
+              >
+                Confirm Schedule
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </AnimatePresence>
   );
 };

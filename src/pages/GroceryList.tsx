@@ -104,7 +104,7 @@ export default function GroceryList() {
     >
       <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between print:hidden">
         <div>
-          <h1 className="font-display text-3xl md:text-4xl font-black tracking-tight text-brand-ink uppercase">Grocery List</h1>
+          <h1 className="font-display text-3xl md:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink uppercase">Grocery List</h1>
           <p className="text-slate-400 font-bold tracking-widest text-[10px] uppercase">Check off as you shop</p>
         </div>
         <div className="flex gap-2">
@@ -154,7 +154,7 @@ export default function GroceryList() {
                 placeholder="Item name (e.g. Avocado)"
                 className="w-full rounded-2xl bg-gray-50 border-none px-4 py-4 focus:ring-2 focus:ring-brand-green transition-all outline-none"
               />
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <input 
                   type="text" 
                   value={newItemAmount}
@@ -246,7 +246,7 @@ export default function GroceryList() {
                               {item.name}
                             </p>
                             
-                            <div className="flex items-center justify-end min-w-[80px]">
+                            <div className="flex items-center justify-end w-20 shrink-0">
                               {editingId === item.id ? (
                                 <div className="flex items-center gap-2">
                                   <input 

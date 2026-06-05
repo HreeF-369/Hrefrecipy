@@ -66,11 +66,11 @@ export default function Contact() {
       className="mx-auto max-w-4xl px-4 py-20 lg:py-32"
     >
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-black tracking-tight text-brand-ink sm:text-5xl mb-4">Contact Us</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl mb-4">Contact Us</h1>
         <p className="text-slate-500 text-lg">We'd love to hear from you. Get in touch with our team.</p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-3 mb-16">
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-3 mb-16">
         <div className="rounded-3xl bg-white p-8 text-center shadow-lg shadow-slate-100/50 border border-slate-100">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-green/10 text-brand-green">
             <Mail className="h-6 w-6" />

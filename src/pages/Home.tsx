@@ -181,7 +181,7 @@ export default function Home() {
                 <Sparkles size={14} />
                 <span>Premium Quality Recipes</span>
               </div>
-              <h1 className="font-display text-4xl font-black leading-tight text-white md:text-5xl lg:text-7xl">
+              <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-black leading-tight text-white md:text-3xl md:text-4xl lg:text-5xl lg:text-5xl md:text-6xl lg:text-7xl">
                 Fuel Your Body, <br />
                 <span className="text-brand-green">Master Your Health</span>
               </h1>
@@ -217,27 +217,8 @@ export default function Home() {
           <p className="mt-2 font-bold text-slate-400 uppercase tracking-widest text-[10px] md:text-xs">Choose your performance goal</p>
         </div>
         
-        <div className="relative -mx-4 md:mx-0">
-          {canScrollLeftCards && (
-            <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 flex items-center justify-start pointer-events-none">
-              <button 
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white shadow-xl flex items-center justify-center text-slate-400 pointer-events-auto hover:text-slate-600 hover:scale-110 active:scale-95 transition-all ml-2 md:ml-4"
-                onClick={() => {
-                   cardsContainerRef.current?.scrollBy({ left: -300, behavior: 'smooth' });
-                }}
-                aria-label="Scroll cards left"
-              >
-                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-              </button>
-            </div>
-          )}
-
-          <div 
-            ref={cardsContainerRef}
-            onScroll={checkScrollCards}
-            className="flex overflow-x-auto pb-4 pt-2 -mt-2 px-4 md:px-2 gap-4 scrollbar-hide snap-x snap-mandatory whitespace-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            style={{ WebkitOverflowScrolling: 'touch' }}
-          >
+        <div className="relative w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 w-full">
             {[
               { id: "breakfast", name: "Breakfast", icon: Coffee, color: "bg-orange-50 text-orange-600" },
               { id: "lunch", name: "Lunch", icon: Utensils, color: "bg-green-50 text-green-600" },
@@ -256,7 +237,7 @@ export default function Home() {
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className={cn(
-                  "snap-center shrink-0 min-w-[70%] sm:min-w-[150px] md:min-w-[180px] group flex flex-col items-center justify-center gap-4 rounded-3xl border border-slate-100 bg-white p-6 md:p-8 transition-all hover:border-brand-green hover:shadow-xl hover:-translate-y-1",
+                  "group flex flex-col items-center justify-center w-full gap-4 rounded-3xl border border-slate-100 bg-white p-6 md:p-8 transition-all hover:border-brand-green hover:shadow-xl hover:-translate-y-1",
                   activeCategory === (cat.name === "Fitness" ? "FITNESS MEALS" : cat.name.toUpperCase()) && "border-brand-green bg-green-50/20 shadow-lg"
                 )}
               >
@@ -267,20 +248,6 @@ export default function Home() {
               </button>
             ))}
           </div>
-
-          {canScrollRightCards && (
-            <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 flex items-center justify-end pointer-events-none">
-              <button 
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white shadow-xl flex items-center justify-center text-slate-400 pointer-events-auto hover:text-slate-600 hover:scale-110 active:scale-95 transition-all mr-2 md:mr-4"
-                onClick={() => {
-                   cardsContainerRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
-                }}
-                aria-label="Scroll cards right"
-              >
-                <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-              </button>
-            </div>
-          )}
         </div>
       </section>
 
@@ -412,7 +379,7 @@ export default function Home() {
             ) : filteredRecipes.length > 0 ? (
               filteredRecipes.map((recipe, index) => (
                 <RecipeCard 
-                  key={recipe.id}
+                  key={`${recipe.id}-${index}`}
                   recipe={recipe}
                   index={index}
                   onClick={handleOpenRecipe}

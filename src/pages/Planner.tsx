@@ -95,7 +95,7 @@ export default function Planner() {
     >
       <header className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="font-display text-4xl font-black tracking-tight text-brand-ink">Weekly Planner</h1>
+          <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink">Weekly Planner</h1>
           <p className="text-slate-400 font-medium tracking-wide text-xs uppercase">Your personal kitchen coordinator</p>
         </div>
         <div className="flex items-center gap-4 bg-slate-100 rounded-2xl p-1.5 border border-slate-200">
@@ -107,9 +107,9 @@ export default function Planner() {
 
       <div className="grid gap-8">
         {/* Weekly View Content */}
-        <div className="overflow-x-auto pb-4">
-          <div className="min-w-[800px] grid grid-cols-8 gap-4">
-            <div className="pt-12 space-y-20 text-right pr-4">
+        <div className="pb-4 w-full">
+          <div className="flex flex-col md:grid md:grid-cols-8 gap-4 w-full">
+            <div className="hidden md:block pt-12 space-y-20 text-right pr-4">
               {mealTypes.map(type => (
                 <div key={type.id} className="flex items-center justify-end gap-2 h-20">
                   <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em]">{type.name}</span>
@@ -197,11 +197,13 @@ export default function Planner() {
       {/* Recipe Selection Modal */}
       <AnimatePresence>
         {isSelectorOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-             <motion.div 
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
+          <motion.div 
+            key="recipe-selector-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4">
+             <div 
                onClick={() => setIsSelectorOpen(false)}
                className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
              />
@@ -268,9 +270,9 @@ export default function Planner() {
                   ) : activeTab === 'favorites' ? (
                     favoriteRecipes.length > 0 ? (
                       <div className="grid gap-4 sm:grid-cols-2">
-                        {favoriteRecipes.map(recipe => (
+                        {favoriteRecipes.map((recipe, index) => (
                           <div 
-                            key={recipe.id}
+                            key={`${recipe.id}-${index}`}
                             onClick={() => handleSelectRecipe(recipe)}
                             className="group flex gap-4 p-3 rounded-2xl border border-slate-100 hover:border-brand-green transition-all cursor-pointer"
                           >
@@ -300,9 +302,9 @@ export default function Planner() {
                   ) : (
                     searchResults.length > 0 ? (
                       <div className="grid gap-4 sm:grid-cols-2">
-                        {searchResults.map(recipe => (
+                        {searchResults.map((recipe, index) => (
                           <div 
-                            key={recipe.id}
+                            key={`${recipe.id}-${index}`}
                             onClick={() => handleSelectRecipe(recipe)}
                             className="group flex gap-4 p-3 rounded-2xl border border-slate-100 hover:border-brand-green transition-all cursor-pointer"
                           >
@@ -325,7 +327,7 @@ export default function Planner() {
                   )}
                 </div>
              </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
