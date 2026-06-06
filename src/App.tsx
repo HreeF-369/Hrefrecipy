@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link, useNavigate } from "react-router-dom";
 import { 
   GlassWater,
   IceCream,
@@ -66,10 +66,26 @@ function cn(...inputs: ClassValue[]) {
 const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
+
+  const handleLogoClick = () => {
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    
+    // reset any layout scrolling containers as well
+    const mainContent = document.querySelector('main');
+    if (mainContent) {
+      mainContent.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    const layoutContainers = document.querySelectorAll('.overflow-y-auto');
+    layoutContainers.forEach(container => {
+      container.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  };
 
   const navItems = [
     { name: "Home", path: "/", icon: HomeIcon },
@@ -89,7 +105,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
     <>
       {/* Mobile Top Header */}
       <header className="fixed top-0 left-0 right-0 z-[60] flex items-center justify-between bg-white/80 border-b border-slate-100 p-4 backdrop-blur-xl lg:hidden">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-green text-white font-black text-lg">
             H
           </div>
@@ -121,6 +137,11 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
                 <NavLink
                   key={item.path}
                   to={item.path}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    navigate(item.path);
+                  }}
                   className={({ isActive }) =>
                     cn(
                       "flex items-center gap-4 rounded-2xl px-6 py-4 transition-all duration-300",
@@ -151,15 +172,15 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       </AnimatePresence>
 
       {/* Desktop Sidebar */}
-      <nav className="fixed left-0 top-0 hidden h-full w-full max-w-sm flex-col border-r border-slate-100 bg-white p-8 lg:flex">
-        <div className="mb-12 flex items-center gap-4">
+      <nav className="fixed left-0 top-0 hidden h-full w-72 flex-col border-r border-slate-100 bg-white p-8 lg:flex">
+        <Link to="/" onClick={handleLogoClick} className="mb-12 flex items-center gap-4 hover:opacity-95 transition-opacity">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green text-white font-black text-2xl shadow-lg shadow-brand-green/20">
             H
           </div>
           <span className="font-display text-xl font-bold tracking-tight text-slate-900 uppercase">
             HREEF RECIPES
           </span>
-        </div>
+        </Link>
 
         <div className="flex flex-1 flex-col gap-1 overflow-y-auto pr-2 scrollbar-hide">
           {navItems.map((item) => (
@@ -221,12 +242,23 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
   );
 };
 
+function ScrollToTop() {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname, search]);
+
+  return null;
+}
+
 export default function App() {
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
 
   return (
     <AppProvider>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
           <Navigation onOpenAI={setIsAIChatOpen} />
           

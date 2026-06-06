@@ -31,10 +31,13 @@ export default function Home() {
   
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const popularCategoriesRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [canScrollLeftCards, setCanScrollLeftCards] = useState(false);
   const [canScrollRightCards, setCanScrollRightCards] = useState(true);
+  const [canScrollPopularLeft, setCanScrollPopularLeft] = useState(false);
+  const [canScrollPopularRight, setCanScrollPopularRight] = useState(true);
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
@@ -52,13 +55,23 @@ export default function Home() {
     }
   };
 
+  const checkPopularScroll = () => {
+    if (popularCategoriesRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = popularCategoriesRef.current;
+      setCanScrollPopularLeft(scrollLeft > 2);
+      setCanScrollPopularRight(Math.ceil(scrollLeft) < scrollWidth - clientWidth - 2);
+    }
+  };
+
   useEffect(() => {
     checkScroll();
     checkScrollCards();
+    checkPopularScroll();
     
     const handleResize = () => {
       checkScroll();
       checkScrollCards();
+      checkPopularScroll();
     };
 
     window.addEventListener('resize', handleResize);
@@ -162,7 +175,7 @@ export default function Home() {
       className="space-y-16"
     >
       {/* Large Zesty Hero Section */}
-      <section className="relative -mx-4 -mt-6 mb-10 overflow-hidden lg:-mx-10 lg:-mt-10">
+      <section className="relative -mx-4 -mt-6 mb-10 overflow-hidden md:-mx-8 md:-mt-8 lg:-mx-12 lg:-mt-12">
         <div className="relative h-[400px] w-full md:h-[500px] lg:h-[600px]">
           <img 
             src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=2000" 
@@ -217,8 +230,26 @@ export default function Home() {
           <p className="mt-2 font-bold text-slate-400 uppercase tracking-widest text-[10px] md:text-xs">Choose your performance goal</p>
         </div>
         
-        <div className="relative w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 w-full">
+        <div className="relative w-full group">
+          {/* Scroll Navigation Controls for Popular Categories */}
+          {canScrollPopularLeft && (
+            <button 
+              onClick={() => {
+                popularCategoriesRef.current?.scrollBy({ left: -160, behavior: 'smooth' });
+              }}
+              className="absolute left-1 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex lg:hidden flex-col items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+            </button>
+          )}
+
+          <div 
+            ref={popularCategoriesRef}
+            onScroll={checkPopularScroll}
+            className="flex flex-row overflow-x-auto lg:overflow-visible lg:flex-wrap lg:justify-center justify-start gap-3 w-full scrollbar-none pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" 
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
             {[
               { id: "breakfast", name: "Breakfast", icon: Coffee, color: "bg-orange-50 text-orange-600" },
               { id: "lunch", name: "Lunch", icon: Utensils, color: "bg-green-50 text-green-600" },
@@ -237,17 +268,29 @@ export default function Home() {
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className={cn(
-                  "group flex flex-col items-center justify-center w-full gap-4 rounded-3xl border border-slate-100 bg-white p-6 md:p-8 transition-all hover:border-brand-green hover:shadow-xl hover:-translate-y-1",
-                  activeCategory === (cat.name === "Fitness" ? "FITNESS MEALS" : cat.name.toUpperCase()) && "border-brand-green bg-green-50/20 shadow-lg"
+                  "group flex flex-row items-center gap-3 rounded-full border border-slate-100 bg-white px-5 py-3 text-sm font-semibold text-brand-ink transition-all hover:border-brand-green hover:shadow-sm shrink-0 lg:flex-1 lg:flex-col lg:items-center lg:justify-center lg:gap-4 lg:rounded-3xl lg:p-6 lg:min-w-[120px]",
+                  activeCategory === (cat.name === "Fitness" ? "FITNESS MEALS" : cat.name.toUpperCase()) && "border-brand-green bg-green-50/20 shadow-md lg:shadow-lg"
                 )}
               >
-                <div className={`flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-2xl ${cat.color} group-hover:scale-110 transition-transform`}>
-                  <cat.icon size={24} className="md:w-8 md:h-8" />
+                <div className={`flex h-9 w-9 lg:h-14 lg:w-14 items-center justify-center rounded-full lg:rounded-2xl ${cat.color} group-hover:scale-110 transition-transform`}>
+                  <cat.icon className="w-5 h-5 lg:w-7 lg:h-7" />
                 </div>
-                <span className="text-xs md:text-sm font-bold text-brand-ink">{cat.name}</span>
+                <span className="text-sm lg:text-sm font-semibold lg:font-bold text-brand-ink whitespace-nowrap">{cat.name}</span>
               </button>
             ))}
           </div>
+
+          {canScrollPopularRight && (
+            <button 
+              onClick={() => {
+                popularCategoriesRef.current?.scrollBy({ left: 160, behavior: 'smooth' });
+              }}
+              className="absolute right-1 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex lg:hidden items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+            </button>
+          )}
         </div>
       </section>
 
@@ -310,17 +353,15 @@ export default function Home() {
 
         <div className="relative -mx-4 md:mx-0">
           {canScrollLeft && (
-            <div className="absolute left-0 top-0 bottom-0 w-12 md:w-16 bg-gradient-to-r from-white to-transparent z-10 flex items-center justify-start pointer-events-none">
-              <button 
-                className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-slate-400 pointer-events-auto hover:text-slate-600 hover:bg-white transition-all ml-2"
-                onClick={() => {
-                   scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' });
-                }}
-                aria-label="Scroll left"
-              >
-                <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
-              </button>
-            </div>
+            <button 
+              className="absolute left-1 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+              onClick={() => {
+                 scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' });
+              }}
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+            </button>
           )}
 
           <div 
@@ -349,17 +390,15 @@ export default function Home() {
           </div>
 
           {canScrollRight && (
-            <div className="absolute right-0 top-0 bottom-0 w-12 md:w-16 bg-gradient-to-l from-white to-transparent z-10 flex items-center justify-end pointer-events-none">
-              <button 
-                className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-slate-400 pointer-events-auto hover:text-slate-600 hover:bg-white transition-all mr-2"
-                onClick={() => {
-                   scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' });
-                }}
-                aria-label="Scroll right"
-              >
-                <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-              </button>
-            </div>
+            <button 
+              className="absolute right-1 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+              onClick={() => {
+                 scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' });
+              }}
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+            </button>
           )}
         </div>
 

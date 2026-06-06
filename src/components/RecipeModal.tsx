@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Clock, Users, Flame, Heart, Share2, Play, Calendar, CheckCircle2, Volume2, Loader2, Youtube, Dumbbell, Wheat, Droplets, Zap, Sparkles, Award, Info, Printer } from 'lucide-react';
+import { X, Clock, Users, Flame, Heart, Share2, Play, Calendar, CheckCircle2, Volume2, Loader2, Youtube, Dumbbell, Wheat, Droplets, Zap, Sparkles, Award, Info, Printer, ChevronRight, ChevronLeft, Egg, Beef, Fish, Cookie, Apple, Salad, Coffee, Soup, Sprout } from 'lucide-react';
 import { Recipe } from '../types';
 import { useApp } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,42 @@ interface RecipeModalProps {
 }
 
 type TabType = 'ingredients' | 'instructions' | 'nutrition' | 'comments';
+
+const getIngredientIcon = (nameKey: string) => {
+  const name = nameKey.toLowerCase();
+  if (name.includes('egg')) return <Egg className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  if (name.includes('beef') || name.includes('meat') || name.includes('pork') || name.includes('chicken') || name.includes('lamb') || name.includes('steak') || name.includes('fish') || name.includes('salmon') || name.includes('tuna') || name.includes('shrimp') || name.includes('seafood')) {
+    if (name.includes('fish') || name.includes('salmon') || name.includes('tuna') || name.includes('shrimp') || name.includes('seafood')) {
+      return <Fish className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    }
+    return <Beef className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('flour') || name.includes('bread') || name.includes('wheat') || name.includes('pasta') || name.includes('spaghetti') || name.includes('rice') || name.includes('dough')) {
+    return <Wheat className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('sugar') || name.includes('chocolate') || name.includes('sweet') || name.includes('cookie') || name.includes('honey')) {
+    return <Cookie className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('oil') || name.includes('water') || name.includes('milk') || name.includes('cream') || name.includes('vinegar') || name.includes('sauce') || name.includes('juice')) {
+    return <Droplets className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('onion') || name.includes('garlic') || name.includes('pepper') || name.includes('salt') || name.includes('spice')) {
+    return <Sprout className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('lettuce') || name.includes('spinach') || name.includes('tomato') || name.includes('carrot') || name.includes('cucumber') || name.includes('salad') || name.includes('greens') || name.includes('herb') || name.includes('parsley') || name.includes('cilantro')) {
+    return <Salad className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('apple') || name.includes('orange') || name.includes('banana') || name.includes('lemon') || name.includes('lime') || name.includes('fruit') || name.includes('berry') || name.includes('strawberry')) {
+    return <Apple className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('coffee') || name.includes('tea') || name.includes('bean')) {
+    return <Coffee className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('soup') || name.includes('broth')) {
+    return <Soup className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  return <Sparkles className="w-4 h-4 text-[#D4AF37]/30 shrink-0" />;
+};
 
 export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe, isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState<TabType>('ingredients');
@@ -34,6 +70,32 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
   const [scheduleDate, setScheduleDate] = useState(new Date().toISOString().split('T')[0]);
   const [scheduleMealType, setScheduleMealType] = useState('lunch');
 
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollTabsLeft, setCanScrollTabsLeft] = useState(false);
+  const [canScrollTabsRight, setCanScrollTabsRight] = useState(true);
+
+  const checkTabsScroll = () => {
+    if (tabsContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsContainerRef.current;
+      setCanScrollTabsLeft(scrollLeft > 2);
+      setCanScrollTabsRight(Math.round(scrollLeft) < scrollWidth - clientWidth - 2);
+    }
+  };
+
+  useEffect(() => {
+    checkTabsScroll();
+    const handleResize = () => checkTabsScroll();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [recipe, isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(checkTabsScroll, 120);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, recipe]);
+
   const getDayAbbreviation = (dateStr: string) => {
     const parts = dateStr.split('-');
     if (parts.length === 3) {
@@ -49,11 +111,20 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
   useEffect(() => {
     return () => {
-      if (window.speechSynthesis) {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
     };
   }, [isOpen]);
+
+  // Stop background reading instantly when switching away from instructions tab
+  useEffect(() => {
+    if (activeTab !== 'instructions') {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    }
+  }, [activeTab]);
 
   const generateNutrition = (name: string, category: string) => {
     let baseCalories = category === 'drinks' ? 150 : 500;
@@ -314,13 +385,13 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="relative w-full h-[100dvh] sm:w-[95%] sm:h-auto max-w-7xl sm:max-h-[90vh] bg-white sm:rounded-[40px] sm:shadow-2xl flex flex-col overflow-x-hidden overflow-y-auto sm:overflow-hidden recipe-modal-container"
+            className="relative w-full h-[100dvh] sm:w-[95%] sm:h-auto max-w-7xl sm:max-h-[90vh] bg-white sm:rounded-[40px] sm:shadow-2xl flex flex-col overflow-x-hidden overflow-y-auto sm:overflow-hidden recipe-modal-container pt-16 sm:pt-0"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-5 z-50 p-4 bg-white/90 backdrop-blur-md rounded-full shadow-lg hover:bg-white transition-colors"
+              className="absolute top-20 sm:top-6 right-5 z-[70] p-4 bg-white/90 backdrop-blur-sm rounded-full shadow-lg shadow-black/30 hover:bg-white transition-colors"
             >
               <X className="w-8 h-8 md:w-6 md:h-6 text-gray-800" />
             </button>
@@ -343,25 +414,25 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  <div className="absolute top-6 left-6 flex gap-2">
+                  <div className="absolute top-4 !left-4 flex gap-2 z-[70]">
                     <button 
                       onClick={handleToggleFavorite}
-                      className={`p-3 backdrop-blur-md rounded-full shadow-lg transition-all no-print ${
-                        isFavorite ? "bg-red-500 text-white" : "bg-white/20 hover:bg-white hover:text-red-500 text-white"
+                      className={`p-3 backdrop-blur-sm rounded-full shadow-lg shadow-black/30 transition-all no-print ${
+                        isFavorite ? "bg-red-500 text-white" : "bg-white/90 hover:bg-white text-brand-green hover:text-red-500"
                       }`}
                     >
                       <Heart className="w-5 h-5" fill={isFavorite ? "white" : "none"} />
                     </button>
                     <button 
                       onClick={handleShare}
-                      className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:bg-white hover:text-gray-900 text-white transition-all no-print"
+                      className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg shadow-black/30 hover:bg-white text-gray-700 transition-all no-print"
                       title="Share Recipe"
                     >
                       <Share2 className="w-5 h-5" />
                     </button>
                     <button 
                       onClick={handlePrint}
-                      className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:bg-white hover:text-gray-900 text-white transition-all no-print cursor-pointer"
+                      className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg shadow-black/30 hover:bg-white text-gray-700 transition-all no-print cursor-pointer"
                       title="Print Recipe | انبريمي"
                     >
                       <Printer className="w-5 h-5" />
@@ -418,21 +489,21 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                   {/* Information Card (Middle) */}
                   <div className="bg-white p-2 rounded-[24px] shadow-soft border border-slate-50 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                      <div className="flex flex-col items-center justify-center py-6 px-2 rounded-2xl bg-green-50/70 border border-green-100/50">
-                        <Clock size={24} strokeWidth={2} className="text-brand-green mb-2" />
-                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Time</span>
-                        <p className="text-base font-bold text-slate-900">{recipe.readyInMinutes}m</p>
+                    <div className="grid grid-cols-3 gap-1.5 md:gap-2">
+                      <div className="flex flex-col items-center justify-center py-4 md:py-6 px-1 md:px-2 rounded-2xl bg-green-50/70 border border-green-100/50">
+                        <Clock size={18} strokeWidth={2} className="text-brand-green mb-1 md:mb-2 md:w-6 md:h-6" />
+                        <span className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Time</span>
+                        <p className="text-xs md:text-base font-bold text-slate-900">{recipe.readyInMinutes}m</p>
                       </div>
-                      <div className="flex flex-col items-center justify-center py-6 px-2 rounded-2xl bg-orange-50/70 border border-orange-100/50">
-                        <Flame size={24} strokeWidth={2} className="text-brand-orange mb-2" />
-                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Energy</span>
-                        <p className="text-base font-bold text-slate-900">{recipe.calories}kcal</p>
+                      <div className="flex flex-col items-center justify-center py-4 md:py-6 px-1 md:px-2 rounded-2xl bg-orange-50/70 border border-orange-100/50">
+                        <Flame size={18} strokeWidth={2} className="text-brand-orange mb-1 md:mb-2 md:w-6 md:h-6" />
+                        <span className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Energy</span>
+                        <p className="text-xs md:text-base font-bold text-slate-900">{recipe.calories}kcal</p>
                       </div>
-                      <div className="flex flex-col items-center justify-center py-6 px-2 rounded-2xl bg-blue-50/70 border border-blue-100/50">
-                        <Users size={24} strokeWidth={2} className="text-blue-500 mb-2" />
-                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Servings</span>
-                        <p className="text-base font-bold text-slate-900">{recipe.servings}</p>
+                      <div className="flex flex-col items-center justify-center py-4 md:py-6 px-1 md:px-2 rounded-2xl bg-blue-50/70 border border-blue-100/50">
+                        <Users size={18} strokeWidth={2} className="text-blue-500 mb-1 md:mb-2 md:w-6 md:h-6" />
+                        <span className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Servings</span>
+                        <p className="text-xs md:text-base font-bold text-slate-900">{recipe.servings}</p>
                       </div>
                     </div>
                   </div>
@@ -462,10 +533,28 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
               {/* Right Column: Dynamic Content Tabs */}
               <div className="w-full md:w-[60%] flex flex-col bg-slate-50/50 relative">
-                {/* Tabs Header Wrapper to host indicators */}
-                <div className="relative w-full shrink-0 no-print">
+                {/* Tabs Header Wrapper */}
+                <div className="relative w-full shrink-0 no-print bg-white border-b border-slate-100 flex items-center">
+                  {/* Left Tab Navigation Control */}
+                  {canScrollTabsLeft && (
+                    <button 
+                      onClick={() => {
+                        tabsContainerRef.current?.scrollBy({ left: -120, behavior: 'smooth' });
+                      }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-800 transition-all active:scale-95 cursor-pointer md:hidden"
+                      aria-label="Scroll left"
+                    >
+                      <ChevronLeft className="w-4 h-4 text-gray-500" />
+                    </button>
+                  )}
+
                   {/* Tabs Header - Fully responsive and touch-scrollable on mobile */}
-                  <div className="flex w-full flex-row items-center gap-4 sm:gap-6 md:gap-[2.5rem] justify-start bg-white px-4 sm:pl-10 sm:pr-10 pt-4 sm:pt-10 pb-3 md:pb-4 border-b border-slate-100 relative z-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  <div 
+                    ref={tabsContainerRef}
+                    onScroll={checkTabsScroll}
+                    className="flex w-full flex-row items-center gap-4 sm:gap-6 md:gap-[2.5rem] justify-start bg-transparent px-10 pt-4 pb-3 relative z-10 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                    style={{ WebkitOverflowScrolling: 'touch' }}
+                  >
                     {tabs.map((tab) => (
                       <button
                         key={tab.id}
@@ -484,24 +573,33 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       </button>
                     ))}
                   </div>
-                  {/* Visual indication fade/arrow on right edge of scrollable list (only on mobile screens) */}
-                  <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white/85 to-transparent pointer-events-none md:hidden z-20 flex items-center justify-end pr-3">
-                    <span className="text-brand-green animate-pulse font-black text-sm">→</span>
-                  </div>
+
+                  {/* Right Tab Navigation Control */}
+                  {canScrollTabsRight && (
+                    <button 
+                      onClick={() => {
+                        tabsContainerRef.current?.scrollBy({ left: 120, behavior: 'smooth' });
+                      }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-800 transition-all active:scale-95 cursor-pointer md:hidden"
+                      aria-label="Scroll right"
+                    >
+                      <ChevronRight className="w-4 h-4 text-gray-500" />
+                    </button>
+                  )}
                 </div>
 
                 {/* Tab Content */}
-                <div className="p-4 sm:p-10 flex-1 overflow-y-auto pb-32 sm:pb-10">
+                <div className="p-4 sm:p-6 flex-1 overflow-y-auto pb-32 sm:pb-6">
                   <div className={activeTab === 'ingredients' ? 'block' : 'hidden print:block'}>
-                    <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
-                      <div className="flex items-center justify-between">
+                    <div className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-8 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
+                      <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
                         <div>
-                          <h3 className="text-2xl font-black text-slate-900 tracking-tight">Ingredients</h3>
-                          <p className="text-sm font-medium text-slate-400 mt-1">Check off items as you gather them</p>
+                          <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Ingredients</h3>
+                          <p className="text-sm font-serif text-[#2C1A04]/70 mt-1">Check off items as you gather them</p>
                         </div>
                         <button 
                           onClick={handleAddAllToGrocery}
-                          className={`group flex items-center gap-2 px-4 py-2 ${addedToGrocery ? 'bg-brand-green text-white' : 'bg-brand-green/5 text-brand-green'} rounded-xl font-black text-xs uppercase tracking-widest hover:bg-brand-green hover:text-white transition-all shadow-sm cursor-pointer no-print`}
+                          className={`group flex items-center gap-2 px-4 py-2 ${addedToGrocery ? 'bg-[#D4AF37] text-white' : 'bg-[#FAF6F0] text-[#2C1A04]'} border border-[#D4AF37]/40 rounded-xl font-serif text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-white transition-all shadow-sm cursor-pointer no-print`}
                           disabled={addedToGrocery}
                         >
                           {addedToGrocery ? (
@@ -517,40 +615,36 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                           )}
                         </button>
                       </div>
-                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                      <div className="flex flex-col mt-4">
                         {recipe.ingredients ? (
                           recipe.ingredients.map((ing, idx) => (
                             <motion.div 
                               key={idx} 
                               onClick={() => setCheckedIngredients(p => ({ ...p, [idx]: !p[idx] }))}
-                              className={`flex items-center gap-3 sm:gap-4 p-3.5 sm:p-5 rounded-2xl sm:rounded-[24px] border transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
+                              className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                                 checkedIngredients[idx] 
-                                  ? "bg-slate-50 border-slate-200 opacity-60" 
-                                  : "bg-slate-50/50 border-slate-200 hover:border-brand-green/30 hover:shadow-xl hover:bg-white hover:shadow-slate-200/20"
+                                  ? "bg-transparent opacity-50" 
+                                  : "bg-[#FAF6F0] hover:bg-slate-50/50"
                               }`}
                             >
-                              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
-                                checkedIngredients[idx] 
-                                  ? "bg-brand-green border-brand-green text-white" 
-                                  : "border-slate-200 group-hover:border-brand-green"
-                              }`}>
-                                {checkedIngredients[idx] && <CheckCircle2 size={14} strokeWidth={3} />}
-                              </div>
-                              <div className="flex items-center gap-3 flex-1 min-w-0">
-                                {ing.image && (
-                                  <img 
-                                    src={ing.image} 
-                                    alt={ing.name}
-                                    className="h-10 w-10 rounded-full object-cover bg-white p-1 shrink-0 shadow-sm"
-                                  />
-                                )}
-                                <div className="flex flex-col text-slate-800 min-w-0">
-                                   <span className={`text-sm sm:text-base font-bold transition-all break-words leading-tight ${
-                                    checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
-                                  }`}>
-                                    {ing.name}
-                                  </span>
+                              {checkedIngredients[idx] ? (
+                                <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                                  ✓
                                 </div>
+                              ) : (
+                                <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                                  {idx + 1}
+                                </div>
+                              )}
+                              <div className="flex-1 min-w-0">
+                                <span className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
+                                  checkedIngredients[idx] ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                                }`}>
+                                  {ing.name}
+                                </span>
+                              </div>
+                              <div className="ml-auto flex items-center gap-1">
+                                {getIngredientIcon(ing.name)}
                               </div>
                             </motion.div>
                           ))
@@ -559,46 +653,41 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                             <motion.div 
                               key={idx} 
                               onClick={() => setCheckedIngredients(p => ({ ...p, [idx]: !p[idx] }))}
-                              className={`flex items-center gap-3 sm:gap-4 p-3.5 sm:p-5 rounded-2xl sm:rounded-[24px] border transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
+                              className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                                 checkedIngredients[idx] 
-                                  ? "bg-slate-50 border-slate-200 opacity-60" 
-                                  : "bg-slate-50/50 border-slate-200 hover:border-brand-green/30 hover:shadow-xl hover:bg-white hover:shadow-slate-200/20"
+                                  ? "bg-transparent opacity-50" 
+                                  : "bg-[#FAF6F0] hover:bg-slate-50/50"
                               }`}
                             >
-                              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
-                                checkedIngredients[idx] 
-                                  ? "bg-brand-green border-brand-green text-white" 
-                                  : "border-slate-200 group-hover:border-brand-green"
-                              }`}>
-                                {checkedIngredients[idx] && <CheckCircle2 size={14} strokeWidth={3} />}
-                              </div>
-                              <div className="flex items-center gap-3 flex-1 min-w-0">
-                                {ing.image && (
-                                  <img 
-                                    src={`https://www.themealdb.com/images/ingredients/${ing.image.charAt(0).toUpperCase() + ing.image.slice(1)}-Small.png`} 
-                                    alt={ing.name}
-                                    className="h-10 w-10 rounded-full object-cover bg-white p-1 shrink-0 shadow-sm"
-                                    onError={(e) => {
-                                      (e.target as HTMLImageElement).src = `https://www.themealdb.com/images/ingredients/${ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}-Small.png`;
-                                    }}
-                                  />
-                                )}
-                                <div className="flex flex-col min-w-0">
-                                  <span className={`text-sm sm:text-base font-bold transition-all break-words leading-tight ${
-                                    checkedIngredients[idx] ? "text-slate-400 line-through" : "text-slate-800"
-                                  }`}>
-                                    {ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}
-                                  </span>
-                                  <span className="text-[10px] sm:text-[11px] font-black text-slate-400 uppercase tracking-widest mt-0.5">
-                                    {ing.amount} {ing.unit}
-                                  </span>
+                              {checkedIngredients[idx] ? (
+                                <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                                  ✓
                                 </div>
+                              ) : (
+                                <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                                  {idx + 1}
+                                </div>
+                              )}
+                              <div className="flex-1 min-w-0">
+                                <span className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
+                                  checkedIngredients[idx] ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                                }`}>
+                                  {ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}
+                                </span>
+                                <span className={`block text-[10px] sm:text-[11px] font-serif font-black uppercase tracking-widest mt-0.5 ${
+                                  checkedIngredients[idx] ? "text-gray-400/50" : "text-[#2C1A04]/60"
+                                }`}>
+                                  {ing.amount} {ing.unit}
+                                </span>
+                              </div>
+                              <div className="ml-auto flex items-center gap-1">
+                                {getIngredientIcon(ing.name)}
                               </div>
                               {/* Selection overlay animation */}
                               {checkedIngredients[idx] && (
                                 <motion.div 
                                   layoutId={`ing-check-${idx}`}
-                                  className="absolute inset-0 bg-slate-100/50 pointer-events-none"
+                                  className="absolute inset-0 bg-slate-100/10 pointer-events-none"
                                   initial={{ opacity: 0 }}
                                   animate={{ opacity: 1 }}
                                 />
@@ -957,6 +1046,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       <option value="lunch">Lunch 🥗</option>
                       <option value="dinner">Dinner 🌙</option>
                       <option value="snack">Snack 🍎</option>
+                      <option value="workout">Pre/Post Workout 💪</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
                       <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

@@ -52,13 +52,31 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
   const findSmartResponse = (query: string): { content: string, suggestedRecipes?: any[] } => {
     const q = query.toLowerCase().trim();
     
-    // 1. Basic Personality / Identity
+    // 1. Basic Personality / Identity & Conversation
     if (q.includes("who are you") || q.includes("your name")) {
       return { content: "I am the **Hreef Smart Assistant**, but most people call me **Chef Hreef**. I'm here to help you navigate our local recipe database and find the perfect meal for your goals!" };
     }
 
-    if (q === "hello" || q === "hi" || q === "hey") {
-      return { content: "Hello! I'm ready to help. Would you like a healthy suggestion, or are you looking for a specific ingredient?" };
+    const greetings = ["hello", "hi", "hey", "heey", "good morning", "good afternoon", "good evening", "what's up", "whats up"];
+    const isGreeting = greetings.includes(q) || greetings.some(g => q.startsWith(g + " "));
+    
+    if (isGreeting) {
+      return { content: "Hello! I am doing great, thank you. What are we cooking today? I can help you find recipes, substitute ingredients, or plan your meals!" };
+    }
+
+    const smallTalk = ["how are you", "how r u", "how do you do", "what are you doing", "what are u doing", "what u doing", "thanks", "thank you"];
+    if (smallTalk.some(s => q.includes(s))) {
+      if (q.includes("what are you doing") || q.includes("what are u doing") || q.includes("what u doing")) {
+        return { content: "I am chatting with you and ready to help you plan your meals! What would you like to cook today?" };
+      }
+      return { content: "I am doing great, thank you! I'm here and ready to help you find your next delicious meal. What are you in the mood for?" };
+    }
+
+    const foodKeywords = ["recipe", "food", "cook", "make", "eat", "hungry", "breakfast", "lunch", "dinner", "snack", "chicken", "beef", "fish", "veg", "salad", "drink", "healthy", "diet", "meal", "ingredient", "substitute", "bake", "fry", "roast", "soup", "dessert", "sweet", "pasta", "rice", "idea", "show me", "craving"];
+    const hasFoodIntent = foodKeywords.some(keyword => q.includes(keyword)) || q.split(" ").length <= 3;
+
+    if (!hasFoodIntent) {
+      return { content: "I am just a chef assistant, so I'm best at talking about food! 👨‍🍳\n\nI am chatting with you and ready to help you plan your meals! Just tell me an ingredient or a type of dish you want to cook." };
     }
 
     // 2. Advanced Search Logic

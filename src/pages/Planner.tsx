@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Coffee, Utensils, Moon, Plus, Trash2, ShoppingCart, ChevronLeft, ChevronRight, X, Heart, Search } from "lucide-react";
+import { Coffee, Utensils, Moon, Plus, Trash2, ShoppingCart, ChevronLeft, ChevronRight, X, Heart, Search, Apple, Dumbbell } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useApp } from "../context/AppContext";
 import { getRecipeById, searchRecipes } from "../services/api";
@@ -16,6 +16,13 @@ export default function Planner() {
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'favorites' | 'search'>('favorites');
+
+  const getInitialDayIndex = () => {
+    const today = new Date().getDay(); // 0 is Sunday, 1 is Monday...
+    const index = today === 0 ? 6 : today - 1;
+    return index;
+  };
+  const [selectedDayIndex, setSelectedDayIndex] = useState(getInitialDayIndex());
 
   // Date Logic
   const weekDates = useMemo(() => {
@@ -48,6 +55,8 @@ export default function Planner() {
     { id: "breakfast", name: "Breakfast", icon: Coffee, color: "text-orange-500" },
     { id: "lunch", name: "Lunch", icon: Utensils, color: "text-blue-500" },
     { id: "dinner", name: "Dinner", icon: Moon, color: "text-indigo-500" },
+    { id: "snack", name: "Snacks", icon: Apple, color: "text-red-500" },
+    { id: "workout", name: "Pre/Post Workout", icon: Dumbbell, color: "text-purple-500" },
   ];
 
   const handleOpenSelector = async (day: string, type: string) => {
@@ -105,11 +114,92 @@ export default function Planner() {
         </div>
       </header>
 
-      <div className="grid gap-8">
+      <div className="grid gap-8 w-full box-border px-0 md:px-0">
         {/* Weekly View Content */}
-        <div className="pb-4 w-full">
-          <div className="flex flex-col md:grid md:grid-cols-8 gap-4 w-full">
-            <div className="hidden md:block pt-12 space-y-20 text-right pr-4">
+        <div className="pb-4 w-full box-border overflow-hidden">
+          {/* Mobile Calendar Layout */}
+          <div className="block md:hidden space-y-6 w-full box-border text-center md:text-left px-0">
+            <div className="flex flex-row overflow-x-auto justify-start space-x-2 w-[calc(100vw-32px)] md:w-full pb-3 scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
+              {weekDates.map((date, idx) => {
+                const day = days[idx];
+                const isSelected = selectedDayIndex === idx;
+                const isToday = date.toDateString() === new Date().toDateString();
+                return (
+                  <button
+                    key={day}
+                    onClick={() => setSelectedDayIndex(idx)}
+                    className={`flex flex-col items-center justify-center py-2.5 px-4 rounded-2xl min-w-[64px] transition-all border shrink-0 ${
+                      isSelected 
+                        ? "bg-brand-green text-white border-brand-green shadow-lg shadow-brand-green/20" 
+                        : "bg-white text-slate-800 border-slate-100 hover:bg-slate-50"
+                    }`}
+                  >
+                    <span className={`text-[10px] font-black uppercase tracking-wider ${isSelected ? "text-white/80" : "text-slate-400"}`}>{day}</span>
+                    <span className={`text-base font-black mt-0.5 ${isToday && !isSelected ? "text-brand-green" : ""}`}>{date.getDate()}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Compact Meals Section for Selected Day */}
+            <div className="bg-white border border-slate-100 rounded-[2rem] p-5 space-y-4 shadow-sm">
+              <div className="flex items-center justify-between border-b border-slate-50 pb-2">
+                <p className="text-xs font-black uppercase tracking-widest text-slate-400">Meals for {days[selectedDayIndex]}</p>
+                <span className="text-xs font-bold text-brand-green bg-brand-green/10 px-2.5 py-1 rounded-full">{weekDates[selectedDayIndex].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+              </div>
+              <div className="space-y-3">
+                {mealTypes.map(type => {
+                  const day = days[selectedDayIndex];
+                  const key = `${day}-${type.id}`;
+                  const meal = plan[key];
+                  return (
+                    <div 
+                      key={type.id}
+                      onClick={() => !meal && handleOpenSelector(day, type.id)}
+                      className={`group relative flex items-center justify-between gap-4 rounded-2xl p-3 border border-slate-100 cursor-pointer transition-all ${
+                        meal 
+                          ? "bg-white shadow-sm border-l-4 border-brand-green" 
+                          : "bg-slate-50/70 hover:bg-white border-dashed border-slate-100"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 w-[115px] shrink-0">
+                        <type.icon className={`w-4 h-4 ${type.color}`} />
+                        <span className="text-xs font-bold text-slate-700 capitalize">{type.name}</span>
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        {meal ? (
+                          <div className="flex items-center justify-between gap-3">
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <img src={meal.image} alt={meal.title} className="w-10 h-10 object-cover rounded-xl shrink-0" />
+                              <p className="text-xs font-bold text-slate-800 truncate leading-tight">{meal.title}</p>
+                            </div>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                removeFromPlan(day, type.id);
+                              }}
+                              className="h-7 w-7 bg-red-50 text-red-500 hover:bg-red-100 rounded-full flex items-center justify-center transition-colors shrink-0"
+                            >
+                              <Trash2 size={12} />
+                            </button>
+                          </div>
+                        ) : (
+                          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5 py-1 justify-end">
+                            <Plus size={14} className="text-slate-300" /> Plan Meal
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Calendar Grid */}
+          <div className="hidden md:grid md:grid-cols-8 gap-4 w-full">
+            <div className="pt-[3.25rem] space-y-4 text-right pr-4">
               {mealTypes.map(type => (
                 <div key={type.id} className="flex items-center justify-end gap-2 h-20">
                   <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em]">{type.name}</span>

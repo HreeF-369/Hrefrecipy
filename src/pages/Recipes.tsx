@@ -140,17 +140,15 @@ export default function Recipes() {
       {/* Category Pills */}
       <div className="relative -mx-4 md:mx-0">
         {canScrollLeft && (
-          <div className="absolute left-0 top-0 bottom-0 w-12 md:w-16 bg-gradient-to-r from-slate-50 to-transparent z-10 flex items-center justify-start pointer-events-none">
-            <button 
-              className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-slate-400 pointer-events-auto hover:text-slate-600 hover:bg-white transition-all ml-2"
-              onClick={() => {
-                 scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' });
-              }}
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
-            </button>
-          </div>
+          <button 
+            className="absolute left-1 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+            onClick={() => {
+               scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' });
+            }}
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+          </button>
         )}
 
         <div 
@@ -178,17 +176,15 @@ export default function Recipes() {
         </div>
 
         {canScrollRight && (
-          <div className="absolute right-0 top-0 bottom-0 w-12 md:w-16 bg-gradient-to-l from-slate-50 to-transparent z-10 flex items-center justify-end pointer-events-none">
-            <button 
-              className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-slate-400 pointer-events-auto hover:text-slate-600 hover:bg-white transition-all mr-2"
-              onClick={() => {
-                 scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' });
-              }}
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-            </button>
-          </div>
+          <button 
+            className="absolute right-1 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+            onClick={() => {
+               scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' });
+            }}
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+          </button>
         )}
       </div>
 

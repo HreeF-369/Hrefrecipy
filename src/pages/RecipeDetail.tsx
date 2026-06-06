@@ -17,12 +17,60 @@ import {
   MessageSquare,
   Send,
   Volume2,
-  Printer
+  Printer,
+  Egg, 
+  Beef, 
+  Fish, 
+  Wheat, 
+  Cookie, 
+  Apple, 
+  Droplets, 
+  Salad, 
+  Coffee, 
+  Soup, 
+  Sparkles, 
+  Sprout
 } from "lucide-react";
 import { Recipe } from "../types";
 import { getRecipeById } from "../services/api";
 import { useApp } from "../context/AppContext";
 import { speakText } from "../services/speechService";
+
+const getIngredientIcon = (nameKey: string) => {
+  const name = nameKey.toLowerCase();
+  if (name.includes('egg')) return <Egg className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  if (name.includes('beef') || name.includes('meat') || name.includes('pork') || name.includes('chicken') || name.includes('lamb') || name.includes('steak') || name.includes('fish') || name.includes('salmon') || name.includes('tuna') || name.includes('shrimp') || name.includes('seafood')) {
+    if (name.includes('fish') || name.includes('salmon') || name.includes('tuna') || name.includes('shrimp') || name.includes('seafood')) {
+      return <Fish className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    }
+    return <Beef className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('flour') || name.includes('bread') || name.includes('wheat') || name.includes('pasta') || name.includes('spaghetti') || name.includes('rice') || name.includes('dough')) {
+    return <Wheat className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('sugar') || name.includes('chocolate') || name.includes('sweet') || name.includes('cookie') || name.includes('honey')) {
+    return <Cookie className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('oil') || name.includes('water') || name.includes('milk') || name.includes('cream') || name.includes('vinegar') || name.includes('sauce') || name.includes('juice')) {
+    return <Droplets className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('onion') || name.includes('garlic') || name.includes('pepper') || name.includes('salt') || name.includes('spice')) {
+    return <Sprout className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('lettuce') || name.includes('spinach') || name.includes('tomato') || name.includes('carrot') || name.includes('cucumber') || name.includes('salad') || name.includes('greens') || name.includes('herb') || name.includes('parsley') || name.includes('cilantro')) {
+    return <Salad className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('apple') || name.includes('orange') || name.includes('banana') || name.includes('lemon') || name.includes('lime') || name.includes('fruit') || name.includes('berry') || name.includes('strawberry')) {
+    return <Apple className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('coffee') || name.includes('tea') || name.includes('bean')) {
+    return <Coffee className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  if (name.includes('soup') || name.includes('broth')) {
+    return <Soup className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  }
+  return <Sparkles className="w-4 h-4 text-[#D4AF37]/30 shrink-0" />;
+};
 
 export default function RecipeDetail() {
   const { id } = useParams();
@@ -142,11 +190,19 @@ export default function RecipeDetail() {
 
   useEffect(() => {
     return () => {
-      if (window.speechSynthesis) {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (activeSegment !== "instructions") {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    }
+  }, [activeSegment]);
 
   if (loading) {
     return (
@@ -190,10 +246,10 @@ export default function RecipeDetail() {
               alt={recipe.title} 
               className="h-full w-full object-cover"
             />
-            <div className="absolute top-6 right-6 flex gap-2">
+            <div className="absolute top-4 !left-4 flex gap-2 z-10">
               <button 
                 onClick={handleToggleFavorite}
-                className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg backdrop-blur-md transition-all active:scale-90 ${
+                className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg shadow-black/30 backdrop-blur-sm transition-all active:scale-90 ${
                   isFavorite ? "bg-red-500 text-white" : "bg-white/90 text-brand-green"
                 }`}
               >
@@ -201,14 +257,14 @@ export default function RecipeDetail() {
               </button>
               <button 
                 onClick={handleShare}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg backdrop-blur-md transition-transform active:scale-90 no-print"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg shadow-black/30 backdrop-blur-sm transition-transform active:scale-90 no-print"
                 title="Share Recipe"
               >
                 <Share2 size={20} />
               </button>
               <button 
                 onClick={handlePrint}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg backdrop-blur-md transition-transform active:scale-90 no-print cursor-pointer"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg shadow-black/30 backdrop-blur-sm transition-transform active:scale-90 no-print cursor-pointer"
                 title="Print Recipe | انبريمي"
               >
                 <Printer size={20} />
@@ -265,22 +321,22 @@ export default function RecipeDetail() {
               </div>
             </div>
             
-            <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-brand-green/5 border border-brand-green/10 transition-transform hover:scale-105">
-                  <Clock size={32} strokeWidth={1} className="text-brand-green mb-2" />
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Time</span>
-                  <p className="text-xl font-display font-bold text-gray-900">{recipe.prepTime || `${recipe.readyInMinutes}m`}</p>
+            <div className="bg-white p-4 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm border border-gray-100 space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="grid grid-cols-3 gap-2 md:gap-4">
+                <div className="flex flex-col items-center justify-center py-4 px-2 rounded-2xl md:rounded-[2rem] bg-brand-green/5 border border-brand-green/10 transition-transform hover:scale-105">
+                  <Clock size={20} strokeWidth={1.5} className="text-brand-green mb-1.5 md:mb-2 md:h-8 md:w-8" />
+                  <span className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest md:tracking-[0.2em]">Time</span>
+                  <p className="text-xs md:text-xl font-display font-bold text-gray-900 mt-0.5">{recipe.prepTime || `${recipe.readyInMinutes}m`}</p>
                 </div>
-                <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-brand-orange/5 border border-brand-orange/10 transition-transform hover:scale-105">
-                  <Flame size={32} strokeWidth={1} className="text-brand-orange mb-2" />
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Energy</span>
-                  <p className="text-xl font-display font-bold text-gray-900">{Math.round(caloriesVal)}kcal</p>
+                <div className="flex flex-col items-center justify-center py-4 px-2 rounded-2xl md:rounded-[2rem] bg-brand-orange/5 border border-brand-orange/10 transition-transform hover:scale-105">
+                  <Flame size={20} strokeWidth={1.5} className="text-brand-orange mb-1.5 md:mb-2 md:h-8 md:w-8" />
+                  <span className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest md:tracking-[0.2em]">Energy</span>
+                  <p className="text-xs md:text-xl font-display font-bold text-gray-900 mt-0.5">{Math.round(caloriesVal)}kcal</p>
                 </div>
-                <div className="flex flex-col items-center justify-center p-6 rounded-[2rem] bg-blue-50 border border-blue-100 transition-transform hover:scale-105">
-                  <Users size={32} strokeWidth={1} className="text-blue-500 mb-2" />
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Servings</span>
-                  <p className="text-xl font-display font-bold text-gray-900">{recipe.servings}</p>
+                <div className="flex flex-col items-center justify-center py-4 px-2 rounded-2xl md:rounded-[2rem] bg-blue-50 border border-blue-100 transition-transform hover:scale-105">
+                  <Users size={20} strokeWidth={1.5} className="text-blue-500 mb-1.5 md:mb-2 md:h-8 md:w-8" />
+                  <span className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest md:tracking-[0.2em]">Servings</span>
+                  <p className="text-xs md:text-xl font-display font-bold text-gray-900 mt-0.5">{recipe.servings}</p>
                 </div>
               </div>
 
@@ -325,49 +381,47 @@ export default function RecipeDetail() {
                 key="ingredients"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="space-y-4"
+                className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-4"
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">Ingredients</h3>
+                <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
+                  <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Ingredients</h3>
                   <button 
                     onClick={handleAddToList}
-                    className="text-sm font-semibold text-brand-green hover:underline no-print"
+                    className="text-sm font-serif font-semibold text-[#D4AF37] hover:underline no-print"
                   >
                     Add all to list
                   </button>
                 </div>
-                <div className="grid gap-3">
+                <div className="flex flex-col mt-4">
                   {recipe.ingredients ? (
                     recipe.ingredients.map((ing, idx) => (
                       <div 
                         key={idx} 
                         onClick={() => toggleIngredient(`ing-${idx}`)}
-                        className={`flex items-center gap-4 rounded-3xl p-4 shadow-sm ring-1 transition-all cursor-pointer ${
+                        className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                           checkedIngredients.includes(`ing-${idx}`) 
-                            ? "bg-brand-green/5 ring-brand-green/20 opacity-60" 
-                            : "bg-white ring-gray-100 hover:ring-brand-light-green/30"
+                            ? "bg-transparent opacity-50" 
+                            : "bg-[#FAF6F0] hover:bg-slate-50/50"
                         } print:bg-white print:ring-0 print:opacity-100`}
                       >
-                        <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
-                          checkedIngredients.includes(`ing-${idx}`) 
-                            ? "bg-brand-green text-white" 
-                            : "bg-brand-cream text-brand-green ring-1 ring-brand-green/10"
-                        } print:hidden`}>
-                          {checkedIngredients.includes(`ing-${idx}`) ? <CheckCircle2 size={18} /> : <span className="font-bold text-xs">{idx + 1}</span>}
-                        </div>
-                        <div className="flex-1 flex items-center gap-3">
-                          {ing.image && (
-                            <img 
-                              src={ing.image} 
-                              alt={ing.name}
-                              className="h-10 w-10 rounded-full object-cover bg-slate-50 p-1 border border-slate-100 shrink-0 print:hidden"
-                            />
-                          )}
-                          <div>
-                            <p className={`font-bold transition-all grocery-item-text ${checkedIngredients.includes(`ing-${idx}`) ? "text-gray-400 line-through" : "text-gray-800"}`}>
-                              {ing.name}
-                            </p>
+                        {checkedIngredients.includes(`ing-${idx}`) ? (
+                          <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                            ✓
                           </div>
+                        ) : (
+                          <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                            {idx + 1}
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <p className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
+                            checkedIngredients.includes(`ing-${idx}`) ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                          }`}>
+                            {ing.name}
+                          </p>
+                        </div>
+                        <div className="ml-auto flex items-center gap-1">
+                          {getIngredientIcon(ing.name)}
                         </div>
                       </div>
                     ))
@@ -375,38 +429,37 @@ export default function RecipeDetail() {
                     <div 
                       key={`${ing.id || idx}-${idx}`} 
                       onClick={() => toggleIngredient(ing.id)}
-                      className={`flex items-center gap-4 rounded-3xl p-4 shadow-sm ring-1 transition-all cursor-pointer ${
+                      className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                         checkedIngredients.includes(ing.id) 
-                          ? "bg-brand-green/5 ring-brand-green/20 opacity-60" 
-                          : "bg-white ring-gray-100 hover:ring-brand-light-green/30"
+                          ? "bg-transparent opacity-50" 
+                          : "bg-[#FAF6F0] hover:bg-slate-50/50"
                       } print:bg-white print:ring-0 print:opacity-100`}
                     >
-                      <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
-                        checkedIngredients.includes(ing.id) 
-                          ? "bg-brand-green text-white" 
-                          : "bg-brand-cream text-brand-green ring-1 ring-brand-green/10"
-                        } print:hidden`}>
-                        {checkedIngredients.includes(ing.id) ? <CheckCircle2 size={18} /> : <span className="font-bold text-xs">{Math.round(ing.amount)}</span>}
-                      </div>
-                      <div className="flex-1 flex items-center gap-3">
-                        {ing.image && (
-                          <img 
-                            src={`https://www.themealdb.com/images/ingredients/${ing.image.charAt(0).toUpperCase() + ing.image.slice(1)}-Small.png`} 
-                            alt={ing.name}
-                            className="h-10 w-10 rounded-full object-cover bg-slate-50 p-1 border border-slate-100 shrink-0 print:hidden"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = `https://www.themealdb.com/images/ingredients/${ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}-Small.png`;
-                            }}
-                          />
-                        )}
-                        <div>
-                          <p className={`font-bold transition-all grocery-item-text ${checkedIngredients.includes(ing.id) ? "text-gray-400 line-through" : "text-gray-800"}`}>
-                            {ing.name}
-                          </p>
-                          <p className="text-sm text-gray-400">
+                      {checkedIngredients.includes(ing.id) ? (
+                        <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                          ✓
+                        </div>
+                      ) : (
+                        <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                          {idx + 1}
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <p className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
+                          checkedIngredients.includes(ing.id) ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                        }`}>
+                          {ing.name}
+                        </p>
+                        {ing.original && (
+                          <p className={`text-xs font-serif mt-0.5 ${
+                            checkedIngredients.includes(ing.id) ? "text-gray-400/50" : "text-[#2C1A04]/60"
+                          }`}>
                             {ing.original}
                           </p>
-                        </div>
+                        )}
+                      </div>
+                      <div className="ml-auto flex items-center gap-1">
+                        {getIngredientIcon(ing.name)}
                       </div>
                     </div>
                   ))}

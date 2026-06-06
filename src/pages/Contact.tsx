@@ -70,8 +70,8 @@ export default function Contact() {
         <p className="text-slate-500 text-lg">We'd love to hear from you. Get in touch with our team.</p>
       </div>
 
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-3 mb-16">
-        <div className="rounded-3xl bg-white p-8 text-center shadow-lg shadow-slate-100/50 border border-slate-100">
+      <div className="flex flex-row overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory space-x-4 w-full px-4 md:px-0 md:space-x-0 md:grid md:grid-cols-3 md:gap-8 mb-16">
+        <div className="w-[85%] sm:w-[300px] shrink-0 snap-center md:w-full rounded-3xl bg-white p-8 text-center shadow-lg shadow-slate-100/50 border border-slate-100">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-green/10 text-brand-green">
             <Mail className="h-6 w-6" />
           </div>
@@ -82,7 +82,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <div className="rounded-3xl bg-white p-8 text-center shadow-lg shadow-slate-100/50 border border-slate-100">
+        <div className="w-[85%] sm:w-[300px] shrink-0 snap-center md:w-full rounded-3xl bg-white p-8 text-center shadow-lg shadow-slate-100/50 border border-slate-100">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-orange/10 text-brand-orange">
             <MessageSquare className="h-6 w-6" />
           </div>
@@ -93,7 +93,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <div className="rounded-3xl bg-white p-8 text-center shadow-lg shadow-slate-100/50 border border-slate-100">
+        <div className="w-[85%] sm:w-[300px] shrink-0 snap-center md:w-full rounded-3xl bg-white p-8 text-center shadow-lg shadow-slate-100/50 border border-slate-100">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
             <MapPin className="h-6 w-6" />
           </div>

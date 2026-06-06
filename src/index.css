@@ -48,29 +48,41 @@
 @media print {
   nav, 
   header, 
-  footer, 
-  button,
+  footer,
+  aside,
   .no-print,
   .no-print-action,
   #ai-chat-trigger,
   .chatbot-container,
   [role="dialog"] button,
   .fab-button,
-  .action-buttons {
+  .action-buttons,
+  .bg-grid-pattern,
+  .layout-background {
     display: none !important;
   }
   
-  body {
+  body, html, main, #root, .app-layout {
     background-color: white !important;
+    background-image: none !important;
     color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
   }
 
   main {
-    padding: 0 !important;
-    margin: 0 !important;
     left: 0 !important;
-    width: 100% !important;
-    background: transparent !important;
+    display: block !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+  }
+
+  /* Expand grids to full width */
+  .grid-cols-1.lg\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
     display: block !important;
   }
 
@@ -88,8 +100,21 @@
     z-index: auto !important;
   }
 
+  /* Force elements to span full width */
+  section {
+    width: 100% !important;
+    display: block !important;
+    page-break-inside: avoid !important;
+  }
+
+  .bg-\[\#FFFDF9\], .bg-white {
+    background-color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
   /* Force black text on list items for printing */
-  .grocery-item-text {
+  .grocery-item-text, p, h1, h2, h3, h4, span {
     color: black !important;
     text-decoration: none !important;
     opacity: 1 !important;
@@ -100,9 +125,22 @@
     display: block !important;
   }
 
+  /* Print specific helpers */
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:mt-10 {
+    margin-top: 2.5rem !important;
+  }
+
   img {
     max-width: 100% !important;
     break-inside: avoid;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+    max-height: 400px;
+    object-fit: cover;
   }
 
   h1, h2, h3, h4 {
