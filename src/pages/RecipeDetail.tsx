@@ -472,59 +472,58 @@ export default function RecipeDetail() {
                 key="instructions"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="space-y-6"
+                className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-6 print:animate-none print:border-none print:p-0"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold">Preparation</h3>
+                <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
+                  <div>
+                    <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Preparation</h3>
+                    <p className="text-sm font-serif text-[#2C1A04]/70 mt-1">Follow along for a perfect meal</p>
+                  </div>
                   <button 
                     onClick={handleSpeakInstructions}
-                    className="flex items-center gap-2 bg-brand-green-light px-4 py-2 rounded-xl text-brand-green font-bold text-xs hover:bg-brand-green hover:text-white transition-all shadow-sm no-print"
+                    className="group flex items-center gap-2 px-4 py-2 bg-[#FAF6F0] text-[#2C1A04] border border-[#D4AF37]/40 rounded-xl font-serif text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-white transition-all shadow-sm cursor-pointer no-print"
                   >
                     <Volume2 size={16} /> Listen to Steps
                   </button>
                 </div>
-                {recipe.instructions ? (
-                  recipe.instructions.map((step, idx) => (
-                    <div key={idx} className="flex gap-6 group">
-                      <div className="flex flex-col items-center">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-green text-sm font-bold text-white shadow-lg shadow-brand-green/20 group-hover:scale-110 transition-transform">
+                <div className="space-y-4">
+                  {recipe.instructions ? (
+                    recipe.instructions.map((step, idx) => (
+                      <div key={idx} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-4 group">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
                           {idx + 1}
                         </div>
-                        <div className="mt-2 h-full w-px bg-gray-200 group-last:hidden" />
+                        <div className="space-y-2 flex-1 min-w-0">
+                          <p className="text-base text-[#2C1A04] leading-relaxed font-serif break-words">{step}</p>
+                        </div>
                       </div>
-                      <div className="pb-8 flex-1">
-                        <p className="text-base leading-relaxed text-gray-700 font-medium">{step}</p>
-                      </div>
-                    </div>
-                  ))
-                ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
-                  recipe.analyzedInstructions[0].steps.map((step, idx) => (
-                    <div key={`${step.number}-${idx}`} className="flex gap-6 group">
-                      <div className="flex flex-col items-center">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-green text-sm font-bold text-white shadow-lg shadow-brand-green/20 group-hover:scale-110 transition-transform">
+                    ))
+                  ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
+                    recipe.analyzedInstructions[0].steps.map((step, idx) => (
+                      <div key={`${step.number}-${idx}`} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-4 group">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
                           {step.number}
                         </div>
-                        <div className="mt-2 h-full w-px bg-gray-200 group-last:hidden" />
-                      </div>
-                      <div className="pb-8 flex-1 space-y-2">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 flex-wrap">
-                          <p className="text-base leading-relaxed text-gray-700 font-medium">{step.step}</p>
-                          {step.length && (
-                            <div className="flex items-center gap-1.5 bg-slate-100 px-2 py-1 rounded-lg text-[10px] font-black text-slate-500 shrink-0 h-fit">
-                              <Clock size={10} /> {step.length.number} {step.length.unit}
-                            </div>
-                          )}
+                        <div className="space-y-2 flex-1 min-w-0 pt-0.5">
+                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 flex-wrap">
+                            <p className="text-base text-[#2C1A04] leading-relaxed font-serif break-words">{step.step}</p>
+                            {step.length && (
+                              <div className="flex items-center gap-1.5 bg-[#FAF6F0] border border-[#D4AF37]/20 px-2 py-1 rounded-full text-xs font-serif text-[#2C1A04]/80 shrink-0 h-fit">
+                                <Clock size={12} className="text-[#D4AF37]" /> {step.length.number} {step.length.unit}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
+                    ))
+                  ) : (
+                    <div className="text-center py-20 bg-[#FFFDF9] rounded-[2.5rem] border border-[#D4AF37]/20 border-dashed">
+                      <Clock className="mx-auto text-[#D4AF37] mb-3" size={40} />
+                      <p className="text-[#2C1A04] font-bold uppercase tracking-widest text-xs font-serif">No step-by-step instructions available</p>
+                      <p className="text-[#2C1A04]/70 mt-1 max-w-sm mx-auto text-sm font-serif">Please check the recipe summary or external link for details.</p>
                     </div>
-                  ))
-                ) : (
-                  <div className="text-center py-20 bg-slate-50 rounded-[2.5rem] border border-slate-100 border-dashed">
-                    <Clock className="mx-auto text-slate-300 mb-3" size={40} />
-                    <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">No step-by-step instructions available</p>
-                    <p className="text-slate-500 mt-1 max-w-sm mx-auto text-sm">Please check the recipe summary or external link for details.</p>
-                  </div>
-                )}
+                  )}
+                </div>
               </motion.div>
             </div>
 

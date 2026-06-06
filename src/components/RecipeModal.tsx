@@ -704,12 +704,15 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                   </div>
 
                   <div className={activeTab === 'instructions' ? 'block' : 'hidden print:block print:mt-10'}>
-                    <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-xl font-bold text-gray-900">Cook steps</h3>
+                    <div className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-6 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
+                      <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
+                        <div>
+                          <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Cook steps</h3>
+                          <p className="text-sm font-serif text-[#2C1A04]/70 mt-1">Follow along for a perfect meal</p>
+                        </div>
                         <button 
                           onClick={handleSpeakInstructions}
-                          className="flex items-center gap-2 bg-green-50 px-3 py-1.5 rounded-lg text-green-600 font-bold text-xs hover:bg-green-600 hover:text-white transition-all shadow-sm no-print"
+                          className="group flex items-center gap-2 px-4 py-2 bg-[#FAF6F0] text-[#2C1A04] border border-[#D4AF37]/40 rounded-xl font-serif text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-white transition-all shadow-sm cursor-pointer no-print"
                         >
                           <Volume2 size={14} /> Listen
                         </button>
@@ -717,12 +720,12 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       <div className="space-y-4">
                         {recipe.instructions ? (
                           recipe.instructions.map((step, idx) => (
-                            <div key={idx} className="flex items-start gap-3 sm:gap-4 group mb-4 sm:mb-6">
-                              <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-xs sm:text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">
+                            <div key={idx} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-3 sm:gap-4 group">
+                              <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
                                 {idx + 1}
                               </div>
                               <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
-                                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-semibold break-words">
+                                <p className="text-sm sm:text-base text-[#2C1A04] leading-relaxed font-serif break-words">
                                   {step}
                                 </p>
                               </div>
@@ -730,18 +733,18 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                           ))
                         ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
                           recipe.analyzedInstructions[0].steps.map((step, idx) => (
-                          <div key={`${step.number}-${idx}`} className="flex items-start gap-3 sm:gap-4 group mb-4 sm:mb-6">
-                            <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-xs sm:text-sm font-bold shadow-sm group-hover:scale-110 transition-transform">
+                          <div key={`${step.number}-${idx}`} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-3 sm:gap-4 group">
+                            <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
                               {step.number}
                             </div>
-                            <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
+                            <div className="space-y-1 sm:space-y-2 flex-1 min-w-0 pt-0.5">
                               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 flex-wrap">
-                                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-semibold break-words">
+                                <p className="text-sm sm:text-base text-[#2C1A04] leading-relaxed font-serif break-words">
                                   {step.step}
                                 </p>
                                 {step.length && (
-                                  <div className="flex items-center gap-1 bg-slate-100 px-2 py-0.5 rounded text-[10px] font-black text-slate-500 shrink-0 h-fit w-fit">
-                                    <Clock size={10} /> {step.length.number} {step.length.unit}
+                                  <div className="flex items-center gap-1 bg-[#FAF6F0] border border-[#D4AF37]/20 px-2 py-0.5 rounded-full text-xs font-serif text-[#2C1A04]/80 shrink-0 h-fit w-fit">
+                                    <Clock size={12} className="text-[#D4AF37]" /> {step.length.number} {step.length.unit}
                                   </div>
                                 )}
                               </div>
