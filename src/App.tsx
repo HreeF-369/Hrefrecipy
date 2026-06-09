@@ -172,7 +172,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       </AnimatePresence>
 
       {/* Desktop Sidebar */}
-      <nav className="fixed left-0 top-0 hidden h-full w-72 flex-col border-r border-slate-100 bg-white p-8 lg:flex">
+      <nav className="sticky top-0 hidden h-screen w-[260px] flex-col border-r border-slate-100 bg-white p-6 lg:flex shrink-0">
         <Link to="/" onClick={handleLogoClick} className="mb-12 flex items-center gap-4 hover:opacity-95 transition-opacity">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green text-white font-black text-2xl shadow-lg shadow-brand-green/20">
             H
@@ -259,131 +259,136 @@ export default function App() {
     <AppProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
+        <div className="min-h-screen w-full bg-white flex flex-col lg:grid lg:grid-cols-[260px_1fr] relative">
           <Navigation onOpenAI={setIsAIChatOpen} />
           
-          <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 lg:pl-72 flex-1 flex flex-col w-full overflow-x-hidden">
-          <div className="mx-auto w-full max-w-7xl px-4 py-6 md:px-8 lg:py-12 lg:px-12">
-            <AnimatePresence mode="wait">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/recipes" element={<Recipes />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:id" element={<BlogPost />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/recipe/:id" element={<RecipeDetail />} />
-                <Route path="/cook" element={<CookMode />} />
-                <Route path="/cook/:id" element={<CookMode />} />
-                <Route path="/planner" element={<Planner />} />
-                <Route path="/grocery" element={<GroceryList />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/guides" element={<HelpFAQ />} />
-                <Route path="/help" element={<HelpFAQ />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/disclaimer" element={<Disclaimer />} />
-                <Route path="/data-preference" element={<DataPreference />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AnimatePresence>
-          </div>
-        </main>
+          <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 flex-1 flex flex-col w-full overflow-x-hidden min-w-0">
+            <div className="w-full px-4 py-6 md:px-8 lg:py-12 lg:px-12 flex-1">
+                <AnimatePresence mode="wait">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/recipes" element={<Recipes />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:id" element={<BlogPost />} />
+                    <Route path="/favorites" element={<Favorites />} />
+                    <Route path="/recipe/:id" element={<RecipeDetail />} />
+                    <Route path="/cook" element={<CookMode />} />
+                    <Route path="/cook/:id" element={<CookMode />} />
+                    <Route path="/planner" element={<Planner />} />
+                    <Route path="/grocery" element={<GroceryList />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/guides" element={<HelpFAQ />} />
+                    <Route path="/help" element={<HelpFAQ />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
+                    <Route path="/disclaimer" element={<Disclaimer />} />
+                    <Route path="/data-preference" element={<DataPreference />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </AnimatePresence>
+              </div>
 
-        {/* Cookie Consent Banner */}
-        <CookieBanner />
+              {/* Cookie Consent Banner */}
+              <CookieBanner />
 
-        {/* Professional Footer */}
-        <footer className="border-t border-slate-100 bg-white py-16 lg:pl-72">
-          <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <div className="grid gap-12 grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4">
-              <div className="space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
-                <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green text-white font-bold text-xl shadow-lg shadow-brand-green/20">
-                    H
+              {/* Professional Footer */}
+              <footer className="border-t border-slate-100 bg-white pt-16 pb-28 md:pb-32 lg:py-16 mt-auto">
+                <div className="mx-auto max-w-7xl px-6 lg:px-10">
+                  <div className="grid gap-12 grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
+                      <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green text-white font-bold text-xl shadow-lg shadow-brand-green/20">
+                          H
+                        </div>
+                        <span className="font-display text-xl font-bold tracking-tight text-brand-ink">Hreef Recipes</span>
+                      </Link>
+                      <p className="text-sm text-slate-500 leading-relaxed font-semibold max-w-xs mx-auto sm:mx-0">
+                        Managed by the AIT OUALHYANE family. Fuel your body, master your health. Personalised nutrition and delicious, healthy recipes for every lifestyle.
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="mb-6 text-xs font-black uppercase tracking-widest text-brand-ink">Cooking</h4>
+                      <ul className="space-y-3 text-sm font-bold text-slate-500">
+                        <li><Link to="/recipes?cat=breakfast" className="hover:text-brand-green transition-colors">Breakfast</Link></li>
+                        <li><Link to="/recipes?cat=lunch" className="hover:text-brand-green transition-colors">Lunch</Link></li>
+                        <li><Link to="/recipes?cat=dinner" className="hover:text-brand-green transition-colors">Dinner</Link></li>
+                        <li><Link to="/recipes?cat=main-dishes" className="hover:text-brand-green transition-colors">Main Dishes</Link></li>
+                        <li><Link to="/recipes?cat=desserts" className="hover:text-brand-green transition-colors">Desserts</Link></li>
+                        <li><Link to="/recipes?cat=drinks" className="hover:text-brand-green transition-colors">Drinks</Link></li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="mb-6 text-xs font-black uppercase tracking-widest text-brand-ink">Support</h4>
+                      <ul className="space-y-3 text-sm font-bold text-slate-500">
+                        <li><Link to="/about" className="hover:text-brand-green transition-colors">About Us</Link></li>
+                        <li><Link to="/blog" className="hover:text-brand-green transition-colors">Culinary Journal</Link></li>
+                        <li><Link to="/guides" className="hover:text-brand-green transition-colors">Cooking Guides</Link></li>
+                        <li><Link to="/contact" className="hover:text-brand-green transition-colors">Contact Us</Link></li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="mb-6 text-xs font-black uppercase tracking-widest text-brand-ink">Legal</h4>
+                      <ul className="space-y-3 text-sm font-bold text-slate-500">
+                        <li><Link to="/privacy" className="hover:text-brand-green transition-colors">Privacy Policy</Link></li>
+                        <li><Link to="/terms" className="hover:text-brand-green transition-colors">Terms of Service</Link></li>
+                        <li><Link to="/disclaimer" className="hover:text-brand-green transition-colors">Disclaimer</Link></li>
+                        <li><Link to="/data-preference" className="hover:text-brand-green transition-colors">Data Preference</Link></li>
+                      </ul>
+                    </div>
                   </div>
-                  <span className="font-display text-xl font-bold tracking-tight text-brand-ink">Hreef Recipes</span>
-                </Link>
-                <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-xs mx-auto sm:mx-0">
-                  Managed by the AIT OUALHYANE family. Fuel your body, master your health. Personalised nutrition and delicious, healthy recipes for every lifestyle.
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="mb-6 text-xs font-black uppercase tracking-widest text-brand-ink">Cooking</h4>
-                <ul className="space-y-3 text-sm font-bold text-slate-500">
-                  <li><Link to="/recipes?cat=breakfast" className="hover:text-brand-green transition-colors">Breakfast</Link></li>
-                  <li><Link to="/recipes?cat=lunch" className="hover:text-brand-green transition-colors">Lunch</Link></li>
-                  <li><Link to="/recipes?cat=dinner" className="hover:text-brand-green transition-colors">Dinner</Link></li>
-                  <li><Link to="/recipes?cat=main-dishes" className="hover:text-brand-green transition-colors">Main Dishes</Link></li>
-                  <li><Link to="/recipes?cat=desserts" className="hover:text-brand-green transition-colors">Desserts</Link></li>
-                  <li><Link to="/recipes?cat=drinks" className="hover:text-brand-green transition-colors">Drinks</Link></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="mb-6 text-xs font-black uppercase tracking-widest text-brand-ink">Support</h4>
-                <ul className="space-y-3 text-sm font-bold text-slate-500">
-                  <li><Link to="/about" className="hover:text-brand-green transition-colors">About Us</Link></li>
-                  <li><Link to="/blog" className="hover:text-brand-green transition-colors">Culinary Journal</Link></li>
-                  <li><Link to="/guides" className="hover:text-brand-green transition-colors">Cooking Guides</Link></li>
-                  <li><Link to="/contact" className="hover:text-brand-green transition-colors">Contact Us</Link></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="mb-6 text-xs font-black uppercase tracking-widest text-brand-ink">Legal</h4>
-                <ul className="space-y-3 text-sm font-bold text-slate-500">
-                  <li><Link to="/privacy" className="hover:text-brand-green transition-colors">Privacy Policy</Link></li>
-                  <li><Link to="/terms" className="hover:text-brand-green transition-colors">Terms of Service</Link></li>
-                  <li><Link to="/disclaimer" className="hover:text-brand-green transition-colors">Disclaimer</Link></li>
-                  <li><Link to="/data-preference" className="hover:text-brand-green transition-colors">Data Preference</Link></li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="mt-16 border-t border-slate-50 pt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
-              <div className="text-xs font-black text-slate-400 uppercase tracking-widest">
-                © 2026 Hreef Recipes. All rights reserved.
-              </div>
-              <div className="flex gap-6">
-                <a 
-                  href="https://fr.pinterest.com/Hreef_8/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-brand-green transition-colors"
-                  aria-label="Pinterest"
-                >
-                  <svg 
-                    viewBox="0 0 24 24" 
-                    fill="currentColor" 
-                    className="w-5 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.033-1.002 2.324-1.492 3.12 1.1.34 2.269.521 3.483.521 6.621 0 11.988-5.366 11.988-11.987S18.638 0 12.017 0z"/>
-                  </svg>
-                </a>
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-brand-green transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={20} />
-                </a>
-                <a 
-                  href={`https://wa.me/?text=${encodeURIComponent("Check out Hreefrecipy for amazing healthy recipes!")}`}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-brand-green transition-colors"
-                >
-                  <MessageCircle size={20} />
-                </a>
-              </div>
-            </div>
+                  
+                  <div className="mt-16 border-t border-slate-50 pt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div className="text-xs font-black text-slate-400 uppercase tracking-widest">
+                      © 2026 Hreef Recipes. All rights reserved.
+                    </div>
+                    <div className="flex gap-4 md:gap-5 justify-center items-center">
+                      <a 
+                        href="https://fr.pinterest.com/Hreef_8/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex h-11 w-11 items-center justify-center rounded-full text-white bg-[#E60023] shadow-md shadow-red-200 transition-all duration-300 hover:scale-110 hover:bg-[#ad081b] cursor-pointer"
+                        aria-label="Pinterest"
+                        title="Follow us on Pinterest"
+                      >
+                        <svg 
+                          viewBox="0 0 24 24" 
+                          fill="currentColor" 
+                          className="w-5 h-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.033-1.002 2.324-1.492 3.12 1.1.34 2.269.521 3.483.521 6.621 0 11.988-5.366 11.988-11.987S18.638 0 12.017 0z"/>
+                        </svg>
+                      </a>
+                      <a 
+                        href="https://instagram.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex h-11 w-11 items-center justify-center rounded-full text-white bg-gradient-to-tr from-[#fdf497] via-[#fd5949] to-[#d6249f] shadow-md shadow-pink-200 transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer"
+                        aria-label="Instagram"
+                        title="Follow us on Instagram"
+                      >
+                        <Instagram size={20} />
+                      </a>
+                      <a 
+                        href={`https://wa.me/?text=${encodeURIComponent("Check out Hreefrecipy for amazing healthy recipes!")}`}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex h-11 w-11 items-center justify-center rounded-full text-white bg-[#25D366] shadow-md shadow-green-200 transition-all duration-300 hover:scale-110 hover:bg-[#128C7E] cursor-pointer"
+                        aria-label="WhatsApp"
+                        title="Share on WhatsApp"
+                      >
+                        <MessageCircle size={20} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </main>
           </div>
-        </footer>
 
         {/* AI Assistant FAB */}
         <button
@@ -394,7 +399,6 @@ export default function App() {
         </button>
 
         <AIChat isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
-        </div>
       </Router>
     </AppProvider>
   );
