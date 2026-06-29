@@ -132,7 +132,7 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
 
   // 2. Exact Slug ID match
   if (!recipe) {
-    recipe = RECIPES_DATA.find(r => slugify(r.id) === targetSlug);
+    recipe = RECIPES_DATA.find(r => slugify(String(r.id)) === targetSlug);
   }
 
   // 3. Exact Slug Title match
@@ -142,7 +142,7 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
 
   // 4. Partial match (targetSlug inside ID or Title slug)
   if (!recipe && targetSlug.length >= 3) {
-    recipe = RECIPES_DATA.find(r => slugify(r.id).includes(targetSlug) || targetSlug.includes(slugify(r.id)) || slugify(r.title).includes(targetSlug) || targetSlug.includes(slugify(r.title)));
+    recipe = RECIPES_DATA.find(r => slugify(String(r.id)).includes(targetSlug) || targetSlug.includes(slugify(String(r.id))) || slugify(r.title).includes(targetSlug) || targetSlug.includes(slugify(r.title)));
   }
 
   if (recipe) {
