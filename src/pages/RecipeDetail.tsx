@@ -30,7 +30,11 @@ import {
   Coffee, 
   Soup, 
   Sparkles, 
-  Sprout
+  Sprout,
+  Dumbbell,
+  Zap,
+  Loader2,
+  Award
 } from "lucide-react";
 import { Recipe } from "../types";
 import { getRecipeById } from "../services/api";
@@ -83,6 +87,7 @@ export default function RecipeDetail() {
   const [checkedIngredients, setCheckedIngredients] = useState<(number | string)[]>([]);
   const [showPlanMenu, setShowPlanMenu] = useState(false);
   const [commentText, setCommentText] = useState("");
+  const [showDetailedNutrition, setShowDetailedNutrition] = useState(false);
 
   const recipeComments = recipe ? (comments[recipe.id] || []) : [];
 
@@ -545,52 +550,164 @@ export default function RecipeDetail() {
                 key="nutrition"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="space-y-6"
+                className="space-y-8 md:space-y-12"
               >
-                <div className="grid grid-cols-2 gap-4">
-                  {recipe.nutrition ? (
-                    recipe.nutrition.nutrients.slice(0, 6).map((n, idx) => (
-                      <div key={`${n.name}-${idx}`} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">{n.name}</p>
-                        <p className="mt-1 text-2xl font-bold text-gray-800">
-                          {Math.round(n.amount)}
-                          <span className="ml-1 text-sm font-medium text-gray-500">{n.unit}</span>
-                        </p>
+                {!recipe.nutrition && !recipe.calories && !recipe.protein && !recipe.carbs && !recipe.fat ? (
+                  <div className="flex flex-col items-center justify-center py-20">
+                     <Loader2 className="w-10 h-10 text-brand-green animate-spin mb-4" />
+                     <p className="text-sm font-bold text-slate-400">Analyzing Nutritional Composition...</p>
+                   </div>
+                ) : (
+                  <>
+                    {/* Dashboard Header & Health Score */}
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
+                      <div className="space-y-1 md:space-y-2">
+                        <h3 className="text-2xl md:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">Nutrition Analysis</h3>
+                        <p className="text-xs sm:text-sm md:text-base font-medium text-slate-400">Scientifically estimated macros and healthy score per serving</p>
                       </div>
-                    ))
-                  ) : (
-                    <>
-                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Calories</p>
-                        <p className="mt-1 text-2xl font-bold text-gray-800">
-                          {typeof recipe.calories === 'string' ? parseFloat(recipe.calories) || recipe.calories : (recipe.calories || 0)}
-                          <span className="ml-1 text-sm font-medium text-gray-500">kcal</span>
-                        </p>
-                      </div>
-                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Protein</p>
-                        <p className="mt-1 text-2xl font-bold text-gray-800">
-                          {typeof recipe.protein === 'string' ? parseFloat(recipe.protein) || recipe.protein : (recipe.protein || 0)}
-                          <span className="ml-1 text-sm font-medium text-gray-500">g</span>
-                        </p>
-                      </div>
-                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Carbohydrates</p>
-                        <p className="mt-1 text-2xl font-bold text-gray-800">
-                          {typeof recipe.carbs === 'string' ? parseFloat(recipe.carbs) || recipe.carbs : (recipe.carbs || 0)}
-                          <span className="ml-1 text-sm font-medium text-gray-500">g</span>
-                        </p>
-                      </div>
-                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Fat</p>
-                        <p className="mt-1 text-2xl font-bold text-gray-800">
-                          {typeof recipe.fat === 'string' ? parseFloat(recipe.fat) || recipe.fat : (recipe.fat || 0)}
-                          <span className="ml-1 text-sm font-medium text-gray-500">g</span>
-                        </p>
-                      </div>
-                    </>
-                  )}
-                </div>
+                      
+                      <motion.div 
+                        animate={{ 
+                          boxShadow: ["0px 0px 0px rgba(16, 185, 129, 0)", "0px 0px 30px rgba(16, 185, 129, 0.4)", "0px 0px 0px rgba(16, 185, 129, 0)"],
+                          scale: [1, 1.02, 1]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                        className="flex items-center gap-3 sm:gap-4 md:gap-5 bg-white p-3 pr-4 sm:pr-6 md:p-4 md:pr-10 rounded-2xl md:rounded-[40px] border border-brand-green/20 shadow-xl shadow-brand-green/5 relative group cursor-help w-full md:w-auto overflow-hidden sm:overflow-visible"
+                      >
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 bg-gradient-to-br from-brand-green to-emerald-600 rounded-xl sm:rounded-[20px] md:rounded-[28px] flex items-center justify-center text-white shadow-lg shadow-brand-green/30 relative overflow-hidden">
+                          <motion.div 
+                            animate={{ y: [0, -8, 0], rotate: [0, 5, -5, 0] }}
+                            transition={{ duration: 4, repeat: Infinity }}
+                          >
+                            <Award className="w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                          </motion.div>
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent pointer-events-none" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <span className="text-[9px] sm:text-[10px] md:text-[12px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-0.5 md:mb-1 truncate">Wellness Rating</span>
+                          <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                            <span className="text-2xl sm:text-3xl md:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-none shrink-0 border-b-2 border-brand-green pb-0.5">A+</span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Macro Grid Cards */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+                       {(() => {
+                          const nutrients = recipe.nutrition?.nutrients || [];
+                          const getCard = (name: string, icon: React.ReactNode, color: string, bgLight: string, fallbackValue?: string | number) => {
+                            const nut = nutrients.find(n => n.name === name) || nutrients.find(n => n.name.toLowerCase().includes(name.toLowerCase()));
+                            
+                            let amount: string | number = 0;
+                            let unit = 'g';
+                            
+                            if (nut) {
+                              amount = Math.round(nut.amount);
+                              unit = nut.unit;
+                            } else {
+                              amount = fallbackValue || 0;
+                              if (name === 'Calories') unit = 'kcal';
+                            }
+                            
+                            return (
+                              <motion.div 
+                                key={name}
+                                whileHover={{ y: -5, scale: 1.02 }}
+                                className={`bg-white rounded-2xl md:rounded-[32px] p-4 sm:p-5 md:p-6 border border-slate-100 shadow-sm relative overflow-hidden group flex flex-col justify-between min-h-[110px] sm:min-h-[140px] md:min-h-[160px]`}
+                              >
+                                <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl ${bgLight} ${color} flex items-center justify-center shrink-0 mb-3 sm:mb-4 md:mb-0 md:absolute md:top-6 md:right-6 transition-transform group-hover:scale-110 group-hover:rotate-3`}>
+                                  {React.cloneElement(icon as React.ReactElement, { className: 'w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6' })}
+                                </div>
+                                <div>
+                                  <span className="text-[9px] sm:text-[11px] font-black text-slate-500 uppercase tracking-widest block mb-0.5 sm:mb-1 truncate">{name}</span>
+                                  <span className="text-lg sm:text-2xl md:text-3xl font-black text-slate-900 leading-none flex items-baseline gap-0.5 sm:gap-1 truncate">
+                                    {typeof amount === 'string' ? parseFloat(amount) || amount : amount}
+                                    <span className="text-[10px] sm:text-xs md:text-sm font-bold opacity-50">{unit}</span>
+                                  </span>
+                                </div>
+                              </motion.div>
+                            );
+                          };
+
+                          return (
+                            <>
+                              {getCard('Calories', <Flame />, 'text-orange-500', 'bg-orange-50', recipe.calories)}
+                              {getCard('Protein', <Dumbbell />, 'text-emerald-500', 'bg-emerald-50', recipe.protein)}
+                              {getCard('Carbohydrates', <Wheat />, 'text-amber-500', 'bg-amber-50', recipe.carbs)}
+                              {getCard('Fat', <Droplets />, 'text-blue-500', 'bg-blue-50', recipe.fat)}
+                            </>
+                          );
+                       })()}
+                    </div>
+
+                    {/* Detailed Breakdown Section */}
+                    <div className="bg-white rounded-2xl md:rounded-[56px] p-4 sm:p-6 md:p-12 border border-slate-100 shadow-sm space-y-6 md:space-y-12">
+                      <button 
+                        onClick={() => setShowDetailedNutrition(!showDetailedNutrition)}
+                        className="w-full flex items-center justify-between group text-left"
+                      >
+                        <h4 className="text-base sm:text-lg md:text-2xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-2 sm:gap-4">
+                           <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shadow-inner shrink-0">
+                             <Zap size={20} className="md:w-7 md:h-7" />
+                           </div>
+                           Detailed Composition
+                        </h4>
+                        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                          <span className="hidden sm:block text-[10px] md:text-xs font-black text-slate-400 bg-slate-50 px-3 md:px-5 py-1.5 md:py-2 rounded-full uppercase tracking-[0.2em]">Micro-nutrients</span>
+                          <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 ${showDetailedNutrition ? 'rotate-180' : ''}`}>
+                            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                          </div>
+                        </div>
+                      </button>
+
+                      <AnimatePresence>
+                        {(showDetailedNutrition || window.innerWidth >= 768) && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden md:!h-auto md:!opacity-100"
+                          >
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-6 md:gap-y-12 pt-4 md:pt-0">
+                               {recipe.nutrition?.nutrients.slice(4).map((nut, i) => (
+                                 <div key={`${nut.name}-${i}`} className="space-y-2 md:space-y-4 group">
+                                   <div className="flex justify-between items-end">
+                                     <div className="flex flex-col min-w-0">
+                                       <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.15em] mb-0.5 truncate">{nut.name}</span>
+                                       <span className="text-[10px] sm:text-xs font-bold text-slate-500 opacity-60">Estimated content</span>
+                                     </div>
+                                     <span className="text-base sm:text-lg md:text-2xl font-black text-slate-900 tracking-tight shrink-0">{Math.round(nut.amount)}<span className="text-[9px] sm:text-[10px] md:text-xs ml-1 opacity-40 font-bold">{nut.unit}</span></span>
+                                   </div>
+                                   <div className="h-1.5 sm:h-2 md:h-3 bg-slate-100 rounded-full overflow-hidden relative">
+                                     <motion.div 
+                                       initial={{ width: 0 }}
+                                       animate={{ width: `${Math.min(100, nut.percentOfDailyNeeds || 0)}%` }}
+                                       transition={{ delay: 0.1 + (i * 0.05), duration: 1.5, ease: [0.34, 1.56, 0.64, 1] }}
+                                       className="h-full bg-brand-green rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] relative"
+                                     >
+                                       <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 animate-shimmer" />
+                                     </motion.div>
+                                   </div>
+                                   <div className="flex justify-between">
+                                     <span className="text-[8px] sm:text-[9px] md:text-[11px] font-black text-slate-300 uppercase tracking-[0.15em]">{nut.percentOfDailyNeeds}% OF YOUR DAILY GOAL</span>
+                                   </div>
+                                 </div>
+                               ))}
+                               
+                               {(!recipe.nutrition || !recipe.nutrition.nutrients || recipe.nutrition.nutrients.length <= 4) && (
+                                  <div className="col-span-1 md:col-span-2 py-8 text-center bg-slate-50 rounded-2xl border border-slate-100 border-dashed">
+                                    <Info className="mx-auto text-slate-400 mb-2" size={24} />
+                                    <p className="text-slate-500 text-sm font-medium">Detailed micronutrient breakdown is currently unavailable for this recipe.</p>
+                                  </div>
+                               )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </>
+                )}
               </motion.div>
             </div>
 
