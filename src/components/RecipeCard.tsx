@@ -21,7 +21,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
     e.stopPropagation();
     const recipeUrl = encodeURIComponent(`${window.location.origin}/recipe/${recipe.id}`);
     const mediaUrl = encodeURIComponent(recipe.image);
-    const description = encodeURIComponent(`Check out this healthy recipe: ${recipe.title} on Hreefrecipy!`);
+    // Pin description targets viral and macro phrases as requested in SEO strategy
+    const description = encodeURIComponent(`${recipe.title} | High protein healthy recipe | Viral meal prep idea | Easy meals under 500 calories`);
     const pinterestUrl = `https://www.pinterest.com/pin/create/button/?url=${recipeUrl}&media=${mediaUrl}&description=${description}`;
     window.open(pinterestUrl, '_blank', 'noopener,noreferrer');
   };
@@ -38,7 +39,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
         <div className="relative aspect-[4/3] overflow-hidden">
           <img
             src={recipe.image}
-            alt={recipe.title}
+            alt={`Healthy ${recipe.title} recipe meal prep`}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
           

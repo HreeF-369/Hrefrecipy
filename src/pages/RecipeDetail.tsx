@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowLeft, 
@@ -137,11 +138,11 @@ export default function RecipeDetail() {
     const url = window.location.href;
     const shareData = {
       title: `Hreef Recipes: ${recipe?.title}`,
-      text: `Check out this amazing recipe for ${recipe?.title}!`,
+      text: `Check out this ${recipe?.title} - High Protein Fitness Meal on Hreef Recipes!`,
       url: url,
     };
 
-    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    if (navigator.share) {
       try {
         await navigator.share(shareData);
       } catch (err) {
@@ -149,7 +150,7 @@ export default function RecipeDetail() {
       }
     } else {
       try {
-        await navigator.clipboard.writeText(url);
+        await navigator.clipboard.writeText(`${shareData.text}\n\n${url}`);
         alert("Recipe link copied to clipboard!");
       } catch (err) {
         console.error("Clipboard error:", err);
@@ -230,6 +231,12 @@ export default function RecipeDetail() {
       exit={{ opacity: 0 }}
       className="relative pb-32 lg:pb-10"
     >
+      <Helmet>
+        <title>{recipe.title} Recipe | Hreefrecipy</title>
+        <meta name="description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
+        <meta name="keywords" content={`${recipe.title.toLowerCase()} recipe, high protein ${recipe.title.toLowerCase()}, healthy meals under 30 minutes, healthy ${recipe.title.toLowerCase()} under 500 calories`} />
+      </Helmet>
+
       <button 
         onClick={() => navigate(-1)}
         className="mb-6 flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand-green no-print"
@@ -243,13 +250,13 @@ export default function RecipeDetail() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] shadow-2xl">
             <img 
               src={recipe.image} 
-              alt={recipe.title} 
+              alt={`High protein low calorie ${recipe.title} recipe for healthy meal planning`} 
               className="h-full w-full object-cover"
             />
             <div className="absolute top-4 !left-4 flex gap-2 z-10">
               <button 
                 onClick={handleToggleFavorite}
-                className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg shadow-black/30 backdrop-blur-sm transition-all active:scale-90 ${
+                className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg shadow-black/30 backdrop-blur-sm transition-all active:scale-90 no-print ${
                   isFavorite ? "bg-red-500 text-white" : "bg-white/90 text-brand-green"
                 }`}
               >
@@ -277,7 +284,7 @@ export default function RecipeDetail() {
               {recipe.title}
             </h1>
             
-            <div className="flex gap-4 relative py-4">
+            <div className="flex gap-4 relative py-4 no-print">
               <Link 
                 to={`/cook/${recipe.id}`}
                 className="flex flex-1 items-center justify-center gap-3 rounded-3xl bg-brand-green py-5 font-display text-xl font-bold text-white shadow-xl shadow-brand-green/20 transition-all hover:scale-[1.02] active:scale-98"
@@ -359,18 +366,24 @@ export default function RecipeDetail() {
 
         {/* Right Col: Details Tabs */}
         <section className="space-y-8">
-          <div className="flex gap-2 rounded-2xl bg-gray-100 p-1.5">
+          <div className="flex flex-row items-center justify-start gap-6 border-b border-gray-200 mb-6 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden no-print">
             {["ingredients", "instructions", "nutrition", "comments"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveSegment(tab)}
-                className={`flex-1 rounded-xl py-3 text-sm font-bold capitalize transition-all ${
+                className={`pb-3 relative text-xs sm:text-sm font-black uppercase tracking-widest transition-all whitespace-nowrap ${
                   activeSegment === tab 
-                    ? "bg-white text-brand-green shadow-sm" 
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "text-green-600" 
+                    : "text-gray-400 hover:text-gray-600"
                 }`}
               >
                 {tab}
+                {activeSegment === tab && (
+                  <motion.div
+                    layoutId="activeSegment"
+                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-green-500 rounded-t-full"
+                  />
+                )}
               </button>
             ))}
           </div>
@@ -381,13 +394,13 @@ export default function RecipeDetail() {
                 key="ingredients"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-4"
+                className="bg-[#FAF8F5] border-none rounded-3xl p-6 space-y-4"
               >
-                <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
-                  <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Ingredients</h3>
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                  <h3 className="text-2xl font-bold font-display text-slate-800 tracking-tight">Ingredients</h3>
                   <button 
                     onClick={handleAddToList}
-                    className="text-sm font-serif font-semibold text-[#D4AF37] hover:underline no-print"
+                    className="text-sm font-semibold text-brand-green hover:underline no-print"
                   >
                     Add all to list
                   </button>
@@ -398,24 +411,24 @@ export default function RecipeDetail() {
                       <div 
                         key={idx} 
                         onClick={() => toggleIngredient(`ing-${idx}`)}
-                        className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
+                        className={`flex items-center gap-3 py-3 px-5 rounded-xl border border-slate-100 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                           checkedIngredients.includes(`ing-${idx}`) 
-                            ? "bg-transparent opacity-50" 
-                            : "bg-[#FAF6F0] hover:bg-slate-50/50"
+                            ? "bg-slate-50 opacity-60" 
+                            : "bg-white hover:shadow-md"
                         } print:bg-white print:ring-0 print:opacity-100`}
                       >
                         {checkedIngredients.includes(`ing-${idx}`) ? (
-                          <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                          <div className="w-7 h-7 rounded-full bg-green-50 border border-green-500 text-green-500 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
                             ✓
                           </div>
                         ) : (
-                          <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                          <div className="w-7 h-7 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center text-xs font-bold shrink-0 transition-colors group-hover:bg-slate-100">
                             {idx + 1}
                           </div>
                         )}
                         <div className="flex-1 min-w-0">
-                          <p className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
-                            checkedIngredients.includes(`ing-${idx}`) ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                          <p className={`text-sm sm:text-base font-medium transition-all break-words leading-tight ${
+                            checkedIngredients.includes(`ing-${idx}`) ? "line-through text-slate-400" : "text-slate-700"
                           }`}>
                             {ing.name}
                           </p>
@@ -429,30 +442,30 @@ export default function RecipeDetail() {
                     <div 
                       key={`${ing.id || idx}-${idx}`} 
                       onClick={() => toggleIngredient(ing.id)}
-                      className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
+                      className={`flex items-center gap-3 py-3 px-5 rounded-xl border border-slate-100 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                         checkedIngredients.includes(ing.id) 
-                          ? "bg-transparent opacity-50" 
-                          : "bg-[#FAF6F0] hover:bg-slate-50/50"
+                          ? "bg-slate-50 opacity-60" 
+                          : "bg-white hover:shadow-md"
                       } print:bg-white print:ring-0 print:opacity-100`}
                     >
                       {checkedIngredients.includes(ing.id) ? (
-                        <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                        <div className="w-7 h-7 rounded-full bg-green-50 border border-green-500 text-green-500 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
                           ✓
                         </div>
                       ) : (
-                        <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                        <div className="w-7 h-7 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center text-xs font-bold shrink-0 transition-colors group-hover:bg-slate-100">
                           {idx + 1}
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <p className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
-                          checkedIngredients.includes(ing.id) ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                        <p className={`text-sm sm:text-base font-medium transition-all break-words leading-tight ${
+                          checkedIngredients.includes(ing.id) ? "line-through text-slate-400" : "text-slate-700"
                         }`}>
                           {ing.name}
                         </p>
                         {ing.original && (
-                          <p className={`text-xs font-serif mt-0.5 ${
-                            checkedIngredients.includes(ing.id) ? "text-gray-400/50" : "text-[#2C1A04]/60"
+                          <p className={`text-xs mt-0.5 ${
+                            checkedIngredients.includes(ing.id) ? "text-slate-400" : "text-slate-500"
                           }`}>
                             {ing.original}
                           </p>
@@ -472,16 +485,16 @@ export default function RecipeDetail() {
                 key="instructions"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-6 print:animate-none print:border-none print:p-0"
+                className="bg-[#FAF8F5] border-none rounded-3xl p-6 space-y-6 print:animate-none print:border-none print:p-0"
               >
-                <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div>
-                    <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Preparation</h3>
-                    <p className="text-sm font-serif text-[#2C1A04]/70 mt-1">Follow along for a perfect meal</p>
+                    <h3 className="text-2xl font-bold font-display text-slate-800 tracking-tight">Preparation</h3>
+                    <p className="text-sm text-slate-500 mt-1">Follow along for a perfect meal</p>
                   </div>
                   <button 
                     onClick={handleSpeakInstructions}
-                    className="group flex items-center gap-2 px-4 py-2 bg-[#FAF6F0] text-[#2C1A04] border border-[#D4AF37]/40 rounded-xl font-serif text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-white transition-all shadow-sm cursor-pointer no-print"
+                    className="group flex items-center gap-2 px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-xl font-display text-xs font-bold uppercase tracking-widest hover:border-slate-300 transition-all shadow-sm cursor-pointer no-print"
                   >
                     <Volume2 size={16} /> Listen to Steps
                   </button>
@@ -489,27 +502,27 @@ export default function RecipeDetail() {
                 <div className="space-y-4">
                   {recipe.instructions ? (
                     recipe.instructions.map((step, idx) => (
-                      <div key={idx} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-4 group">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
+                      <div key={idx} className="bg-white rounded-2xl border border-slate-100 py-4 px-5 mb-4 flex items-start gap-4 group shadow-sm hover:shadow-md transition-shadow">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 text-green-600 flex items-center justify-center text-sm font-bold shadow-sm transition-transform">
                           {idx + 1}
                         </div>
-                        <div className="space-y-2 flex-1 min-w-0">
-                          <p className="text-base text-[#2C1A04] leading-relaxed font-serif break-words">{step}</p>
+                        <div className="space-y-2 flex-1 min-w-0 pt-0.5">
+                          <p className="text-base text-slate-800 leading-relaxed font-sans break-words">{step}</p>
                         </div>
                       </div>
                     ))
                   ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
                     recipe.analyzedInstructions[0].steps.map((step, idx) => (
-                      <div key={`${step.number}-${idx}`} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-4 group">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
+                      <div key={`${step.number}-${idx}`} className="bg-white rounded-2xl border border-slate-100 py-4 px-5 mb-4 flex items-start gap-4 group shadow-sm hover:shadow-md transition-shadow">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 text-green-600 flex items-center justify-center text-sm font-bold shadow-sm transition-transform">
                           {step.number}
                         </div>
                         <div className="space-y-2 flex-1 min-w-0 pt-0.5">
                           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 flex-wrap">
-                            <p className="text-base text-[#2C1A04] leading-relaxed font-serif break-words">{step.step}</p>
+                            <p className="text-base text-slate-800 leading-relaxed font-sans break-words">{step.step}</p>
                             {step.length && (
-                              <div className="flex items-center gap-1.5 bg-[#FAF6F0] border border-[#D4AF37]/20 px-2 py-1 rounded-full text-xs font-serif text-[#2C1A04]/80 shrink-0 h-fit">
-                                <Clock size={12} className="text-[#D4AF37]" /> {step.length.number} {step.length.unit}
+                              <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 px-2 py-1 rounded-full text-xs font-bold text-slate-600 shrink-0 h-fit">
+                                <Clock size={12} className="text-brand-green" /> {step.length.number} {step.length.unit}
                               </div>
                             )}
                           </div>
@@ -517,10 +530,10 @@ export default function RecipeDetail() {
                       </div>
                     ))
                   ) : (
-                    <div className="text-center py-20 bg-[#FFFDF9] rounded-[2.5rem] border border-[#D4AF37]/20 border-dashed">
-                      <Clock className="mx-auto text-[#D4AF37] mb-3" size={40} />
-                      <p className="text-[#2C1A04] font-bold uppercase tracking-widest text-xs font-serif">No step-by-step instructions available</p>
-                      <p className="text-[#2C1A04]/70 mt-1 max-w-sm mx-auto text-sm font-serif">Please check the recipe summary or external link for details.</p>
+                    <div className="text-center py-20 bg-white rounded-[2.5rem] border border-slate-200 border-dashed">
+                      <Clock className="mx-auto text-slate-400 mb-3" size={40} />
+                      <p className="text-slate-700 font-bold uppercase tracking-widest text-xs">No step-by-step instructions available</p>
+                      <p className="text-slate-500 mt-1 max-w-sm mx-auto text-sm">Please check the recipe summary or external link for details.</p>
                     </div>
                   )}
                 </div>

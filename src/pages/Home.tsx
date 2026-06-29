@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { TrendingUp, Utensils, Calendar, ShoppingBag, ArrowRight, Sparkles, Coffee, Moon, Flame, Clock, ChevronRight, ChevronLeft, GlassWater, IceCream, ChefHat, Search, CheckCircle2, Heart } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -174,6 +175,12 @@ export default function Home() {
       exit={{ opacity: 0, y: -20 }}
       className="space-y-16"
     >
+      <Helmet>
+        <title>High Protein Meals for Muscle Gain & Low Calorie Dinner Ideas</title>
+        <meta name="description" content="Discover healthy meals under 30 minutes, weekly meal plans for weight loss, and easy meal prep recipes for beginners. Professional recipes for fitness goals." />
+        <meta name="keywords" content="high protein meals for muscle gain, low calorie dinner ideas, healthy meals under 30 minutes, weekly meal plan for weight loss, easy meal prep recipes for beginners" />
+      </Helmet>
+
       {/* Large Zesty Hero Section */}
       <section className="relative -mx-4 -mt-6 mb-10 overflow-hidden md:-mx-8 md:-mt-8 lg:-mx-12 lg:-mt-12">
         <div className="relative h-[400px] w-full md:h-[500px] lg:h-[600px]">

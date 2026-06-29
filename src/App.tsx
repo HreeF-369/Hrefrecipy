@@ -91,8 +91,9 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
     { name: "Home", path: "/", icon: HomeIcon },
     { name: "Recipes", path: "/recipes", icon: Search },
     { name: "Journal", path: "/blog", icon: BookOpen },
-    { name: "Breakfast", path: "/?cat=breakfast", icon: Coffee },
     { name: "Favorites", path: "/favorites", icon: Heart },
+    { name: "Grocery List", path: "/grocery", icon: ShoppingCart },
+    { name: "Breakfast", path: "/?cat=breakfast", icon: Coffee },
     { name: "Lunch", path: "/?cat=lunch", icon: Utensils },
     { name: "Dinner", path: "/?cat=dinner", icon: Moon },
     { name: "Main Dishes", path: "/?cat=main-dishes", icon: ChefHat },
@@ -104,7 +105,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
   return (
     <>
       {/* Mobile Top Header */}
-      <header className="fixed top-0 left-0 right-0 z-[60] flex items-center justify-between bg-white/80 border-b border-slate-100 p-4 backdrop-blur-xl lg:hidden">
+      <header className="fixed top-0 left-0 right-0 z-[60] flex items-center justify-between bg-white/80 border-b border-slate-100 p-4 backdrop-blur-xl lg:hidden print:hidden">
         <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-green text-white font-black text-lg">
             H
@@ -172,7 +173,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       </AnimatePresence>
 
       {/* Desktop Sidebar */}
-      <nav className="sticky top-0 hidden h-screen w-[260px] flex-col border-r border-slate-100 bg-white p-6 lg:flex shrink-0">
+      <nav className="sticky top-0 hidden h-screen w-[260px] flex-col border-r border-slate-100 bg-white p-6 lg:flex shrink-0 print:hidden">
         <Link to="/" onClick={handleLogoClick} className="mb-12 flex items-center gap-4 hover:opacity-95 transition-opacity">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green text-white font-black text-2xl shadow-lg shadow-brand-green/20">
             H
@@ -222,7 +223,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       </nav>
 
       {/* Mobile Bottom Nav */}
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex w-[90%] items-center justify-around rounded-[2.5rem] border border-white/20 bg-white/80 backdrop-blur-2xl p-3 shadow-2xl lg:hidden">
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex w-[90%] items-center justify-around rounded-[2.5rem] border border-white/20 bg-white/80 backdrop-blur-2xl p-3 shadow-2xl lg:hidden print:hidden">
         {navItems.slice(0, 5).map((item) => (
           <NavLink
             key={item.path}
@@ -259,10 +260,10 @@ export default function App() {
     <AppProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen w-full bg-white flex flex-col lg:grid lg:grid-cols-[260px_1fr] relative">
+        <div className="min-h-screen w-full bg-white flex flex-col lg:grid lg:grid-cols-[260px_1fr] relative print:block print:w-full">
           <Navigation onOpenAI={setIsAIChatOpen} />
           
-          <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 flex-1 flex flex-col w-full overflow-x-hidden min-w-0">
+          <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 flex-1 flex flex-col w-full overflow-x-hidden min-w-0 print:pt-0 print:overflow-visible">
             <div className="w-full px-4 py-6 md:px-8 lg:py-12 lg:px-12 flex-1">
                 <AnimatePresence mode="wait">
                   <Routes>
@@ -293,7 +294,7 @@ export default function App() {
               <CookieBanner />
 
               {/* Professional Footer */}
-              <footer className="border-t border-slate-100 bg-white pt-16 pb-28 md:pb-32 lg:py-16 mt-auto">
+              <footer className="border-t border-slate-100 bg-white pt-16 pb-28 md:pb-32 lg:py-16 mt-auto print:hidden">
                 <div className="mx-auto max-w-7xl px-6 lg:px-10">
                   <div className="grid gap-12 grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4">
                     <div className="space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Utensils, Clock, Flame, ChevronRight, ChevronLeft, X, Sparkles, CheckCircle2, Heart } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -119,6 +120,12 @@ export default function Recipes() {
       exit={{ opacity: 0 }}
       className="space-y-8 pb-12"
     >
+      <Helmet>
+        <title>{activeTab === "ALL RECIPES" ? "High Protein Healthy Recipes & Meal Planner" : `${activeTab.charAt(0) + activeTab.slice(1).toLowerCase()} | High Protein Healthy Recipes`} | Hreefrecipy</title>
+        <meta name="description" content={`Find the best ${activeTab.toLowerCase()} for weight loss, muscle gain, and healthy living. High protein meals developed by chefs.`} />
+        <meta name="keywords" content={`high protein ${activeTab.toLowerCase()} recipes, ${activeTab.toLowerCase()} meal prep, healthy ${activeTab.toLowerCase()} ideas, fitness meals`} />
+      </Helmet>
+
       <header className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-3xl md:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter uppercase mb-1">Discovery</h1>

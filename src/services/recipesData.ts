@@ -3059,6 +3059,246 @@ export const fitnessMeals: Recipe[] = [
       "Add baby spinach directly into the hot stew, stirring until it wilts entirely into the mixture.",
       "Serve warm as a highly nutritious, plant-based recovery meal."
     ]
+  },
+  {
+    id: "viral-cottage-cheese-flatbread",
+    title: "Viral Cottage Cheese Flatbread",
+    description: "The viral low carb high protein flatbread made effortlessly with cottage cheese.",
+    summary: "The viral low carb high protein flatbread made effortlessly with cottage cheese.",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600",
+    prepTime: "10m",
+    readyInMinutes: 10,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "280kcal",
+    protein: "35g",
+    carbs: "4g",
+    fat: "12g",
+    tags: ["Viral", "LowCarb", "HighProtein"],
+    dishTypes: ["Breakfast", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "1 cup full-fat cottage cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
+      { name: "1 large egg", image: "https://img.icons8.com/fluency/96/eggs.png" },
+      { name: "1/2 tsp garlic powder", image: "https://img.icons8.com/fluency/96/garlic.png" },
+      { name: "1/2 tsp dried oregano", image: "https://img.icons8.com/fluency/96/spices.png" }
+    ],
+    instructions: [
+      "Preheat your oven to 200°C (400°F) and line a baking sheet with parchment paper.",
+      "Blend the cottage cheese, egg, garlic powder, and oregano in a blender until completely smooth.",
+      "Pour the mixture onto the parchment paper and spread it evenly into a thin rectangle.",
+      "Bake for 25-30 minutes until golden brown and firm. Let it cool slightly before rolling with your favorite fillings."
+    ]
+  },
+  {
+    id: "crispy-feta-fried-eggs",
+    title: "Crispy Feta Fried Eggs Shredded Hash",
+    description: "Crispy feta fried eggs recipe under 400 calories. A perfect energetic start for your day.",
+    summary: "Crispy feta fried eggs recipe under 400 calories. A perfect energetic start for your day.",
+    image: "https://images.unsplash.com/photo-1628198646949-fae26c6d3ab9?q=80&w=600",
+    prepTime: "15m",
+    readyInMinutes: 15,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "380kcal",
+    protein: "22g",
+    carbs: "18g",
+    fat: "24g",
+    tags: ["HighProtein", "LowCalorie"],
+    dishTypes: ["Breakfast", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "2 large eggs", image: "https://img.icons8.com/fluency/96/eggs.png" },
+      { name: "50g crumbled feta cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
+      { name: "1 medium potato, grated and squeezed dry", image: "https://img.icons8.com/fluency/96/potato.png" },
+      { name: "1/2 tsp chili flakes", image: "https://img.icons8.com/fluency/96/spices.png" },
+      { name: "1 tsp olive oil", image: "https://img.icons8.com/fluency/96/olive-oil.png" }
+    ],
+    instructions: [
+      "Heat olive oil in a non-stick skillet over medium-high heat and press the shredded potato into a thin layer to crisp up.",
+      "Once the potato base is slightly golden, sprinkle crumbled feta cheese around the edges of the pan directly onto the skillet.",
+      "Crack the two eggs directly over the potatoes and feta.",
+      "Cover with a lid and cook for 3-4 minutes until the egg whites are set and the feta forms a crispy, browned crust underneath. Top with chili flakes."
+    ]
+  },
+  {
+    id: "high-protein-breakfast-sandwich",
+    title: "High-Protein Breakfast Sandwich",
+    description: "High protein breakfast sandwich for muscle gain. A hearty meal with lean proteins.",
+    summary: "High protein breakfast sandwich for muscle gain. A hearty meal with lean proteins.",
+    image: "https://images.unsplash.com/photo-1549590143-d585514b8ba4?q=80&w=600",
+    prepTime: "15m",
+    readyInMinutes: 15,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "450kcal",
+    protein: "38g",
+    carbs: "29g",
+    fat: "14g",
+    tags: ["MuscleGain", "HighProtein"],
+    dishTypes: ["Breakfast", "Sandwich", "Fitness"],
+    ingredients: [
+      { name: "1 whole wheat English muffin or whole grain bun", image: "https://img.icons8.com/fluency/96/bread.png" },
+      { name: "120g lean turkey breast kfta patty", image: "https://img.icons8.com/fluency/96/meat.png" },
+      { name: "1 large egg", image: "https://img.icons8.com/fluency/96/eggs.png" },
+      { name: "1 slice low-fat cheddar cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
+      { name: "Handful of fresh spinach", image: "https://img.icons8.com/fluency/96/spinach.png" }
+    ],
+    instructions: [
+      "Pan-fry the turkey patty in a skillet over medium heat for 4-5 minutes on each side until fully cooked.",
+      "In the same skillet, cook the egg to your preference (fried or scrambled).",
+      "Toast the whole wheat English muffin until crisp.",
+      "Assemble the sandwich by placing the hot turkey patty on the bottom bun, topped with the cooked egg, spinach, and the cheese slice so it melts naturally. Close with the top bun."
+    ]
+  },
+  {
+    id: "honey-mustard-chicken-prep",
+    title: "Creamy Honey Mustard Chicken Meal Prep",
+    description: "Easy chicken meal prep recipes for beginners. Flavorful honey mustard chicken with basmati rice.",
+    summary: "Easy chicken meal prep recipes for beginners. Flavorful honey mustard chicken with basmati rice.",
+    image: "https://images.unsplash.com/photo-1598514981165-f99a5e4d2bfb?q=80&w=600",
+    prepTime: "25m",
+    readyInMinutes: 25,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "510kcal",
+    protein: "45g",
+    carbs: "42g",
+    fat: "8g",
+    tags: ["MealPrep", "HighProtein", "LowFat"],
+    dishTypes: ["Lunch", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "150g chicken breast, cubed", image: "https://img.icons8.com/fluency/96/chicken.png" },
+      { name: "1 tbsp Dijon mustard", image: "https://img.icons8.com/fluency/96/mustard.png" },
+      { name: "1 tsp pure honey", image: "https://img.icons8.com/fluency/96/honey.png" },
+      { name: "2 tbsp Perly light/Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
+      { name: "150g cooked basmati rice", image: "https://img.icons8.com/fluency/96/rice-bowl.png" },
+      { name: "Salt and black pepper to taste", image: "https://img.icons8.com/fluency/96/salt-shaker.png" }
+    ],
+    instructions: [
+      "Season the cubed chicken breast with salt, black pepper, and garlic powder.",
+      "Sear the chicken in a hot pan over medium-high heat for about 6-8 minutes until golden and thoroughly cooked.",
+      "Lower the heat, then stir in the Dijon mustard, honey, and Greek yogurt until a rich, creamy sauce forms coating the chicken.",
+      "Serve immediately alongside the pre-cooked basmati rice in your meal prep container."
+    ]
+  },
+  {
+    id: "garlic-butter-steak-bites",
+    title: "Garlic Butter Steak Bites with Sweet Potato",
+    description: "Healthy steak and sweet potato dinner 30 minutes. Delicious macros for muscle gain.",
+    summary: "Healthy steak and sweet potato dinner 30 minutes. Delicious macros for muscle gain.",
+    image: "https://images.unsplash.com/photo-1544025162-8111f42299d6?q=80&w=600",
+    prepTime: "25m",
+    readyInMinutes: 25,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "490kcal",
+    protein: "42g",
+    carbs: "35g",
+    fat: "16g",
+    tags: ["Steak", "PostWorkout", "HighProtein"],
+    dishTypes: ["Dinner", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "160g lean beef cubes steak bites", image: "https://img.icons8.com/fluency/96/steak.png" },
+      { name: "150g sweet potato, cubed", image: "https://img.icons8.com/fluency/96/sweet-potato.png" },
+      { name: "1 tsp light butter", image: "https://img.icons8.com/fluency/96/butter.png" },
+      { name: "2 cloves garlic, finely minced", image: "https://img.icons8.com/fluency/96/garlic.png" },
+      { name: "Fresh chopped coriander for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
+    ],
+    instructions: [
+      "Toss the sweet potato cubes with a pinch of salt and air-fry or bake at 200°C for 15-20 minutes until completely tender.",
+      "Heat a skillet over high heat, season the steak bites with salt and pepper, and sear them for 2 minutes on each side to lock in juices.",
+      "Turn down the heat, add the light butter and minced garlic to the pan, tossing the steak bites in the melting garlic butter for 1 final minute.",
+      "Mix in the cooked sweet potatoes, garnish with fresh coriander, and serve hot."
+    ]
+  },
+  {
+    id: "green-goddess-tuna-boat",
+    title: "Green Goddess Tuna Salad Boat",
+    description: "Low calorie high protein dinner ideas. Refreshing tuna boat in zucchini.",
+    summary: "Low calorie high protein dinner ideas. Refreshing tuna boat in zucchini.",
+    image: "https://images.unsplash.com/photo-1546069901-d5bfd2cbfb1f?q=80&w=600",
+    prepTime: "10m",
+    readyInMinutes: 10,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "290kcal",
+    protein: "32g",
+    carbs: "11g",
+    fat: "13g",
+    tags: ["LowCalorie", "HighProtein", "Keto"],
+    dishTypes: ["Dinner", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "1 can tuna in water, drained", image: "https://img.icons8.com/fluency/96/tuna.png" },
+      { name: "1/2 ripe avocado", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=150" },
+      { name: "1/4 cucumber, finely diced", image: "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?q=80&w=150" },
+      { name: "2 tbsp Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
+      { name: "1 large zucchini (courgette), cut lengthwise and scooped out", image: "https://img.icons8.com/fluency/96/zucchini.png" }
+    ],
+    instructions: [
+      "In a medium bowl, mash the avocado together with the Greek yogurt until a creamy green paste is achieved.",
+      "Flake the drained tuna into the bowl and fold it into the mixture along with the diced cucumbers and a splash of lemon juice.",
+      "Lightly steam or blanch the hollowed-out zucchini boats for 2 minutes, then plunge into ice water to stay crisp.",
+      "Spoon the loaded green goddess tuna salad generously into the zucchini boats and enjoy chilled."
+    ]
+  },
+  {
+    id: "viral-yogurt-bowl",
+    title: "Viral Yogurt Bowl",
+    description: "Viral yogurt bowl recipe with high protein performance. Creamy base layered with fresh berries and dietary granola.",
+    summary: "Viral yogurt bowl recipe with high protein performance. Creamy base layered with fresh berries and dietary granola.",
+    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600",
+    prepTime: "5m",
+    readyInMinutes: 5,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "310kcal",
+    protein: "30g",
+    carbs: "25g",
+    fat: "5g",
+    tags: ["HighProtein", "PostWorkout", "Viral"],
+    dishTypes: ["Snacks", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "200g plain non-fat Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
+      { name: "1/2 scoop whey protein powder (vanilla or fruit flavored)", image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=150" },
+      { name: "50g fresh strawberries and blueberries", image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=150" },
+      { name: "15g low-sugar diet granola", image: "https://images.unsplash.com/photo-1517881917430-e70dfb3610aa?q=80&w=150" },
+      { name: "1 tsp raw honey", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" }
+    ],
+    instructions: [
+      "Whisk the Greek yogurt and protein powder together vigorously in a serving bowl until thick, creamy, and completely lump-free.",
+      "Arrange the fresh strawberries and blueberries beautifully across one side of the bowl surface.",
+      "Top with the crunchy diet granola on the other half.",
+      "Drizzle a thin thread of raw honey over everything just before serving."
+    ]
+  },
+  {
+    id: "healthy-apple-pastry",
+    title: "Upside Down Apple Pastry (Diet Version)",
+    description: "Healthy upside down apple pastry recipe for guilt-free sweet tooth.",
+    summary: "Healthy upside down apple pastry recipe for guilt-free sweet tooth.",
+    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=600",
+    prepTime: "20m",
+    readyInMinutes: 20,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "190kcal",
+    protein: "8g",
+    carbs: "32g",
+    fat: "3g",
+    tags: ["DietPastry", "HealthySnack", "LowCalorie"],
+    dishTypes: ["Snacks", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "1/2 crisp apple, sliced into paper-thin semi-circles", image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?q=80&w=150" },
+      { name: "1/2 tsp ground cinnamon", image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=150" },
+      { name: "1 tsp honey or maple syrup", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" },
+      { name: "1 sheet light phyllo dough sheet", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
+      { name: "1 egg white, beaten for brushing", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" }
+    ],
+    instructions: [
+      "Line a baking sheet with parchment paper and drizzle the honey/maple syrup directly onto it in a small rectangular area.",
+      "Layer the thin apple slices over the sweetener, overlapping them tightly, and dust generously with cinnamon.",
+      "Place the cut sheet of light phyllo dough directly over the top of the apples, tucking the edges in neatly.",
+      "Brush the dough with egg white and bake at 190°C (375°F) for 12-15 minutes until golden-crisp. Carefully flip upside down onto a plate to reveal the caramelized topping."
+    ]
   }
 ];
 

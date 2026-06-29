@@ -17,38 +17,38 @@ type TabType = 'ingredients' | 'instructions' | 'nutrition' | 'comments';
 
 const getIngredientIcon = (nameKey: string) => {
   const name = nameKey.toLowerCase();
-  if (name.includes('egg')) return <Egg className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+  if (name.includes('egg')) return <Egg className="w-4 h-4 text-green-500/80 shrink-0" />;
   if (name.includes('beef') || name.includes('meat') || name.includes('pork') || name.includes('chicken') || name.includes('lamb') || name.includes('steak') || name.includes('fish') || name.includes('salmon') || name.includes('tuna') || name.includes('shrimp') || name.includes('seafood')) {
     if (name.includes('fish') || name.includes('salmon') || name.includes('tuna') || name.includes('shrimp') || name.includes('seafood')) {
-      return <Fish className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+      return <Fish className="w-4 h-4 text-green-500/80 shrink-0" />;
     }
-    return <Beef className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Beef className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('flour') || name.includes('bread') || name.includes('wheat') || name.includes('pasta') || name.includes('spaghetti') || name.includes('rice') || name.includes('dough')) {
-    return <Wheat className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Wheat className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('sugar') || name.includes('chocolate') || name.includes('sweet') || name.includes('cookie') || name.includes('honey')) {
-    return <Cookie className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Cookie className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('oil') || name.includes('water') || name.includes('milk') || name.includes('cream') || name.includes('vinegar') || name.includes('sauce') || name.includes('juice')) {
-    return <Droplets className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Droplets className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('onion') || name.includes('garlic') || name.includes('pepper') || name.includes('salt') || name.includes('spice')) {
-    return <Sprout className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Sprout className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('lettuce') || name.includes('spinach') || name.includes('tomato') || name.includes('carrot') || name.includes('cucumber') || name.includes('salad') || name.includes('greens') || name.includes('herb') || name.includes('parsley') || name.includes('cilantro')) {
-    return <Salad className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Salad className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('apple') || name.includes('orange') || name.includes('banana') || name.includes('lemon') || name.includes('lime') || name.includes('fruit') || name.includes('berry') || name.includes('strawberry')) {
-    return <Apple className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Apple className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('coffee') || name.includes('tea') || name.includes('bean')) {
-    return <Coffee className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Coffee className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
   if (name.includes('soup') || name.includes('broth')) {
-    return <Soup className="w-4 h-4 text-[#D4AF37]/40 shrink-0" />;
+    return <Soup className="w-4 h-4 text-green-500/80 shrink-0" />;
   }
-  return <Sparkles className="w-4 h-4 text-[#D4AF37]/30 shrink-0" />;
+  return <Sparkles className="w-4 h-4 text-green-500/80 shrink-0" />;
 };
 
 export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe, isOpen, onClose }) => {
@@ -315,11 +315,11 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
     const url = `${window.location.origin}/recipe/${recipe.id}`;
     const shareData = {
       title: `Hreef Recipes: ${recipe.title}`,
-      text: `Check out this amazing ${recipe.category} recipe: ${recipe.title}`,
+      text: `Check out this ${recipe.title} - High Protein Fitness Meal on Hreef Recipes!`,
       url: url,
     };
 
-    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    if (navigator.share) {
       try {
         await navigator.share(shareData);
       } catch (err) {
@@ -327,7 +327,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
       }
     } else {
       try {
-        await navigator.clipboard.writeText(url);
+        await navigator.clipboard.writeText(`${shareData.text}\n\n${url}`);
         alert("Link copied to clipboard! Share it with your friends.");
       } catch (err) {
         console.error("Clipboard error:", err);
@@ -378,7 +378,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden no-print"
+          className="fixed inset-0 z-50 flex items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden"
           onClick={onClose}
         >
           <motion.div
@@ -391,7 +391,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-20 sm:top-6 right-5 z-[70] p-4 bg-white/90 backdrop-blur-sm rounded-full shadow-lg shadow-black/30 hover:bg-white transition-colors"
+              className="absolute top-20 sm:top-6 right-5 z-[70] p-4 bg-white/90 backdrop-blur-sm rounded-full shadow-lg shadow-black/30 hover:bg-white transition-colors no-print"
             >
               <X className="w-8 h-8 md:w-6 md:h-6 text-gray-800" />
             </button>
@@ -450,7 +450,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                 <div className="p-10 flex-1 flex flex-col space-y-8 overflow-y-auto">
                   {/* Action Row */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 no-print">
                     <button 
                       onClick={handleStartCooking}
                       className="flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-brand-green text-white rounded-2xl font-bold text-lg hover:bg-green-600 transition-all shadow-lg shadow-brand-green/20 transform active:scale-95"
@@ -524,7 +524,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       </div>
                     </div>
                     
-                    <p className="text-center text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                    <p className="text-center text-[10px] font-black text-slate-400 uppercase tracking-widest no-print">
                       Cook with premium interactive mode
                     </p>
                   </div>
@@ -560,14 +560,14 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={`pb-3 px-2 text-xs sm:text-sm font-black uppercase tracking-widest transition-all relative whitespace-nowrap ${
-                          activeTab === tab.id ? 'text-brand-green' : 'text-gray-400 hover:text-gray-600'
+                          activeTab === tab.id ? 'text-green-600 font-extrabold' : 'text-gray-400 hover:text-gray-600'
                         }`}
                       >
                         {tab.label}
                         {activeTab === tab.id && (
                           <motion.div
                             layoutId="activeTabPlan"
-                            className="absolute bottom-0 left-0 right-0 h-1.5 bg-brand-green rounded-full"
+                            className="absolute bottom-0 left-0 right-0 h-1 bg-green-600 rounded-full"
                           />
                         )}
                       </button>
@@ -589,17 +589,21 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                 </div>
 
                 {/* Tab Content */}
-                <div className="p-4 sm:p-6 flex-1 overflow-y-auto pb-32 sm:pb-6">
+                <div className="p-4 sm:p-6 flex-1 overflow-y-auto pb-32 sm:pb-6 print:overflow-visible print:p-0">
                   <div className={activeTab === 'ingredients' ? 'block' : 'hidden print:block'}>
-                    <div className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-8 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
-                      <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
+                    <div className="bg-[#FAF8F5] rounded-3xl p-6 space-y-8 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
+                      <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                         <div>
-                          <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Ingredients</h3>
-                          <p className="text-sm font-serif text-[#2C1A04]/70 mt-1">Check off items as you gather them</p>
+                          <h3 className="text-2xl font-bold font-display text-slate-900 tracking-tight">Ingredients</h3>
+                          <p className="text-sm text-slate-500 mt-1">Check off items as you gather them</p>
                         </div>
                         <button 
                           onClick={handleAddAllToGrocery}
-                          className={`group flex items-center gap-2 px-4 py-2 ${addedToGrocery ? 'bg-[#D4AF37] text-white' : 'bg-[#FAF6F0] text-[#2C1A04]'} border border-[#D4AF37]/40 rounded-xl font-serif text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-white transition-all shadow-sm cursor-pointer no-print`}
+                          className={`group flex items-center gap-2 px-4 py-2 ${
+                            addedToGrocery 
+                              ? 'bg-green-600 text-white border-green-600' 
+                              : 'bg-white text-slate-800 border-slate-300 hover:border-green-600 hover:text-green-600'
+                          } border rounded-xl font-display text-xs font-bold uppercase tracking-widest transition-all shadow-sm cursor-pointer no-print`}
                           disabled={addedToGrocery}
                         >
                           {addedToGrocery ? (
@@ -617,28 +621,28 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       </div>
                       <div className="flex flex-col mt-4">
                         {recipe.ingredients ? (
-                          recipe.ingredients.map((ing, idx) => (
+                           recipe.ingredients.map((ing, idx) => (
                             <motion.div 
                               key={idx} 
                               onClick={() => setCheckedIngredients(p => ({ ...p, [idx]: !p[idx] }))}
-                              className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
+                              className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-slate-100/80 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                                 checkedIngredients[idx] 
-                                  ? "bg-transparent opacity-50" 
-                                  : "bg-[#FAF6F0] hover:bg-slate-50/50"
+                                  ? "bg-slate-50/50 opacity-60" 
+                                  : "bg-white shadow-sm hover:shadow-md hover:border-slate-200"
                               }`}
                             >
                               {checkedIngredients[idx] ? (
-                                <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                                <div className="w-7 h-7 rounded-full bg-green-50 border border-green-500 text-green-500 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
                                   ✓
                                 </div>
                               ) : (
-                                <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                                <div className="w-7 h-7 rounded-full bg-slate-50 border border-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold shrink-0 transition-colors group-hover:border-slate-300">
                                   {idx + 1}
                                 </div>
                               )}
                               <div className="flex-1 min-w-0">
-                                <span className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
-                                  checkedIngredients[idx] ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                                <span className={`text-sm sm:text-base font-medium transition-all break-words leading-tight ${
+                                  checkedIngredients[idx] ? "line-through text-slate-400" : "text-slate-800"
                                 }`}>
                                   {ing.name}
                                 </span>
@@ -653,29 +657,29 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                             <motion.div 
                               key={idx} 
                               onClick={() => setCheckedIngredients(p => ({ ...p, [idx]: !p[idx] }))}
-                              className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-[#D4AF37]/40 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
+                              className={`flex items-center gap-3 py-2.5 px-6 rounded-full border border-slate-100/80 mb-3 transition-all cursor-pointer group relative overflow-hidden min-w-0 ${
                                 checkedIngredients[idx] 
-                                  ? "bg-transparent opacity-50" 
-                                  : "bg-[#FAF6F0] hover:bg-slate-50/50"
+                                  ? "bg-slate-50/50 opacity-60" 
+                                  : "bg-white shadow-sm hover:shadow-md hover:border-slate-200"
                               }`}
                             >
                               {checkedIngredients[idx] ? (
-                                <div className="w-7 h-7 rounded-full bg-green-100 border border-green-400 text-green-700 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                                <div className="w-7 h-7 rounded-full bg-green-50 border border-green-500 text-green-500 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
                                   ✓
                                 </div>
                               ) : (
-                                <div className="w-7 h-7 rounded-full bg-transparent border border-[#D4AF37]/40 text-[#2C1A04] flex items-center justify-center text-xs font-serif shrink-0 transition-colors">
+                                <div className="w-7 h-7 rounded-full bg-slate-50 border border-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold shrink-0 transition-colors group-hover:border-slate-300">
                                   {idx + 1}
                                 </div>
                               )}
                               <div className="flex-1 min-w-0">
-                                <span className={`text-sm sm:text-base font-serif font-medium transition-all break-words leading-tight ${
-                                  checkedIngredients[idx] ? "line-through text-gray-400/70 transition-all" : "text-[#2C1A04]"
+                                <span className={`text-sm sm:text-base font-medium transition-all break-words leading-tight ${
+                                  checkedIngredients[idx] ? "line-through text-slate-400" : "text-slate-800"
                                 }`}>
                                   {ing.name.charAt(0).toUpperCase() + ing.name.slice(1)}
                                 </span>
-                                <span className={`block text-[10px] sm:text-[11px] font-serif font-black uppercase tracking-widest mt-0.5 ${
-                                  checkedIngredients[idx] ? "text-gray-400/50" : "text-[#2C1A04]/60"
+                                <span className={`block text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mt-0.5 ${
+                                  checkedIngredients[idx] ? "text-slate-400/50" : "text-slate-500/75"
                                 }`}>
                                   {ing.amount} {ing.unit}
                                 </span>
@@ -704,15 +708,15 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                   </div>
 
                   <div className={activeTab === 'instructions' ? 'block' : 'hidden print:block print:mt-10'}>
-                    <div className="bg-[#FAF6F0] border-2 border-[#D4AF37]/30 rounded-3xl p-6 space-y-6 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
-                      <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-4">
+                    <div className="bg-[#FAF8F5] rounded-3xl p-6 space-y-6 animate-in fade-in slide-in-from-right-4 duration-500 print:animate-none">
+                      <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                         <div>
-                          <h3 className="text-2xl font-bold font-serif text-[#2C1A04] tracking-tight">Cook steps</h3>
-                          <p className="text-sm font-serif text-[#2C1A04]/70 mt-1">Follow along for a perfect meal</p>
+                          <h3 className="text-2xl font-bold font-display text-slate-900 tracking-tight">Cook steps</h3>
+                          <p className="text-sm text-slate-500 mt-1">Follow along for a perfect meal</p>
                         </div>
                         <button 
                           onClick={handleSpeakInstructions}
-                          className="group flex items-center gap-2 px-4 py-2 bg-[#FAF6F0] text-[#2C1A04] border border-[#D4AF37]/40 rounded-xl font-serif text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-white transition-all shadow-sm cursor-pointer no-print"
+                          className="group flex items-center gap-2 px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-xl font-display text-xs font-bold uppercase tracking-widest hover:border-slate-300 transition-all shadow-sm cursor-pointer no-print"
                         >
                           <Volume2 size={14} /> Listen
                         </button>
@@ -720,12 +724,12 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       <div className="space-y-4">
                         {recipe.instructions ? (
                           recipe.instructions.map((step, idx) => (
-                            <div key={idx} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-3 sm:gap-4 group">
-                              <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
+                            <div key={idx} className="bg-white rounded-2xl border border-slate-100 py-4 px-5 mb-4 flex items-start gap-4 group shadow-sm hover:shadow-md transition-shadow">
+                              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 text-green-600 flex items-center justify-center text-sm font-bold shadow-sm transition-transform">
                                 {idx + 1}
                               </div>
                               <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
-                                <p className="text-sm sm:text-base text-[#2C1A04] leading-relaxed font-serif break-words">
+                                <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-sans break-words pt-0.5">
                                   {step}
                                 </p>
                               </div>
@@ -733,18 +737,18 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                           ))
                         ) : recipe.analyzedInstructions?.[0]?.steps && recipe.analyzedInstructions[0].steps.length > 0 ? (
                           recipe.analyzedInstructions[0].steps.map((step, idx) => (
-                          <div key={`${step.number}-${idx}`} className="bg-[#FFFDF9] rounded-2xl border border-[#D4AF37]/40 p-4 mb-4 flex items-start gap-3 sm:gap-4 group">
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#D4AF37]/40 text-[#2C1A04] bg-transparent flex items-center justify-center text-sm font-serif font-bold shadow-sm transition-transform">
+                          <div key={`${step.number}-${idx}`} className="bg-white rounded-2xl border border-slate-100 py-4 px-5 mb-4 flex items-start gap-4 group shadow-sm hover:shadow-md transition-shadow">
+                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 text-green-600 flex items-center justify-center text-sm font-bold shadow-sm transition-transform">
                               {step.number}
                             </div>
                             <div className="space-y-1 sm:space-y-2 flex-1 min-w-0 pt-0.5">
                               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 flex-wrap">
-                                <p className="text-sm sm:text-base text-[#2C1A04] leading-relaxed font-serif break-words">
+                                <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-sans break-words">
                                   {step.step}
                                 </p>
                                 {step.length && (
-                                  <div className="flex items-center gap-1 bg-[#FAF6F0] border border-[#D4AF37]/20 px-2 py-0.5 rounded-full text-xs font-serif text-[#2C1A04]/80 shrink-0 h-fit w-fit">
-                                    <Clock size={12} className="text-[#D4AF37]" /> {step.length.number} {step.length.unit}
+                                  <div className="flex items-center gap-1 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-full text-xs font-bold text-slate-600 shrink-0 h-fit w-fit">
+                                    <Clock size={12} className="text-brand-green" /> {step.length.number} {step.length.unit}
                                   </div>
                                 )}
                               </div>

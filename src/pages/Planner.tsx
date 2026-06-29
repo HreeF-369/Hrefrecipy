@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { Coffee, Utensils, Moon, Plus, Trash2, ShoppingCart, ChevronLeft, ChevronRight, X, Heart, Search, Apple, Dumbbell } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -102,6 +103,12 @@ export default function Planner() {
       animate={{ opacity: 1 }}
       className="space-y-8"
     >
+      <Helmet>
+        <title>Weekly Meal Plan for Weight Loss & Easy Prep Recipes</title>
+        <meta name="description" content="Use our meal planner for healthy eating. Organize your high protein recipes, snacks, and meal prep visually week by week." />
+        <meta name="keywords" content="weekly meal plan for weight loss, easy meal prep recipes for beginners, meal planner for healthy eating, high protein planner" />
+      </Helmet>
+
       <header className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink">Weekly Planner</h1>
