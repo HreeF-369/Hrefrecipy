@@ -12,6 +12,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 380,
     protein: "14g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["breakfast"],
     summary: "Creamy avocado paired with perfectly poached eggs on artisanal sourdough bread.",
@@ -42,6 +48,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "24g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "58g",
     dishTypes: ["breakfast"],
     summary: "Fluffy, nutrient-dense pancakes packed with protein and fresh antioxidants.",
@@ -72,6 +84,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 340,
     protein: "16g",
     fat: "20g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["breakfast"],
     summary: "Poached eggs in a savory, spiced tomato and bell pepper sauce.",
@@ -102,6 +120,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "18g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["breakfast"],
     summary: "Thick Greek yogurt layered with raw honey, crunchy walnuts, and seasonal berries.",
@@ -132,6 +156,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 220,
     protein: "15g",
     fat: "16g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "4g",
     dishTypes: ["breakfast"],
     summary: "Elegant and fluffy egg dish with earthy spinach and tangy goat cheese.",
@@ -162,6 +192,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "22g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "48g",
     dishTypes: ["breakfast"],
     summary: "A New York classic: toasted bagel with cream cheese, smoked salmon, and piquant capers.",
@@ -192,6 +228,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 390,
     protein: "12g",
     fat: "15g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "55g",
     dishTypes: ["breakfast"],
     summary: "Warm, comforting oatmeal topped with creamy almond butter and fresh mixed berries.",
@@ -222,6 +264,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "6g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "62g",
     dishTypes: ["breakfast"],
     summary: "A vibrant, ice-cold blend of tropical fruits topped with coconut and kiwi.",
@@ -252,6 +300,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "14g",
     fat: "24g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["breakfast"],
     summary: "A creamy, Mediterranean delight of poached eggs over garlic-infused yogurt with spicy chili butter.",
@@ -282,6 +336,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 340,
     protein: "10g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["breakfast"],
     summary: "Cloud-like, ultra-fluffy pancakes that melt in your mouth, a modern Tokyo breakfast staple.",
@@ -312,6 +372,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "16g",
     fat: "25g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["breakfast"],
     summary: "Crispy corn tortillas simmered in a vibrant salsa verde, topped with eggs and crema.",
@@ -342,6 +408,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "22g",
     fat: "35g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["breakfast"],
     summary: "The ultimate French breakfast: a ham and gruyère sandwich topped with béchamel and a fried egg.",
@@ -372,6 +444,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 310,
     protein: "8g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["breakfast"],
     summary: "Traditional square-shaped laminated flatbread, crispy on the outside and flaky inside.",
@@ -402,6 +480,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "18g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "28g",
     dishTypes: ["breakfast"],
     summary: "The quintessential brunch dish: perfectly poached eggs on toasted English muffins with hollandaise sauce.",
@@ -432,6 +516,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "14g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "8g",
     dishTypes: ["breakfast"],
     summary: "Spiced Indian-style omelette with vibrant veggies and aromatic spices.",
@@ -462,6 +552,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "8g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "58g",
     dishTypes: ["breakfast"],
     summary: "Classic deep-pocketed waffles served with a warm, homemade strawberry sauce and whipped cream.",
@@ -492,6 +588,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "22g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["breakfast"],
     summary: "A protein-rich vegan alternative to scrambled eggs, bursting with anti-inflammatory turmeric and kale.",
@@ -522,6 +624,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 290,
     protein: "6g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["breakfast"],
     summary: "Fragrant, buttery yeast buns with a classic Swedish spiced filling and pearl sugar topping.",
@@ -552,6 +660,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 510,
     protein: "24g",
     fat: "38g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["breakfast"],
     summary: "A luxurious twist on the classic Benedict, replacing ham with cured salmon and adding creamy avocado.",
@@ -582,6 +696,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "9g",
     fat: "7g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "58g",
     dishTypes: ["breakfast"],
     summary: "Hearty oats baked with sweet apples, pecans, and warming spices for a perfect family breakfast.",
@@ -614,6 +734,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 460,
     protein: "34g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "10g",
     dishTypes: ["dinner"],
     summary: "Crispy-skinned salmon fillets served with tender garlic-lemon asparagus.",
@@ -644,6 +770,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 540,
     protein: "30g",
     fat: "24g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["dinner"],
     summary: "Tender beef slices and crisp broccoli florets in a savory ginger-garlic sauce.",
@@ -674,6 +806,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 410,
     protein: "12g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "52g",
     dishTypes: ["dinner"],
     summary: "Creamy Italian arborio rice infused with earthy forest mushrooms and white wine.",
@@ -704,6 +842,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 430,
     protein: "28g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["dinner"],
     summary: "Succulent jumbo shrimp in a buttery garlic sauce over silky linguine pasta.",
@@ -734,6 +878,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "42g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "0g",
     dishTypes: ["dinner"],
     summary: "Whole roasted chicken with crispy golden skin and succulent, herb-infused meat.",
@@ -764,6 +914,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 490,
     protein: "42g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "5g",
     dishTypes: ["dinner"],
     summary: "Juicy chicken breasts filled with aromatic basil pesto and melted mozzarella.",
@@ -794,6 +950,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "6g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["dinner"],
     summary: "Thick-cut roasted cauliflower served with a vibrant, zesty herb sauce.",
@@ -824,6 +986,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 650,
     protein: "38g",
     fat: "42g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["dinner"],
     summary: "Seared duck breast with perfectly rendered fat and a sweet umami glaze.",
@@ -854,6 +1022,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 550,
     protein: "42g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "15g",
     dishTypes: ["dinner"],
     summary: "A classic French chicken stew braised with red wine, lardons, mushrooms, and pearl onions.",
@@ -884,6 +1058,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "32g",
     fat: "34g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["dinner"],
     summary: "Tender chicken in a velvety, spice-infused tomato and cream sauce.",
@@ -914,6 +1094,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "35g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "38g",
     dishTypes: ["dinner"],
     summary: "Salty-sweet Japanese classic served with fresh greens and sticky rice.",
@@ -944,6 +1130,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 580,
     protein: "34g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["dinner"],
     summary: "Authentic Mexican-style comfort food: tortillas stuffed with seasoned beef and smothered in cheese.",
@@ -974,6 +1166,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 490,
     protein: "38g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["dinner"],
     summary: "A high-heat stir-fry of beef, onions, tomatoes, and french fries, showcasing Peru's Chifa influence.",
@@ -1004,6 +1202,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "28g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["dinner"],
     summary: "Layers of eggplant, spiced meat sauce, and creamy béchamel baked to perfection.",
@@ -1034,6 +1238,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 460,
     protein: "24g",
     fat: "35g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["dinner"],
     summary: "Fragrant, spicy, and creamy curry with tender chicken and bamboo shoots.",
@@ -1064,6 +1274,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 580,
     protein: "42g",
     fat: "45g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "4g",
     dishTypes: ["dinner"],
     summary: "Elegant rack of lamb roasted with a fragrant crust of rosemary, thyme, and roasted garlic.",
@@ -1094,6 +1310,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "28g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["dinner"],
     summary: "Perfectly seared duck breast served with a sophisticated sweet and tart cherry balsamic reduction.",
@@ -1124,6 +1346,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "26g",
     fat: "38g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["dinner"],
     summary: "A rich and spicy coconut curry featuring succulent roasted duck, pineapple, and cherry tomatoes.",
@@ -1154,6 +1382,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 550,
     protein: "45g",
     fat: "30g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["dinner"],
     summary: "Classic French bistro fare: chicken braised with red wine, mushrooms, and lardon bacon.",
@@ -1184,6 +1418,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 620,
     protein: "38g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["dinner"],
     summary: "A slow-cooked Moroccan stew with tender lamb, dried apricots, and warming cinnamon spices.",
@@ -1216,6 +1456,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 680,
     protein: "42g",
     fat: "38g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["main dish"],
     summary: "Layers of tradition: rich meat ragu, silky pasta, and bubbly four-cheese blend.",
@@ -1246,6 +1492,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "45g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "0g",
     dishTypes: ["main course"],
     summary: "Fresh whole sea bass stuffed with lemon and herbs, roasted to flaky perfection.",
@@ -1276,6 +1528,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 350,
     protein: "14g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "38g",
     dishTypes: ["main course"],
     summary: "A Greek-inspired layered casserole with roasted eggplant, spiced lentils, and creamy béchamel.",
@@ -1306,6 +1564,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 650,
     protein: "38g",
     fat: "35g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["main course"],
     summary: "Double-fried chicken wings glazed in a spicy, sweet gochujang sauce.",
@@ -1336,6 +1600,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "32g",
     fat: "35g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["main course"],
     summary: "Savory beef and pork meatballs in a rich cream gravy, served with mashed potatoes and jam.",
@@ -1366,6 +1636,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 580,
     protein: "42g",
     fat: "40g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["main course"],
     summary: "Tender tandoori-style chicken in a silky, mildly spiced tomato and butter sauce.",
@@ -1396,6 +1672,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 780,
     protein: "58g",
     fat: "62g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "2g",
     dishTypes: ["main dish"],
     summary: "Thick-cut ribeye steak grilled to preferred doneness and basted in artisanal garlic butter.",
@@ -1426,6 +1708,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "35g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "55g",
     dishTypes: ["main dish"],
     summary: "Authentic Spanish rice dish with saffron, mussels, shrimp, and chorizo.",
@@ -1456,6 +1744,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 580,
     protein: "38g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["main dish"],
     summary: "Succulent grilled chicken in a creamy, spice-laden tomato sauce.",
@@ -1486,6 +1780,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 620,
     protein: "45g",
     fat: "48g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "8g",
     dishTypes: ["main dish"],
     summary: "Elegant rack of lamb with a crunchy garden-herb and dijon crust.",
@@ -1516,6 +1816,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "14g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "55g",
     dishTypes: ["main dish"],
     summary: "Balanced vegan main with roasted chickpeas, sweet potato, and tahini dressing.",
@@ -1546,6 +1852,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 850,
     protein: "55g",
     fat: "58g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["main dish"],
     summary: "Slow-braised veal shanks in a rich white wine and vegetable broth broth.",
@@ -1576,6 +1888,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 720,
     protein: "40g",
     fat: "55g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "15g",
     dishTypes: ["main dish"],
     summary: "Refined French classic: roasted duck with a bitter-sweet orange gastrique.",
@@ -1606,6 +1924,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 820,
     protein: "45g",
     fat: "65g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "0g",
     dishTypes: ["main dish"],
     summary: "Ultra-premium A5 Wagyu beef, lightly seared to highlight its incredible marbling and buttery texture.",
@@ -1634,6 +1958,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "38g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "20g",
     dishTypes: ["main dish"],
     summary: "The celebrated French fisherman's stew, rich with saffron, fennel, and assorted Mediterranean seafood.",
@@ -1664,6 +1994,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 650,
     protein: "35g",
     fat: "25g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "72g",
     dishTypes: ["main dish"],
     summary: "Fragrant, long-grain basmati rice layered with spiced lamb and slow-cooked in the Dum style.",
@@ -1694,6 +2030,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 410,
     protein: "32g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "5g",
     dishTypes: ["main dish"],
     summary: "Tender veal cutlets 'jump in the mouth' with savory prosciutto and fresh sage.",
@@ -1722,6 +2064,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "38g",
     fat: "24g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["main dish"],
     summary: "A sublime balance of sweet and savory: slow-cooked beef with honey, cinnamon, and jammy prunes.",
@@ -1752,6 +2100,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 580,
     protein: "32g",
     fat: "38g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["main dish"],
     summary: "A rich, relatively mild Thai curry that's nutty and slightly sweet with star anise and cinnamon.",
@@ -1782,6 +2136,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "38g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "25g",
     dishTypes: ["main dish"],
     summary: "A complex, legendary sauce featuring multiple chilies, spices, and a hint of dark chocolate.",
@@ -1813,6 +2173,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "35g",
     fat: "30g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["lunch"],
     summary: "Crisp romaine, tender grilled chicken, and a rich, parmesan-heavy dressing.",
@@ -1843,6 +2209,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "14g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "65g",
     dishTypes: ["lunch"],
     summary: "A nutrient-packed bowl with fresh vegetables, kalamata olives, and creamy hummus.",
@@ -1873,6 +2245,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "28g",
     fat: "20g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "40g",
     dishTypes: ["lunch"],
     summary: "Spicy, nutty, and crunchy wraps featuring shredded chicken and a rich peanut sauce.",
@@ -1903,6 +2281,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 220,
     protein: "4g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["lunch"],
     summary: "Silky smooth, fire-roasted tomato soup with fresh herbaceous notes.",
@@ -1933,6 +2317,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 410,
     protein: "12g",
     fat: "24g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "38g",
     dishTypes: ["lunch"],
     summary: "A vibrant cold pasta dish with high-quality basil pesto and pearl mozzarella.",
@@ -1963,6 +2353,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 490,
     protein: "28g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "62g",
     dishTypes: ["lunch"],
     summary: "Deconstructed spicy tuna roll with sushi-grade tuna and creamy avocado.",
@@ -1993,6 +2389,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 580,
     protein: "32g",
     fat: "25g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["lunch"],
     summary: "Triple-layered delight with grilled chicken, turkey bacon, and garlic aioli.",
@@ -2023,6 +2425,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "14g",
     fat: "10g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["lunch"],
     summary: "A hearty, fiber-rich plant-based salad with earthy lentils and fresh herbs.",
@@ -2053,6 +2461,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "24g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "48g",
     dishTypes: ["lunch"],
     summary: "The iconic street food of Vietnam: a crispy baguette filled with savory chicken, pickled carrots, and fresh cilantro.",
@@ -2083,6 +2497,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 410,
     protein: "12g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["lunch"],
     summary: "Crispy falafel balls wrapped in warm pita with hummus and a zesty tahini drizzle.",
@@ -2113,6 +2533,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "32g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "55g",
     dishTypes: ["lunch"],
     summary: "Fresh ahi tuna marinated in soy and ginger, served over rice with colorful vegetables.",
@@ -2143,6 +2569,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 180,
     protein: "3g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["lunch"],
     summary: "A refreshing chilled tomato and vegetable soup from southern Spain.",
@@ -2173,6 +2605,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 240,
     protein: "10g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["lunch"],
     summary: "Sweet, sour, and spicy salad with juicy pomelo segments and toasted coconut.",
@@ -2203,6 +2641,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "8g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["lunch"],
     summary: "Vibrant couscous with dried fruits, chickpeas, and a warm cumin-lemon dressing.",
@@ -2233,6 +2677,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 380,
     protein: "24g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["lunch"],
     summary: "Seared shrimp with a tangy slaw and creamy cilantro sauce in soft tortillas.",
@@ -2263,6 +2713,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "12g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["lunch"],
     summary: "A vibrant assortment of hummus, falafel, olives, and fresh vegetables served with warm pita.",
@@ -2293,6 +2749,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 520,
     protein: "32g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "62g",
     dishTypes: ["lunch"],
     summary: "A fusion of crisp baguette, savory grilled chicken, and pickled vegetables with spicy mayo.",
@@ -2323,6 +2785,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "35g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["lunch"],
     summary: "A composed American salad with layers of protein, healthy fats, and crisp greens.",
@@ -2353,6 +2821,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 210,
     protein: "6g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["lunch"],
     summary: "Exotically spicy, sour, and sweet salad made from shredded green papaya and peanuts.",
@@ -2383,6 +2857,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "18g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "6g",
     dishTypes: ["lunch"],
     summary: "A light yet satisfying egg dish filled with baby spinach and pockets of creamy goat cheese.",
@@ -2415,6 +2895,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "6g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["dessert"],
     summary: "Decadent dark chocolate cake with a warm, molten center of pure cocoa bliss.",
@@ -2445,6 +2931,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "8g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["dessert"],
     summary: "A timeless Italian pick-me-up: coffee-soaked ladyfingers and whipped mascarpone.",
@@ -2475,6 +2967,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "7g",
     fat: "32g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["dessert"],
     summary: "Creamy New York style cheesecake topped with a glossy strawberry coulis.",
@@ -2505,6 +3003,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 350,
     protein: "4g",
     fat: "25g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "28g",
     dishTypes: ["dessert"],
     summary: "Silky smooth custard with a signature glass-like caramelized sugar crust.",
@@ -2535,6 +3039,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 380,
     protein: "5g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "58g",
     dishTypes: ["dessert"],
     summary: "Zesty lemon curd in a buttery shortcrust pastry topped with toasted meringue peaks.",
@@ -2565,6 +3075,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 410,
     protein: "4g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "62g",
     dishTypes: ["dessert"],
     summary: "Cinnamon-spiced apples baked under a crunchy oat and butter topping.",
@@ -2595,6 +3111,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 290,
     protein: "4g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["dessert"],
     summary: "Dense, chewy chocolate brownies loaded with toasted walnut chunks.",
@@ -2625,6 +3147,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 380,
     protein: "5g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "65g",
     dishTypes: ["dessert"],
     summary: "Traditional Thai dessert: sweet glutinous rice with coconut cream and ripe mango.",
@@ -2655,6 +3183,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 120,
     protein: "2g",
     fat: "6g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["dessert"],
     summary: "Delicate almond meringue cookies with a smooth, ganache filling.",
@@ -2685,6 +3219,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "6g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["dessert"],
     summary: "Crispy fried pastry shells filled with sweet ricotta cream and crushed pistachios.",
@@ -2715,6 +3255,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "8g",
     fat: "25g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "48g",
     dishTypes: ["dessert"],
     summary: "Twenty layers of paper-thin matcha crepes separated by light pastry cream.",
@@ -2745,6 +3291,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "4g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "50g",
     dishTypes: ["dessert"],
     summary: "Golden, crispy Spanish fried dough tossed in cinnamon sugar with a rich dipping sauce.",
@@ -2775,6 +3327,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 380,
     protein: "5g",
     fat: "24g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "40g",
     dishTypes: ["dessert"],
     summary: "A rich, sweet pastry made of layers of thin phyllo dough with chopped pistachios and honey syrup.",
@@ -2805,6 +3363,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 220,
     protein: "6g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["dessert"],
     summary: "A silky Middle Eastern milk pudding scented with rose and orange blossom.",
@@ -2835,6 +3399,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "10g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "40g",
     dishTypes: ["dessert"],
     summary: "French choux pastry puffs filled with vanilla crème pâtissière and dipped in spun sugar caramel.",
@@ -2867,6 +3437,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 120,
     protein: "4g",
     fat: "3g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["drink"],
     summary: "Premium ceremonial grade matcha whisked with oat milk and honey over ice.",
@@ -2897,6 +3473,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 85,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["drink"],
     summary: "Refreshing muddled mint and lime topped with sparkling soda water.",
@@ -2927,6 +3509,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 180,
     protein: "5g",
     fat: "2g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "38g",
     dishTypes: ["drink"],
     summary: "A revitalizing blend of spinach, green apple, ginger, and lemon.",
@@ -2957,6 +3545,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 45,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["drink"],
     summary: "Tart and floral hibiscus tea infused with fresh berries and citrus.",
@@ -2987,6 +3581,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 150,
     protein: "3g",
     fat: "9g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "14g",
     dishTypes: ["drink"],
     summary: "Ancient Ayurvedic wellness drink with anti-inflammatory turmeric and ginger.",
@@ -3017,6 +3617,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 15,
     protein: "1g",
     fat: "1g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "1g",
     dishTypes: ["drink"],
     summary: "Intense double espresso 'marked' with a dollop of silky micro-foam.",
@@ -3047,6 +3653,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 90,
     protein: "1g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["drink"],
     summary: "Hybrid drink: part juice, part mocktail, 100% hydration from fresh watermelon.",
@@ -3077,6 +3689,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 210,
     protein: "8g",
     fat: "5g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["drink"],
     summary: "Authentic spiced black tea simmered with milk and exotic spices.",
@@ -3107,6 +3725,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 45,
     protein: "1g",
     fat: "1g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "8g",
     dishTypes: ["drink"],
     summary: "Warming golden tea with fresh roots, black pepper, and raw honey.",
@@ -3137,6 +3761,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 10,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "2g",
     dishTypes: ["drink"],
     summary: "Zesty, hydrating infusion that transforms plain water into a refreshing luxury.",
@@ -3164,6 +3794,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 60,
     protein: "1g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "15g",
     dishTypes: ["drink"],
     summary: "Naturally sweet watermelon blended with zesty lime—perfect for hot summer days.",
@@ -3190,6 +3826,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 140,
     protein: "5g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["drink"],
     summary: "Guilt-free hot chocolate using antioxidant-rich raw cacao and creamy almond milk.",
@@ -3218,6 +3860,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 20,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "5g",
     dishTypes: ["drink"],
     summary: "Magical blue tea that changes color to purple when you add a squeeze of lemon.",
@@ -3245,6 +3893,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 45,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["drink"],
     summary: "Vibrant ruby-red hibiscus tea, served stone-cold and perfectly balanced with sweetness.",
@@ -3272,6 +3926,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 85,
     protein: "3g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["drink"],
     summary: "Clear the fog with this nutrient-dense blend of kale, apple, and citrus.",
@@ -3302,6 +3962,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 180,
     protein: "6g",
     fat: "4g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["drink"],
     summary: "A creamy and refreshing traditional Indian drink made with yogurt and ripe mangoes.",
@@ -3330,6 +3996,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 60,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "15g",
     dishTypes: ["drink"],
     summary: "A zesty and cooling blend of fresh lime, mint, and soda water.",
@@ -3357,6 +4029,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 120,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["drink"],
     summary: "The quintessentially refreshing summer drink made with real lemons and simple syrup.",
@@ -3384,6 +4062,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 210,
     protein: "8g",
     fat: "7g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["drink"],
     summary: "A coffeehouse favorite: sweet vanilla, rich espresso, and buttery caramel over ice.",
@@ -3411,6 +4095,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 90,
     protein: "1g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["drink"],
     summary: "Incredibly refreshing and hydrated blend of sweet watermelon and cool mint.",
@@ -3437,6 +4127,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 120,
     protein: "1g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["drink"],
     summary: "A vibrant pink, exotic lemonade made with fresh pitaya (dragon fruit).",
@@ -3465,6 +4161,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 60,
     protein: "0g",
     fat: "0g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "15g",
     dishTypes: ["drink"],
     summary: "A stunning indigo tea that turns bright purple when you add a squeeze of lemon.",
@@ -3492,6 +4194,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 240,
     protein: "6g",
     fat: "10g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["drink"],
     summary: "The viral aesthetic drink: fluffy strawberry cream over chilled milk.",
@@ -3520,6 +4228,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 180,
     protein: "4g",
     fat: "6g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "22g",
     dishTypes: ["drink"],
     summary: "Floral, soothing, and sophisticated latte with hints of French lavender.",
@@ -3549,6 +4263,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 380,
     protein: "35g",
     fat: "10g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "38g",
     dishTypes: ["main dish", "fitness"],
     summary: "High-protein, low-fat meal with lean turkey, brown rice, and steamed greens.",
@@ -3579,6 +4299,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 250,
     protein: "28g",
     fat: "4g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "25g",
     dishTypes: ["drink", "fitness"],
     summary: "Optimal recovery blend with whey protein, mixed berries, and BCAAs.",
@@ -3609,6 +4335,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 180,
     protein: "24g",
     fat: "6g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "5g",
     dishTypes: ["breakfast", "fitness"],
     summary: "Pure protein breakfast with zero cholesterol and high fiber.",
@@ -3639,6 +4371,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 220,
     protein: "14g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["main dish", "fitness"],
     summary: "Pasta alternative with spiralized zucchini and lean turkey bolognese.",
@@ -3669,6 +4407,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 340,
     protein: "15g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "52g",
     dishTypes: ["lunch", "fitness"],
     summary: "Complete plant-based protein salad with complex carbs and fiber.",
@@ -3699,6 +4443,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "42g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "5g",
     dishTypes: ["dinner", "fitness"],
     summary: "Magnesium-rich tuna steak with iron-packed sautéed spinach.",
@@ -3729,6 +4479,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 310,
     protein: "12g",
     fat: "6g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "55g",
     dishTypes: ["dinner", "fitness"],
     summary: "Anti-inflammatory plant power: complex carbs and high fiber.",
@@ -3759,6 +4515,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 350,
     protein: "38g",
     fat: "16g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "8g",
     dishTypes: ["main dish", "fitness"],
     summary: "Lean chicken breast marinated in lemon and oregano for a clean protein hit.",
@@ -3789,6 +4551,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 220,
     protein: "32g",
     fat: "6g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "8g",
     dishTypes: ["main dish", "fitness"],
     summary: "Ultra-lean white fish flavored with fresh Mediterranean herbs and citrus.",
@@ -3819,6 +4587,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 410,
     protein: "28g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["lunch", "fitness"],
     summary: "Satiating combo of earthy lentils and salty grilled halloumi cheese.",
@@ -3849,6 +4623,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "34g",
     fat: "10g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["main dish", "fitness"],
     summary: "Iron-rich meatballs with hidden spinach for a moist, high-protein meal.",
@@ -3879,6 +4659,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "26g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["breakfast", "fitness"],
     summary: "Refreshing yogurt-based bowl packed with antioxidants and fiber.",
@@ -3909,6 +4695,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 290,
     protein: "22g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "18g",
     dishTypes: ["main dish", "fitness"],
     summary: "Crispy tofu and vibrant vegetables in a light, salt-reduced ginger soy sauce.",
@@ -3939,6 +4731,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 340,
     protein: "38g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "12g",
     dishTypes: ["lunch", "fitness"],
     summary: "Spicy, zingy chicken salad with high volume and low calorie density.",
@@ -3969,6 +4767,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 290,
     protein: "24g",
     fat: "6g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["breakfast", "fitness"],
     summary: "Guilt-free pancakes using simple, whole-food ingredients for a morning boost.",
@@ -3999,6 +4803,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "45g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "2g",
     dishTypes: ["main dish", "fitness"],
     summary: "A light, high-protein white fish dish with vibrant citrus and fresh herbs.",
@@ -4027,6 +4837,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "18g",
     fat: "6g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["lunch", "fitness"],
     summary: "A warming and filling plant-based soup high in fiber and iron.",
@@ -4057,6 +4873,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 220,
     protein: "28g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "6g",
     dishTypes: ["breakfast", "fitness"],
     summary: "High-protein, low-calorie breakfast choice with fresh Mediterranean herbs and veggies.",
@@ -4085,6 +4907,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 180,
     protein: "6g",
     fat: "4g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "30g",
     dishTypes: ["snack", "fitness"],
     summary: "A spicy, snackable low-carb alternative to traditional buffalo wings.",
@@ -4113,6 +4941,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "32g",
     fat: "10g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "25g",
     dishTypes: ["main dish", "fitness"],
     summary: "Zesty, high-protein tacos featuring succulent shrimp and a fresh slaw.",
@@ -4142,6 +4976,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 450,
     protein: "38g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["#1 Trendy", "PinterestFav", "Healthy", "Meal Prep"],
     summary: "High-protein meal prep featuring tender honey garlic chicken, roasted broccoli, and colorful bell peppers over fluffy jasmine rice.",
@@ -4171,6 +5011,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 320,
     protein: "18g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "42g",
     dishTypes: ["#1 Trendy", "PinterestFav", "Healthy", "Quick"],
     summary: "A luxury healthy breakfast that tastes like dessert. Creamy oats infused with espresso, layered with Greek yogurt and dusted with cocoa.",
@@ -4199,6 +5045,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "6g",
     fat: "18g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "24g",
     dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Quick"],
     summary: "A gourmet, aesthetic salad featuring fresh strawberries, baby spinach, candied pecans, and creamy goat cheese with a balsamic glaze.",
@@ -4226,6 +5078,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 350,
     protein: "8g",
     fat: "15g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "48g",
     dishTypes: ["Viral", "PinterestFav", "Quick", "Snack"],
     summary: "The ultimate viral snack style: ultra-crispy air-fried potato wedges coated in a savory garlic parmesan crust.",
@@ -4252,6 +5110,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 210,
     protein: "4g",
     fat: "9g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "28g",
     dishTypes: ["Professional", "PinterestFav", "Quick", "Coffee"],
     summary: "Professional coffee culture at home. A creamy, aesthetic iced latte with nutty pistachio notes and velvety oat milk.",
@@ -4278,6 +5142,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "34g",
     fat: "16g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "35g",
     dishTypes: ["Viral", "PinterestFav", "Quick", "Healthy"],
     summary: "The trending high-protein hack: layered turkey, avocado, and spinach in a toasted tortilla wrap.",
@@ -4304,6 +5174,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 480,
     protein: "22g",
     fat: "28g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "36g",
     dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Trendy"],
     summary: "Crispy seared halloumi cheese drizzled with chili-infused hot honey on a bed of smashed avocado and sourdough.",
@@ -4330,6 +5206,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 420,
     protein: "26g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "32g",
     dishTypes: ["Viral", "PinterestFav", "Gourmet", "Seafood"],
     summary: "The viral sushi alternative: pan-fried crispy sushi rice cubes topped with spicy diced salmon and jalapeño.",
@@ -4356,6 +5238,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 280,
     protein: "12g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "28g",
     dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Quick"],
     summary: "A nutrient-dense, aesthetic breakfast with premium ceremonial matcha and fresh seasonal berries.",
@@ -4382,6 +5270,12 @@ export const FALLBACK_RECIPES: Recipe[] = [
     calories: 380,
     protein: "12g",
     fat: "22g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     carbs: "45g",
     dishTypes: ["Aesthetic", "PinterestFav", "Healthy", "Gourmet"],
     summary: "A stunning, shareable aesthetic board featuring creamy hummus topped with roasted chickpeas, olives, and fresh herbs.",

@@ -28,6 +28,13 @@ export interface Recipe {
   protein?: string;
   fat?: string;
   carbs?: string;
+  micros?: {
+    fiber?: number;
+    sugar?: number;
+    sodium?: number;
+    vitaminC?: number;
+    [key: string]: number | undefined;
+  };
   comments?: Comment[];
   pinterestImage?: string;
 }

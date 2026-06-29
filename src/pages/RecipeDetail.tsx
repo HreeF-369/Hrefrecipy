@@ -617,7 +617,7 @@ export default function RecipeDetail() {
                                 className={`bg-white rounded-2xl md:rounded-[32px] p-4 sm:p-5 md:p-6 border border-slate-100 shadow-sm relative overflow-hidden group flex flex-col justify-between min-h-[110px] sm:min-h-[140px] md:min-h-[160px]`}
                               >
                                 <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl ${bgLight} ${color} flex items-center justify-center shrink-0 mb-3 sm:mb-4 md:mb-0 md:absolute md:top-6 md:right-6 transition-transform group-hover:scale-110 group-hover:rotate-3`}>
-                                  {React.cloneElement(icon as React.ReactElement, { className: 'w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6' })}
+                                  {React.cloneElement(icon as React.ReactElement<any>, { className: 'w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6' })}
                                 </div>
                                 <div>
                                   <span className="text-[9px] sm:text-[11px] font-black text-slate-500 uppercase tracking-widest block mb-0.5 sm:mb-1 truncate">{name}</span>
@@ -670,32 +670,43 @@ export default function RecipeDetail() {
                             className="overflow-hidden md:!h-auto md:!opacity-100"
                           >
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-6 md:gap-y-12 pt-4 md:pt-0">
-                               {recipe.nutrition?.nutrients.slice(4).map((nut, i) => (
-                                 <div key={`${nut.name}-${i}`} className="space-y-2 md:space-y-4 group">
-                                   <div className="flex justify-between items-end">
-                                     <div className="flex flex-col min-w-0">
-                                       <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.15em] mb-0.5 truncate">{nut.name}</span>
-                                       <span className="text-[10px] sm:text-xs font-bold text-slate-500 opacity-60">Estimated content</span>
+                               {(() => {
+                                 const microsData = recipe.micros 
+                                   ? Object.entries(recipe.micros).map(([key, val]) => ({
+                                       name: key.replace(/([A-Z])/g, ' $1').trim(), // format camelCase
+                                       amount: val || 0,
+                                       unit: key.toLowerCase() === 'sodium' ? 'mg' : 'g',
+                                       percentOfDailyNeeds: Math.min(100, Math.round(((val || 0) / 100) * 100))
+                                     }))
+                                   : recipe.nutrition?.nutrients.slice(4) || [];
+                                 
+                                 return microsData.map((nut, i) => (
+                                   <div key={`${nut.name}-${i}`} className="space-y-2 md:space-y-4 group">
+                                     <div className="flex justify-between items-end">
+                                       <div className="flex flex-col min-w-0">
+                                         <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.15em] mb-0.5 truncate">{nut.name}</span>
+                                         <span className="text-[10px] sm:text-xs font-bold text-slate-500 opacity-60">Estimated content</span>
+                                       </div>
+                                       <span className="text-base sm:text-lg md:text-2xl font-black text-slate-900 tracking-tight shrink-0">{Math.round(nut.amount)}<span className="text-[9px] sm:text-[10px] md:text-xs ml-1 opacity-40 font-bold">{nut.unit}</span></span>
                                      </div>
-                                     <span className="text-base sm:text-lg md:text-2xl font-black text-slate-900 tracking-tight shrink-0">{Math.round(nut.amount)}<span className="text-[9px] sm:text-[10px] md:text-xs ml-1 opacity-40 font-bold">{nut.unit}</span></span>
+                                     <div className="h-1.5 sm:h-2 md:h-3 bg-slate-100 rounded-full overflow-hidden relative">
+                                       <motion.div 
+                                         initial={{ width: 0 }}
+                                         animate={{ width: `${Math.min(100, nut.percentOfDailyNeeds || 0)}%` }}
+                                         transition={{ delay: 0.1 + (i * 0.05), duration: 1.5, ease: [0.34, 1.56, 0.64, 1] }}
+                                         className="h-full bg-brand-green rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] relative"
+                                       >
+                                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 animate-shimmer" />
+                                       </motion.div>
+                                     </div>
+                                     <div className="flex justify-between">
+                                       <span className="text-[8px] sm:text-[9px] md:text-[11px] font-black text-slate-300 uppercase tracking-[0.15em]">{nut.percentOfDailyNeeds || 0}% OF YOUR DAILY GOAL</span>
+                                     </div>
                                    </div>
-                                   <div className="h-1.5 sm:h-2 md:h-3 bg-slate-100 rounded-full overflow-hidden relative">
-                                     <motion.div 
-                                       initial={{ width: 0 }}
-                                       animate={{ width: `${Math.min(100, nut.percentOfDailyNeeds || 0)}%` }}
-                                       transition={{ delay: 0.1 + (i * 0.05), duration: 1.5, ease: [0.34, 1.56, 0.64, 1] }}
-                                       className="h-full bg-brand-green rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] relative"
-                                     >
-                                       <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 animate-shimmer" />
-                                     </motion.div>
-                                   </div>
-                                   <div className="flex justify-between">
-                                     <span className="text-[8px] sm:text-[9px] md:text-[11px] font-black text-slate-300 uppercase tracking-[0.15em]">{nut.percentOfDailyNeeds}% OF YOUR DAILY GOAL</span>
-                                   </div>
-                                 </div>
-                               ))}
+                                 ));
+                               })()}
                                
-                               {(!recipe.nutrition || !recipe.nutrition.nutrients || recipe.nutrition.nutrients.length <= 4) && (
+                               {(!recipe.micros && (!recipe.nutrition || !recipe.nutrition.nutrients || recipe.nutrition.nutrients.length <= 4)) && (
                                   <div className="col-span-1 md:col-span-2 py-8 text-center bg-slate-50 rounded-2xl border border-slate-100 border-dashed">
                                     <Info className="mx-auto text-slate-400 mb-2" size={24} />
                                     <p className="text-slate-500 text-sm font-medium">Detailed micronutrient breakdown is currently unavailable for this recipe.</p>

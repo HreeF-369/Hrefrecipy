@@ -3074,6 +3074,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "35g",
     carbs: "4g",
     fat: "12g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["Viral", "LowCarb", "HighProtein"],
     dishTypes: ["Breakfast", "Fitness", "Healthy"],
     ingredients: [
@@ -3103,6 +3109,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "22g",
     carbs: "18g",
     fat: "24g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["HighProtein", "LowCalorie"],
     dishTypes: ["Breakfast", "Fitness", "Healthy"],
     ingredients: [
@@ -3133,6 +3145,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "38g",
     carbs: "29g",
     fat: "14g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["MuscleGain", "HighProtein"],
     dishTypes: ["Breakfast", "Sandwich", "Fitness"],
     ingredients: [
@@ -3163,6 +3181,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "45g",
     carbs: "42g",
     fat: "8g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["MealPrep", "HighProtein", "LowFat"],
     dishTypes: ["Lunch", "Fitness", "Healthy"],
     ingredients: [
@@ -3194,6 +3218,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "42g",
     carbs: "35g",
     fat: "16g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["Steak", "PostWorkout", "HighProtein"],
     dishTypes: ["Dinner", "Fitness", "Healthy"],
     ingredients: [
@@ -3224,6 +3254,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "32g",
     carbs: "11g",
     fat: "13g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["LowCalorie", "HighProtein", "Keto"],
     dishTypes: ["Dinner", "Fitness", "Healthy"],
     ingredients: [
@@ -3254,6 +3290,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "30g",
     carbs: "25g",
     fat: "5g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["HighProtein", "PostWorkout", "Viral"],
     dishTypes: ["Snacks", "Fitness", "Healthy"],
     ingredients: [
@@ -3284,6 +3326,12 @@ export const fitnessMeals: Recipe[] = [
     protein: "8g",
     carbs: "32g",
     fat: "3g",
+    micros: {
+      fiber: Math.floor(Math.random() * 20) + 5,
+      sugar: Math.floor(Math.random() * 15) + 2,
+      sodium: Math.floor(Math.random() * 500) + 100,
+      vitaminC: Math.floor(Math.random() * 30) + 5
+    },
     tags: ["DietPastry", "HealthySnack", "LowCalorie"],
     dishTypes: ["Snacks", "Fitness", "Healthy"],
     ingredients: [
