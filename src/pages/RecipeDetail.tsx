@@ -547,7 +547,7 @@ export default function RecipeDetail() {
                 animate={{ opacity: 1, x: 0 }}
                 className="space-y-6"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   {recipe.nutrition ? (
                     recipe.nutrition.nutrients.slice(0, 6).map((n, idx) => (
                       <div key={`${n.name}-${idx}`} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
@@ -559,11 +559,36 @@ export default function RecipeDetail() {
                       </div>
                     ))
                   ) : (
-                    <div className="col-span-2 p-10 text-center bg-slate-50 rounded-3xl border border-slate-100">
-                       <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">Nutritional data unavailable for this local recipe.</p>
-                       <p className="text-slate-500 mt-2">Estimated Calories: {recipe.calories}</p>
-                       <p className="text-slate-500">Estimated Protein: {recipe.protein}</p>
-                    </div>
+                    <>
+                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Calories</p>
+                        <p className="mt-1 text-2xl font-bold text-gray-800">
+                          {typeof recipe.calories === 'string' ? parseFloat(recipe.calories) || recipe.calories : (recipe.calories || 0)}
+                          <span className="ml-1 text-sm font-medium text-gray-500">kcal</span>
+                        </p>
+                      </div>
+                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Protein</p>
+                        <p className="mt-1 text-2xl font-bold text-gray-800">
+                          {typeof recipe.protein === 'string' ? parseFloat(recipe.protein) || recipe.protein : (recipe.protein || 0)}
+                          <span className="ml-1 text-sm font-medium text-gray-500">g</span>
+                        </p>
+                      </div>
+                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Carbohydrates</p>
+                        <p className="mt-1 text-2xl font-bold text-gray-800">
+                          {typeof recipe.carbs === 'string' ? parseFloat(recipe.carbs) || recipe.carbs : (recipe.carbs || 0)}
+                          <span className="ml-1 text-sm font-medium text-gray-500">g</span>
+                        </p>
+                      </div>
+                      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 print:ring-0">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Fat</p>
+                        <p className="mt-1 text-2xl font-bold text-gray-800">
+                          {typeof recipe.fat === 'string' ? parseFloat(recipe.fat) || recipe.fat : (recipe.fat || 0)}
+                          <span className="ml-1 text-sm font-medium text-gray-500">g</span>
+                        </p>
+                      </div>
+                    </>
                   )}
                 </div>
               </motion.div>

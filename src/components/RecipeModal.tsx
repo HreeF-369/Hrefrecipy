@@ -763,7 +763,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                   </div>
 
                   <div className={activeTab === 'nutrition' ? 'block' : 'hidden print:block print:mt-10'}>
-                    {!recipe.nutrition ? (
+                    {!recipe.nutrition && !recipe.calories && !recipe.protein && !recipe.carbs && !recipe.fat ? (
                       <div className="flex flex-col items-center justify-center py-20">
                          <Loader2 className="w-10 h-10 text-brand-green animate-spin mb-4" />
                          <p className="text-sm font-bold text-slate-400">Analyzing Nutritional Composition...</p>
@@ -812,8 +812,20 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
                          {(() => {
                             const nutrients = recipe.nutrition?.nutrients || [];
-                            const getCard = (name: string, icon: React.ReactNode, color: string, bgLight: string) => {
+                            const getCard = (name: string, icon: React.ReactNode, color: string, bgLight: string, fallbackValue?: string | number) => {
                               const nut = nutrients.find(n => n.name === name) || nutrients.find(n => n.name.toLowerCase().includes(name.toLowerCase()));
+                              
+                              let amount: string | number = 0;
+                              let unit = 'g';
+                              
+                              if (nut) {
+                                amount = Math.round(nut.amount);
+                                unit = nut.unit;
+                              } else {
+                                amount = fallbackValue || 0;
+                                if (name === 'Calories') unit = 'kcal';
+                              }
+                              
                               return (
                                 <motion.div 
                                   key={name}
@@ -828,8 +840,8 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                                   <div>
                                     <span className="text-[9px] sm:text-[11px] font-black text-slate-500 uppercase tracking-widest block mb-0.5 sm:mb-1 truncate">{name}</span>
                                     <span className="text-lg sm:text-2xl md:text-3xl font-black text-slate-900 leading-none flex items-baseline gap-0.5 sm:gap-1 truncate">
-                                      {Math.round(nut?.amount || 0)}
-                                      <span className="text-[10px] sm:text-xs md:text-sm font-bold opacity-50">{nut?.unit || 'g'}</span>
+                                      {typeof amount === 'string' ? parseFloat(amount) || amount : amount}
+                                      <span className="text-[10px] sm:text-xs md:text-sm font-bold opacity-50">{unit}</span>
                                     </span>
                                   </div>
                                 </motion.div>
@@ -838,10 +850,10 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                             return (
                               <>
-                                {getCard('Calories', <Flame />, 'text-orange-500', 'bg-orange-50')}
-                                {getCard('Protein', <Dumbbell />, 'text-emerald-500', 'bg-emerald-50')}
-                                {getCard('Carbohydrates', <Wheat />, 'text-amber-500', 'bg-amber-50')}
-                                {getCard('Fat', <Droplets />, 'text-blue-500', 'bg-blue-50')}
+                                {getCard('Calories', <Flame />, 'text-orange-500', 'bg-orange-50', recipe.calories)}
+                                {getCard('Protein', <Dumbbell />, 'text-emerald-500', 'bg-emerald-50', recipe.protein)}
+                                {getCard('Carbohydrates', <Wheat />, 'text-amber-500', 'bg-amber-50', recipe.carbs)}
+                                {getCard('Fat', <Droplets />, 'text-blue-500', 'bg-blue-50', recipe.fat)}
                               </>
                             );
                          })()}
