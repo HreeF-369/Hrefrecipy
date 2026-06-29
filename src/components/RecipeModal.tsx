@@ -812,23 +812,22 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
                          {(() => {
                             const nutrients = recipe.nutrition?.nutrients || [];
-                            const getCard = (name: string, icon: React.ReactNode, color: string, bgLight: string, fallbackValue?: string | number) => {
-                              const nut = nutrients.find(n => n.name === name) || nutrients.find(n => n.name.toLowerCase().includes(name.toLowerCase()));
+                            const getCard = (label: string, exactName: string, icon: React.ReactNode, color: string, bgLight: string, fallbackValue?: string | number) => {
+                              const nut = nutrients.find(n => n.name && n.name.toLowerCase() === exactName.toLowerCase());
                               
                               let amount: string | number = 0;
-                              let unit = 'g';
+                              let unit = exactName === 'Calories' ? 'kcal' : 'g';
                               
-                              if (nut) {
+                              if (nut && nut.amount !== undefined) {
                                 amount = Math.round(nut.amount);
-                                unit = nut.unit;
-                              } else {
-                                amount = fallbackValue || 0;
-                                if (name === 'Calories') unit = 'kcal';
+                                unit = nut.unit || unit;
+                              } else if (fallbackValue !== undefined && fallbackValue !== null) {
+                                amount = fallbackValue;
                               }
                               
                               return (
                                 <motion.div 
-                                  key={name}
+                                  key={label}
                                   whileHover={{ scale: 1.05 }}
                                   className={`${bgLight} flex flex-col justify-between p-4 sm:p-6 rounded-[20px] sm:rounded-3xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 min-w-0 h-28 sm:h-auto aspect-auto sm:aspect-square md:aspect-[4/5] gap-3`}
                                 >
@@ -838,7 +837,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                                     </div>
                                   </div>
                                   <div>
-                                    <span className="text-[9px] sm:text-[11px] font-black text-slate-500 uppercase tracking-widest block mb-0.5 sm:mb-1 truncate">{name}</span>
+                                    <span className="text-[9px] sm:text-[11px] font-black text-slate-500 uppercase tracking-widest block mb-0.5 sm:mb-1 truncate">{label}</span>
                                     <span className="text-lg sm:text-2xl md:text-3xl font-black text-slate-900 leading-none flex items-baseline gap-0.5 sm:gap-1 truncate">
                                       {typeof amount === 'string' ? parseFloat(amount) || amount : amount}
                                       <span className="text-[10px] sm:text-xs md:text-sm font-bold opacity-50">{unit}</span>
@@ -850,10 +849,10 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
 
                             return (
                               <>
-                                {getCard('Calories', <Flame />, 'text-orange-500', 'bg-orange-50', recipe.calories)}
-                                {getCard('Protein', <Dumbbell />, 'text-emerald-500', 'bg-emerald-50', recipe.protein)}
-                                {getCard('Carbohydrates', <Wheat />, 'text-amber-500', 'bg-amber-50', recipe.carbs)}
-                                {getCard('Fat', <Droplets />, 'text-blue-500', 'bg-blue-50', recipe.fat)}
+                                {getCard('Calories', 'Calories', <Flame />, 'text-orange-500', 'bg-orange-50', recipe.calories)}
+                                {getCard('Protein', 'Protein', <Dumbbell />, 'text-emerald-500', 'bg-emerald-50', recipe.protein)}
+                                {getCard('Carbohydrates', 'Carbohydrates', <Wheat />, 'text-amber-500', 'bg-amber-50', recipe.carbs)}
+                                {getCard('Fat', 'Fat', <Droplets />, 'text-blue-500', 'bg-blue-50', recipe.fat)}
                               </>
                             );
                          })()}
@@ -889,14 +888,34 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                             >
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-6 md:gap-y-12 pt-4 md:pt-0">
                                  {(() => {
-                                   const microsData = recipe.micros 
-                                     ? Object.entries(recipe.micros).map(([key, val]) => ({
-                                         name: key.replace(/([A-Z])/g, ' $1').trim(), // format camelCase
-                                         amount: val || 0,
+                                   const nutrients = recipe.nutrition?.nutrients || [];
+                                   const mainMacros = ['calories', 'protein', 'carbohydrates', 'fat', 'net carbohydrates', 'saturated fat', 'trans fat'];
+                                   
+                                   let microsData: { name: string; amount: number; unit: string; percentOfDailyNeeds: number }[] = [];
+                                   
+                                   if (nutrients.length > 0) {
+                                     const remaining = nutrients.filter(n => n.name && !mainMacros.includes(n.name.toLowerCase()));
+                                     if (remaining.length > 0) {
+                                       microsData = remaining.map(n => ({
+                                         name: n.name,
+                                         amount: Math.round(n.amount || 0),
+                                         unit: n.unit || '',
+                                         percentOfDailyNeeds: Math.min(100, Math.round(n.percentOfDailyNeeds || ((n.amount || 0) > 0 ? Math.min(100, Math.round(n.amount)) : 0)))
+                                       }));
+                                     }
+                                   }
+                                   
+                                   if (microsData.length === 0 && recipe.micros) {
+                                     microsData = Object.entries(recipe.micros).map(([key, val]) => {
+                                       const numVal = typeof val === 'number' ? val : (parseFloat(String(val)) || 0);
+                                       return {
+                                         name: key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase()).trim(),
+                                         amount: Math.round(numVal),
                                          unit: key.toLowerCase() === 'sodium' ? 'mg' : 'g',
-                                         percentOfDailyNeeds: Math.min(100, Math.round(((val || 0) / 100) * 100))
-                                       }))
-                                     : recipe.nutrition?.nutrients.slice(4) || [];
+                                         percentOfDailyNeeds: Math.min(100, Math.round((numVal / (key.toLowerCase() === 'sodium' ? 2300 : 50)) * 100)) || Math.min(100, Math.round(numVal))
+                                       };
+                                     });
+                                   }
                                    
                                    return microsData.map((nut, i) => (
                                      <div key={`${nut.name}-${i}`} className="space-y-2 md:space-y-4 group">
