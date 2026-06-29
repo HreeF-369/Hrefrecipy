@@ -9,84 +9,8 @@ dotenv.config();
 
 const app = express();
 const PORT = 3000;
-const SPOONACULAR_API_KEY = process.env.SPOONACULAR_API_KEY;
-const SPOONACULAR_BASE_URL = "https://api.spoonacular.com";
-
-if (!SPOONACULAR_API_KEY) {
-  console.warn("WARNING: SPOONACULAR_API_KEY is not set in environment variables.");
-}
 
 app.use(express.json());
-
-// Proxy routes for Spoonacular
-app.post("/api/spoon/find-by-ingredients", async (req, res) => {
-  if (!SPOONACULAR_API_KEY) {
-    return res.status(503).json({ error: "Spoonacular API key not configured" });
-  }
-  try {
-    const { ingredients, number = 10, ranking = 1 } = req.body;
-    const response = await axios.get(`${SPOONACULAR_BASE_URL}/recipes/findByIngredients`, {
-      params: {
-        apiKey: SPOONACULAR_API_KEY,
-        ingredients: ingredients.join(","),
-        number,
-        ranking,
-      },
-    });
-    res.json(response.data);
-  } catch (error: any) {
-    console.error("Error finding recipes by ingredients:", error.response?.data || error.message);
-    res.status(error.response?.status || 500).json({ 
-      error: "Failed to fetch recipes by ingredients",
-      details: error.response?.data || error.message
-    });
-  }
-});
-
-app.get("/api/spoon/recipe/:id", async (req, res) => {
-  if (!SPOONACULAR_API_KEY) {
-    return res.status(503).json({ error: "Spoonacular API key not configured" });
-  }
-  try {
-    const { id } = req.params;
-    const response = await axios.get(`${SPOONACULAR_BASE_URL}/recipes/${id}/information`, {
-      params: {
-        apiKey: SPOONACULAR_API_KEY,
-        includeNutrition: true,
-      },
-    });
-    res.json(response.data);
-  } catch (error: any) {
-    console.error(`Error fetching recipe ${req.params.id}:`, error.response?.data || error.message);
-    res.status(error.response?.status || 500).json({ 
-      error: "Failed to fetch recipe details",
-      details: error.response?.data || error.message
-    });
-  }
-});
-
-app.post("/api/spoon/find-by-nutrients", async (req, res) => {
-  if (!SPOONACULAR_API_KEY) {
-    return res.status(503).json({ error: "Spoonacular API key not configured" });
-  }
-  try {
-    const { minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, number = 10 } = req.body;
-    const response = await axios.get(`${SPOONACULAR_BASE_URL}/recipes/findByNutrients`, {
-      params: {
-        apiKey: SPOONACULAR_API_KEY,
-        minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories,
-        number,
-      },
-    });
-    res.json(response.data);
-  } catch (error: any) {
-    console.error("Error finding recipes by nutrients:", error.response?.data || error.message);
-    res.status(error.response?.status || 500).json({ 
-      error: "Failed to fetch recipes by nutrients",
-      details: error.response?.data || error.message
-    });
-  }
-});
 
 // OAuth routes for Google Tasks
 app.get('/api/auth/url', (req, res) => {
@@ -202,34 +126,6 @@ app.post("/api/generic_reminders/create", async (req, res) => {
   } catch (error: any) {
     console.error('Error creating Google Task:', error.response?.data || error.message);
     res.status(error.response?.status || 500).json({ error: 'Failed to create task in Google Tasks' });
-  }
-});
-
-// Search recipes by query (additional helpful endpoint)
-app.get("/api/spoon/search", async (req, res) => {
-  if (!SPOONACULAR_API_KEY) {
-    return res.status(503).json({ error: "Spoonacular API key not configured" });
-  }
-  try {
-    const { query, diet, intolerances, type, number = 10 } = req.query;
-    const response = await axios.get(`${SPOONACULAR_BASE_URL}/recipes/complexSearch`, {
-      params: {
-        apiKey: SPOONACULAR_API_KEY,
-        query,
-        diet,
-        intolerances,
-        type,
-        number,
-        addRecipeInformation: true,
-      },
-    });
-    res.json(response.data);
-  } catch (error: any) {
-    console.error("Error searching recipes:", error.response?.data || error.message);
-    res.status(error.response?.status || 500).json({ 
-      error: "Failed to search recipes",
-      details: error.response?.data || error.message
-    });
   }
 });
 
