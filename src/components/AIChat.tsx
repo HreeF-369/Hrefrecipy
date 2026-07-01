@@ -152,29 +152,87 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
 
     const userMessage = input.trim();
     setInput("");
-    setMessages(prev => [...prev, { role: "user", content: userMessage }]);
+    
+    // Add user message to state
+    const newMessages: Message[] = [...messages, { role: "user", content: userMessage }];
+    setMessages(newMessages);
     setIsLoading(true);
 
-    // Simulate Chef processing with internal safety
-    setTimeout(() => {
-      try {
-        const response = findSmartResponse(userMessage);
-        setMessages(prev => [...prev, { 
-          role: "bot", 
-          content: response.content || "I'm processing that request. Could you try rephrasing? I want to make sure I get the chef-quality recommendation right!",
-          suggestedRecipes: response.suggestedRecipes,
-          isRecipeSuggestion: !!response.suggestedRecipes 
-        }]);
-      } catch (error) {
-        console.error("AIChat Error:", error);
-        setMessages(prev => [...prev, { 
-          role: "bot", 
-          content: "I apologize, but my culinary database is experiencing a minor hiccup. Let me try that again, or feel free to ask about one of our main collections like **fitness meals** or **breakfast**!" 
-        }]);
-      } finally {
-        setIsLoading(false);
+    try {
+      // Prepare history to send (excluding the initial greeting or suggestions, or include them)
+      const historyToSend = newMessages.map(m => ({ role: m.role, content: m.content }));
+      
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: userMessage,
+          history: historyToSend.slice(0, -1) // all but the latest user message
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('API response was not ok');
       }
-    }, 700);
+
+      const data = await response.json();
+      let responseContent = data.content;
+
+      // Extract recipes using regex
+      const recipeRegex = /\[RECIPE_ID:\s*(.*?)\]/g;
+      const suggestedRecipeIds: string[] = [];
+      let match;
+      while ((match = recipeRegex.exec(responseContent)) !== null) {
+        suggestedRecipeIds.push(match[1].trim());
+      }
+
+      // Clean up the response to remove the raw tags
+      responseContent = responseContent.replace(/\[RECIPE_ID:\s*(.*?)\]/g, '').trim();
+
+      // Find actual recipe objects
+      let suggestedRecipes: any[] | undefined = undefined;
+      if (suggestedRecipeIds.length > 0) {
+        suggestedRecipes = suggestedRecipeIds
+          .map(id => searchDataSource.find(r => r.id === id))
+          .filter(Boolean);
+        
+        if (suggestedRecipes.length === 0) {
+           suggestedRecipes = undefined;
+        }
+      }
+
+      setMessages(prev => [...prev, { 
+        role: "bot", 
+        content: responseContent,
+        suggestedRecipes: suggestedRecipes,
+        isRecipeSuggestion: !!suggestedRecipes 
+      }]);
+
+    } catch (error) {
+      console.error("AIChat API Error:", error);
+      
+      // Fallback to local logic if server/API fails
+      setTimeout(() => {
+        try {
+          const fallbackResponse = findSmartResponse(userMessage);
+          setMessages(prev => [...prev, { 
+            role: "bot", 
+            content: fallbackResponse.content,
+            suggestedRecipes: fallbackResponse.suggestedRecipes,
+            isRecipeSuggestion: !!fallbackResponse.suggestedRecipes 
+          }]);
+        } catch (err) {
+          setMessages(prev => [...prev, { 
+            role: "bot", 
+            content: "I apologize, but my culinary database is experiencing a minor hiccup. Let me try that again, or feel free to ask about one of our main collections like **fitness meals** or **breakfast**!" 
+          }]);
+        }
+      }, 500);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

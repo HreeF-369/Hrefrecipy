@@ -4,6 +4,7 @@ import path from "path";
 import axios from "axios";
 import dotenv from "dotenv";
 import { RECIPES_DATA } from "./src/services/recipesData";
+import { GoogleGenAI } from "@google/genai";
 
 dotenv.config();
 
@@ -11,6 +12,58 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+
+// Initialize Gemini
+const ai = process.env.GEMINI_API_KEY ? new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }) : null;
+
+// Chat API Route
+app.post("/api/chat", async (req, res) => {
+  if (!ai) {
+    return res.status(500).json({ error: "Gemini API key is not configured" });
+  }
+
+  try {
+    const { message, history = [] } = req.body;
+    
+    // Create a summarized version of recipes to pass as context
+    const recipeContext = RECIPES_DATA.map(r => 
+      `ID: ${r.id} | Title: ${r.title} | Category: ${r.category} | Calories: ${r.calories} | Desc: ${r.description}`
+    ).join("\n");
+
+    const systemPrompt = `You are Chef DishFit, a professional, helpful, and friendly AI kitchen assistant for the DishFit app.
+Your goal is to help users find healthy, low-calorie (under 500 kcal) recipes from the DishFit database.
+Be conversational, enthusiastic, and provide excellent culinary advice.
+When suggesting recipes, MUST include their exact ID so the system can link them. Format suggested recipe IDs as [RECIPE_ID: id-here].
+
+Here is the full DishFit Recipe Database:
+${recipeContext}
+
+Answer the user's query based ONLY on these recipes. If they ask for something not in the database, politely offer the closest alternative or suggest they try a different healthy category.`;
+
+    // Convert history format if needed
+    const contents = [];
+    if (history.length > 0) {
+       for (const msg of history) {
+          contents.push({ role: msg.role === 'user' ? 'user' : 'model', parts: [{ text: msg.content }] });
+       }
+    }
+    contents.push({ role: 'user', parts: [{ text: message }] });
+
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: contents,
+      config: {
+        systemInstruction: systemPrompt,
+        temperature: 0.7,
+      }
+    });
+
+    res.json({ content: response.text });
+  } catch (error: any) {
+    console.error("Gemini API Error:", error);
+    res.status(500).json({ error: "Failed to process chat message" });
+  }
+});
 
 // OAuth routes for Google Tasks
 app.get('/api/auth/url', (req, res) => {
