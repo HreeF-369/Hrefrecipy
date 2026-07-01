@@ -42,7 +42,7 @@ export default function Planner() {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   
   React.useEffect(() => {
-    document.title = "Weekly Meal Planner | Hreefrecipy";
+    document.title = "Weekly Meal Planner | DishFit";
   }, []);
 
   const formatDateRange = () => {

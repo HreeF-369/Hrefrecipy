@@ -31,7 +31,7 @@ export default function GroceryList() {
   const [collapsedCats, setCollapsedCats] = useState<string[]>([]);
 
   React.useEffect(() => {
-    document.title = "Grocery List | Hreefrecipy";
+    document.title = "Grocery List | DishFit";
   }, []);
 
   const dynamicCategories = useMemo(() => {
@@ -62,7 +62,7 @@ export default function GroceryList() {
       .filter(i => !i.checked)
       .map(i => `• ${i.name} (${i.amount}) - [${i.category}]`)
       .join("\n");
-    const text = encodeURIComponent(`🛒 My Grocery List from Hreefrecipy:\n\n${listText}`);
+    const text = encodeURIComponent(`🛒 My Grocery List from DishFit:\n\n${listText}`);
     window.open(`https://wa.me/?text=${text}`, "_blank");
   };
 
@@ -134,7 +134,7 @@ export default function GroceryList() {
 
       {/* Print Only Header */}
       <div className="hidden print:block text-center mb-10">
-        <h1 className="text-3xl font-bold">Hreefrecipy Shopping List</h1>
+        <h1 className="text-3xl font-bold">DishFit Shopping List</h1>
         <p className="text-gray-500">{new Date().toLocaleDateString()}</p>
       </div>
 

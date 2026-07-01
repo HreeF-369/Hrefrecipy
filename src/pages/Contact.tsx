@@ -77,8 +77,8 @@ export default function Contact() {
           </div>
           <h3 className="font-bold text-lg mb-2 text-brand-ink">Email Us</h3>
           <p className="text-sm text-slate-500 mb-4">For general inquiries and support.</p>
-          <a href="mailto:support@hreefrecipy.com" className="text-brand-green font-bold hover:underline">
-            support@hreefrecipy.com
+          <a href="mailto:support@dishfit.net" className="text-brand-green font-bold hover:underline">
+            support@dishfit.net
           </a>
         </div>
 
@@ -88,7 +88,7 @@ export default function Contact() {
           </div>
           <h3 className="font-bold text-lg mb-2 text-brand-ink">Feedback</h3>
           <p className="text-sm text-slate-500 mb-4">Have a recipe suggestion?</p>
-          <a href="mailto:feedback@hreefrecipy.com" className="text-brand-orange font-bold hover:underline">
+          <a href="mailto:feedback@dishfit.net" className="text-brand-orange font-bold hover:underline">
              Share Feedback
           </a>
         </div>

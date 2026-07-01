@@ -20,7 +20,7 @@ interface AIChatProps {
 }
 
 const CHEF_GREETINGS = [
-  "Buongiorno! I am Chef Hreef. Ready to create a masterpiece?",
+  "Buongiorno! I am Chef DishFit. Ready to create a masterpiece?",
   "Greetings! Your kitchen assistant is at your service. What's on the menu today?",
   "Hello! I've been reviewing our recipes. Looking for something specific or shall I surprise you?",
   "Welcome to the digital kitchen! I can help you find the perfect meal for any craving."
@@ -54,7 +54,7 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     
     // 1. Basic Personality / Identity & Conversation
     if (q.includes("who are you") || q.includes("your name")) {
-      return { content: "I am the **Hreef Smart Assistant**, but most people call me **Chef Hreef**. I'm here to help you navigate our local recipe database and find the perfect meal for your goals!" };
+      return { content: "I am the **DishFit Smart Assistant**, but most people call me **Chef DishFit**. I'm here to help you navigate our local recipe database and find the perfect meal for your goals!" };
     }
 
     const greetings = ["hello", "hi", "hey", "heey", "good morning", "good afternoon", "good evening", "what's up", "whats up"];

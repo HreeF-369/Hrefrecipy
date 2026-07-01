@@ -108,10 +108,10 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       <header className="fixed top-0 left-0 right-0 z-[60] flex items-center justify-between bg-white/80 border-b border-slate-100 p-4 backdrop-blur-xl lg:hidden print:hidden">
         <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-green text-white font-black text-lg">
-            H
+            D
           </div>
           <span className="font-display text-sm font-bold tracking-tight text-slate-900 uppercase">
-            HREEF RECIPES
+            DISHFIT
           </span>
         </Link>
         <button 
@@ -176,10 +176,10 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
       <nav className="sticky top-0 hidden h-screen w-[260px] flex-col border-r border-slate-100 bg-white p-6 lg:flex shrink-0 print:hidden">
         <Link to="/" onClick={handleLogoClick} className="mb-12 flex items-center gap-4 hover:opacity-95 transition-opacity">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green text-white font-black text-2xl shadow-lg shadow-brand-green/20">
-            H
+            D
           </div>
           <span className="font-display text-xl font-bold tracking-tight text-slate-900 uppercase">
-            HREEF RECIPES
+            DISHFIT
           </span>
         </Link>
 
@@ -300,9 +300,9 @@ export default function App() {
                     <div className="space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
                       <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green text-white font-bold text-xl shadow-lg shadow-brand-green/20">
-                          H
+                          D
                         </div>
-                        <span className="font-display text-xl font-bold tracking-tight text-brand-ink">Hreef Recipes</span>
+                        <span className="font-display text-xl font-bold tracking-tight text-brand-ink">DishFit</span>
                       </Link>
                       <p className="text-sm text-slate-500 leading-relaxed font-semibold max-w-xs mx-auto sm:mx-0">
                         Managed by the AIT OUALHYANE family. Fuel your body, master your health. Personalised nutrition and delicious, healthy recipes for every lifestyle.
@@ -344,11 +344,11 @@ export default function App() {
                   
                   <div className="mt-16 border-t border-slate-50 pt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div className="text-xs font-black text-slate-400 uppercase tracking-widest">
-                      © 2026 Hreef Recipes. All rights reserved.
+                      © 2026 DishFit. All rights reserved.
                     </div>
                     <div className="flex gap-4 md:gap-5 justify-center items-center">
                       <a 
-                        href="https://fr.pinterest.com/Hreef_8/" 
+                        href="https://fr.pinterest.com/DishFit_8/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex h-11 w-11 items-center justify-center rounded-full text-white bg-[#E60023] shadow-md shadow-red-200 transition-all duration-300 hover:scale-110 hover:bg-[#ad081b] cursor-pointer"
@@ -375,7 +375,7 @@ export default function App() {
                         <Instagram size={20} />
                       </a>
                       <a 
-                        href={`https://wa.me/?text=${encodeURIComponent("Check out Hreefrecipy for amazing healthy recipes!")}`}
+                        href={`https://wa.me/?text=${encodeURIComponent("Check out DishFit for amazing healthy recipes!")}`}
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex h-11 w-11 items-center justify-center rounded-full text-white bg-[#25D366] shadow-md shadow-green-200 transition-all duration-300 hover:scale-110 hover:bg-[#128C7E] cursor-pointer"

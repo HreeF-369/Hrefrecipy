@@ -14,7 +14,7 @@ export default function About() {
         <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-green text-white font-bold text-2xl md:text-3xl lg:text-4xl shadow-lg shadow-brand-green/20">
           H
         </div>
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl">About Hreef Recipy</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl">About DishFit</h1>
         <p className="mt-4 text-lg text-slate-500 max-w-2xl font-medium">
           Your premier destination for high-performance nutrition and culinary excellence.
         </p>
@@ -24,10 +24,10 @@ export default function About() {
         <section>
           <h2 className="text-2xl font-bold text-brand-ink mb-4 border-b pb-2 border-slate-100 flex items-center gap-2">
             <Sparkles className="text-brand-green" size={24} />
-            The Hreef Legacy
+            The DishFit Legacy
           </h2>
           <p>
-            Hreef Recipes is a passionate culinary project managed by the <strong>AIT OUALHYANE</strong> family. Our heritage is rooted in the belief that modern, healthy cooking should be accessible to everyone without sacrificing the professional quality found in the world's best kitchens.
+            DishFit is a passionate culinary project managed by the <strong>AIT OUALHYANE</strong> family. Our heritage is rooted in the belief that modern, healthy cooking should be accessible to everyone without sacrificing the professional quality found in the world's best kitchens.
           </p>
           <p className="mt-4">
             Our mission is to provide high-quality culinary inspiration that combines traditional wisdom with modern nutritional science. Whether you are a professional athlete or a home cook looking to improve your lifestyle, our hand-picked collection is designed to help you succeed.
@@ -35,7 +35,7 @@ export default function About() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-brand-ink mb-4 border-b pb-2 border-slate-100">The Hreef Standard</h2>
+          <h2 className="text-2xl font-bold text-brand-ink mb-4 border-b pb-2 border-slate-100">The DishFit Standard</h2>
           <p>
             Every recipe on our platform undergoes a rigorous selection process. We focus on nutrient density, preparation efficiency, and, above all, exceptional flavor. Our "Professional Chef" approach means we don't just give you measurements; we give you the confidence to master your kitchen.
           </p>

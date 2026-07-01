@@ -16,7 +16,7 @@ const faqs = [
     answer: "Our nutritional information is estimated based on standard ingredients and serving portions. It serves as a helpful guide for your dietary goals, but if you have strict medical dietary requirements, we recommend calculating the exact macros using your specific brand of ingredients."
   },
   {
-    question: "Can I use Hreefrecipy on my phone?",
+    question: "Can I use DishFit on my phone?",
     answer: "Yes! Our platform is fully responsive. You can view your recipes, check off items on your grocery list, and manage your planner seamlessly on any mobile device."
   }
 ];

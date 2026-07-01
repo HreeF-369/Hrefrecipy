@@ -110,7 +110,7 @@ export default function RecipeDetail() {
           const result = await getRecipeById(id);
           if (result) {
             setRecipe(result);
-            document.title = `${result.title} | Hreefrecipy`;
+            document.title = `${result.title} | DishFit`;
           }
         }
       } catch (error) {
@@ -142,8 +142,8 @@ export default function RecipeDetail() {
   const handleShare = async () => {
     const url = window.location.href;
     const shareData = {
-      title: `Hreef Recipes: ${recipe?.title}`,
-      text: `Check out this ${recipe?.title} - High Protein Fitness Meal on Hreef Recipes!`,
+      title: `DishFit: ${recipe?.title}`,
+      text: `Check out this ${recipe?.title} - High Protein Fitness Meal on DishFit!`,
       url: url,
     };
 
@@ -237,7 +237,7 @@ export default function RecipeDetail() {
       className="relative pb-32 lg:pb-10"
     >
       <Helmet>
-        <title>{recipe.title} Recipe | Hreefrecipy</title>
+        <title>{recipe.title} Recipe | DishFit</title>
         <meta name="description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
         <meta name="keywords" content={`${recipe.title.toLowerCase()} recipe, high protein ${recipe.title.toLowerCase()}, healthy meals under 30 minutes, healthy ${recipe.title.toLowerCase()} under 500 calories`} />
       </Helmet>

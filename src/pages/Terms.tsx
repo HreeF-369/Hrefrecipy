@@ -15,7 +15,7 @@ export default function Terms() {
          
          <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">1. Acceptance of Terms</h2>
-          <p>By accessing and using Hreef Recipy, you accept and agree to be bound by the terms and provision of this agreement. Use of our services constitutes acceptance of these terms in full.</p>
+          <p>By accessing and using DishFit, you accept and agree to be bound by the terms and provision of this agreement. Use of our services constitutes acceptance of these terms in full.</p>
          </section>
 
          <section>
@@ -25,22 +25,22 @@ export default function Terms() {
 
          <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">3. User Conduct</h2>
-          <p>Users agree to use Hreef Recipy only for lawful purposes. You are prohibited from posting or transmitting any material that is defamatory, offensive, or otherwise violates the rights of others.</p>
+          <p>Users agree to use DishFit only for lawful purposes. You are prohibited from posting or transmitting any material that is defamatory, offensive, or otherwise violates the rights of others.</p>
          </section>
 
          <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">4. Disclaimer of Warranties</h2>
-          <p>The recipes and nutritional information are provided for informational purposes only. Hreef Recipy does not warrant the accuracy or completeness of this information. Users should consult with health professionals before starting any new diet.</p>
+          <p>The recipes and nutritional information are provided for informational purposes only. DishFit does not warrant the accuracy or completeness of this information. Users should consult with health professionals before starting any new diet.</p>
          </section>
 
          <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">5. Limitation of Liability</h2>
-          <p>Hreef Recipy shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or for the cost of procurement of substitute goods and services.</p>
+          <p>DishFit shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or for the cost of procurement of substitute goods and services.</p>
          </section>
 
          <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">6. Governing Law</h2>
-          <p>These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which Hreef Recipy operates, and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
+          <p>These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which DishFit operates, and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
          </section>
       </div>
     </motion.div>

@@ -105,7 +105,7 @@ export default function Recipes() {
   ];
 
   useEffect(() => {
-    document.title = "Browse Recipes | Hreefrecipy";
+    document.title = "Browse Recipes | DishFit";
   }, []);
 
   const handleOpenRecipe = (recipe: Recipe) => {
@@ -121,7 +121,7 @@ export default function Recipes() {
       className="space-y-8 pb-12"
     >
       <Helmet>
-        <title>{activeTab === "ALL RECIPES" ? "High Protein Healthy Recipes & Meal Planner" : `${activeTab.charAt(0) + activeTab.slice(1).toLowerCase()} | High Protein Healthy Recipes`} | Hreefrecipy</title>
+        <title>{activeTab === "ALL RECIPES" ? "High Protein Healthy Recipes & Meal Planner" : `${activeTab.charAt(0) + activeTab.slice(1).toLowerCase()} | High Protein Healthy Recipes`} | DishFit</title>
         <meta name="description" content={`Find the best ${activeTab.toLowerCase()} for weight loss, muscle gain, and healthy living. High protein meals developed by chefs.`} />
         <meta name="keywords" content={`high protein ${activeTab.toLowerCase()} recipes, ${activeTab.toLowerCase()} meal prep, healthy ${activeTab.toLowerCase()} ideas, fitness meals`} />
       </Helmet>

@@ -314,8 +314,8 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
     e.stopPropagation();
     const url = `${window.location.origin}/recipe/${recipe.id}`;
     const shareData = {
-      title: `Hreef Recipes: ${recipe.title}`,
-      text: `Check out this ${recipe.title} - High Protein Fitness Meal on Hreef Recipes!`,
+      title: `DishFit: ${recipe.title}`,
+      text: `Check out this ${recipe.title} - High Protein Fitness Meal on DishFit!`,
       url: url,
     };
 

@@ -16,21 +16,21 @@ export default function Privacy() {
         <section>
           <h2 className="text-2xl font-bold text-brand-ink">1. Information Collection and Use</h2>
           <p>
-            At Hreef Recipy, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Hreef Recipy and how we use it.
+            At DishFit, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by DishFit and how we use it.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">2. Log Files</h2>
           <p>
-            Hreef Recipy follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
+            DishFit follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">3. Cookies and Web Beacons</h2>
           <p>
-            Like any other website, Hreef Recipy uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
+            Like any other website, DishFit uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
           </p>
         </section>
 
@@ -57,28 +57,28 @@ export default function Privacy() {
         <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">6. Privacy Policies</h2>
           <p>
-            You may consult this list to find the Privacy Policy for each of the advertising partners of Hreef Recipy. Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Hreef Recipy, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
+            You may consult this list to find the Privacy Policy for each of the advertising partners of DishFit. Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on DishFit, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">7. Third Party Privacy Policies</h2>
           <p>
-            Hreef Recipy's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
+            DishFit's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">8. Children's Information</h2>
           <p>
-            Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. Hreef Recipy does not knowingly collect any Personal Identifiable Information from children under the age of 13.
+            Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. DishFit does not knowingly collect any Personal Identifiable Information from children under the age of 13.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">9. Online Privacy Policy Only</h2>
           <p>
-            This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Hreef Recipy. This policy is not applicable to any information collected offline or via channels other than this website.
+            This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in DishFit. This policy is not applicable to any information collected offline or via channels other than this website.
           </p>
         </section>
       </div>

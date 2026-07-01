@@ -16,7 +16,7 @@ export default function Disclaimer() {
          
          <section>
           <h2 className="text-2xl font-bold text-brand-ink mt-8">1. General Information</h2>
-          <p>The information provided by Hreef Recipes ("we," "us," or "our") on our website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p>
+          <p>The information provided by DishFit ("we," "us," or "our") on our website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p>
          </section>
 
          <section>

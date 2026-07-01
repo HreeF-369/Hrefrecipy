@@ -24,7 +24,7 @@ export default function Favorites() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    document.title = "My Favorites | Hreefrecipy";
+    document.title = "My Favorites | DishFit";
   }, []);
 
   useEffect(() => {

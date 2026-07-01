@@ -100,7 +100,7 @@ export default function Home() {
   }, [catQuery]);
 
   useEffect(() => {
-    document.title = "Hreefrecipy - Premium World-Class Recipes";
+    document.title = "DishFit - Premium World-Class Recipes";
   }, []);
 
   useEffect(() => {

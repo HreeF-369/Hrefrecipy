@@ -45,7 +45,7 @@ export default function CookMode() {
           const result = await getRecipeById(id);
           if (result) {
             setRecipe(result);
-            document.title = `Cooking: ${result.title} | Hreefrecipy`;
+            document.title = `Cooking: ${result.title} | DishFit`;
           } else {
             console.error(`Recipe with ID ${id} not found.`);
             setRecipe(null);

@@ -16,7 +16,7 @@ export default function BlogPost() {
     const url = window.location.href;
     const shareData = {
       title: post.title,
-      text: `Read this article on Hreef Recipes: ${post.title}`,
+      text: `Read this article on DishFit: ${post.title}`,
       url: url,
     };
 

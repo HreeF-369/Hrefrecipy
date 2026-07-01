@@ -14,7 +14,7 @@ export default function Blog() {
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-brand-green/10 px-4 py-2 text-brand-green mb-6">
           <BookOpen size={16} />
-          <span className="text-xs font-black uppercase tracking-widest">Hreef Editorial</span>
+          <span className="text-xs font-black uppercase tracking-widest">DishFit Editorial</span>
         </div>
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-brand-ink sm:text-4xl md:text-5xl lg:text-6xl mb-6">Culinary Journal</h1>
         <p className="text-lg text-slate-500 max-w-2xl mx-auto">

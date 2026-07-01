@@ -36,14 +36,14 @@ const DataPreference = () => {
       groceryItems,
       preferences,
       exportDate: new Date().toISOString(),
-      app: "Hreefrecipy"
+      app: "DishFit"
     };
     
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `hreefrecipy-data-export-${new Date().toISOString().split('T')[0]}.json`;
+    link.download = `dishfit-data-export-${new Date().toISOString().split('T')[0]}.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -108,7 +108,7 @@ const DataPreference = () => {
             </h2>
             <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
               <p>
-                At Hreefrecipy, we believe your data belongs to you. We use Google OAuth only to provide features 
+                At DishFit, we believe your data belongs to you. We use Google OAuth only to provide features 
                 like syncing your meal plan to Google Calendar or adding ingredients to Google Tasks.
               </p>
               <p>
