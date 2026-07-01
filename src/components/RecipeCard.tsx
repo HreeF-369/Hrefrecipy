@@ -40,6 +40,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
           <img
             src={recipe.image}
             alt={`Healthy ${recipe.title} recipe meal prep`}
+            loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
           

@@ -185,7 +185,13 @@ export default function Home() {
       <section className="relative -mx-4 -mt-6 mb-10 overflow-hidden md:-mx-8 md:-mt-8 lg:-mx-12 lg:-mt-12">
         <div className="relative h-[400px] w-full md:h-[500px] lg:h-[600px]">
           <img 
-            src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=2000" 
+            src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=1200" 
+            srcSet="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=640 640w,
+                    https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=1200 1200w,
+                    https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=2000 2000w"
+            sizes="(max-width: 640px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            fetchPriority="high"
+            loading="eager"
             className="h-full w-full object-cover"
             alt="Hero Background"
           />

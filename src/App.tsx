@@ -117,6 +117,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="p-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+          aria-label={isMobileMenuOpen ? "Close main navigation menu" : "Open main navigation menu"}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -228,6 +229,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
           <NavLink
             key={item.path}
             to={item.path}
+            aria-label={item.name}
             className={({ isActive }) =>
               cn(
                 "flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-300",
@@ -236,6 +238,7 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
             }
           >
             <item.icon size={20} />
+            <span className="sr-only">{item.name}</span>
           </NavLink>
         ))}
       </nav>
@@ -395,6 +398,7 @@ export default function App() {
         <button
           onClick={() => setIsAIChatOpen(true)}
           className="fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-brand-green text-white shadow-xl shadow-brand-green/30 transition-transform hover:scale-105 active:scale-95 lg:bottom-10 lg:right-10 no-print"
+          aria-label="Open AI Chef Assistant Chat"
         >
           <MessageSquare size={24} />
         </button>

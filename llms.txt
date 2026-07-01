@@ -1,0 +1,22 @@
+# DishFit - Healthy & Low-Calorie Recipes
+
+Discover delicious, fitness-oriented meals under 500 calories. DishFit offers easy, high-protein, and low-calorie recipes to support your health and weight loss goals.
+
+## Core Pages
+- [Home](https://dishfit.net/) - Discover hand-picked fitness meals, nutrition plans, and popular recipe categories.
+- [Recipes Search](https://dishfit.net/recipes) - Search, filter, and explore healthy, low-calorie, and high-protein recipes.
+- [Meal Planner](https://dishfit.net/planner) - Create and customize weekly healthy meal preps and fitness menus.
+- [Grocery List](https://dishfit.net/grocery) - Automatically aggregate ingredients and manage shopping checklists.
+- [Saved Favorites](https://dishfit.net/favorites) - Access your stored and curated collection of favorite recipes.
+- [Fitness Blog](https://dishfit.net/blog) - Read expert nutrition advice, chef cooking tips, and fitness meal plan guides.
+
+## Helpful Resources
+- [About Us](https://dishfit.net/about) - Learn about the story, standards, and culinary team behind DishFit.
+- [Help & FAQ](https://dishfit.net/help) - Guides, FAQs, and tips on using our meal tracker and recipe finder.
+- [Contact Support](https://dishfit.net/contact) - Get in touch with our team for questions, suggestions, or feedback.
+
+## Legal & Preferences
+- [Privacy Policy](https://dishfit.net/privacy) - Information on how we collect, store, and protect user data.
+- [Terms & Conditions](https://dishfit.net/terms) - Standard terms for using DishFit's recipes and tools.
+- [Disclaimer](https://dishfit.net/disclaimer) - General health, diet, and nutritional information disclaimer.
+- [Data Preferences](https://dishfit.net/data-preference) - Export or erase personal cookies and nutritional data history.
