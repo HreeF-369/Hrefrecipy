@@ -349,7 +349,7 @@ export default function App() {
                     </div>
                     <div className="flex gap-4 md:gap-5 justify-center items-center">
                       <a 
-                        href="https://fr.pinterest.com/DishFit_8/" 
+                        href="https://www.pinterest.com/aalhyane72/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex h-11 w-11 items-center justify-center rounded-full text-white bg-[#E60023] shadow-md shadow-red-200 transition-all duration-300 hover:scale-110 hover:bg-[#ad081b] cursor-pointer"
