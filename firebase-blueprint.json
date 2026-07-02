@@ -1,0 +1,52 @@
+{
+  "collections": [
+    {
+      "name": "comments",
+      "path": "comments/{commentId}",
+      "description": "Comments left on recipes or blog posts.",
+      "securityRules": {
+        "read": "true",
+        "create": "true",
+        "update": "request.auth != null && request.auth.uid == resource.data.userId",
+        "delete": "request.auth != null && request.auth.uid == resource.data.userId"
+      },
+      "fields": [
+        {
+          "name": "recipeId",
+          "type": "string",
+          "description": "The ID of the recipe this comment belongs to"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": "The comment body"
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "description": "The display name of the user"
+        },
+        {
+          "name": "userId",
+          "type": "string",
+          "description": "The auth uid of the user if logged in, or 'guest' if not"
+        },
+        {
+          "name": "avatar",
+          "type": "string",
+          "description": "The avatar URL of the user"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "description": "The formatted date string of the comment"
+        },
+        {
+          "name": "createdAt",
+          "type": "timestamp",
+          "description": "Server timestamp of comment creation"
+        }
+      ]
+    }
+  ]
+}

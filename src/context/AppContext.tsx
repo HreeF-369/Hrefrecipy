@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Recipe, Comment } from "../types";
+import { collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy, serverTimestamp, setDoc } from "firebase/firestore";
+import { db } from "../lib/firebase";
 
 interface GroceryItem {
   id: string;
@@ -69,7 +71,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     loadFromStorage("hreefrecipy_favorites", setFavorites);
     loadFromStorage("hreefrecipy_plan", setPlan);
     loadFromStorage("hreefrecipy_grocery", setGroceryItems);
-    loadFromStorage("hreefrecipy_comments", setComments);
     loadFromStorage("hreefrecipy_preferences", setPreferences);
   }, []);
 
@@ -99,19 +100,43 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem("hreefrecipy_comments", JSON.stringify(comments));
-    } catch (e) {
-      console.warn("Failed to save comments to localStorage", e);
-    }
-  }, [comments]);
-
-  useEffect(() => {
-    try {
       localStorage.setItem("hreefrecipy_preferences", JSON.stringify(preferences));
     } catch (e) {
       console.warn("Failed to save preferences to localStorage", e);
     }
   }, [preferences]);
+
+  // Real-time Firestore Comments
+  useEffect(() => {
+    const q = query(collection(db, "comments"), orderBy("createdAt", "desc"));
+    
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const commentsByRecipe: Record<string | number, Comment[]> = {};
+      
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const recipeId = data.recipeId;
+        
+        if (!commentsByRecipe[recipeId]) {
+          commentsByRecipe[recipeId] = [];
+        }
+        
+        commentsByRecipe[recipeId].push({
+          id: doc.id,
+          user: data.user,
+          text: data.text,
+          date: data.date,
+          avatar: data.avatar
+        });
+      });
+      
+      setComments(commentsByRecipe);
+    }, (error) => {
+      console.error("Error fetching comments from Firestore: ", error);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const updatePreferences = (newPrefs: Partial<UserPreferences>) => {
     setPreferences(prev => ({ ...prev, ...newPrefs }));
@@ -121,34 +146,51 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setPlan({});
     setFavorites([]);
     setGroceryItems([]);
-    setComments({});
     setPreferences({
       googleSync: false,
       marketingEmails: false,
       darkMode: false
     });
-    localStorage.clear();
+    localStorage.removeItem("hreefrecipy_plan");
+    localStorage.removeItem("hreefrecipy_favorites");
+    localStorage.removeItem("hreefrecipy_grocery");
+    localStorage.removeItem("hreefrecipy_preferences");
   };
 
-  const addComment = (recipeId: string | number, text: string, user: string) => {
-    const newComment: Comment = {
-      id: Date.now().toString(),
-      user,
+  const addComment = async (recipeId: string | number, text: string, user: string) => {
+    const commentData = {
+      recipeId: String(recipeId),
       text,
+      user,
+      userId: "guest",
+      avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${user}`,
       date: new Date().toLocaleDateString(),
-      avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${user}`
+      createdAt: serverTimestamp()
     };
-    setComments(prev => ({
-      ...prev,
-      [recipeId]: [newComment, ...(prev[recipeId] || [])]
-    }));
+    try {
+      await addDoc(collection(db, "comments"), commentData);
+    } catch (e) {
+      console.error("Error adding comment to Firestore: ", e);
+      // Fallback for UI responsiveness in case of error
+      const fallbackId = Date.now().toString();
+      setComments(prev => ({
+        ...prev,
+        [recipeId]: [{ id: fallbackId, ...commentData, createdAt: new Date() } as any, ...(prev[recipeId] || [])]
+      }));
+    }
   };
 
-  const deleteComment = (recipeId: string | number, commentId: string) => {
-    setComments(prev => ({
-      ...prev,
-      [recipeId]: (prev[recipeId] || []).filter(c => c.id !== commentId)
-    }));
+  const deleteComment = async (recipeId: string | number, commentId: string) => {
+    try {
+      await deleteDoc(doc(db, "comments", commentId));
+    } catch (e) {
+      console.error("Error deleting comment from Firestore: ", e);
+      // Fallback
+      setComments(prev => ({
+        ...prev,
+        [recipeId]: (prev[recipeId] || []).filter(c => c.id !== commentId)
+      }));
+    }
   };
 
   const toggleFavorite = (recipeId: string | number) => {
