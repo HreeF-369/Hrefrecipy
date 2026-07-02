@@ -240,6 +240,48 @@ export default function RecipeDetail() {
         <title>{recipe.title} Recipe | DishFit</title>
         <meta name="description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
         <meta name="keywords" content={`${recipe.title.toLowerCase()} recipe, high protein ${recipe.title.toLowerCase()}, healthy meals under 30 minutes, healthy ${recipe.title.toLowerCase()} under 500 calories`} />
+        
+        {/* Open Graph / Pinterest Rich Pin Meta Tags */}
+        <meta property="og:title" content={`${recipe.title} Recipe | DishFit`} />
+        <meta property="og:description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
+        <meta property="og:image" content={recipe.image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://dishfit.net/recipe/${recipe.id}`} />
+        <meta property="og:site_name" content="DishFit" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${recipe.title} Recipe | DishFit`} />
+        <meta name="twitter:description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
+        <meta name="twitter:image" content={recipe.image} />
+
+        {/* Structured Data / JSON-LD for Recipe Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Recipe",
+            "name": recipe.title,
+            "image": [recipe.image],
+            "author": {
+              "@type": "Organization",
+              "name": "DishFit"
+            },
+            "datePublished": "2026-07-02",
+            "description": recipe.description,
+            "recipeYield": `${recipe.servings} servings`,
+            "recipeCategory": recipe.category,
+            "recipeIngredient": recipe.ingredients.map(i => i.name),
+            "recipeInstructions": recipe.instructions.map((inst) => ({
+              "@type": "HowToStep",
+              "text": inst
+            })),
+            "nutrition": {
+              "@type": "NutritionInformation",
+              "calories": `${caloriesVal} kcal`,
+              "proteinContent": recipe.protein
+            }
+          })}
+        </script>
       </Helmet>
 
       <button 
