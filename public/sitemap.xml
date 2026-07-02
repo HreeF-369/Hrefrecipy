@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hreefrecipy.com/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://dishfit.net/</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hreefrecipy.com/blog</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://dishfit.net/blog</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hreefrecipy.com/about</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://dishfit.net/about</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://hreefrecipy.com/contact</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://dishfit.net/contact</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://hreefrecipy.com/privacy</loc>
+    <loc>https://dishfit.net/privacy</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://hreefrecipy.com/terms</loc>
+    <loc>https://dishfit.net/terms</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>
