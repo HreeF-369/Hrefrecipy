@@ -1,6 +1,6 @@
 {
-  "name": "Global Gastronomy",
-  "description": "Premium international recipe platform featuring 100+ diverse recipes, high-quality Unsplash imagery, and complete nutritional details.",
+  "name": "DishFit",
+  "description": "Discover delicious, fitness-oriented meals under 500 calories. DishFit offers easy, high-protein, and low-calorie recipes to support your health goals.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
