@@ -12,7 +12,7 @@ import { doc, getDoc, collection, query, where, getDocs } from "firebase/firesto
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json());
 
@@ -487,4 +487,15 @@ async function startServer() {
   });
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+} else {
+  const distPath = path.join(process.cwd(), "dist");
+  app.use(express.static(distPath, { index: false }));
+  app.get("*", (req, res) => {
+    servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
+  });
+}
+
+export { app };
+export default app;
