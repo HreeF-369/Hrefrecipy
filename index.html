@@ -5,8 +5,12 @@
     <script>
       (function() {
         var gtmLoaded = false;
-        function loadGTM() {
+        window.loadGTM = function() {
           if (gtmLoaded) return;
+          if (localStorage.getItem("cookie-consent") !== "accepted") {
+            console.log("[DishFit Privacy] GTM load deferred: Cookie consent not accepted yet.");
+            return;
+          }
           gtmLoaded = true;
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -15,16 +19,19 @@
           })(window,document,'script','dataLayer','GTM-TKS4NZ6K');
           
           // Clean up listeners
-          window.removeEventListener('scroll', loadGTM);
-          window.removeEventListener('click', loadGTM);
-          window.removeEventListener('mousemove', loadGTM);
-          window.removeEventListener('touchstart', loadGTM);
+          window.removeEventListener('scroll', window.loadGTM);
+          window.removeEventListener('click', window.loadGTM);
+          window.removeEventListener('mousemove', window.loadGTM);
+          window.removeEventListener('touchstart', window.loadGTM);
+        };
+
+        if (localStorage.getItem("cookie-consent") === "accepted") {
+          window.addEventListener('scroll', window.loadGTM, { passive: true });
+          window.addEventListener('click', window.loadGTM, { passive: true });
+          window.addEventListener('mousemove', window.loadGTM, { passive: true });
+          window.addEventListener('touchstart', window.loadGTM, { passive: true });
+          setTimeout(window.loadGTM, 3500);
         }
-        window.addEventListener('scroll', loadGTM, { passive: true });
-        window.addEventListener('click', loadGTM, { passive: true });
-        window.addEventListener('mousemove', loadGTM, { passive: true });
-        window.addEventListener('touchstart', loadGTM, { passive: true });
-        setTimeout(loadGTM, 3500);
       })();
     </script>
     <!-- End Google Tag Manager -->

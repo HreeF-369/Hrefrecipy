@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 
 export default function Terms() {
   return (
@@ -8,6 +9,11 @@ export default function Terms() {
       exit={{ opacity: 0, y: -10 }}
       className="mx-auto max-w-3xl px-4 py-20 lg:py-32"
     >
+      <Helmet>
+        <title>Terms of Service | DishFit</title>
+        <meta name="description" content="Review the Terms of Service and Terms of Use for accessing and using the DishFit application." />
+        <link rel="canonical" href="https://dishfit.net/terms" />
+      </Helmet>
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl mb-8">Terms of Service</h1>
       
       <div className="space-y-6 text-slate-600 text-lg leading-relaxed">

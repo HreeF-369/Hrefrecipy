@@ -10,6 +10,7 @@ import { FanReviews } from "../components/FanReviews";
 import { useApp } from "../context/AppContext";
 
 import { RecipeCard } from "../components/RecipeCard";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 function cn(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ');
@@ -133,7 +134,19 @@ export default function Recipes() {
         <title>{activeTab === "ALL RECIPES" ? "High Protein Healthy Recipes & Meal Planner" : `${activeTab.charAt(0) + activeTab.slice(1).toLowerCase()} | High Protein Healthy Recipes`} | DishFit</title>
         <meta name="description" content={`Find the best ${activeTab.toLowerCase()} for weight loss, muscle gain, and healthy living. High protein meals developed by chefs.`} />
         <meta name="keywords" content={`high protein ${activeTab.toLowerCase()} recipes, ${activeTab.toLowerCase()} meal prep, healthy ${activeTab.toLowerCase()} ideas, fitness meals`} />
+        <link rel="canonical" href="https://dishfit.net/recipes" />
       </Helmet>
+
+      <Breadcrumbs 
+        items={
+          activeTab === "ALL RECIPES"
+            ? [{ label: "recipes" }]
+            : [
+                { label: "recipes", path: "/recipes" },
+                { label: activeTab.toLowerCase() }
+              ]
+        }
+      />
 
       <header className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>

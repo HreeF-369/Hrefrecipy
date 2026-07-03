@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Utensils, Heart, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function About() {
   return (
@@ -10,6 +11,11 @@ export default function About() {
       exit={{ opacity: 0, y: -10 }}
       className="mx-auto max-w-4xl px-4 py-20 lg:py-32"
     >
+      <Helmet>
+        <title>About Us | DishFit</title>
+        <meta name="description" content="Learn more about DishFit, managed by the AIT OUALHYANE family. We offer premium, high-performance healthy nutrition and culinary excellence." />
+        <link rel="canonical" href="https://dishfit.net/about" />
+      </Helmet>
       <div className="mb-12 text-center flex flex-col items-center">
         <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-green text-white font-bold text-2xl md:text-3xl lg:text-4xl shadow-lg shadow-brand-green/20">
           H

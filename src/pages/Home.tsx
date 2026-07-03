@@ -12,6 +12,7 @@ import { FanReviews } from "../components/FanReviews";
 import { useApp } from "../context/AppContext";
 
 import { RecipeCard } from "../components/RecipeCard";
+import { optimizeUnsplashUrl } from "../lib/imageUtils";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -188,16 +189,17 @@ export default function Home() {
         <title>High Protein Meals for Muscle Gain & Low Calorie Dinner Ideas</title>
         <meta name="description" content="Discover healthy meals under 30 minutes, weekly meal plans for weight loss, and easy meal prep recipes for beginners. Professional recipes for fitness goals." />
         <meta name="keywords" content="high protein meals for muscle gain, low calorie dinner ideas, healthy meals under 30 minutes, weekly meal plan for weight loss, easy meal prep recipes for beginners" />
+        <link rel="canonical" href="https://dishfit.net/" />
       </Helmet>
 
       {/* Large Zesty Hero Section */}
       <section className="relative -mx-4 -mt-6 mb-10 overflow-hidden md:-mx-8 md:-mt-8 lg:-mx-12 lg:-mt-12">
         <div className="relative h-[400px] w-full md:h-[500px] lg:h-[600px]">
           <img 
-            src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=1200" 
-            srcSet="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=640 640w,
-                    https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=1200 1200w,
-                    https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=2000 2000w"
+            src={optimizeUnsplashUrl("https://images.unsplash.com/photo-1543353071-873f17a7a088", 1200)} 
+            srcSet={`${optimizeUnsplashUrl("https://images.unsplash.com/photo-1543353071-873f17a7a088", 640)} 640w,
+                    ${optimizeUnsplashUrl("https://images.unsplash.com/photo-1543353071-873f17a7a088", 1200)} 1200w,
+                    ${optimizeUnsplashUrl("https://images.unsplash.com/photo-1543353071-873f17a7a088", 2000)} 2000w`}
             sizes="(max-width: 640px) 100vw, (max-width: 1200px) 100vw, 100vw"
             fetchPriority="high"
             loading="eager"

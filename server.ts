@@ -25,52 +25,7 @@ async function getRecipe(slugOrId: string) {
   if (!slugOrId) return null;
   const targetSlug = slugify(slugOrId);
 
-  try {
-    // 1. Try to fetch directly by document ID (case-insensitive and exact)
-    const recipeDocRef = doc(db, "recipes", slugOrId);
-    const recipeDoc = await getDoc(recipeDocRef);
-    if (recipeDoc.exists()) {
-      return { id: recipeDoc.id, ...recipeDoc.data() };
-    }
-
-    if (slugOrId !== slugOrId.toLowerCase()) {
-      const lowerDocRef = doc(db, "recipes", slugOrId.toLowerCase());
-      const lowerDoc = await getDoc(lowerDocRef);
-      if (lowerDoc.exists()) {
-        return { id: lowerDoc.id, ...lowerDoc.data() };
-      }
-    }
-
-    // 2. Query by slug field
-    const recipesRef = collection(db, "recipes");
-    const q = query(recipesRef, where("slug", "==", targetSlug));
-    const querySnapshot = await getDocs(q);
-    if (!querySnapshot.empty) {
-      const d = querySnapshot.docs[0];
-      return { id: d.id, ...d.data() };
-    }
-
-    // 3. Scan the collection in Firestore to support ANY custom slug/title combination
-    const allSnapshot = await getDocs(recipesRef);
-    for (const d of allSnapshot.docs) {
-      const data = d.data();
-      const docId = d.id;
-      const title = data.title || "";
-      const slugField = data.slug || "";
-      
-      if (
-        slugify(docId) === targetSlug ||
-        slugify(title) === targetSlug ||
-        slugify(slugField) === targetSlug
-      ) {
-        return { id: docId, ...data };
-      }
-    }
-  } catch (e) {
-    console.error("Firestore error in getRecipe server-side:", e);
-  }
-  
-  // 4. Fallback to local hardcoded recipes
+  // 1. Try local RECIPES_DATA first as it's near-instant and extremely reliable!
   let recipe = RECIPES_DATA.find(r => String(r.id).toLowerCase() === slugOrId.toLowerCase());
   if (!recipe) recipe = RECIPES_DATA.find(r => slugify(String(r.id)) === targetSlug);
   if (!recipe) recipe = RECIPES_DATA.find(r => slugify(r.title) === targetSlug);
@@ -82,31 +37,127 @@ async function getRecipe(slugOrId: string) {
       targetSlug.includes(slugify(r.title))
     );
   }
-  return recipe;
+  if (recipe) return recipe;
+
+  // 2. Query Firestore with a strict 3-second timeout to prevent hanging the server
+  try {
+    const firestorePromise = (async () => {
+      // 1. Try to fetch directly by document ID (case-insensitive and exact)
+      const recipeDocRef = doc(db, "recipes", slugOrId);
+      const recipeDoc = await getDoc(recipeDocRef);
+      if (recipeDoc.exists()) {
+        return { id: recipeDoc.id, ...recipeDoc.data() };
+      }
+
+      if (slugOrId !== slugOrId.toLowerCase()) {
+        const lowerDocRef = doc(db, "recipes", slugOrId.toLowerCase());
+        const lowerDoc = await getDoc(lowerDocRef);
+        if (lowerDoc.exists()) {
+          return { id: lowerDoc.id, ...lowerDoc.data() };
+        }
+      }
+
+      // 2. Query by slug field
+      const recipesRef = collection(db, "recipes");
+      const q = query(recipesRef, where("slug", "==", targetSlug));
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        const d = querySnapshot.docs[0];
+        return { id: d.id, ...d.data() };
+      }
+
+      // 3. Scan the collection in Firestore to support ANY custom slug/title combination
+      const allSnapshot = await getDocs(recipesRef);
+      for (const d of allSnapshot.docs) {
+        const data = d.data();
+        const docId = d.id;
+        const title = data.title || "";
+        const slugField = data.slug || "";
+        
+        if (
+          slugify(docId) === targetSlug ||
+          slugify(title) === targetSlug ||
+          slugify(slugField) === targetSlug
+        ) {
+          return { id: docId, ...data };
+        }
+      }
+      return null;
+    })();
+
+    const timeoutPromise = new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000));
+    const result = await Promise.race([firestorePromise, timeoutPromise]);
+    if (result) return result;
+  } catch (e) {
+    console.error("Firestore error in getRecipe server-side:", e);
+  }
+  
+  return null;
 }
 
 // Cache the raw template index.html in production to avoid synchronous disk reads on every single request
 let cachedIndexHtml: string | null = null;
 let indexHtmlExists = false;
+let resolvedIndexHtmlPath: string | null = null;
+
+// Search in common directories to locate index.html on Vercel or local container environments
+function findResilientIndexHtmlPath(initialPath: string): string {
+  if (resolvedIndexHtmlPath && fs.existsSync(resolvedIndexHtmlPath)) {
+    return resolvedIndexHtmlPath;
+  }
+
+  const searchPaths = [
+    initialPath,
+    path.join(process.cwd(), "dist", "index.html"),
+    path.join(process.cwd(), "api", "dist", "index.html"),
+    path.join(__dirname, "dist", "index.html"),
+    path.join(__dirname, "..", "dist", "index.html"),
+    path.join(__dirname, "..", "..", "dist", "index.html"),
+    path.join(__dirname, "index.html"),
+    path.join(__dirname, "..", "index.html"),
+    path.join(process.cwd(), "index.html")
+  ];
+
+  for (const p of searchPaths) {
+    if (p && fs.existsSync(p)) {
+      console.log(`[Resilient SSR] Found index.html at: ${p}`);
+      resolvedIndexHtmlPath = p;
+      return p;
+    }
+  }
+
+  // Fallback scan of directories
+  try {
+    const scanDirs = [process.cwd(), __dirname, path.join(process.cwd(), "..")];
+    for (const dir of scanDirs) {
+      if (!fs.existsSync(dir)) continue;
+      const distCheck = path.join(dir, "dist", "index.html");
+      if (fs.existsSync(distCheck)) {
+        console.log(`[Resilient SSR] Found index.html via scan at: ${distCheck}`);
+        resolvedIndexHtmlPath = distCheck;
+        return distCheck;
+      }
+    }
+  } catch (err) {
+    console.error("[Resilient SSR] Error during directory scan:", err);
+  }
+
+  console.error(`[Resilient SSR] index.html not found in any of the attempted locations:`, searchPaths);
+  return initialPath;
+}
 
 // SSR Pre-rendering Helper
 async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
+  const resolvedPath = findResilientIndexHtmlPath(indexHtmlPath);
   try {
     let html = cachedIndexHtml;
     
     if (!html || process.env.NODE_ENV !== "production") {
-      if (process.env.NODE_ENV === "production" && !indexHtmlExists) {
-        if (!fs.existsSync(indexHtmlPath)) {
-          return res.status(500).send("DishFit Server Error: index.html not found. Please ensure the project build is complete.");
-        }
-        indexHtmlExists = true;
-      } else if (process.env.NODE_ENV !== "production") {
-        if (!fs.existsSync(indexHtmlPath)) {
-          return res.status(500).send("DishFit Server Error: index.html not found. Please ensure the project build is complete.");
-        }
+      if (!fs.existsSync(resolvedPath)) {
+        return res.status(500).send("DishFit Server Error: index.html not found. Please ensure the project build is complete.");
       }
       
-      html = fs.readFileSync(indexHtmlPath, 'utf-8');
+      html = fs.readFileSync(resolvedPath, 'utf-8');
       if (process.env.NODE_ENV === "production") {
         cachedIndexHtml = html;
       }
@@ -275,6 +326,78 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
             </ul>
           </div>
         `;
+    } else if (req.path === "/lunch" || req.path === "/recipes/lunch") {
+        title = "Healthy & Low-Calorie Lunch Recipes for Weight Loss | DishFit";
+        description = "Explore our collection of delicious, high-protein, and low-calorie lunch recipes under 500 kcal. Perfect for fitness goals, work meals, and healthy meal prepping.";
+        const lunchRecipes = RECIPES_DATA.filter(r => String(r.category || '').toUpperCase() === 'LUNCH').slice(0, 8);
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Healthy & Low-Calorie Lunch Recipes</h1>
+            <p>${description}</p>
+            <h2>High-Protein Lunch Ideas under 500 kcal:</h2>
+            <ul>
+              ${lunchRecipes.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - ${r.calories} | ${r.protein} Protein</li>`).join('')}
+            </ul>
+          </div>
+        `;
+    } else if (req.path === "/breakfast" || req.path === "/recipes/breakfast") {
+        title = "Healthy & Low-Calorie Breakfast Recipes - High Protein | DishFit";
+        description = "Start your day with high-protein, low-calorie breakfast recipes under 500 kcal. Discover easy weight loss breakfast ideas and meal preps.";
+        const breakfastRecipes = RECIPES_DATA.filter(r => String(r.category || '').toUpperCase() === 'BREAKFAST').slice(0, 8);
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Healthy & Low-Calorie Breakfast Recipes</h1>
+            <p>${description}</p>
+            <h2>High-Protein Breakfast Ideas:</h2>
+            <ul>
+              ${breakfastRecipes.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - ${r.calories} | ${r.protein} Protein</li>`).join('')}
+            </ul>
+          </div>
+        `;
+    } else if (req.path === "/dinner" || req.path === "/recipes/dinner") {
+        title = "Healthy & Low-Calorie Dinner Recipes - Fitness Meals | DishFit";
+        description = "End your day with delicious, low-calorie dinner recipes under 500 kcal. Discover high-protein fitness meals perfect for weight loss and clean eating.";
+        const dinnerRecipes = RECIPES_DATA.filter(r => String(r.category || '').toUpperCase() === 'DINNER').slice(0, 8);
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Healthy & Low-Calorie Dinner Recipes</h1>
+            <p>${description}</p>
+            <h2>Low-Calorie Dinner Ideas under 500 kcal:</h2>
+            <ul>
+              ${dinnerRecipes.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - ${r.calories} | ${r.protein} Protein</li>`).join('')}
+            </ul>
+          </div>
+        `;
+    } else if (req.path === "/favorites") {
+        title = "My Favorite Healthy Recipes - Saved Meal Planner | DishFit";
+        description = "Access your saved fitness meals and favorite low-calorie recipes in one convenient place. Plan your weekly weight loss diet easily.";
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>My Favorite Healthy Recipes</h1>
+            <p>${description}</p>
+            <p><a href="/recipes">Explore more healthy recipes</a></p>
+          </div>
+        `;
+    } else if (req.path === "/planner") {
+        title = "Interactive Healthy Meal Planner & Diet Tracker | DishFit";
+        description = "Plan your weekly high-protein, low-calorie fitness meals under 500 kcal. Tailor your weight loss diet and save time with smart planners.";
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Healthy Weekly Meal Planner</h1>
+            <p>${description}</p>
+            <p><a href="/recipes">Choose recipes to add to your plan</a></p>
+          </div>
+        `;
+    } else if (req.path === "/grocery") {
+        title = "Automated Healthy Grocery List Planner | DishFit";
+        description = "Automatically generate your grocery shopping list from your chosen high-protein, low-calorie fitness recipes. Eat clean and save time.";
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Automated Grocery Shopping List</h1>
+            <p>${description}</p>
+            <p><a href="/planner">Plan your meals to generate lists</a></p>
+          </div>
+        `;
     } else if (req.path === "/blog") {
         title = "Culinary & Fitness Journal - Healthy Eating Tips | DishFit";
         description = "Discover weight loss meal plans, clean eating recipes, protein-rich diets, and professional cooking techniques on DishFit.";
@@ -349,6 +472,7 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
     setMetaTag('twitter:description', description, true);
     setMetaTag('twitter:image', imageUrl, true);
     setMetaTag('twitter:url', url, true);
+    setMetaTag('twitter:card', 'summary_large_image', true);
  
     // Inject Schema JSON-LD if present
     if (schemaScript) {
@@ -364,8 +488,8 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
   } catch (error) {
     console.error("SSR Error:", error);
     try {
-      if (fs.existsSync(indexHtmlPath)) {
-        res.sendFile(indexHtmlPath);
+      if (fs.existsSync(resolvedPath)) {
+        res.sendFile(resolvedPath);
       } else {
         res.status(500).send("DishFit Server Error: index.html not found.");
       }
@@ -389,15 +513,23 @@ app.post("/api/chat", async (req, res) => {
       `ID: ${r.id} | Title: ${r.title} | Category: ${r.category} | Calories: ${r.calories} | Desc: ${r.description}`
     ).join("\n");
 
-    const systemPrompt = `You are Chef DishFit, a professional, helpful, and friendly AI kitchen assistant for the DishFit app.
-Your goal is to help users find healthy, low-calorie (under 500 kcal) recipes from the DishFit database.
-Be conversational, enthusiastic, and provide excellent culinary advice.
-When suggesting recipes, MUST include their exact ID so the system can link them. Format suggested recipe IDs as [RECIPE_ID: id-here].
+    const systemPrompt = `You are Chef DishFit, a professional, helpful, warm, and friendly AI kitchen assistant for the DishFit app.
+Your goal is to help users find healthy, fitness-aligned, and delicious recipes from the DishFit database, as well as answer culinary questions and keep them motivated!
+
+CONVERSATIONAL BEHAVIOR GUIDELINES:
+- You love chatting with users! If the user greets you (e.g. "Hello", "Hi", "Hey"), asks how you are doing (e.g. "How are you?", "How r u"), or says general things (e.g. "What's up", "What's your name?"), respond in a warm, welcoming, conversational, and chef-like friendly manner! Do NOT force a recipe search or suggest unrelated recipes for simple greetings or casual chat.
+- If the user asks general conversational follow-up questions, responds with exclamation, confusion, or casual text (e.g., "What?", "Wow", "Interesting"), reply conversationally and helpfully, asking how you can assist them with their culinary goals.
+- Be enthusiastic, positive, and provide encouraging and excellent culinary advice.
+
+RECIPE SEARCH GUIDELINES:
+- When the user asks for recipes, ingredients, meal ideas, or dishes: find the best match from the DishFit recipe database below.
+- When recommending a recipe from the database, you MUST include its exact ID at the end of your message in the format [RECIPE_ID: id-here] so the app can render it as a clickable recipe card. Do NOT hallucinate IDs; only use the exact IDs provided in the database below.
+- If they ask for a recipe, dish, or ingredient that does not exist in our database, politely and dynamically explain that we don't have that exact dish in our database yet, but offer the closest healthy match from our database or suggest exploring one of our food categories (Breakfast, Lunch, Dinner, Main Dishes, Desserts, Drinks, Fitness).
 
 Here is the full DishFit Recipe Database:
 ${recipeContext}
 
-Answer the user's query based ONLY on these recipes. If they ask for something not in the database, politely offer the closest alternative or suggest they try a different healthy category.`;
+Answer culinary queries based on these database recipes. Remind users that you are their personal kitchen assistant, here for chat, advice, and custom meal navigation.`;
 
     // Convert history format if needed
     const contents = [];
@@ -409,7 +541,7 @@ Answer the user's query based ONLY on these recipes. If they ask for something n
     contents.push({ role: 'user', parts: [{ text: message }] });
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.5-flash",
       contents: contents,
       config: {
         systemInstruction: systemPrompt,

@@ -1,5 +1,6 @@
 import React, { useState, FormEvent, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { Helmet } from "react-helmet-async";
 import { 
   Plus, 
   Trash2, 
@@ -102,6 +103,11 @@ export default function GroceryList() {
       animate={{ opacity: 1 }}
       className="space-y-10 print:p-0"
     >
+      <Helmet>
+        <title>Your Grocery Shopping List | DishFit</title>
+        <meta name="description" content="Manage and view your weekly grocery items generated from meal planning on DishFit." />
+        <link rel="canonical" href="https://dishfit.net/grocery" />
+      </Helmet>
       <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between print:hidden">
         <div>
           <h1 className="font-display text-3xl md:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink uppercase">Grocery List</h1>

@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Flame, Clock, Heart, ChevronRight } from "lucide-react";
 import { Recipe } from "../types";
 import { useApp } from "../context/AppContext";
+import { optimizeUnsplashUrl } from "../lib/imageUtils";
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -38,11 +39,16 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
       <div className="group flex flex-col p-0 rounded-[20px] bg-white border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1 h-full">
         <div className="relative aspect-[4/3] overflow-hidden">
           <img
-            src={recipe.image}
+            src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
+              ? optimizeUnsplashUrl(recipe.image, 800) 
+              : recipe.image}
             alt={`Healthy ${recipe.title} recipe meal prep`}
             loading="lazy"
             {...(typeof recipe.image === 'string' && (recipe.image.startsWith('image_') || recipe.image.startsWith('/image_')) ? {
               srcSet: `${recipe.image.replace('.webp', '_mobile.webp')} 400w, ${recipe.image} 800w`,
+              sizes: "(max-width: 640px) 400px, 800px"
+            } : typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') ? {
+              srcSet: `${optimizeUnsplashUrl(recipe.image, 400)} 400w, ${optimizeUnsplashUrl(recipe.image, 800)} 800w`,
               sizes: "(max-width: 640px) 400px, 800px"
             } : {})}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

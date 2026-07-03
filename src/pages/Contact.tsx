@@ -1,6 +1,7 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, MessageSquare, MapPin, CheckCircle2, AlertCircle } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 // Replace with your real Formspree ID from https://formspree.io
 const FORMSPREE_ID = "xojrnkoo"; 
@@ -65,6 +66,11 @@ export default function Contact() {
       exit={{ opacity: 0, y: -10 }}
       className="mx-auto max-w-4xl px-4 py-20 lg:py-32"
     >
+      <Helmet>
+        <title>Contact Us | DishFit</title>
+        <meta name="description" content="Get in touch with the DishFit team. We'd love to hear your feedback, recipe suggestions, and questions." />
+        <link rel="canonical" href="https://dishfit.net/contact" />
+      </Helmet>
       <div className="text-center mb-16">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl mb-4">Contact Us</h1>
         <p className="text-slate-500 text-lg">We'd love to hear from you. Get in touch with our team.</p>

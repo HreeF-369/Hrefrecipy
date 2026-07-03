@@ -6,6 +6,7 @@ import { useApp } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 import { speakText } from '../services/speechService';
 import { getRecipeById } from '../services/api';
+import { optimizeUnsplashUrl } from '../lib/imageUtils';
 
 interface RecipeModalProps {
   recipe: Recipe | null;
@@ -409,8 +410,14 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
               <div className="w-full md:w-[40%] p-0 border-r border-gray-100 flex flex-col">
                 <div className="relative aspect-[4/3] md:aspect-auto md:h-72 overflow-hidden shadow-inner">
                   <img
-                    src={recipe.image}
+                    src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
+                      ? optimizeUnsplashUrl(recipe.image, 800) 
+                      : recipe.image}
                     alt={recipe.title}
+                    {...(typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') ? {
+                      srcSet: `${optimizeUnsplashUrl(recipe.image, 400)} 400w, ${optimizeUnsplashUrl(recipe.image, 800)} 800w`,
+                      sizes: "(max-width: 640px) 400px, 800px"
+                    } : {})}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>

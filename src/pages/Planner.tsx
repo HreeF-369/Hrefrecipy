@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useApp } from "../context/AppContext";
 import { getRecipeById, searchRecipes } from "../services/api";
 import { Recipe } from "../types";
+import { optimizeUnsplashUrl } from "../lib/imageUtils";
 
 export default function Planner() {
   const { plan, removeFromPlan, addToPlan, favorites, addRecipeIngredientsToGroceryList } = useApp();
@@ -107,6 +108,7 @@ export default function Planner() {
         <title>Weekly Meal Plan for Weight Loss & Easy Prep Recipes</title>
         <meta name="description" content="Use our meal planner for healthy eating. Organize your high protein recipes, snacks, and meal prep visually week by week." />
         <meta name="keywords" content="weekly meal plan for weight loss, easy meal prep recipes for beginners, meal planner for healthy eating, high protein planner" />
+        <link rel="canonical" href="https://dishfit.net/planner" />
       </Helmet>
 
       <header className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
@@ -178,7 +180,13 @@ export default function Planner() {
                         {meal ? (
                           <div className="flex items-center justify-between gap-3">
                             <div className="flex items-center gap-2.5 min-w-0">
-                              <img src={meal.image} alt={meal.title} className="w-10 h-10 object-cover rounded-xl shrink-0" />
+                              <img 
+                                src={typeof meal.image === 'string' && meal.image.includes('images.unsplash.com') 
+                                  ? optimizeUnsplashUrl(meal.image, 100) 
+                                  : meal.image} 
+                                alt={meal.title} 
+                                className="w-10 h-10 object-cover rounded-xl shrink-0" 
+                              />
                               <p className="text-xs font-bold text-slate-800 truncate leading-tight">{meal.title}</p>
                             </div>
                             <button
@@ -241,7 +249,13 @@ export default function Planner() {
                       >
                       {meal ? (
                         <>
-                          <img src={meal.image} alt={meal.title} className="w-full h-full object-cover rounded-2xl" />
+                          <img 
+                            src={typeof meal.image === 'string' && meal.image.includes('images.unsplash.com') 
+                              ? optimizeUnsplashUrl(meal.image, 300) 
+                              : meal.image} 
+                            alt={meal.title} 
+                            className="w-full h-full object-cover rounded-2xl" 
+                          />
                           <div className="absolute inset-x-0 bottom-0 p-2 opacity-0 group-hover:opacity-100 bg-black/60 rounded-b-2xl backdrop-blur-sm transition-opacity">
                             <p className="text-[10px] text-white line-clamp-2 font-bold leading-tight">{meal.title}</p>
                           </div>
@@ -374,7 +388,13 @@ export default function Planner() {
                             className="group flex gap-4 p-3 rounded-2xl border border-slate-100 hover:border-brand-green transition-all cursor-pointer"
                           >
                             <div className="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden">
-                              <img src={recipe.image} alt={recipe.title} className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                              <img 
+                                src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
+                                  ? optimizeUnsplashUrl(recipe.image, 200) 
+                                  : recipe.image} 
+                                alt={recipe.title} 
+                                className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                              />
                             </div>
                             <div className="flex-1 space-y-1 py-1">
                               <h4 className="font-bold text-slate-800 text-sm line-clamp-2">{recipe.title}</h4>
@@ -406,7 +426,13 @@ export default function Planner() {
                             className="group flex gap-4 p-3 rounded-2xl border border-slate-100 hover:border-brand-green transition-all cursor-pointer"
                           >
                             <div className="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden">
-                              <img src={recipe.image} alt={recipe.title} className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                              <img 
+                                src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
+                                  ? optimizeUnsplashUrl(recipe.image, 200) 
+                                  : recipe.image} 
+                                alt={recipe.title} 
+                                className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                              />
                             </div>
                             <div className="flex-1 space-y-1 py-1">
                               <h4 className="font-bold text-slate-800 text-sm line-clamp-2">{recipe.title}</h4>

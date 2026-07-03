@@ -5,7 +5,9 @@ import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { useApp } from "../context/AppContext";
 import { Recipe } from "../types";
+import { optimizeUnsplashUrl } from "../lib/imageUtils";
 import { FALLBACK_RECIPES } from "../services/fallbackData";
+import { RECIPES_DATA } from "../services/recipesData";
 
 interface Message {
   role: "user" | "bot";
@@ -57,26 +59,38 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
       return { content: "I am the **DishFit Smart Assistant**, but most people call me **Chef DishFit**. I'm here to help you navigate our local recipe database and find the perfect meal for your goals!" };
     }
 
-    const greetings = ["hello", "hi", "hey", "heey", "good morning", "good afternoon", "good evening", "what's up", "whats up"];
+    const greetings = ["hello", "hi", "hey", "heey", "good morning", "good afternoon", "good evening", "what's up", "whats up", "yo"];
     const isGreeting = greetings.includes(q) || greetings.some(g => q.startsWith(g + " "));
     
     if (isGreeting) {
       return { content: "Hello! I am doing great, thank you. What are we cooking today? I can help you find recipes, substitute ingredients, or plan your meals!" };
     }
 
-    const smallTalk = ["how are you", "how r u", "how do you do", "what are you doing", "what are u doing", "what u doing", "thanks", "thank you"];
-    if (smallTalk.some(s => q.includes(s))) {
+    const smallTalk = ["how are you", "how r u", "how do you do", "what are you doing", "what are u doing", "what u doing", "thanks", "thank you", "what", "what?", "who", "why", "how", "ok", "okay", "yes", "no", "cool", "nice", "great", "awesome", "perfect", "good", "fine", "adaptable"];
+    if (smallTalk.some(s => q === s || q.includes(s))) {
       if (q.includes("what are you doing") || q.includes("what are u doing") || q.includes("what u doing")) {
         return { content: "I am chatting with you and ready to help you plan your meals! What would you like to cook today?" };
+      }
+      if (q === "what" || q === "what?") {
+        return { content: "I am your Chef DishFit Assistant! You can ask me to help you find recipes, plan meals, or suggest healthy substitutes. What are you interested in cooking?" };
+      }
+      if (q === "yes" || q === "ok" || q === "okay" || q === "perfect" || q === "great" || q === "cool" || q === "nice" || q === "awesome") {
+        return { content: "Awesome! Let's get cooking. Just tell me what ingredients you have, or search for healthy dishes (e.g., 'high protein dinner')." };
+      }
+      if (q === "no") {
+        return { content: "No problem! I'm here whenever you need inspiration or help with your meal planning." };
+      }
+      if (q.includes("thanks") || q.includes("thank you")) {
+        return { content: "You're very welcome! Happy cooking! 👨‍🍳 Let me know if there's anything else you need." };
       }
       return { content: "I am doing great, thank you! I'm here and ready to help you find your next delicious meal. What are you in the mood for?" };
     }
 
     const foodKeywords = ["recipe", "food", "cook", "make", "eat", "hungry", "breakfast", "lunch", "dinner", "snack", "chicken", "beef", "fish", "veg", "salad", "drink", "healthy", "diet", "meal", "ingredient", "substitute", "bake", "fry", "roast", "soup", "dessert", "sweet", "pasta", "rice", "idea", "show me", "craving"];
-    const hasFoodIntent = foodKeywords.some(keyword => q.includes(keyword)) || q.split(" ").length <= 3;
+    const hasFoodIntent = foodKeywords.some(keyword => q.includes(keyword));
 
     if (!hasFoodIntent) {
-      return { content: "I am just a chef assistant, so I'm best at talking about food! 👨‍🍳\n\nI am chatting with you and ready to help you plan your meals! Just tell me an ingredient or a type of dish you want to cook." };
+      return { content: "I am just a chef assistant, so I'm best at talking about food! 👨‍🍳\n\nI am chatting with you and ready to help you plan your meals! Just tell me an ingredient or a type of dish you want to cook (like 'salmon' or 'salad')." };
     }
 
     // 2. Advanced Search Logic
@@ -195,7 +209,13 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
       let suggestedRecipes: any[] | undefined = undefined;
       if (suggestedRecipeIds.length > 0) {
         suggestedRecipes = suggestedRecipeIds
-          .map(id => searchDataSource.find(r => r.id === id))
+          .map(id => {
+            let found = searchDataSource.find(r => r.id === id);
+            if (!found) {
+              found = RECIPES_DATA.find(r => r.id === id);
+            }
+            return found;
+          })
           .filter(Boolean);
         
         if (suggestedRecipes.length === 0) {
@@ -300,7 +320,9 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
                           className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm ring-1 ring-gray-100 hover:ring-brand-green transition-all group"
                         >
                           <img 
-                            src={recipe.image} 
+                            src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
+                              ? optimizeUnsplashUrl(recipe.image, 100) 
+                              : recipe.image} 
                             alt={recipe.title} 
                             className="h-12 w-12 rounded-lg object-cover"
                           />

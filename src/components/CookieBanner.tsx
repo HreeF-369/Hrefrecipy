@@ -18,6 +18,13 @@ export default function CookieBanner() {
   const acceptCookies = () => {
     localStorage.setItem("cookie-consent", "accepted");
     setIsVisible(false);
+    if (typeof (window as any).loadGTM === "function") {
+      try {
+        (window as any).loadGTM();
+      } catch (err) {
+        console.error("Error triggering GTM load:", err);
+      }
+    }
   };
 
   const declineCookies = () => {

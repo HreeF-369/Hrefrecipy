@@ -127,43 +127,20 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
   const slugify = (str: string) => String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const targetSlug = slugify(rawId);
 
-  try {
-    const { db } = await import('../lib/firebase');
-    const { doc, getDoc, collection, query, where, getDocs } = await import('firebase/firestore');
-
-    // 1. Try to fetch directly by document ID
-    const recipeDocRef = doc(db, "recipes", rawId);
-    const recipeDoc = await getDoc(recipeDocRef);
-    if (recipeDoc.exists()) {
-      return enrichRecipe({ id: recipeDoc.id, ...recipeDoc.data() } as Recipe);
-    }
-    
-    // 2. Try to query by slug field if it exists
-    const recipesRef = collection(db, "recipes");
-    const q = query(recipesRef, where("slug", "==", targetSlug));
-    const querySnapshot = await getDocs(q);
-    if (!querySnapshot.empty) {
-      const doc = querySnapshot.docs[0];
-      return enrichRecipe({ id: doc.id, ...doc.data() } as Recipe);
-    }
-  } catch (error) {
-    console.error("Error fetching recipe from Firestore:", error);
-  }
-
-  // 3. Fallback to local exact ID match
+  // 1. Try local RECIPES_DATA first as it's near-instant and extremely reliable!
   let recipe = RECIPES_DATA.find(r => String(r.id).toLowerCase() === rawId.toLowerCase());
 
-  // 4. Exact Slug ID match
+  // 2. Exact Slug ID match
   if (!recipe) {
     recipe = RECIPES_DATA.find(r => slugify(String(r.id)) === targetSlug);
   }
 
-  // 5. Exact Slug Title match
+  // 3. Exact Slug Title match
   if (!recipe) {
     recipe = RECIPES_DATA.find(r => slugify(r.title) === targetSlug);
   }
 
-  // 6. Partial match
+  // 4. Partial match
   if (!recipe && targetSlug.length >= 3) {
     recipe = RECIPES_DATA.find(r => slugify(String(r.id)).includes(targetSlug) || targetSlug.includes(slugify(String(r.id))) || slugify(r.title).includes(targetSlug) || targetSlug.includes(slugify(r.title)));
   }
@@ -171,6 +148,38 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
   if (recipe) {
     return enrichRecipe(recipe);
   }
+
+  // 5. Fallback to Firestore if not found locally, with a strict 3-second timeout to prevent hanging the UI infinitely
+  try {
+    const { db } = await import('../lib/firebase');
+    const { doc, getDoc, collection, query, where, getDocs } = await import('firebase/firestore');
+
+    const firestorePromise = (async () => {
+      // 1. Try to fetch directly by document ID
+      const recipeDocRef = doc(db, "recipes", rawId);
+      const recipeDoc = await getDoc(recipeDocRef);
+      if (recipeDoc.exists()) {
+        return enrichRecipe({ id: recipeDoc.id, ...recipeDoc.data() } as Recipe);
+      }
+      
+      // 2. Try to query by slug field if it exists
+      const recipesRef = collection(db, "recipes");
+      const q = query(recipesRef, where("slug", "==", targetSlug));
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        const docSnapshot = querySnapshot.docs[0];
+        return enrichRecipe({ id: docSnapshot.id, ...docSnapshot.data() } as Recipe);
+      }
+      return null;
+    })();
+
+    const timeoutPromise = new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000));
+    const result = await Promise.race([firestorePromise, timeoutPromise]);
+    if (result) return result;
+  } catch (error) {
+    console.error("Error fetching recipe from Firestore:", error);
+  }
+
   return null;
 }
 

@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { BookOpen, Clock, ChevronRight, Sparkles, Flame, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
+import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { Helmet } from "react-helmet-async";
 
 import { BLOG_POSTS } from "../services/blogData";
 
@@ -11,6 +13,11 @@ export default function Blog() {
       animate={{ opacity: 1 }}
       className="mx-auto max-w-6xl px-4 py-20 lg:py-32"
     >
+      <Helmet>
+        <title>Culinary Journal | DishFit</title>
+        <meta name="description" content="Discover our culinary journal for fitness and kitchen advice. Read articles on macronutrients, meal prep, and professional cooking techniques." />
+        <link rel="canonical" href="https://dishfit.net/blog" />
+      </Helmet>
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-brand-green/10 px-4 py-2 text-brand-green mb-6">
           <BookOpen size={16} />
@@ -34,9 +41,15 @@ export default function Blog() {
             <Link to={`/blog/${post.id}`} className="absolute inset-0 z-10" />
             <div className="aspect-[16/10] overflow-hidden">
               <img 
-                src={post.image} 
+                src={typeof post.image === 'string' && post.image.includes('images.unsplash.com') 
+                  ? optimizeUnsplashUrl(post.image, 600) 
+                  : post.image} 
                 alt={post.title} 
                 loading="lazy"
+                {...(typeof post.image === 'string' && post.image.includes('images.unsplash.com') ? {
+                  srcSet: `${optimizeUnsplashUrl(post.image, 400)} 400w, ${optimizeUnsplashUrl(post.image, 600)} 600w`,
+                  sizes: "(max-width: 640px) 400px, 600px"
+                } : {})}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>

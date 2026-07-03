@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { ChevronLeft, Clock, User, Calendar, Share2, Printer } from "lucide-react";
 import { BLOG_POSTS } from "../services/blogData";
 import { useEffect } from "react";
+import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { Helmet } from "react-helmet-async";
 
 export default function BlogPost() {
   const { id } = useParams();
@@ -57,11 +59,22 @@ export default function BlogPost() {
       animate={{ opacity: 1 }}
       className="bg-white"
     >
+      <Helmet>
+        <title>{post.title} | DishFit Journal</title>
+        <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={`https://dishfit.net/blog/${post.id}`} />
+      </Helmet>
       {/* Header Image Section */}
       <div className="relative h-[40vh] min-h-[300px] w-full lg:h-[60vh]">
         <img 
-          src={post.image} 
+          src={typeof post.image === 'string' && post.image.includes('images.unsplash.com') 
+            ? optimizeUnsplashUrl(post.image, 1200) 
+            : post.image} 
           alt={post.title} 
+          {...(typeof post.image === 'string' && post.image.includes('images.unsplash.com') ? {
+            srcSet: `${optimizeUnsplashUrl(post.image, 600)} 600w, ${optimizeUnsplashUrl(post.image, 1200)} 1200w`,
+            sizes: "(max-width: 640px) 600px, 1200px"
+          } : {})}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>

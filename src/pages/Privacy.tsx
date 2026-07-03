@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 
 export default function Privacy() {
   return (
@@ -8,6 +9,11 @@ export default function Privacy() {
       exit={{ opacity: 0, y: -10 }}
       className="mx-auto max-w-3xl px-4 py-20 lg:py-32"
     >
+      <Helmet>
+        <title>Privacy Policy | DishFit</title>
+        <meta name="description" content="Read DishFit's Privacy Policy to understand how we collect, use, and protect your personal information." />
+        <link rel="canonical" href="https://dishfit.net/privacy" />
+      </Helmet>
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-brand-ink sm:text-3xl md:text-4xl lg:text-5xl mb-8">Privacy Policy</h1>
       
       <div className="space-y-8 text-slate-600 text-lg leading-relaxed">

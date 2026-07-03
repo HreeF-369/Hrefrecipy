@@ -8,6 +8,7 @@ import { RecipeModal } from "../components/RecipeModal";
 import { Link } from "react-router-dom";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Helmet } from "react-helmet-async";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -59,6 +60,11 @@ export default function Favorites() {
       exit={{ opacity: 0, y: -20 }}
       className="space-y-12 pb-12"
     >
+      <Helmet>
+        <title>Your Favorite Recipes | DishFit</title>
+        <meta name="description" content="View and manage your favorite high-protein, healthy meal prep recipes on DishFit." />
+        <link rel="canonical" href="https://dishfit.net/favorites" />
+      </Helmet>
       <header className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter">Your Favorites</h1>

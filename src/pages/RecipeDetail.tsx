@@ -42,6 +42,8 @@ import { useApp } from "../context/AppContext";
 import { speakText } from "../services/speechService";
 import { RECIPES_DATA } from "../services/recipesData";
 import { RecipeCard } from "../components/RecipeCard";
+import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 const getIngredientIcon = (nameKey: string) => {
   const name = nameKey.toLowerCase();
@@ -251,6 +253,7 @@ export default function RecipeDetail() {
         <title>{recipe.title} Recipe | DishFit</title>
         <meta name="description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
         <meta name="keywords" content={`${recipe.title.toLowerCase()} recipe, high protein ${recipe.title.toLowerCase()}, healthy meals under 30 minutes, healthy ${recipe.title.toLowerCase()} under 500 calories`} />
+        <link rel="canonical" href={`https://dishfit.net/recipe/${recipe.id}`} />
         
         {/* Open Graph / Pinterest Rich Pin Meta Tags */}
         <meta property="og:title" content={`${recipe.title} Recipe | DishFit`} />
@@ -300,6 +303,14 @@ export default function RecipeDetail() {
         </script>
       </Helmet>
 
+      <Breadcrumbs 
+        items={[
+          { label: "recipes", path: "/recipes" },
+          { label: recipe.category.toLowerCase(), path: `/recipes?cat=${recipe.category.toLowerCase()}` },
+          { label: recipe.title }
+        ]}
+      />
+
       <button 
         onClick={() => navigate(-1)}
         className="mb-6 flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand-green no-print"
@@ -312,11 +323,16 @@ export default function RecipeDetail() {
         <section className="space-y-8">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] shadow-2xl">
             <img 
-              src={recipe.image} 
+              src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
+                ? optimizeUnsplashUrl(recipe.image, 1200) 
+                : recipe.image} 
               alt={`High protein low calorie ${recipe.title} recipe for healthy meal planning`} 
               {...(typeof recipe.image === 'string' && (recipe.image.startsWith('image_') || recipe.image.startsWith('/image_')) ? {
                 srcSet: `${recipe.image.replace('.webp', '_mobile.webp')} 400w, ${recipe.image} 800w`,
                 sizes: "(max-width: 640px) 400px, 800px"
+              } : typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') ? {
+                srcSet: `${optimizeUnsplashUrl(recipe.image, 400)} 400w, ${optimizeUnsplashUrl(recipe.image, 800)} 800w, ${optimizeUnsplashUrl(recipe.image, 1200)} 1200w`,
+                sizes: "(max-width: 640px) 400px, (max-width: 1200px) 800px, 1200px"
               } : {})}
               fetchPriority="high"
               loading="eager"
