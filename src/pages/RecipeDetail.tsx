@@ -40,6 +40,8 @@ import { Recipe } from "../types";
 import { getRecipeById } from "../services/api";
 import { useApp } from "../context/AppContext";
 import { speakText } from "../services/speechService";
+import { RECIPES_DATA } from "../services/recipesData";
+import { RecipeCard } from "../components/RecipeCard";
 
 const getIngredientIcon = (nameKey: string) => {
   const name = nameKey.toLowerCase();
@@ -92,6 +94,13 @@ export default function RecipeDetail() {
   const [showDetailedNutrition, setShowDetailedNutrition] = useState(false);
 
   const recipeComments = recipe ? (comments[recipe.id] || []) : [];
+
+  const relatedRecipes = React.useMemo(() => {
+    if (!recipe) return [];
+    return RECIPES_DATA
+      .filter((r) => r.id !== recipe.id && r.category === recipe.category)
+      .slice(0, 3);
+  }, [recipe]);
 
   const handleAddComment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -844,6 +853,28 @@ export default function RecipeDetail() {
           </div>
         </section>
       </div>
+
+      {relatedRecipes.length > 0 && (
+        <section className="mt-16 pt-12 border-t border-gray-100 space-y-8 no-print">
+          <div className="text-center md:text-left">
+            <h2 className="font-display text-2xl md:text-3xl font-black text-brand-ink">More Healthy {recipe.category} Recipes</h2>
+            <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mt-2">Check out these low-calorie, high-protein fitness meals</p>
+          </div>
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedRecipes.map((related, idx) => (
+              <RecipeCard 
+                key={related.id} 
+                recipe={related} 
+                index={idx} 
+                onClick={(r) => {
+                  navigate(`/recipe/${r.id}`);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </motion.div>
   );
 }

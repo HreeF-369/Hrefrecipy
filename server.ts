@@ -12,7 +12,7 @@ import { doc, getDoc, collection, query, where, getDocs } from "firebase/firesto
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -52,47 +52,168 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
   try {
     let html = fs.readFileSync(indexHtmlPath, 'utf-8');
     
-    let title = "DishFit | Healthy & Low-Calorie Fitness Recipes";
-    let description = "Discover delicious, fitness-oriented meals under 500 calories to support your health goals.";
+    let title = "DishFit | Healthy & Low-Calorie Fitness Recipes for Weight Loss";
+    let description = "Discover high-protein, low-calorie fitness meals and healthy recipes under 500 kcal. Perfect for clean eating, weight loss, and meal prepping.";
     let imageUrl = "/logo-og.png";
-    let url = `https://dishfit.net${req.originalUrl}`;
+    let url = `https://dishfit.net${req.path}`;
     let preRenderedContent = "";
+    let schemaScript = "";
     
     // Check if it's a recipe page
-    const recipeMatch = req.originalUrl.match(/^\/recipe\/([^\/]+)/);
+    const recipeMatch = req.path.match(/^\/recipe\/([^\/]+)/);
     if (recipeMatch) {
       const slug = recipeMatch[1];
       const recipe: any = await getRecipe(slug);
       
       if (recipe) {
-        title = `${recipe.title} | DishFit`;
-        description = recipe.description || `Healthy ${recipe.category} recipe with ${recipe.calories} calories.`;
+        title = `${recipe.title} Recipe - Low Calorie Healthy Meal | DishFit`;
+        description = recipe.description || `Learn how to make this healthy ${recipe.category.toLowerCase()} recipe with only ${recipe.calories} and high protein. Perfect for fitness goals.`;
         imageUrl = recipe.image || imageUrl;
         
+        const caloriesVal = recipe.calories ? parseInt(recipe.calories) : 350;
+        
+        // Build Recipe Schema
+        const recipeSchema = {
+          "@context": "https://schema.org/",
+          "@type": "Recipe",
+          "name": recipe.title,
+          "image": [imageUrl],
+          "author": {
+            "@type": "Organization",
+            "name": "DishFit"
+          },
+          "datePublished": "2026-07-02",
+          "description": description,
+          "recipeYield": `${recipe.servings || 2} servings`,
+          "recipeCategory": recipe.category,
+          "url": `https://dishfit.net/recipe/${recipe.id}`,
+          "prepTime": recipe.prepTime ? `PT${parseInt(recipe.prepTime)}M` : "PT15M",
+          "recipeIngredient": (recipe.ingredients || recipe.extendedIngredients || []).map((i: any) => i.name || i.original || ''),
+          "recipeInstructions": (recipe.instructions || []).map((step: string) => ({
+            "@type": "HowToStep",
+            "text": step
+          })),
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": `${caloriesVal} kcal`,
+            "proteinContent": recipe.protein || "20g"
+          }
+        };
+        schemaScript = `<script type="application/ld+json">${JSON.stringify(recipeSchema)}</script>`;
+
+        // Build Related Recipes inside SSR for internal linking crawler support
+        const related = RECIPES_DATA
+          .filter(r => r.id !== recipe.id && r.category === recipe.category)
+          .slice(0, 3);
+        const relatedHtml = related.length > 0 
+          ? `
+            <h2>Related Healthy Recipes</h2>
+            <ul>
+              ${related.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - High protein, healthy ${r.category.toLowerCase()} meal under 500 calories.</li>`).join('')}
+            </ul>
+          ` 
+          : '';
+
         preRenderedContent = `
-          <div style="padding: 20px;">
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
             <h1>${recipe.title}</h1>
-            <img src="${imageUrl}" alt="${recipe.title}" style="max-width: 100%; height: auto;"/>
-            <p>${description}</p>
-            <h2>Ingredients</h2>
+            <p>Category: <strong>Healthy ${recipe.category}</strong> | Calories: <strong>${recipe.calories}</strong> | Protein: <strong>${recipe.protein}</strong></p>
+            <img src="${imageUrl}" alt="High protein low calorie ${recipe.title} recipe" style="max-width: 100%; height: auto; border-radius: 12px;"/>
+            <p style="font-size: 1.1em; line-height: 1.6;">${description}</p>
+            <h2>Ingredients for ${recipe.title}</h2>
             <ul>
               ${(recipe.ingredients || recipe.extendedIngredients || []).map((i: any) => `<li>${i.name || i.original}</li>`).join('')}
             </ul>
-            <h2>Instructions</h2>
+            <h2>Step-by-Step Cooking Instructions</h2>
             <ol>
               ${(recipe.instructions || []).map((step: string) => `<li>${step}</li>`).join('')}
             </ol>
+            ${relatedHtml}
           </div>
         `;
       } else {
         title = "Recipe Not Found | DishFit";
-        preRenderedContent = `<div><h1>Recipe Not Found</h1></div>`;
+        preRenderedContent = `<div style="padding: 20px; text-align: center;"><h1>Recipe Not Found</h1><p>Sorry, the healthy recipe you are looking for is not in our database.</p><p><a href="/recipes">Browse All Recipes</a></p></div>`;
       }
-    } else if (req.originalUrl === "/" || req.originalUrl === "") {
+    } else if (req.path === "/" || req.path === "") {
+        // Pre-render home page content for indexing
+        const featured = RECIPES_DATA.slice(0, 5);
         preRenderedContent = `
-          <div style="padding: 20px;">
-            <h1>Welcome to DishFit</h1>
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>DishFit - High Protein & Low Calorie Fitness Meals</h1>
             <p>${description}</p>
+            <h2>Popular Healthy Recipes & Meal Prep Ideas</h2>
+            <ul>
+              ${featured.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - ${r.description} (${r.calories})</li>`).join('')}
+            </ul>
+            <h2>Browse Recipes by Category</h2>
+            <p>
+              <a href="/recipes?cat=breakfast">Healthy Breakfast Recipes</a> | 
+              <a href="/recipes?cat=lunch">High Protein Lunch Ideas</a> | 
+              <a href="/recipes?cat=dinner">Low Calorie Dinner Recipes</a> |
+              <a href="/recipes?cat=fitness">Fitness Meals & Protein Packs</a>
+            </p>
+          </div>
+        `;
+    } else if (req.path === "/recipes") {
+        title = "Healthy & Low-Calorie Recipes Library | DishFit";
+        description = "Browse our full library of delicious fitness-oriented healthy meals under 500 calories. Perfect for clean eating, protein packs, and easy meal prep.";
+        const list = RECIPES_DATA.slice(0, 10);
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Healthy & Low-Calorie Fitness Recipes</h1>
+            <p>${description}</p>
+            <h2>Explore our meal collection:</h2>
+            <ul>
+              ${list.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - ${r.category} | ${r.calories}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+    } else if (req.path === "/blog") {
+        title = "Culinary & Fitness Journal - Healthy Eating Tips | DishFit";
+        description = "Discover weight loss meal plans, clean eating recipes, protein-rich diets, and professional cooking techniques on DishFit.";
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>DishFit Culinary & Fitness Journal</h1>
+            <p>${description}</p>
+            <h2>Latest Nutrition & Cooking Articles</h2>
+            <ul>
+              <li><a href="/blog/meal-prep-101">Healthy Meal Prep for Beginners</a></li>
+              <li><a href="/blog/macro-tracking">How to Count Macros for Weight Loss</a></li>
+              <li><a href="/blog/low-calorie-hacks">Delicious Low-Calorie Cooking Hacks</a></li>
+            </ul>
+          </div>
+        `;
+    } else if (req.path === "/about") {
+        title = "About Our Healthy Recipe Mission | DishFit";
+        description = "Learn more about DishFit's mission to make professional-grade fitness meal prep, low calorie recipes, and portion-controlled plans accessible to everyone.";
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>About DishFit</h1>
+            <p>${description}</p>
+            <p>Our team selects and crafts the finest high-protein meals under 500 kcal, so you don't have to compromise on taste to achieve your weight loss or fitness goals.</p>
+            <p><a href="/">Back to Home</a> | <a href="/recipes">View Recipes</a></p>
+          </div>
+        `;
+    } else if (req.path === "/guides") {
+        title = "Fitness Cooking & Nutrition Guides | DishFit";
+        description = "Step-by-step guides for clean eating, macro tracking, grocery list planning, and low-calorie culinary techniques.";
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Healthy Cooking & Culinary Guides</h1>
+            <p>${description}</p>
+            <p>Learn tips and tricks on how to plan your weekly meals, prepare list of groceries, and build delicious protein boxes.</p>
+            <p><a href="/recipes">Explore Recipes</a></p>
+          </div>
+        `;
+    } else if (req.path === "/contact") {
+        title = "Contact Us & Support | DishFit";
+        description = "Have questions about our fitness meals or need support with your meal planner? Reach out to the DishFit culinary support team.";
+        preRenderedContent = `
+          <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1>Contact DishFit</h1>
+            <p>${description}</p>
+            <p>Managed by the AIT OUALHYANE family. You can reach out to us at support@dishfit.net.</p>
           </div>
         `;
     }
@@ -108,6 +229,11 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
     html = html.replace(/<meta property="twitter:image" content="[^"]*" \/>/g, `<meta property="twitter:image" content="${imageUrl}" />`);
     html = html.replace(/<meta property="og:url" content="[^"]*" \/>/g, `<meta property="og:url" content="${url}" />`);
     html = html.replace(/<meta property="twitter:url" content="[^"]*" \/>/g, `<meta property="twitter:url" content="${url}" />`);
+
+    // Inject Schema JSON-LD if present
+    if (schemaScript) {
+      html = html.replace('</head>', `${schemaScript}</head>`);
+    }
 
     // Inject Pre-rendered content for crawlers
     if (preRenderedContent) {
@@ -289,7 +415,7 @@ app.post("/api/generic_reminders/create", async (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   res.header("Content-Type", "application/xml");
-  const baseUrl = `${req.protocol}://${req.get("host")}`;
+  const baseUrl = "https://dishfit.net";
   
   // List all static routes
   const staticRoutes = [
