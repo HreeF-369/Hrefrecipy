@@ -3,8 +3,11 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import axios from "axios";
 import dotenv from "dotenv";
+import fs from "fs";
 import { RECIPES_DATA } from "./src/services/recipesData";
 import { GoogleGenAI } from "@google/genai";
+import { db } from "./src/lib/firebase";
+import { doc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
 
 dotenv.config();
 
@@ -15,6 +18,108 @@ app.use(express.json());
 
 // Initialize Gemini
 const ai = process.env.GEMINI_API_KEY ? new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }) : null;
+
+const slugify = (str: string) => String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+async function getRecipe(slugOrId: string) {
+  try {
+    const recipeDocRef = doc(db, "recipes", slugOrId);
+    const recipeDoc = await getDoc(recipeDocRef);
+    if (recipeDoc.exists()) {
+      return { id: recipeDoc.id, ...recipeDoc.data() };
+    }
+    const recipesRef = collection(db, "recipes");
+    const q = query(recipesRef, where("slug", "==", slugify(slugOrId)));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      const d = querySnapshot.docs[0];
+      return { id: d.id, ...d.data() };
+    }
+  } catch (e) {
+    console.error("Firestore error:", e);
+  }
+  
+  const targetSlug = slugify(slugOrId);
+  let recipe = RECIPES_DATA.find(r => String(r.id).toLowerCase() === slugOrId.toLowerCase());
+  if (!recipe) recipe = RECIPES_DATA.find(r => slugify(String(r.id)) === targetSlug);
+  if (!recipe) recipe = RECIPES_DATA.find(r => slugify(r.title) === targetSlug);
+  if (!recipe && targetSlug.length >= 3) recipe = RECIPES_DATA.find(r => slugify(String(r.id)).includes(targetSlug) || targetSlug.includes(slugify(String(r.id))) || slugify(r.title).includes(targetSlug) || targetSlug.includes(slugify(r.title)));
+  return recipe;
+}
+
+// SSR Pre-rendering Helper
+async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
+  try {
+    let html = fs.readFileSync(indexHtmlPath, 'utf-8');
+    
+    let title = "DishFit | Healthy & Low-Calorie Fitness Recipes";
+    let description = "Discover delicious, fitness-oriented meals under 500 calories to support your health goals.";
+    let imageUrl = "/logo-og.png";
+    let url = `https://dishfit.net${req.originalUrl}`;
+    let preRenderedContent = "";
+    
+    // Check if it's a recipe page
+    const recipeMatch = req.originalUrl.match(/^\/recipe\/([^\/]+)/);
+    if (recipeMatch) {
+      const slug = recipeMatch[1];
+      const recipe: any = await getRecipe(slug);
+      
+      if (recipe) {
+        title = `${recipe.title} | DishFit`;
+        description = recipe.description || `Healthy ${recipe.category} recipe with ${recipe.calories} calories.`;
+        imageUrl = recipe.image || imageUrl;
+        
+        preRenderedContent = `
+          <div style="padding: 20px;">
+            <h1>${recipe.title}</h1>
+            <img src="${imageUrl}" alt="${recipe.title}" style="max-width: 100%; height: auto;"/>
+            <p>${description}</p>
+            <h2>Ingredients</h2>
+            <ul>
+              ${(recipe.ingredients || recipe.extendedIngredients || []).map((i: any) => `<li>${i.name || i.original}</li>`).join('')}
+            </ul>
+            <h2>Instructions</h2>
+            <ol>
+              ${(recipe.instructions || []).map((step: string) => `<li>${step}</li>`).join('')}
+            </ol>
+          </div>
+        `;
+      } else {
+        title = "Recipe Not Found | DishFit";
+        preRenderedContent = `<div><h1>Recipe Not Found</h1></div>`;
+      }
+    } else if (req.originalUrl === "/" || req.originalUrl === "") {
+        preRenderedContent = `
+          <div style="padding: 20px;">
+            <h1>Welcome to DishFit</h1>
+            <p>${description}</p>
+          </div>
+        `;
+    }
+
+    // Replace meta tags
+    html = html.replace(/<title>.*<\/title>/, `<title>${title}</title>`);
+    html = html.replace(/<meta property="og:title" content="[^"]*" \/>/g, `<meta property="og:title" content="${title}" />`);
+    html = html.replace(/<meta property="twitter:title" content="[^"]*" \/>/g, `<meta property="twitter:title" content="${title}" />`);
+    html = html.replace(/<meta name="description" content="[^"]*" \/>/g, `<meta name="description" content="${description}" />`);
+    html = html.replace(/<meta property="og:description" content="[^"]*" \/>/g, `<meta property="og:description" content="${description}" />`);
+    html = html.replace(/<meta property="twitter:description" content="[^"]*" \/>/g, `<meta property="twitter:description" content="${description}" />`);
+    html = html.replace(/<meta property="og:image" content="[^"]*" \/>/g, `<meta property="og:image" content="${imageUrl}" />`);
+    html = html.replace(/<meta property="twitter:image" content="[^"]*" \/>/g, `<meta property="twitter:image" content="${imageUrl}" />`);
+    html = html.replace(/<meta property="og:url" content="[^"]*" \/>/g, `<meta property="og:url" content="${url}" />`);
+    html = html.replace(/<meta property="twitter:url" content="[^"]*" \/>/g, `<meta property="twitter:url" content="${url}" />`);
+
+    // Inject Pre-rendered content for crawlers
+    if (preRenderedContent) {
+      html = html.replace('<div id="root" class="w-full overflow-x-hidden"></div>', `<div id="root" class="w-full overflow-x-hidden">${preRenderedContent}</div>`);
+    }
+
+    res.send(html);
+  } catch (error) {
+    console.error("SSR Error:", error);
+    res.sendFile(indexHtmlPath);
+  }
+}
 
 // Chat API Route
 app.post("/api/chat", async (req, res) => {
@@ -245,9 +350,9 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
+    app.use(express.static(distPath, { index: false }));
     app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
+      servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
     });
   }
 

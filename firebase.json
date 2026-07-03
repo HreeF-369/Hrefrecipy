@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-globalgastronomy-10fd9fda-6f00-4ebe-b45f-2d16e20f342f",
+      "rules": "firestore.rules"
+    }
+  ]
+}
