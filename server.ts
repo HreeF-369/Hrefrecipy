@@ -6,13 +6,11 @@ import dotenv from "dotenv";
 import fs from "fs";
 import { RECIPES_DATA } from "./src/services/recipesData";
 import { GoogleGenAI } from "@google/genai";
-import { db } from "./src/lib/firebase";
-import { doc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
 
 dotenv.config();
 
 const app = express();
-const PORT = Number(process.env.PORT || 3000);
+const PORT = 3000;
 
 app.use(express.json());
 
@@ -42,6 +40,9 @@ async function getRecipe(slugOrId: string) {
   // 2. Query Firestore with a strict 3-second timeout to prevent hanging the server
   try {
     const firestorePromise = (async () => {
+      const { db } = await import("./src/lib/firebase");
+      const { doc, getDoc, collection, query, where, getDocs } = await import("firebase/firestore");
+
       // 1. Try to fetch directly by document ID (case-insensitive and exact)
       const recipeDocRef = doc(db, "recipes", slugOrId);
       const recipeDoc = await getDoc(recipeDocRef);
@@ -743,17 +744,59 @@ const staticOptions = {
   }
 };
 
+let viteInstance: any = null;
+
 async function startServer() {
+  const distPath = path.join(process.cwd(), "dist");
+
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
+    viteInstance = vite;
     app.use(vite.middlewares);
+
+    // Dynamic development SPA fallback route for deep-linked paths
+    app.get("*", async (req, res, next) => {
+      if (req.path.startsWith("/api/") || req.path.startsWith("/auth/") || req.path === "/sitemap.xml") {
+        return next();
+      }
+
+      const lastSegment = req.path.split("/").pop() || "";
+      if (lastSegment.includes(".") && !req.path.startsWith("/recipe/") && !lastSegment.startsWith("recipe")) {
+        return next();
+      }
+
+      try {
+        const url = req.originalUrl || req.url;
+        const templatePath = path.resolve(process.cwd(), "index.html");
+        if (fs.existsSync(templatePath)) {
+          let template = fs.readFileSync(templatePath, "utf-8");
+          template = await vite.transformIndexHtml(url, template);
+          res.status(200).set({ "Content-Type": "text/html" }).send(template);
+        } else {
+          next();
+        }
+      } catch (e) {
+        if (vite) {
+          vite.ssrFixStacktrace(e);
+        }
+        next(e);
+      }
+    });
   } else {
-    const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath, staticOptions));
-    app.get("*", (req, res) => {
+    app.get("*", (req, res, next) => {
+      if (req.path.startsWith("/api/") || req.path.startsWith("/auth/") || req.path === "/sitemap.xml") {
+        return next();
+      }
+
+      const lastSegment = req.path.split("/").pop() || "";
+      if (lastSegment.includes(".") && !req.path.startsWith("/recipe/") && !lastSegment.startsWith("recipe")) {
+        return next();
+      }
+
       servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
     });
   }
@@ -768,7 +811,16 @@ if (!process.env.VERCEL) {
 } else {
   const distPath = path.join(process.cwd(), "dist");
   app.use(express.static(distPath, staticOptions));
-  app.get("*", (req, res) => {
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api/") || req.path.startsWith("/auth/") || req.path === "/sitemap.xml") {
+      return next();
+    }
+
+    const lastSegment = req.path.split("/").pop() || "";
+    if (lastSegment.includes(".") && !req.path.startsWith("/recipe/") && !lastSegment.startsWith("recipe")) {
+      return next();
+    }
+
     servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
   });
 }

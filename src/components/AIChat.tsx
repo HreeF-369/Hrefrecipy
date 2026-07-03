@@ -67,7 +67,11 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     }
 
     const smallTalk = ["how are you", "how r u", "how do you do", "what are you doing", "what are u doing", "what u doing", "thanks", "thank you", "what", "what?", "who", "why", "how", "ok", "okay", "yes", "no", "cool", "nice", "great", "awesome", "perfect", "good", "fine", "adaptable"];
-    if (smallTalk.some(s => q === s || q.includes(s))) {
+    
+    // Check if the query is a direct small talk or conversational message
+    const isSmallTalk = smallTalk.some(s => q === s || q.startsWith(s + " ") || q.endsWith(" " + s) || q.includes(" " + s + " "));
+    
+    if (isSmallTalk) {
       if (q.includes("what are you doing") || q.includes("what are u doing") || q.includes("what u doing")) {
         return { content: "I am chatting with you and ready to help you plan your meals! What would you like to cook today?" };
       }
@@ -118,20 +122,28 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
       contextPhrase = "Morning! Start your day right with these breakfast favorites:";
     } else {
       // General Keyword/Ingredient Search
-      const keywords = q.split(" ").filter(k => k.length > 2);
-      searchResults = searchDataSource.filter(recipe => {
-        const inTitle = recipe.title.toLowerCase().includes(q);
-        const inCat = recipe.category.toLowerCase().includes(q);
-        const inIngredients = recipe.extendedIngredients?.some(ing => ing.name.toLowerCase().includes(q));
-        
-        // Also check if any individual word matches
-        const wordMatch = keywords.some(k => 
-          recipe.title.toLowerCase().includes(k) || 
-          recipe.category.toLowerCase().includes(k)
-        );
+      const STOP_WORDS = new Set(["how", "are", "you", "what", "this", "that", "with", "from", "your", "have", "some", "any", "the", "and", "for", "out", "our", "about", "who", "why", "did", "can", "get"]);
+      const keywords = q.split(/\s+/).map(k => k.replace(/[^a-z0-9]/g, "")).filter(k => k.length > 2 && !STOP_WORDS.has(k));
+      
+      if (keywords.length === 0) {
+        searchResults = [];
+      } else {
+        searchResults = searchDataSource.filter(recipe => {
+          const inTitle = recipe.title.toLowerCase().includes(q);
+          const inCat = recipe.category.toLowerCase().includes(q);
+          const inIngredients = recipe.extendedIngredients?.some(ing => ing.name.toLowerCase().includes(q));
+          
+          // Check if any filtered keyword matches as a whole word/boundary or substring
+          const wordMatch = keywords.some(k => {
+            // Match with boundary checks or direct inclusion
+            const title = recipe.title.toLowerCase();
+            const cat = recipe.category.toLowerCase();
+            return title.includes(k) || cat.includes(k);
+          });
 
-        return inTitle || inCat || inIngredients || wordMatch;
-      });
+          return inTitle || inCat || inIngredients || wordMatch;
+        });
+      }
       contextPhrase = `I've searched our kitchen! For "${query}", these are the best matches:`;
     }
 

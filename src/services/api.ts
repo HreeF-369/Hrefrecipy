@@ -151,10 +151,10 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
 
   // 5. Fallback to Firestore if not found locally, with a strict 3-second timeout to prevent hanging the UI infinitely
   try {
-    const { db } = await import('../lib/firebase');
-    const { doc, getDoc, collection, query, where, getDocs } = await import('firebase/firestore');
-
     const firestorePromise = (async () => {
+      const { db } = await import('../lib/firebase');
+      const { doc, getDoc, collection, query, where, getDocs } = await import('firebase/firestore');
+
       // 1. Try to fetch directly by document ID
       const recipeDocRef = doc(db, "recipes", rawId);
       const recipeDoc = await getDoc(recipeDocRef);
