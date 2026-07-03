@@ -10,7 +10,7 @@ import { GoogleGenAI } from "@google/genai";
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json());
 
@@ -107,15 +107,17 @@ function findResilientIndexHtmlPath(initialPath: string): string {
     return resolvedIndexHtmlPath;
   }
 
+  const safeDirname = typeof __dirname !== 'undefined' ? __dirname : process.cwd();
+
   const searchPaths = [
     initialPath,
     path.join(process.cwd(), "dist", "index.html"),
     path.join(process.cwd(), "api", "dist", "index.html"),
-    path.join(__dirname, "dist", "index.html"),
-    path.join(__dirname, "..", "dist", "index.html"),
-    path.join(__dirname, "..", "..", "dist", "index.html"),
-    path.join(__dirname, "index.html"),
-    path.join(__dirname, "..", "index.html"),
+    path.join(safeDirname, "dist", "index.html"),
+    path.join(safeDirname, "..", "dist", "index.html"),
+    path.join(safeDirname, "..", "..", "dist", "index.html"),
+    path.join(safeDirname, "index.html"),
+    path.join(safeDirname, "..", "index.html"),
     path.join(process.cwd(), "index.html")
   ];
 
@@ -129,7 +131,7 @@ function findResilientIndexHtmlPath(initialPath: string): string {
 
   // Fallback scan of directories
   try {
-    const scanDirs = [process.cwd(), __dirname, path.join(process.cwd(), "..")];
+    const scanDirs = [process.cwd(), safeDirname, path.join(process.cwd(), "..")];
     for (const dir of scanDirs) {
       if (!fs.existsSync(dir)) continue;
       const distCheck = path.join(dir, "dist", "index.html");
