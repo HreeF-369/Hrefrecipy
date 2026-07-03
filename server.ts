@@ -85,14 +85,32 @@ async function getRecipe(slugOrId: string) {
   return recipe;
 }
 
+// Cache the raw template index.html in production to avoid synchronous disk reads on every single request
+let cachedIndexHtml: string | null = null;
+let indexHtmlExists = false;
+
 // SSR Pre-rendering Helper
 async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
   try {
-    if (!fs.existsSync(indexHtmlPath)) {
-      return res.status(500).send("DishFit Server Error: index.html not found. Please ensure the project build is complete.");
-    }
+    let html = cachedIndexHtml;
     
-    let html = fs.readFileSync(indexHtmlPath, 'utf-8');
+    if (!html || process.env.NODE_ENV !== "production") {
+      if (process.env.NODE_ENV === "production" && !indexHtmlExists) {
+        if (!fs.existsSync(indexHtmlPath)) {
+          return res.status(500).send("DishFit Server Error: index.html not found. Please ensure the project build is complete.");
+        }
+        indexHtmlExists = true;
+      } else if (process.env.NODE_ENV !== "production") {
+        if (!fs.existsSync(indexHtmlPath)) {
+          return res.status(500).send("DishFit Server Error: index.html not found. Please ensure the project build is complete.");
+        }
+      }
+      
+      html = fs.readFileSync(indexHtmlPath, 'utf-8');
+      if (process.env.NODE_ENV === "production") {
+        cachedIndexHtml = html;
+      }
+    }
     
     let title = "DishFit | Healthy & Low-Calorie Fitness Recipes for Weight Loss";
     let description = "Discover high-protein, low-calorie fitness meals and healthy recipes under 500 kcal. Perfect for clean eating, weight loss, and meal prepping.";

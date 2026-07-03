@@ -36,6 +36,7 @@ export default function Recipes() {
   const [activeTab, setActiveTab] = useState(urlCat);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(12);
   const { favorites, toggleFavorite, allRecipes, setAllRecipes } = useApp();
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -92,6 +93,14 @@ export default function Recipes() {
     
     return result;
   }, [allRecipes, activeTab, query]);
+
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [activeTab, query]);
+
+  const visibleRecipes = useMemo(() => {
+    return filteredRecipes.slice(0, visibleCount);
+  }, [filteredRecipes, visibleCount]);
 
   const categories = [
     { id: "ALL RECIPES", name: "ALL RECIPES" },
@@ -209,7 +218,7 @@ export default function Recipes() {
               <div key={i} className="h-[28rem] animate-pulse rounded-[2.5rem] bg-slate-50 border border-slate-100" />
             ))
           ) : (
-            filteredRecipes.map((recipe, index) => (
+            visibleRecipes.map((recipe, index) => (
               <RecipeCard 
                 key={`${recipe.id}-${index}`}
                 recipe={recipe}
@@ -220,6 +229,18 @@ export default function Recipes() {
           )}
         </motion.div>
       </AnimatePresence>
+
+      {/* Load More Button */}
+      {!loading && visibleCount < filteredRecipes.length && (
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() => setVisibleCount(prev => prev + 12)}
+            className="inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-green/25 hover:shadow-xl hover:shadow-brand-green/30 transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          >
+            Load More Recipes
+          </button>
+        </div>
+      )}
 
       {!loading && filteredRecipes.length === 0 && (
         <div className="flex flex-col items-center justify-center py-20 text-center">

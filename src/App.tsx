@@ -54,8 +54,8 @@ const DataPreference = lazy(() => import("./pages/DataPreference"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const AIChat = lazy(() => import("./components/AIChat"));
 
-import AIChat from "./components/AIChat";
 import CookieBanner from "./components/CookieBanner";
 
 
@@ -391,7 +391,11 @@ export default function App() {
           <MessageSquare size={24} />
         </button>
 
-        <AIChat isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
+        {isAIChatOpen && (
+          <Suspense fallback={null}>
+            <AIChat isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
+          </Suspense>
+        )}
       </Router>
     </AppProvider>
   );

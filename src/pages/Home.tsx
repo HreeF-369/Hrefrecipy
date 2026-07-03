@@ -27,6 +27,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [visibleCount, setVisibleCount] = useState(12);
 
   const { favorites, toggleFavorite, allRecipes, setAllRecipes } = useApp();
   
@@ -158,6 +159,14 @@ export default function Home() {
     
     return result;
   }, [allRecipes, activeCategory, searchQuery, favoriteRecipes]);
+
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [activeCategory, searchQuery]);
+
+  const visibleRecipes = useMemo(() => {
+    return filteredRecipes.slice(0, visibleCount);
+  }, [filteredRecipes, visibleCount]);
 
   const handleOpenRecipe = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
@@ -429,7 +438,7 @@ export default function Home() {
                 <div key={i} className="h-72 animate-pulse rounded-[2.5rem] bg-slate-50" />
               ))
             ) : filteredRecipes.length > 0 ? (
-              filteredRecipes.map((recipe, index) => (
+              visibleRecipes.map((recipe, index) => (
                 <RecipeCard 
                   key={`${recipe.id}-${index}`}
                   recipe={recipe}
@@ -448,6 +457,18 @@ export default function Home() {
           )}
           </motion.div>
         </AnimatePresence>
+
+        {/* Load More Button */}
+        {!loading && visibleCount < filteredRecipes.length && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setVisibleCount(prev => prev + 12)}
+              className="inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-green/25 hover:shadow-xl hover:shadow-brand-green/30 transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            >
+              Load More Recipes
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Fan Reviews Section */}
