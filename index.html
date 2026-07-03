@@ -8,6 +8,18 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TKS4NZ6K');</script>
     <!-- End Google Tag Manager -->
+    <!-- Pinterest Tag -->
+    <script>
+    !function(e){if(!window.pintrk){window.pintrk = function () {
+    window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+      n=window.pintrk;n.queue=[],n.version="3.0";var
+      t=document.createElement("script");t.async=!0,t.src=e;var
+      r=document.getElementsByTagName("script")[0];
+      r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+    pintrk('load', 'YOUR_PINTEREST_TAG_ID', {em: '<user_email_address>'});
+    pintrk('page');
+    </script>
+    <!-- End Pinterest Tag -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -21,6 +33,9 @@
     <meta name="keywords" content="DishFit, Healthy Recipes, Low Calorie Meals, Fitness Recipes, Under 500 kcal, High Protein, Meal Prep, Weight Loss" />
     <meta name="author" content="DishFit" />
     
+    <!-- Pinterest Domain Verification Placeholder -->
+    <meta name="p:domain_verify" content="YOUR_PINTEREST_VERIFICATION_CODE_HERE"/>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dishfit.com/" />
@@ -45,6 +60,10 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKS4NZ6K"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <noscript>
+    <img height="1" width="1" style="display:none;" alt=""
+      src="https://ct.pinterest.com/v3/?event=init&tid=YOUR_PINTEREST_TAG_ID&pd[em]=<hashed_email_address>&noscript=1" />
+    </noscript>
     <div id="root" class="w-full overflow-x-hidden"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

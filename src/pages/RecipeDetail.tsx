@@ -77,6 +77,8 @@ const getIngredientIcon = (nameKey: string) => {
   return <Sparkles className="w-4 h-4 text-[#D4AF37]/30 shrink-0" />;
 };
 
+import NotFound from "./NotFound";
+
 export default function RecipeDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -218,7 +220,7 @@ export default function RecipeDetail() {
     );
   }
 
-  if (!recipe) return <div className="p-20 text-center">Recipe not found</div>;
+  if (!recipe) return <NotFound />;
 
   let caloriesVal = 420;
   if (recipe.nutrition) {
@@ -270,10 +272,15 @@ export default function RecipeDetail() {
             "description": recipe.description,
             "recipeYield": `${recipe.servings} servings`,
             "recipeCategory": recipe.category,
-            "recipeIngredient": recipe.ingredients.map(i => i.name),
-            "recipeInstructions": recipe.instructions.map((inst) => ({
+            "url": `https://dishfit.net/recipe/${recipe.id}`,
+            "prepTime": recipe.prepTime ? `PT${parseInt(recipe.prepTime)}M` : "PT15M",
+            "recipeIngredient": recipe.ingredients ? recipe.ingredients.map(i => i.name) : (recipe.extendedIngredients || []).map(i => i.original || i.name),
+            "recipeInstructions": recipe.instructions ? recipe.instructions.map((inst) => ({
               "@type": "HowToStep",
               "text": inst
+            })) : (recipe.analyzedInstructions?.[0]?.steps || []).map(s => ({
+              "@type": "HowToStep",
+              "text": s.step
             })),
             "nutrition": {
               "@type": "NutritionInformation",

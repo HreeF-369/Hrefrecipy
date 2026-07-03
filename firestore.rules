@@ -7,5 +7,8 @@ service cloud.firestore {
       allow update: if request.auth != null && request.auth.uid == resource.data.userId;
       allow delete: if request.auth != null && request.auth.uid == resource.data.userId;
     }
+    match /recipes/{recipeId} {
+      allow read: if true;
+    }
   }
 }

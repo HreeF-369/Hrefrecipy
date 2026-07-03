@@ -24,6 +24,8 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+import NotFound from "./NotFound";
+
 export default function CookMode() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -166,7 +168,7 @@ export default function CookMode() {
     </div>
   );
 
-  if (!id || !recipe) return <div className="p-10 text-center">Select a recipe to start cooking</div>;
+  if (!id || !recipe) return <NotFound />;
 
   if (steps.length === 0) {
     return (
