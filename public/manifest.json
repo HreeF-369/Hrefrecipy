@@ -1,0 +1,21 @@
+{
+  "short_name": "DishFit",
+  "name": "DishFit - High Protein & Low Calorie Fitness Meals",
+  "description": "Discover high-protein, low-calorie fitness meals and healthy recipes under 500 kcal.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "display": "standalone"
+}

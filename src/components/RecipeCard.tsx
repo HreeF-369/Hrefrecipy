@@ -41,6 +41,10 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
             src={recipe.image}
             alt={`Healthy ${recipe.title} recipe meal prep`}
             loading="lazy"
+            {...(typeof recipe.image === 'string' && (recipe.image.startsWith('image_') || recipe.image.startsWith('/image_')) ? {
+              srcSet: `${recipe.image.replace('.webp', '_mobile.webp')} 400w, ${recipe.image} 800w`,
+              sizes: "(max-width: 640px) 400px, 800px"
+            } : {})}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
           
@@ -48,6 +52,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
           <button
             onClick={handlePinterestSave}
             title="Save to Pinterest"
+            aria-label="Save to Pinterest"
             className="absolute top-4 left-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-white shadow-lg transition-transform hover:scale-110 active:scale-95"
           >
             <svg 
@@ -85,6 +90,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
               e.stopPropagation();
               toggleFavorite(recipe.id);
             }}
+            aria-label={favorites.includes(recipe.id) ? "Remove from favorites" : "Add to favorites"}
             className={cn(
               "absolute top-4 right-4 p-2.5 rounded-full backdrop-blur-md shadow-lg transition-all z-10",
               favorites.includes(recipe.id) ? "bg-red-500 text-white" : "bg-white/90 text-slate-400 hover:text-red-500"

@@ -314,11 +314,18 @@ export default function RecipeDetail() {
             <img 
               src={recipe.image} 
               alt={`High protein low calorie ${recipe.title} recipe for healthy meal planning`} 
+              {...(typeof recipe.image === 'string' && (recipe.image.startsWith('image_') || recipe.image.startsWith('/image_')) ? {
+                srcSet: `${recipe.image.replace('.webp', '_mobile.webp')} 400w, ${recipe.image} 800w`,
+                sizes: "(max-width: 640px) 400px, 800px"
+              } : {})}
+              fetchPriority="high"
+              loading="eager"
               className="h-full w-full object-cover"
             />
             <div className="absolute top-4 !left-4 flex gap-2 z-10">
               <button 
                 onClick={handleToggleFavorite}
+                aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
                 className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg shadow-black/30 backdrop-blur-sm transition-all active:scale-90 no-print ${
                   isFavorite ? "bg-red-500 text-white" : "bg-white/90 text-brand-green"
                 }`}
@@ -327,6 +334,7 @@ export default function RecipeDetail() {
               </button>
               <button 
                 onClick={handleShare}
+                aria-label="Share Recipe"
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg shadow-black/30 backdrop-blur-sm transition-transform active:scale-90 no-print"
                 title="Share Recipe"
               >
@@ -334,6 +342,7 @@ export default function RecipeDetail() {
               </button>
               <button 
                 onClick={handlePrint}
+                aria-label="Print Recipe"
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg shadow-black/30 backdrop-blur-sm transition-transform active:scale-90 no-print cursor-pointer"
                 title="Print Recipe | انبريمي"
               >
@@ -358,6 +367,7 @@ export default function RecipeDetail() {
               <div className="relative">
                 <button 
                   onClick={() => setShowPlanMenu(!showPlanMenu)}
+                  aria-label="Add to Plan"
                   className={`flex h-16 w-16 items-center justify-center rounded-3xl shadow-md ring-1 ring-gray-100 transition-all active:scale-90 ${
                     showPlanMenu ? "bg-brand-green text-white" : "bg-white text-brand-green"
                   }`}
@@ -821,6 +831,7 @@ export default function RecipeDetail() {
                   />
                   <button 
                     type="submit"
+                    aria-label="Send Comment"
                     className="absolute right-2 top-1/2 -translate-y-1/2 rounded-xl bg-brand-green p-2 text-white shadow-lg active:scale-95 transition-transform"
                   >
                     <Send size={18} />
@@ -831,7 +842,7 @@ export default function RecipeDetail() {
                   {recipeComments.length > 0 ? (
                     recipeComments.map((comment, idx) => (
                       <div key={`${comment.id}-${idx}`} className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-100">
-                        <img src={comment.avatar} alt={comment.user} className="h-10 w-10 rounded-full bg-slate-100" />
+                        <img src={comment.avatar} alt={comment.user} loading="lazy" className="h-10 w-10 rounded-full bg-slate-100" />
                         <div className="flex-1 space-y-1">
                           <div className="flex items-center justify-between">
                             <h4 className="text-sm font-bold text-slate-800">{comment.user}</h4>

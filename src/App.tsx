@@ -27,33 +27,36 @@ import {
   Heart,
   BookOpen
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { AppProvider } from "./context/AppContext";
 import { motion, AnimatePresence } from "motion/react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-// Pages (will create these next)
+// Eagerly loaded entry page for maximum initial speed
 import Home from "./pages/Home";
-import Recipes from "./pages/Recipes";
-import RecipeDetail from "./pages/RecipeDetail";
-import CookMode from "./pages/CookMode";
-import Planner from "./pages/Planner";
-import GroceryList from "./pages/GroceryList";
+
+// Lazy-loaded pages to code-split Javascript and reduce bundle size
+const Recipes = lazy(() => import("./pages/Recipes"));
+const RecipeDetail = lazy(() => import("./pages/RecipeDetail"));
+const CookMode = lazy(() => import("./pages/CookMode"));
+const Planner = lazy(() => import("./pages/Planner"));
+const GroceryList = lazy(() => import("./pages/GroceryList"));
+const Favorites = lazy(() => import("./pages/Favorites"));
+const PlaceholderPage = lazy(() => import("./pages/PlaceholderPage"));
+const About = lazy(() => import("./pages/About"));
+const HelpFAQ = lazy(() => import("./pages/HelpFAQ"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer"));
+const Contact = lazy(() => import("./pages/Contact"));
+const DataPreference = lazy(() => import("./pages/DataPreference"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
 import AIChat from "./components/AIChat";
-import Favorites from "./pages/Favorites";
-import PlaceholderPage from "./pages/PlaceholderPage";
-import About from "./pages/About";
-import HelpFAQ from "./pages/HelpFAQ";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import Disclaimer from "./pages/Disclaimer";
-import Contact from "./pages/Contact";
-import DataPreference from "./pages/DataPreference";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 import CookieBanner from "./components/CookieBanner";
-import NotFound from "./pages/NotFound";
 
 
 // Utility for tailwind classes
@@ -267,27 +270,34 @@ export default function App() {
           <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 flex-1 flex flex-col w-full overflow-x-hidden min-w-0 print:pt-0 print:overflow-visible">
             <div className="w-full px-4 py-6 md:px-8 lg:py-12 lg:px-12 flex-1">
                 <AnimatePresence mode="wait">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/recipes" element={<Recipes />} />
-                    <Route path="/blog" element={<Blog />} />
-                    <Route path="/blog/:id" element={<BlogPost />} />
-                    <Route path="/favorites" element={<Favorites />} />
-                    <Route path="/recipe/:id" element={<RecipeDetail />} />
-                    <Route path="/cook" element={<CookMode />} />
-                    <Route path="/cook/:id" element={<CookMode />} />
-                    <Route path="/planner" element={<Planner />} />
-                    <Route path="/grocery" element={<GroceryList />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/guides" element={<HelpFAQ />} />
-                    <Route path="/help" element={<HelpFAQ />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/terms" element={<Terms />} />
-                    <Route path="/disclaimer" element={<Disclaimer />} />
-                    <Route path="/data-preference" element={<DataPreference />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
+                  <Suspense fallback={
+                    <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
+                      <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-100 border-t-brand-green"></div>
+                      <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Loading Page...</p>
+                    </div>
+                  }>
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/recipes" element={<Recipes />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/:id" element={<BlogPost />} />
+                      <Route path="/favorites" element={<Favorites />} />
+                      <Route path="/recipe/:id" element={<RecipeDetail />} />
+                      <Route path="/cook" element={<CookMode />} />
+                      <Route path="/cook/:id" element={<CookMode />} />
+                      <Route path="/planner" element={<Planner />} />
+                      <Route path="/grocery" element={<GroceryList />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/guides" element={<HelpFAQ />} />
+                      <Route path="/help" element={<HelpFAQ />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/privacy" element={<Privacy />} />
+                      <Route path="/terms" element={<Terms />} />
+                      <Route path="/disclaimer" element={<Disclaimer />} />
+                      <Route path="/data-preference" element={<DataPreference />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Suspense>
                 </AnimatePresence>
               </div>
 

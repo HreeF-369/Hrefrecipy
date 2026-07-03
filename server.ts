@@ -577,6 +577,22 @@ app.get("/sitemap.xml", (req, res) => {
   res.send(xml);
 });
 
+const staticOptions = {
+  index: false,
+  setHeaders: (res: any, filePath: string) => {
+    // Check for cached file formats
+    if (filePath.includes('/assets/') || filePath.match(/\.(js|css|woff2?|eot|ttf|otf|svg|png|jpe?g|gif|webp|avif|json)$/i)) {
+      if (filePath.includes('/assets/') || filePath.match(/\.(woff2?)$/i)) {
+        // Cache-busted files (Vite output and fonts) are cached for 1 year
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      } else {
+        // Unhashed images, manifests, and icons are cached for 1 day
+        res.setHeader('Cache-Control', 'public, max-age=86400');
+      }
+    }
+  }
+};
+
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
@@ -586,7 +602,7 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath, { index: false }));
+    app.use(express.static(distPath, staticOptions));
     app.get("*", (req, res) => {
       servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
     });
@@ -601,7 +617,7 @@ if (!process.env.VERCEL) {
   startServer();
 } else {
   const distPath = path.join(process.cwd(), "dist");
-  app.use(express.static(distPath, { index: false }));
+  app.use(express.static(distPath, staticOptions));
   app.get("*", (req, res) => {
     servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
   });
