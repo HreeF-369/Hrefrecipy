@@ -22,40 +22,83 @@ const ai = process.env.GEMINI_API_KEY ? new GoogleGenAI({ apiKey: process.env.GE
 const slugify = (str: string) => String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 async function getRecipe(slugOrId: string) {
+  if (!slugOrId) return null;
+  const targetSlug = slugify(slugOrId);
+
   try {
+    // 1. Try to fetch directly by document ID (case-insensitive and exact)
     const recipeDocRef = doc(db, "recipes", slugOrId);
     const recipeDoc = await getDoc(recipeDocRef);
     if (recipeDoc.exists()) {
       return { id: recipeDoc.id, ...recipeDoc.data() };
     }
+
+    if (slugOrId !== slugOrId.toLowerCase()) {
+      const lowerDocRef = doc(db, "recipes", slugOrId.toLowerCase());
+      const lowerDoc = await getDoc(lowerDocRef);
+      if (lowerDoc.exists()) {
+        return { id: lowerDoc.id, ...lowerDoc.data() };
+      }
+    }
+
+    // 2. Query by slug field
     const recipesRef = collection(db, "recipes");
-    const q = query(recipesRef, where("slug", "==", slugify(slugOrId)));
+    const q = query(recipesRef, where("slug", "==", targetSlug));
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
       const d = querySnapshot.docs[0];
       return { id: d.id, ...d.data() };
     }
+
+    // 3. Scan the collection in Firestore to support ANY custom slug/title combination
+    const allSnapshot = await getDocs(recipesRef);
+    for (const d of allSnapshot.docs) {
+      const data = d.data();
+      const docId = d.id;
+      const title = data.title || "";
+      const slugField = data.slug || "";
+      
+      if (
+        slugify(docId) === targetSlug ||
+        slugify(title) === targetSlug ||
+        slugify(slugField) === targetSlug
+      ) {
+        return { id: docId, ...data };
+      }
+    }
   } catch (e) {
-    console.error("Firestore error:", e);
+    console.error("Firestore error in getRecipe server-side:", e);
   }
   
-  const targetSlug = slugify(slugOrId);
+  // 4. Fallback to local hardcoded recipes
   let recipe = RECIPES_DATA.find(r => String(r.id).toLowerCase() === slugOrId.toLowerCase());
   if (!recipe) recipe = RECIPES_DATA.find(r => slugify(String(r.id)) === targetSlug);
   if (!recipe) recipe = RECIPES_DATA.find(r => slugify(r.title) === targetSlug);
-  if (!recipe && targetSlug.length >= 3) recipe = RECIPES_DATA.find(r => slugify(String(r.id)).includes(targetSlug) || targetSlug.includes(slugify(String(r.id))) || slugify(r.title).includes(targetSlug) || targetSlug.includes(slugify(r.title)));
+  if (!recipe && targetSlug.length >= 3) {
+    recipe = RECIPES_DATA.find(r => 
+      slugify(String(r.id)).includes(targetSlug) || 
+      targetSlug.includes(slugify(String(r.id))) || 
+      slugify(r.title).includes(targetSlug) || 
+      targetSlug.includes(slugify(r.title))
+    );
+  }
   return recipe;
 }
 
 // SSR Pre-rendering Helper
 async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
   try {
+    if (!fs.existsSync(indexHtmlPath)) {
+      return res.status(500).send("DishFit Server Error: index.html not found. Please ensure the project build is complete.");
+    }
+    
     let html = fs.readFileSync(indexHtmlPath, 'utf-8');
     
     let title = "DishFit | Healthy & Low-Calorie Fitness Recipes for Weight Loss";
     let description = "Discover high-protein, low-calorie fitness meals and healthy recipes under 500 kcal. Perfect for clean eating, weight loss, and meal prepping.";
     let imageUrl = "/logo-og.png";
     let url = `https://dishfit.net${req.path}`;
+    let ogType = "website";
     let preRenderedContent = "";
     let schemaScript = "";
     
@@ -66,11 +109,59 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
       const recipe: any = await getRecipe(slug);
       
       if (recipe) {
+        ogType = "recipe";
         title = `${recipe.title} Recipe - Low Calorie Healthy Meal | DishFit`;
-        description = recipe.description || `Learn how to make this healthy ${recipe.category.toLowerCase()} recipe with only ${recipe.calories} and high protein. Perfect for fitness goals.`;
+        description = recipe.description || `Learn how to make this healthy ${String(recipe.category || '').toLowerCase()} recipe with only ${recipe.calories || 'under 500'} and high protein. Perfect for fitness goals.`;
         imageUrl = recipe.image || imageUrl;
         
-        const caloriesVal = recipe.calories ? parseInt(recipe.calories) : 350;
+        let caloriesVal = 350;
+        if (recipe.calories) {
+          caloriesVal = parseInt(String(recipe.calories)) || 350;
+        } else if (recipe.nutrition?.nutrients) {
+          const calNut = recipe.nutrition.nutrients.find((n: any) => n.name && n.name.toLowerCase() === 'calories');
+          if (calNut && calNut.amount) caloriesVal = parseInt(String(calNut.amount)) || 350;
+        }
+        
+        // Map ingredients defensively
+        const mappedIngredients: string[] = [];
+        const rawIngredients = recipe.ingredients || recipe.extendedIngredients || [];
+        if (Array.isArray(rawIngredients)) {
+          rawIngredients.forEach((i: any) => {
+            if (typeof i === 'string') {
+              mappedIngredients.push(i);
+            } else if (i && typeof i === 'object') {
+              const name = i.name || i.original || '';
+              if (name) mappedIngredients.push(name);
+            }
+          });
+        }
+
+        // Map instructions defensively
+        const mappedInstructions: any[] = [];
+        const rawInstructions = recipe.instructions;
+        if (Array.isArray(rawInstructions)) {
+          rawInstructions.forEach((step: any) => {
+            if (typeof step === 'string') {
+              mappedInstructions.push({
+                "@type": "HowToStep",
+                "text": step
+              });
+            } else if (step && typeof step === 'object') {
+              const text = step.text || step.step || '';
+              if (text) {
+                mappedInstructions.push({
+                  "@type": "HowToStep",
+                  "text": text
+                });
+              }
+            }
+          });
+        } else if (rawInstructions && typeof rawInstructions === 'string') {
+          mappedInstructions.push({
+            "@type": "HowToStep",
+            "text": rawInstructions
+          });
+        }
         
         // Build Recipe Schema
         const recipeSchema = {
@@ -85,14 +176,11 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           "datePublished": "2026-07-02",
           "description": description,
           "recipeYield": `${recipe.servings || 2} servings`,
-          "recipeCategory": recipe.category,
+          "recipeCategory": recipe.category || "General Healthy",
           "url": `https://dishfit.net/recipe/${recipe.id}`,
-          "prepTime": recipe.prepTime ? `PT${parseInt(recipe.prepTime)}M` : "PT15M",
-          "recipeIngredient": (recipe.ingredients || recipe.extendedIngredients || []).map((i: any) => i.name || i.original || ''),
-          "recipeInstructions": (recipe.instructions || []).map((step: string) => ({
-            "@type": "HowToStep",
-            "text": step
-          })),
+          "prepTime": recipe.prepTime ? `PT${parseInt(String(recipe.prepTime))}M` : "PT15M",
+          "recipeIngredient": mappedIngredients,
+          "recipeInstructions": mappedInstructions,
           "nutrition": {
             "@type": "NutritionInformation",
             "calories": `${caloriesVal} kcal`,
@@ -100,7 +188,7 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           }
         };
         schemaScript = `<script type="application/ld+json">${JSON.stringify(recipeSchema)}</script>`;
-
+ 
         // Build Related Recipes inside SSR for internal linking crawler support
         const related = RECIPES_DATA
           .filter(r => r.id !== recipe.id && r.category === recipe.category)
@@ -109,24 +197,24 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           ? `
             <h2>Related Healthy Recipes</h2>
             <ul>
-              ${related.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - High protein, healthy ${r.category.toLowerCase()} meal under 500 calories.</li>`).join('')}
+              ${related.map(r => `<li><a href="/recipe/${r.id}">${r.title}</a> - High protein, healthy ${String(r.category || '').toLowerCase()} meal under 500 calories.</li>`).join('')}
             </ul>
           ` 
           : '';
-
+ 
         preRenderedContent = `
           <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
             <h1>${recipe.title}</h1>
-            <p>Category: <strong>Healthy ${recipe.category}</strong> | Calories: <strong>${recipe.calories}</strong> | Protein: <strong>${recipe.protein}</strong></p>
+            <p>Category: <strong>Healthy ${recipe.category || ''}</strong> | Calories: <strong>${recipe.calories || ''}</strong> | Protein: <strong>${recipe.protein || ''}</strong></p>
             <img src="${imageUrl}" alt="High protein low calorie ${recipe.title} recipe" style="max-width: 100%; height: auto; border-radius: 12px;"/>
             <p style="font-size: 1.1em; line-height: 1.6;">${description}</p>
             <h2>Ingredients for ${recipe.title}</h2>
             <ul>
-              ${(recipe.ingredients || recipe.extendedIngredients || []).map((i: any) => `<li>${i.name || i.original}</li>`).join('')}
+              ${mappedIngredients.map((ing: string) => `<li>${ing}</li>`).join('')}
             </ul>
             <h2>Step-by-Step Cooking Instructions</h2>
             <ol>
-              ${(recipe.instructions || []).map((step: string) => `<li>${step}</li>`).join('')}
+              ${mappedInstructions.map((step: any) => `<li>${step.text}</li>`).join('')}
             </ol>
             ${relatedHtml}
           </div>
@@ -217,33 +305,55 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           </div>
         `;
     }
+ 
+    // Replace title tag
+    html = html.replace(/<title>.*?<\/title>/gi, `<title>${title}</title>`);
+    
+    // Resilient helper to replace or inject meta tags safely without breaking on slash variations
+    const setMetaTag = (nameOrProperty: string, value: string, isProperty: boolean = false) => {
+      const attr = isProperty ? 'property' : 'name';
+      const escapedName = nameOrProperty.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+      const regex = new RegExp(`<meta\\s+${attr}="${escapedName}"\\s+content="[^"]*"\\s*\\/?>`, 'i');
+      if (regex.test(html)) {
+        html = html.replace(regex, `<meta ${attr}="${nameOrProperty}" content="${value}" />`);
+      } else {
+        html = html.replace('</head>', `<meta ${attr}="${nameOrProperty}" content="${value}" />\n</head>`);
+      }
+    };
 
-    // Replace meta tags
-    html = html.replace(/<title>.*<\/title>/, `<title>${title}</title>`);
-    html = html.replace(/<meta property="og:title" content="[^"]*" \/>/g, `<meta property="og:title" content="${title}" />`);
-    html = html.replace(/<meta property="twitter:title" content="[^"]*" \/>/g, `<meta property="twitter:title" content="${title}" />`);
-    html = html.replace(/<meta name="description" content="[^"]*" \/>/g, `<meta name="description" content="${description}" />`);
-    html = html.replace(/<meta property="og:description" content="[^"]*" \/>/g, `<meta property="og:description" content="${description}" />`);
-    html = html.replace(/<meta property="twitter:description" content="[^"]*" \/>/g, `<meta property="twitter:description" content="${description}" />`);
-    html = html.replace(/<meta property="og:image" content="[^"]*" \/>/g, `<meta property="og:image" content="${imageUrl}" />`);
-    html = html.replace(/<meta property="twitter:image" content="[^"]*" \/>/g, `<meta property="twitter:image" content="${imageUrl}" />`);
-    html = html.replace(/<meta property="og:url" content="[^"]*" \/>/g, `<meta property="og:url" content="${url}" />`);
-    html = html.replace(/<meta property="twitter:url" content="[^"]*" \/>/g, `<meta property="twitter:url" content="${url}" />`);
-
+    setMetaTag('description', description);
+    setMetaTag('og:title', title, true);
+    setMetaTag('og:description', description, true);
+    setMetaTag('og:image', imageUrl, true);
+    setMetaTag('og:url', url, true);
+    setMetaTag('og:type', ogType, true);
+    setMetaTag('twitter:title', title, true);
+    setMetaTag('twitter:description', description, true);
+    setMetaTag('twitter:image', imageUrl, true);
+    setMetaTag('twitter:url', url, true);
+ 
     // Inject Schema JSON-LD if present
     if (schemaScript) {
       html = html.replace('</head>', `${schemaScript}</head>`);
     }
-
+ 
     // Inject Pre-rendered content for crawlers
     if (preRenderedContent) {
       html = html.replace('<div id="root" class="w-full overflow-x-hidden"></div>', `<div id="root" class="w-full overflow-x-hidden">${preRenderedContent}</div>`);
     }
-
+ 
     res.send(html);
   } catch (error) {
     console.error("SSR Error:", error);
-    res.sendFile(indexHtmlPath);
+    try {
+      if (fs.existsSync(indexHtmlPath)) {
+        res.sendFile(indexHtmlPath);
+      } else {
+        res.status(500).send("DishFit Server Error: index.html not found.");
+      }
+    } catch (err) {
+      res.status(500).send("DishFit Server Error: " + (err instanceof Error ? err.message : String(err)));
+    }
   }
 }
 
