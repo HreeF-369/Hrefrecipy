@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Flame, Clock, Heart, ChevronRight } from "lucide-react";
-import { Recipe } from "../types";
-import { useApp } from "../context/AppContext";
-import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { Recipe } from "../types/index.js";
+import { useApp } from "../context/AppContext.js";
+import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
 
 interface RecipeCardProps {
   recipe: Recipe;

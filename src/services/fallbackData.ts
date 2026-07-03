@@ -1,4 +1,4 @@
-import { Recipe } from "../types";
+import { Recipe } from "../types/index.js";
 
 export const FALLBACK_RECIPES: Recipe[] = [
   // --- BREAKFAST (8 RECIPES) ---

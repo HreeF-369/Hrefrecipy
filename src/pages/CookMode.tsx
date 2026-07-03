@@ -14,9 +14,9 @@ import {
   Pause,
   RotateCcw
 } from "lucide-react";
-import { getRecipeById } from "../services/api";
-import { Recipe } from "../types";
-import { speakText, getBestVoice } from "../services/speechService";
+import { getRecipeById } from "../services/api.js";
+import { Recipe } from "../types/index.js";
+import { speakText, getBestVoice } from "../services/speechService.js";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -24,7 +24,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-import NotFound from "./NotFound";
+import NotFound from "./NotFound.js";
 
 export default function CookMode() {
   const { id } = useParams();

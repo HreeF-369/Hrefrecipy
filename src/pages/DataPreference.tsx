@@ -11,7 +11,7 @@ import {
   Lock,
   EyeOff
 } from "lucide-react";
-import { useApp } from "../context/AppContext";
+import { useApp } from "../context/AppContext.js";
 
 const DataPreference = () => {
   const { preferences, updatePreferences, clearGroceryList, clearAllData, plan, favorites, groceryItems } = useApp();

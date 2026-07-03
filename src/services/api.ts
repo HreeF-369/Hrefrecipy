@@ -1,5 +1,5 @@
-import { Recipe } from "../types";
-import { RECIPES_DATA } from "./recipesData";
+import { Recipe } from "../types/index.js";
+import { RECIPES_DATA } from "./recipesData.js";
 
 export function enrichRecipe(recipe: Recipe): Recipe {
   if (!recipe) return recipe;
@@ -152,7 +152,7 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
   // 5. Fallback to Firestore if not found locally, with a strict 3-second timeout to prevent hanging the UI infinitely
   try {
     const firestorePromise = (async () => {
-      const { db } = await import('../lib/firebase');
+      const { db } = await import('../lib/firebase.js');
       const { doc, getDoc, collection, query, where, getDocs } = await import('firebase/firestore');
 
       // 1. Try to fetch directly by document ID

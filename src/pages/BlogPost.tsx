@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ChevronLeft, Clock, User, Calendar, Share2, Printer } from "lucide-react";
-import { BLOG_POSTS } from "../services/blogData";
+import { BLOG_POSTS } from "../services/blogData.js";
 import { useEffect } from "react";
-import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
 import { Helmet } from "react-helmet-async";
 
 export default function BlogPost() {

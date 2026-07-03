@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Heart, Utensils, ChevronRight, Clock, Flame, Search } from "lucide-react";
-import { useApp } from "../context/AppContext";
-import { Recipe } from "../types";
-import { getRecipeById } from "../services/api";
-import { RecipeModal } from "../components/RecipeModal";
+import { useApp } from "../context/AppContext.js";
+import { Recipe } from "../types/index.js";
+import { getRecipeById } from "../services/api.js";
+import { RecipeModal } from "../components/RecipeModal.js";
 import { Link } from "react-router-dom";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -14,7 +14,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-import { RecipeCard } from "../components/RecipeCard";
+import { RecipeCard } from "../components/RecipeCard.js";
 
 export default function Favorites() {
   const { favorites, toggleFavorite } = useApp();

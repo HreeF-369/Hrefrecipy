@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Clock, Users, Flame, Heart, Share2, Play, Calendar, CheckCircle2, Volume2, Loader2, Youtube, Dumbbell, Wheat, Droplets, Zap, Sparkles, Award, Info, Printer, ChevronRight, ChevronLeft, Egg, Beef, Fish, Cookie, Apple, Salad, Coffee, Soup, Sprout } from 'lucide-react';
-import { Recipe } from '../types';
-import { useApp } from '../context/AppContext';
+import { Recipe } from '../types/index.js';
+import { useApp } from '../context/AppContext.js';
 import { useNavigate } from 'react-router-dom';
-import { speakText } from '../services/speechService';
-import { getRecipeById } from '../services/api';
-import { optimizeUnsplashUrl } from '../lib/imageUtils';
+import { speakText } from '../services/speechService.js';
+import { getRecipeById } from '../services/api.js';
+import { optimizeUnsplashUrl } from '../lib/imageUtils.js';
 
 interface RecipeModalProps {
   recipe: Recipe | null;

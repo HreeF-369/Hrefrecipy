@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { Recipe, Comment } from "../types";
+import { Recipe, Comment } from "../types/index.js";
 import { collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy, serverTimestamp, setDoc } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import { db } from "../lib/firebase.js";
 
 interface GroceryItem {
   id: string;

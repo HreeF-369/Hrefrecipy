@@ -3,10 +3,10 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { Coffee, Utensils, Moon, Plus, Trash2, ShoppingCart, ChevronLeft, ChevronRight, X, Heart, Search, Apple, Dumbbell } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useApp } from "../context/AppContext";
-import { getRecipeById, searchRecipes } from "../services/api";
-import { Recipe } from "../types";
-import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { useApp } from "../context/AppContext.js";
+import { getRecipeById, searchRecipes } from "../services/api.js";
+import { Recipe } from "../types/index.js";
+import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
 
 export default function Planner() {
   const { plan, removeFromPlan, addToPlan, favorites, addRecipeIngredientsToGroceryList } = useApp();

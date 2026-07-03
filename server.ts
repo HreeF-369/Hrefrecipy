@@ -3,7 +3,7 @@ import path from "path";
 import axios from "axios";
 import dotenv from "dotenv";
 import fs from "fs";
-import { RECIPES_DATA } from "./src/services/recipesData";
+import { RECIPES_DATA } from "./src/services/recipesData.js";
 import { GoogleGenAI } from "@google/genai";
 
 dotenv.config();
@@ -39,7 +39,7 @@ async function getRecipe(slugOrId: string) {
   // 2. Query Firestore with a strict 3-second timeout to prevent hanging the server
   try {
     const firestorePromise = (async () => {
-      const { db } = await import("./src/lib/firebase");
+      const { db } = await import("./src/lib/firebase.js");
       const { doc, getDoc, collection, query, where, getDocs } = await import("firebase/firestore");
 
       // 1. Try to fetch directly by document ID (case-insensitive and exact)

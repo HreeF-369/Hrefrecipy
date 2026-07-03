@@ -3,16 +3,16 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { TrendingUp, Utensils, Calendar, ShoppingBag, ArrowRight, Sparkles, Coffee, Moon, Flame, Clock, ChevronRight, ChevronLeft, GlassWater, IceCream, ChefHat, Search, CheckCircle2, Heart } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Recipe } from "../types";
-import { searchRecipes, getRecipeById } from "../services/api";
+import { Recipe } from "../types/index.js";
+import { searchRecipes, getRecipeById } from "../services/api.js";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { RecipeModal } from "../components/RecipeModal";
-import { FanReviews } from "../components/FanReviews";
-import { useApp } from "../context/AppContext";
+import { RecipeModal } from "../components/RecipeModal.js";
+import { FanReviews } from "../components/FanReviews.js";
+import { useApp } from "../context/AppContext.js";
 
-import { RecipeCard } from "../components/RecipeCard";
-import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { RecipeCard } from "../components/RecipeCard.js";
+import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

@@ -3,11 +3,11 @@ import { X, Send, User, Bot, Sparkles, Loader2, ChefHat, Utensils, Info } from "
 import { motion, AnimatePresence } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
-import { useApp } from "../context/AppContext";
-import { Recipe } from "../types";
-import { optimizeUnsplashUrl } from "../lib/imageUtils";
-import { FALLBACK_RECIPES } from "../services/fallbackData";
-import { RECIPES_DATA } from "../services/recipesData";
+import { useApp } from "../context/AppContext.js";
+import { Recipe } from "../types/index.js";
+import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
+import { FALLBACK_RECIPES } from "../services/fallbackData.js";
+import { RECIPES_DATA } from "../services/recipesData.js";
 
 interface Message {
   role: "user" | "bot";

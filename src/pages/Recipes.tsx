@@ -3,14 +3,14 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Utensils, Clock, Flame, ChevronRight, ChevronLeft, X, Sparkles, CheckCircle2, Heart } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Recipe } from "../types";
-import { searchRecipes } from "../services/api";
-import { RecipeModal } from "../components/RecipeModal";
-import { FanReviews } from "../components/FanReviews";
-import { useApp } from "../context/AppContext";
+import { Recipe } from "../types/index.js";
+import { searchRecipes } from "../services/api.js";
+import { RecipeModal } from "../components/RecipeModal.js";
+import { FanReviews } from "../components/FanReviews.js";
+import { useApp } from "../context/AppContext.js";
 
-import { RecipeCard } from "../components/RecipeCard";
-import { Breadcrumbs } from "../components/Breadcrumbs";
+import { RecipeCard } from "../components/RecipeCard.js";
+import { Breadcrumbs } from "../components/Breadcrumbs.js";
 
 function cn(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ');

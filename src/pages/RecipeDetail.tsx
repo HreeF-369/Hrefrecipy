@@ -36,14 +36,14 @@ import {
   Loader2,
   Award
 } from "lucide-react";
-import { Recipe } from "../types";
-import { getRecipeById } from "../services/api";
-import { useApp } from "../context/AppContext";
-import { speakText } from "../services/speechService";
-import { RECIPES_DATA } from "../services/recipesData";
-import { RecipeCard } from "../components/RecipeCard";
-import { optimizeUnsplashUrl } from "../lib/imageUtils";
-import { Breadcrumbs } from "../components/Breadcrumbs";
+import { Recipe } from "../types/index.js";
+import { getRecipeById } from "../services/api.js";
+import { useApp } from "../context/AppContext.js";
+import { speakText } from "../services/speechService.js";
+import { RECIPES_DATA } from "../services/recipesData.js";
+import { RecipeCard } from "../components/RecipeCard.js";
+import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
+import { Breadcrumbs } from "../components/Breadcrumbs.js";
 
 const getIngredientIcon = (nameKey: string) => {
   const name = nameKey.toLowerCase();
@@ -81,7 +81,7 @@ const getIngredientIcon = (nameKey: string) => {
   return <Sparkles className="w-4 h-4 text-[#D4AF37]/30 shrink-0" />;
 };
 
-import NotFound from "./NotFound";
+import NotFound from "./NotFound.js";
 
 export default function RecipeDetail() {
   const { id } = useParams();

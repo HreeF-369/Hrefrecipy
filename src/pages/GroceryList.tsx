@@ -19,7 +19,7 @@ import {
   Clock,
   Sparkles
 } from "lucide-react";
-import { useApp } from "../context/AppContext";
+import { useApp } from "../context/AppContext.js";
 
 export default function GroceryList() {
   const { groceryItems, addGroceryItem, toggleGroceryItem, deleteGroceryItem, updateGroceryItemAmount, clearGroceryList } = useApp();

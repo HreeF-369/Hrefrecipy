@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import { BookOpen, Clock, ChevronRight, Sparkles, Flame, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
-import { optimizeUnsplashUrl } from "../lib/imageUtils";
+import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
 import { Helmet } from "react-helmet-async";
 
-import { BLOG_POSTS } from "../services/blogData";
+import { BLOG_POSTS } from "../services/blogData.js";
 
 export default function Blog() {
   return (

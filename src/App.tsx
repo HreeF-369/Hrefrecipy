@@ -28,35 +28,35 @@ import {
   BookOpen
 } from "lucide-react";
 import { useState, useEffect, lazy, Suspense } from "react";
-import { AppProvider } from "./context/AppContext";
+import { AppProvider } from "./context/AppContext.js";
 import { motion, AnimatePresence } from "motion/react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 // Eagerly loaded entry page for maximum initial speed
-import Home from "./pages/Home";
+import Home from "./pages/Home.js";
 
 // Lazy-loaded pages to code-split Javascript and reduce bundle size
-const Recipes = lazy(() => import("./pages/Recipes"));
-const RecipeDetail = lazy(() => import("./pages/RecipeDetail"));
-const CookMode = lazy(() => import("./pages/CookMode"));
-const Planner = lazy(() => import("./pages/Planner"));
-const GroceryList = lazy(() => import("./pages/GroceryList"));
-const Favorites = lazy(() => import("./pages/Favorites"));
-const PlaceholderPage = lazy(() => import("./pages/PlaceholderPage"));
-const About = lazy(() => import("./pages/About"));
-const HelpFAQ = lazy(() => import("./pages/HelpFAQ"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const Terms = lazy(() => import("./pages/Terms"));
-const Disclaimer = lazy(() => import("./pages/Disclaimer"));
-const Contact = lazy(() => import("./pages/Contact"));
-const DataPreference = lazy(() => import("./pages/DataPreference"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const AIChat = lazy(() => import("./components/AIChat"));
+const Recipes = lazy(() => import("./pages/Recipes.js"));
+const RecipeDetail = lazy(() => import("./pages/RecipeDetail.js"));
+const CookMode = lazy(() => import("./pages/CookMode.js"));
+const Planner = lazy(() => import("./pages/Planner.js"));
+const GroceryList = lazy(() => import("./pages/GroceryList.js"));
+const Favorites = lazy(() => import("./pages/Favorites.js"));
+const PlaceholderPage = lazy(() => import("./pages/PlaceholderPage.js"));
+const About = lazy(() => import("./pages/About.js"));
+const HelpFAQ = lazy(() => import("./pages/HelpFAQ.js"));
+const Privacy = lazy(() => import("./pages/Privacy.js"));
+const Terms = lazy(() => import("./pages/Terms.js"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer.js"));
+const Contact = lazy(() => import("./pages/Contact.js"));
+const DataPreference = lazy(() => import("./pages/DataPreference.js"));
+const Blog = lazy(() => import("./pages/Blog.js"));
+const BlogPost = lazy(() => import("./pages/BlogPost.js"));
+const NotFound = lazy(() => import("./pages/NotFound.js"));
+const AIChat = lazy(() => import("./components/AIChat.js"));
 
-import CookieBanner from "./components/CookieBanner";
+import CookieBanner from "./components/CookieBanner.js";
 
 
 // Utility for tailwind classes
