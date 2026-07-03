@@ -1,5 +1,4 @@
 import express from "express";
-import { createServer as createViteServer } from "vite";
 import path from "path";
 import axios from "axios";
 import dotenv from "dotenv";
@@ -752,6 +751,7 @@ async function startServer() {
   const distPath = path.join(process.cwd(), "dist");
 
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -799,7 +799,7 @@ async function startServer() {
         return next();
       }
 
-      servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
+      servePreRenderedHtml(req, res, path.join(distPath, "index.html")).catch(next);
     });
   }
 
@@ -823,7 +823,7 @@ if (!process.env.VERCEL) {
       return next();
     }
 
-    servePreRenderedHtml(req, res, path.join(distPath, "index.html"));
+    servePreRenderedHtml(req, res, path.join(distPath, "index.html")).catch(next);
   });
 }
 
