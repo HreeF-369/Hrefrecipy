@@ -1,7 +1,5 @@
 import { Recipe } from "../types/index.js";
 import { RECIPES_DATA } from "./recipesData.js";
-import { db } from "../lib/firebase.js";
-import { doc, getDoc } from "firebase/firestore";
 
 export function enrichRecipe(recipe: Recipe): Recipe {
   if (!recipe) return recipe;
@@ -129,31 +127,20 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
   const slugify = (str: string) => String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const targetSlug = slugify(rawId);
 
-  // 1. Try to fetch from Firestore first using explicit database connection
-  try {
-    const docRef = doc(db, "recipes", rawId);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      return enrichRecipe({ id: rawId, ...docSnap.data() } as Recipe);
-    }
-  } catch (error) {
-    console.warn("Firestore fetch failed, falling back to local data:", error);
-  }
-
-  // 2. Try local RECIPES_DATA first as it's near-instant and extremely reliable!
+  // 1. Try local RECIPES_DATA first as it's near-instant and extremely reliable!
   let recipe = RECIPES_DATA.find(r => String(r.id).toLowerCase() === rawId.toLowerCase());
 
-  // 3. Exact Slug ID match
+  // 2. Exact Slug ID match
   if (!recipe) {
     recipe = RECIPES_DATA.find(r => slugify(String(r.id)) === targetSlug);
   }
 
-  // 4. Exact Slug Title match
+  // 3. Exact Slug Title match
   if (!recipe) {
     recipe = RECIPES_DATA.find(r => slugify(r.title) === targetSlug);
   }
 
-  // 5. Partial match
+  // 4. Partial match
   if (!recipe && targetSlug.length >= 3) {
     recipe = RECIPES_DATA.find(r => slugify(String(r.id)).includes(targetSlug) || targetSlug.includes(slugify(String(r.id))) || slugify(r.title).includes(targetSlug) || targetSlug.includes(slugify(r.title)));
   }
@@ -161,6 +148,38 @@ export async function getRecipeById(id: string | number): Promise<Recipe | null>
   if (recipe) {
     return enrichRecipe(recipe);
   }
+
+  // 5. Fallback to Firestore if not found locally, with a strict 3-second timeout to prevent hanging the UI infinitely
+  try {
+    const firestorePromise = (async () => {
+      const { db } = await import('../lib/firebase.js');
+      const { doc, getDoc, collection, query, where, getDocs } = await import('firebase/firestore');
+
+      // 1. Try to fetch directly by document ID
+      const recipeDocRef = doc(db, "recipes", rawId);
+      const recipeDoc = await getDoc(recipeDocRef);
+      if (recipeDoc.exists()) {
+        return enrichRecipe({ id: recipeDoc.id, ...recipeDoc.data() } as Recipe);
+      }
+      
+      // 2. Try to query by slug field if it exists
+      const recipesRef = collection(db, "recipes");
+      const q = query(recipesRef, where("slug", "==", targetSlug));
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        const docSnapshot = querySnapshot.docs[0];
+        return enrichRecipe({ id: docSnapshot.id, ...docSnapshot.data() } as Recipe);
+      }
+      return null;
+    })();
+
+    const timeoutPromise = new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000));
+    const result = await Promise.race([firestorePromise, timeoutPromise]);
+    if (result) return result;
+  } catch (error) {
+    console.error("Error fetching recipe from Firestore:", error);
+  }
+
   return null;
 }
 

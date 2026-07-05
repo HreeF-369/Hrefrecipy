@@ -5,8 +5,6 @@ import dotenv from "dotenv";
 import fs from "fs";
 import { RECIPES_DATA } from "./src/services/recipesData.js";
 import { GoogleGenAI } from "@google/genai";
-import { db } from "./src/lib/firebase.js";
-import { doc, getDoc } from "firebase/firestore";
 
 dotenv.config();
 
@@ -24,17 +22,6 @@ async function getRecipe(slugOrId: string) {
   if (!slugOrId) return null;
   const targetSlug = slugify(slugOrId);
 
-  // Try to fetch from Firestore first using explicit database connection
-  try {
-    const docRef = doc(db, "recipes", slugOrId);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      return { id: slugOrId, ...docSnap.data() };
-    }
-  } catch (error) {
-    console.warn("[Server SSR] Firestore fetch failed, falling back to local data:", error);
-  }
-
   // 1. Try local RECIPES_DATA first as it's near-instant and extremely reliable!
   let recipe = RECIPES_DATA.find(r => String(r.id).toLowerCase() === slugOrId.toLowerCase());
   if (!recipe) recipe = RECIPES_DATA.find(r => slugify(String(r.id)) === targetSlug);
@@ -48,6 +35,63 @@ async function getRecipe(slugOrId: string) {
     );
   }
   if (recipe) return recipe;
+
+  // 2. Query Firestore with a strict 3-second timeout to prevent hanging the server
+  try {
+    const firestorePromise = (async () => {
+      const { db } = await import("./src/lib/firebase.js");
+      const { doc, getDoc, collection, query, where, getDocs } = await import("firebase/firestore");
+
+      // 1. Try to fetch directly by document ID (case-insensitive and exact)
+      const recipeDocRef = doc(db, "recipes", slugOrId);
+      const recipeDoc = await getDoc(recipeDocRef);
+      if (recipeDoc.exists()) {
+        return { id: recipeDoc.id, ...recipeDoc.data() };
+      }
+
+      if (slugOrId !== slugOrId.toLowerCase()) {
+        const lowerDocRef = doc(db, "recipes", slugOrId.toLowerCase());
+        const lowerDoc = await getDoc(lowerDocRef);
+        if (lowerDoc.exists()) {
+          return { id: lowerDoc.id, ...lowerDoc.data() };
+        }
+      }
+
+      // 2. Query by slug field
+      const recipesRef = collection(db, "recipes");
+      const q = query(recipesRef, where("slug", "==", targetSlug));
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        const d = querySnapshot.docs[0];
+        return { id: d.id, ...d.data() };
+      }
+
+      // 3. Scan the collection in Firestore to support ANY custom slug/title combination
+      const allSnapshot = await getDocs(recipesRef);
+      for (const d of allSnapshot.docs) {
+        const data = d.data();
+        const docId = d.id;
+        const title = data.title || "";
+        const slugField = data.slug || "";
+        
+        if (
+          slugify(docId) === targetSlug ||
+          slugify(title) === targetSlug ||
+          slugify(slugField) === targetSlug
+        ) {
+          return { id: docId, ...data };
+        }
+      }
+      return null;
+    })();
+
+    const timeoutPromise = new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000));
+    const result = await Promise.race([firestorePromise, timeoutPromise]);
+    if (result) return result;
+  } catch (e) {
+    console.error("Firestore error in getRecipe server-side:", e);
+  }
+  
   return null;
 }
 

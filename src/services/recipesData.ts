@@ -21,8 +21,8 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 slices of cheddar cheese", image: "https://images.unsplash.com/photo-1618164436241-4473940d1f5c?q=80&w=200" },
       { name: "2 tablespoons of butter", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=200" },
       { name: "Salt to taste", image: "https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?q=80&w=200" },
-      { name: "Pepper to taste", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "2 slices of cooked bacon or ham (optional)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=200" },
+      { name: "Pepper to taste", image: "https://images.unsplash.com/photo-1506368249639-73a05d6f6429?q=80&w=200" },
+      { name: "2 slices of cooked bacon or ham (optional)", image: "https://images.unsplash.com/photo-1606851094055-351830514a40?q=80&w=200" },
       { name: "Fresh spinach leaves (optional)", image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?q=80&w=200" }
     ],
     instructions: [
@@ -51,15 +51,15 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "4 large eggs", image: "https://img.icons8.com/fluency/96/eggs.png" },
       { name: "6 oz block feta cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
-      { name: "1/2 cup all-purpose flour", image: "https://img.icons8.com/fluency/96/wheat.png" },
-      { name: "1/2 teaspoon smoked paprika", image: "https://img.icons8.com/fluency/96/salt-shaker.png" },
+      { name: "1/2 cup all-purpose flour", image: "https://img.icons8.com/fluency/96/flour.png" },
+      { name: "1/2 teaspoon smoked paprika", image: "https://img.icons8.com/fluency/96/spices.png" },
       { name: "1 teaspoon garlic powder", image: "https://img.icons8.com/fluency/96/garlic.png" },
-      { name: "1/4 teaspoon black pepper", image: "https://img.icons8.com/fluency/96/salt-shaker.png" },
+      { name: "1/4 teaspoon black pepper", image: "https://img.icons8.com/fluency/96/black-pepper.png" },
       { name: "1/2 teaspoon salt", image: "https://img.icons8.com/fluency/96/salt-shaker.png" },
       { name: "1/4 cup olive oil", image: "https://img.icons8.com/fluency/96/olive-oil.png" },
       { name: "2 tablespoons chopped fresh parsley", image: "https://img.icons8.com/fluency/96/parsley.png" },
-      { name: "1 tablespoon chopped fresh dill", image: "https://img.icons8.com/fluency/96/herb.png" },
-      { name: "Lemon wedges for serving", image: "https://img.icons8.com/fluency/96/citrus.png" }
+      { name: "1 tablespoon chopped fresh dill", image: "https://img.icons8.com/fluency/96/dill.png" },
+      { name: "Lemon wedges for serving", image: "https://img.icons8.com/fluency/96/lemon.png" }
     ],
     instructions: [
       "Cut feta into 1/2-inch thick slices.",
@@ -90,12 +90,12 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "1 cup strawberries, hulled", image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=150" },
       { name: "1 cup blueberries", image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=150" },
-      { name: "1 cup raspberries", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 cup raspberries", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" },
       { name: "1 cup plain Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
       { name: "2 tablespoons honey", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" },
       { name: "1 teaspoon lemon juice", image: "https://images.unsplash.com/photo-1590502593747-42a996133562?q=80&w=150" },
       { name: "1/2 teaspoon vanilla extract", image: "https://images.unsplash.com/photo-1536882240095-0379873feb4e?q=80&w=150" },
-      { name: "1/4 cup granola", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/4 cup granola", image: "https://images.unsplash.com/photo-1517881917430-e70dfb3610aa?q=80&w=150" },
       { name: "Fresh mint leaves for garnish", image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=150" }
     ],
     instructions: [
@@ -128,9 +128,9 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 tablespoons unsalted butter", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
       { name: "1 teaspoon smoked paprika", image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=150" },
       { name: "1/2 teaspoon ground chili flakes", image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=150" },
-      { name: "1 tablespoon white vinegar", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Salt to taste", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Fresh dill or parsley for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 tablespoon white vinegar", image: "https://images.unsplash.com/photo-1589135235552-878f7ef08866?q=80&w=150" },
+      { name: "Salt to taste", image: "https://images.unsplash.com/photo-1613143584824-34079ca9171a?q=80&w=150" },
+      { name: "Fresh dill or parsley for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" },
       { name: "Crusty bread for serving", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" }
     ],
     instructions: [
@@ -204,10 +204,10 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 slices of sourdough bread", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
       { name: "1 tablespoon olive oil", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
       { name: "1 teaspoon lemon juice", image: "https://images.unsplash.com/photo-1590502593747-42a996133562?q=80&w=150" },
-      { name: "Salt to taste", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "Salt to taste", image: "https://images.unsplash.com/photo-1613143584824-34079ca9171a?q=80&w=150" },
       { name: "Freshly ground black pepper to taste", image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=150" },
       { name: "1/4 teaspoon red pepper flakes", image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=150" },
-      { name: "1 tablespoon chopped fresh cilantro", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 tablespoon chopped fresh cilantro", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" },
       { name: "1 teaspoon everything bagel seasoning", image: "https://images.unsplash.com/photo-1544982503-9f984c14501a?q=80&w=150" },
       { name: "1/2 teaspoon butter", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" }
     ],
@@ -277,10 +277,10 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1 large egg", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "1/2 ripe avocado, thinly sliced", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=150" },
       { name: "1 thick slice of sourdough bread", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
-      { name: "1 tablespoon white vinegar (for poaching)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 tablespoon white vinegar (for poaching)", image: "https://images.unsplash.com/photo-1589135235552-878f7ef08866?q=80&w=150" },
       { name: "1/4 teaspoon red pepper flakes", image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=150" },
       { name: "Salt and freshly ground black pepper", image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=150" },
-      { name: "Fresh microgreens or herbs for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh microgreens or herbs for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
     ],
     instructions: [
       "Toast the sourdough bread slice until it is extra crispy and sturdy.",
@@ -308,7 +308,7 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["#1 Pinterest 2026", "BagelLover", "LoadedBreakfast"],
     dishTypes: ["Breakfast", "Sandwich", "Bagel"],
     ingredients: [
-      { name: "1 everything bagel", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 everything bagel", image: "https://images.unsplash.com/photo-1585478259715-876acc5be8eb?q=80&w=150" },
       { name: "1 large egg", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "2 strips of bacon", image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=150" },
       { name: "1/4 ripe avocado, sliced", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=150" },
@@ -346,9 +346,9 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1/2 ripe avocado", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=150" },
       { name: "3 strips smoked salmon", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=150" },
       { name: "1 thick slice artisan sourdough bread", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
-      { name: "1 tablespoon white vinegar (for poaching)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Fresh herbs (dill/chives) for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Salt and freshly ground black pepper", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "1 tablespoon white vinegar (for poaching)", image: "https://images.unsplash.com/photo-1589135235552-878f7ef08866?q=80&w=150" },
+      { name: "Fresh herbs (dill/chives) for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" },
+      { name: "Salt and freshly ground black pepper", image: "https://images.unsplash.com/photo-1613143584824-34079ca9171a?q=80&w=150" }
     ],
     instructions: [
       "Toast the artisan sourdough bread slice until deeply golden and crispy.",
@@ -378,13 +378,13 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "5-6 large eggs", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "1 can crushed tomatoes", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=150" },
-      { name: "1 medium red bell pepper, diced", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "1 small onion, finely chopped", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 medium red bell pepper, diced", image: "https://images.unsplash.com/photo-1563565375-f3fdfdbedd83?q=80&w=150" },
+      { name: "1 small onion, finely chopped", image: "https://images.unsplash.com/photo-1508747703725-719ae2c73ee1?q=80&w=150" },
       { name: "2 cloves garlic, minced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "2 tablespoons olive oil", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
       { name: "1 teaspoon ground cumin & smoked paprika", image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=150" },
       { name: "1/4 cup crumbled feta cheese", image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=150" },
-      { name: "Fresh parsley for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
     ],
     instructions: [
       "Heat olive oil in a large skillet over medium heat. Add the chopped onion and red bell pepper, cooking until soft (about 5 minutes).",
@@ -416,8 +416,8 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 tablespoons unsalted butter", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
       { name: "3 cloves garlic, minced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "2 tablespoons grated parmesan cheese", image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=150" },
-      { name: "1 sprig fresh rosemary or parsley", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Salt, black pepper, and chili flakes", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "1 sprig fresh rosemary or parsley", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" },
+      { name: "Salt, black pepper, and chili flakes", image: "https://images.unsplash.com/photo-1613143584824-34079ca9171a?q=80&w=150" }
     ],
     instructions: [
       "Cook the spaghetti in a large pot of boiling salted water until al dente, according to package instructions. Drain and reserve 1/4 cup of pasta water.",
@@ -445,10 +445,10 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "5 large eggs", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "3 medium potatoes, thinly sliced", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=150" },
-      { name: "1 large onion, thinly sliced", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 large onion, thinly sliced", image: "https://images.unsplash.com/photo-1508747703725-719ae2c73ee1?q=80&w=150" },
       { name: "1/2 cup olive oil (for frying)", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
-      { name: "Salt and freshly ground black pepper", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Fresh parsley for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Salt and freshly ground black pepper", image: "https://images.unsplash.com/photo-1613143584824-34079ca9171a?q=80&w=150" },
+      { name: "Fresh parsley for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
     ],
     instructions: [
       "Heat olive oil in a non-stick skillet over medium heat. Add the sliced potatoes and onions, ensuring they are fully submerged. Cook gently until tender but not browned (about 15 minutes).",
@@ -481,7 +481,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1/4 cup diced tomatoes", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=150" },
       { name: "1/4 cup shredded cheddar cheese", image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=150" },
       { name: "1 teaspoon butter", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
-      { name: "Fresh microgreens for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh microgreens for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
     ],
     instructions: [
       "Whisk the eggs with a pinch of salt and scramble them softly in a skillet with butter until creamy.",
@@ -508,7 +508,7 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dessert", "Sweet", "Pastry"],
     ingredients: [
       { name: "1 package phyllo dough, thawed", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
-      { name: "2 cups finely crushed pistachios", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "2 cups finely crushed pistachios", image: "https://images.unsplash.com/photo-1551731409-430360700021?q=80&w=150" },
       { name: "1 cup crushed walnuts", image: "https://images.unsplash.com/photo-1547514701-42782101795e?q=80&w=150" },
       { name: "1 cup unsalted butter, melted", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
       { name: "1 cup honey or simple syrup", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" },
@@ -546,7 +546,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1/2 small onion & 1 tomato (for Pico de Gallo)", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=150" },
       { name: "2 tablespoons sour cream or Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
       { name: "1 teaspoon taco seasoning (cumin, paprika, garlic powder)", image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=150" },
-      { name: "Fresh cilantro and lime juice", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh cilantro and lime juice", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
     ],
     instructions: [
       "In a skillet over medium heat, brown the minced beef with the taco seasoning and a pinch of salt until fully cooked. Drain excess fat and set aside.",
@@ -576,8 +576,8 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 slices of sharp cheddar cheese", image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=150" },
       { name: "1 brioche sesame bun", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
       { name: "1 tomato, sliced", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=150" },
-      { name: "A few crisp green lettuce leaves", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "2 tablespoons house burger sauce", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "A few crisp green lettuce leaves", image: "https://images.unsplash.com/photo-1622484211148-71749c44b140?q=80&w=150" },
+      { name: "2 tablespoons house burger sauce", image: "https://images.unsplash.com/photo-1585325701165-351af916e5ec?q=80&w=150" }
     ],
     instructions: [
       "Preheat your grill or cast-iron skillet over high heat. Season the beef patties generously with salt, pepper, and garlic powder.",
@@ -608,7 +608,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1/2 cup shredded mozzarella or gruyère cheese", image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=150" },
       { name: "1 tablespoon cream cheese (with herbs)", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
       { name: "1 tablespoon unsalted butter", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
-      { name: "A few sprigs of fresh dill", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "A few sprigs of fresh dill", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
     ],
     instructions: [
       "Spread a thin layer of herb cream cheese on the inside of both sourdough bread slices.",
@@ -671,8 +671,8 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 tbsp unsalted butter", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
       { name: "3 cloves garlic, minced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "1/4 cup heavy cream", image: "https://images.unsplash.com/photo-1553909489-cd47e0907980?q=80&w=150" },
-      { name: "1/4 cup rich beef broth (for gravy)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Fresh parsley & thyme, finely chopped", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "1/4 cup rich beef broth (for gravy)", image: "https://images.unsplash.com/photo-1607301406219-fc3a44f7f93e?q=80&w=150" },
+      { name: "Fresh parsley & thyme, finely chopped", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Peel and dice the potatoes, then boil them in salted water until fork-tender (about 15 minutes). Drain well.",
@@ -700,7 +700,7 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "1 thick-cut T-Bone steak (approx. 400g)", image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=150" },
       { name: "2 medium russet potatoes (cut into wedges)", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=150" },
-      { name: "1/2 cup fresh parsley & cilantro (for chimichurri)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 cup fresh parsley & cilantro (for chimichurri)", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "2 tbsp olive oil", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
       { name: "1 tbsp red wine vinegar", image: "https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=150" },
       { name: "2 cloves garlic, minced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
@@ -736,7 +736,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "4 cloves garlic, minced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "1 fresh lemon (sliced & juiced)", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" },
       { name: "1 tablespoon olive oil", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
-      { name: "Fresh parsley, finely chopped", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley, finely chopped", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Season the salmon fillets generously with salt, pepper, and a pinch of paprika on both sides.",
@@ -831,7 +831,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "4 cloves garlic, thinly sliced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "2 tbsp freshly grated Parmesan cheese", image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=150" },
       { name: "1/2 tsp red chili flakes", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
-      { name: "Fresh Italian parsley, finely chopped", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh Italian parsley, finely chopped", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Boil the spaghetti in salted water until al dente. Reserve 1/4 cup of pasta water, then drain.",
@@ -861,7 +861,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1/2 cup buttermilk & 1 egg (for coating)", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "1/2 cup all-purpose flour & cornstarch", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
       { name: "1 tsp paprika, garlic powder, and onion powder", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
-      { name: "2 tbsp premium tomato ketchup", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "2 tbsp premium tomato ketchup", image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd46f?q=80&w=150" }
     ],
     instructions: [
       "Cut the chicken into even strips. Marinate in buttermilk, salt, pepper, and garlic powder for at least 15 minutes.",
@@ -890,7 +890,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "500g baby potatoes & carrots, chopped", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=150" },
       { name: "1 whole lemon & 1 head of garlic", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" },
       { name: "3 tbsp softened butter or olive oil", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
-      { name: "Fresh rosemary & thyme sprigs", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "Fresh rosemary & thyme sprigs", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1 large red onion, wedged", image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=150" }
     ],
     instructions: [
@@ -917,12 +917,12 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["SeafoodGourmet", "CreamySauce", "QuickGourmet", "Lunch"],
     dishTypes: ["Dinner", "Lunch", "Seafood", "Shrimp"],
     ingredients: [
-      { name: "300g jumbo shrimp, peeled and deveined", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "300g jumbo shrimp, peeled and deveined", image: "https://images.unsplash.com/photo-1551248429-4043bcaad3be?q=80&w=150" },
       { name: "1 cup Jasmine or Basmati rice", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "3/4 cup heavy cream", image: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=150" },
       { name: "4 cloves garlic, finely minced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "2 tbsp unsalted butter & 1 tbsp olive oil", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
-      { name: "Fresh parsley and cracked black pepper", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley and cracked black pepper", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Rinse and cook the rice according to package instructions until fluffy. Keep warm and set aside.",
@@ -950,9 +950,9 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Lunch", "Dinner", "Wrap", "Chicken", "Shawarma"],
     ingredients: [
       { name: "250g chicken breast, thinly sliced", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=150" },
-      { name: "2 large flour tortillas or Arabic flatbreads", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "2 large flour tortillas or Arabic flatbreads", image: "https://images.unsplash.com/photo-1574914629385-a1c2e39a5996?q=80&w=150" },
       { name: "1/2 cup Greek yogurt & 2 cloves garlic (for garlic sauce)", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
-      { name: "1 small cucumber & 1 tomato, sliced", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 small cucumber & 1 tomato, sliced", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "1/2 red onion, thinly sliced", image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=150" },
       { name: "1 tbsp shawarma spice blend (cumin, paprika, cardamom)", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" }
     ],
@@ -985,7 +985,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1/2 ripe avocado, cubed", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=150" },
       { name: "1/4 cup cherry tomatoes, halved", image: "https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=150" },
       { name: "2 tbsp premium teriyaki sauce", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
-      { name: "Fresh cilantro and green onions", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh cilantro and green onions", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Cook the Jasmine rice and press it tightly into a round mold at the center of the plate.",
@@ -1014,7 +1014,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "3 tbsp melted unsalted butter", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "4 cloves garlic, finely minced", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "1 fresh lemon, sliced", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" },
-      { name: "Fresh parsley, chopped", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley, chopped", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Preheat oven to 200°C and arrange salmon fillets on a lined baking sheet.",
@@ -1042,7 +1042,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "1/4 cup olive oil & lemon juice blend", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
       { name: "1 small tomato & red onion (diced for salsa)", image: "https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=150" },
       { name: "3 cloves garlic, crushed", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
-      { name: "Fresh parsley and lemon wheels", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley and lemon wheels", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Make diagonal cuts across the fish skin, and rub inside and out with olive oil, garlic, cumin, salt, and pepper.",
@@ -1069,9 +1069,9 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "300g premium ribeye or New York strip steak", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=150" },
       { name: "3 tbsp unsalted butter", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "3 cloves garlic, crushed", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
-      { name: "Fresh rosemary & thyme sprigs", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "Fresh rosemary & thyme sprigs", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1 tbsp olive oil (for searing)", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
-      { name: "Fresh chives, finely chopped", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh chives, finely chopped", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Bring the steak to room temperature for 20 minutes before cooking. Pat completely dry and season generously with coarse salt and cracked black pepper.",
@@ -1099,10 +1099,10 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "200g penne pasta", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "200g premium ground beef", image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=150" },
-      { name: "1/2 cup heavy cream & 1/2 cup tomato sauce", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 cup heavy cream & 1/2 cup tomato sauce", image: "https://images.unsplash.com/photo-1621996346565-e3bb64e0be5e?q=80&w=150" },
       { name: "1 cup shredded Cheddar & Mozzarella mix", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
       { name: "1/2 onion & 2 cloves garlic, finely chopped", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
-      { name: "Fresh parsley or basil, for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley or basil, for garnish", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Boil the penne pasta in salted water according to package instructions until al dente. Drain and set aside.",
@@ -1130,10 +1130,10 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "250g lasagna sheets", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "300g premium ground beef", image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=150" },
-      { name: "1.5 cups marinara or bolognese sauce", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1.5 cups marinara or bolognese sauce", image: "https://images.unsplash.com/photo-1621996346565-e3bb64e0be5e?q=80&w=150" },
       { name: "1 cup creamy béchamel sauce", image: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=150" },
       { name: "1.5 cups shredded Mozzarella & Parmesan mix", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
-      { name: "Fresh parsley, finely chopped for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley, finely chopped for garnish", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Preheat your oven to 190°C (375°F).",
@@ -1160,11 +1160,11 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dinner", "Premium", "Grill"],
     ingredients: [
       { name: "400g premium beef sirloin or ribeye, cubed", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=150" },
-      { name: "1 large bell pepper (yellow & red), cubed", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 large bell pepper (yellow & red), cubed", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "1 red onion, cut into wedges", image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=150" },
-      { name: "1 small zucchini, sliced into rounds", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 small zucchini, sliced into rounds", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "2 tbsp olive oil & lemon juice (for marinade)", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
-      { name: "Garlic powder, cumin, paprika, and fresh rosemary", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Garlic powder, cumin, paprika, and fresh rosemary", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "In a large bowl, mix olive oil, lemon juice, minced garlic, paprika, cumin, salt, pepper, and finely chopped rosemary.",
@@ -1193,7 +1193,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "250g chicken breast, thinly sliced", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=150" },
       { name: "2 large flour tortillas or Arabic flatbreads", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
       { name: "1/2 cup Greek yogurt & 2 cloves garlic", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
-      { name: "1 small cucumber & 1 tomato, sliced", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 small cucumber & 1 tomato, sliced", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "1/2 red onion, thinly sliced", image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=150" },
       { name: "1 tbsp shawarma spice blend (cumin, paprika, cardamom)", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" }
     ],
@@ -1222,11 +1222,11 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dinner", "Pizza", "Premium"],
     ingredients: [
       { name: "250g premium pizza dough", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
-      { name: "1/2 cup rich tomato pizza sauce", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 cup rich tomato pizza sauce", image: "https://images.unsplash.com/photo-1621996346565-e3bb64e0be5e?q=80&w=150" },
       { name: "1.5 cups shredded Mozzarella cheese", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
       { name: "70g premium sliced pepperoni", image: "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?q=80&w=150" },
       { name: "Black olives, sliced mushrooms, and fresh cherry tomatoes", image: "https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=150" },
-      { name: "Fresh basil leaves, for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh basil leaves, for garnish", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Preheat your oven to its maximum temperature, ideally around 240°C (460°F) or use a pizza stone if available.",
@@ -1254,7 +1254,7 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "350g deep-dish pizza dough", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
       { name: "250g premium seasoned ground beef", image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=150" },
-      { name: "1.5 cups chunky tomato herb sauce", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1.5 cups chunky tomato herb sauce", image: "https://images.unsplash.com/photo-1621996346565-e3bb64e0be5e?q=80&w=150" },
       { name: "2 cups shredded Mozzarella cheese", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
       { name: "60g premium sliced pepperoni", image: "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?q=80&w=150" },
       { name: "1 tbsp grated Parmesan & dried oregano", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" }
@@ -1273,7 +1273,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Honey Garlic Glazed Salmon",
     description: "A top-trending seafood dish featuring pan-seared premium salmon fillets locked in a sticky, sweet, and savory honey garlic sauce, finished with a squeeze of fresh lemon and a sprinkle of sesame seeds.",
     summary: "A top-trending seafood dish featuring pan-seared premium salmon fillets locked in a sticky, sweet, and savory honey garlic sauce, finished with a squeeze of fresh lemon and a sprinkle of sesame seeds.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_salmon_glaze.webp",
     prepTime: "20m",
     readyInMinutes: 20,
     servings: 2,
@@ -1302,7 +1302,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Tuscan Garlic Chicken",
     description: "An elegant, highly popular creamy Italian dish. Tender chicken breasts simmered in a luxurious, rich garlic cream sauce packed with sun-dried tomatoes and fresh spinach leaves.",
     summary: "An elegant, highly popular creamy Italian dish. Tender chicken breasts simmered in a luxurious, rich garlic cream sauce packed with sun-dried tomatoes and fresh spinach leaves.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_tuscan_chicken.webp",
     prepTime: "30m",
     readyInMinutes: 30,
     servings: 2,
@@ -1331,7 +1331,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Creamy Sun-Dried Tomato Gnocchi",
     description: "The ultimate vegetarian trend. Pillowy, soft potato gnocchi tossed in a velvety, rich sun-dried tomato and basil cream sauce, topped with melted fresh mozzarella.",
     summary: "The ultimate vegetarian trend. Pillowy, soft potato gnocchi tossed in a velvety, rich sun-dried tomato and basil cream sauce, topped with melted fresh mozzarella.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_creamy_gnocchi.webp",
     prepTime: "20m",
     readyInMinutes: 20,
     servings: 2,
@@ -1342,7 +1342,7 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dinner", "Pasta", "Vegetarian", "Premium"],
     ingredients: [
       { name: "400g fresh potato gnocchi", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
-      { name: "3/4 cup heavy cream & 2 tbsp tomato paste", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "3/4 cup heavy cream & 2 tbsp tomato paste", image: "https://images.unsplash.com/photo-1621996346565-e3bb64e0be5e?q=80&w=150" },
       { name: "1/2 cup sun-dried tomatoes, sliced", image: "https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=150" },
       { name: "1/2 cup grated Parmesan & fresh basil", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
       { name: "2 cloves garlic, finely chopped", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" }
@@ -1360,7 +1360,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Gourmet Smash Burger",
     description: "The internet's favorite burger. Two ultra-thin, crispy-edged smashed beef patties topped with melted American cheese, caramelized onions, and a signature premium burger sauce inside a toasted brioche bun.",
     summary: "The internet's favorite burger. Two ultra-thin, crispy-edged smashed beef patties topped with melted American cheese, caramelized onions, and a signature premium burger sauce inside a toasted brioche bun.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_smash_burger.webp",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 2,
@@ -1374,7 +1374,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 soft premium brioche buns", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" },
       { name: "4 slices real American or Cheddar cheese", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
       { name: "1 large onion, finely sliced (for caramelizing)", image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=150" },
-      { name: "2 tbsp mayonnaise, 1 tbsp ketchup & relish (for sauce)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "2 tbsp mayonnaise, 1 tbsp ketchup & relish (for sauce)", image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd46f?q=80&w=150" }
     ],
     instructions: [
       "Divide the ground beef into 4 equal round balls (do not press them into patties yet).",
@@ -1390,7 +1390,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Slow-Cooked Beef Ribs",
     description: "Magnificent premium beef ribs slow-cooked to melt-in-your-mouth perfection, glazed with a rich hickory barbecue reduction, and served over a bed of creamy garlic mashed potatoes.",
     summary: "Magnificent premium beef ribs slow-cooked to melt-in-your-mouth perfection, glazed with a rich hickory barbecue reduction, and served over a bed of creamy garlic mashed potatoes.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_beef_ribs.webp",
     prepTime: "3h",
     readyInMinutes: 180,
     servings: 4,
@@ -1401,10 +1401,10 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dinner", "Short Ribs", "Beef", "Premium", "Main Dish"],
     ingredients: [
       { name: "1kg premium beef short ribs", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=150" },
-      { name: "1 cup hickory BBQ sauce & 2 tbsp honey", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 cup hickory BBQ sauce & 2 tbsp honey", image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd46f?q=80&w=150" },
       { name: "3 medium potatoes & 2 tbsp butter (for mash)", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=150" },
       { name: "1 cup beef broth", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=150" },
-      { name: "Garlic cloves, rosemary, and thyme", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Garlic cloves, rosemary, and thyme", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Season the beef ribs generously with coarse salt, black pepper, and garlic powder.",
@@ -1419,7 +1419,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Pan-Seared Duck Breast",
     description: "An exquisite fine-dining staple. Crispy-skinned premium duck breast scored and pan-seared to a perfect medium-rare, drizzled with a sophisticated orange and balsamic reduction.",
     summary: "An exquisite fine-dining staple. Crispy-skinned premium duck breast scored and pan-seared to a perfect medium-rare, drizzled with a sophisticated orange and balsamic reduction.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_duck_breast.webp",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 2,
@@ -1432,7 +1432,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 premium duck breasts", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=150" },
       { name: "1/2 cup fresh orange juice & zest", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" },
       { name: "2 tbsp balsamic vinegar & 1 tbsp honey", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" },
-      { name: "Fresh rosemary sprig", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "Fresh rosemary sprig", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "Salt and cracked black pepper", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" }
     ],
     instructions: [
@@ -1448,7 +1448,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Creamy Seafood Paella",
     description: "A premium twist on a coastal classic. High-quality Arborio rice simmered in a rich saffron-infused seafood broth, loaded with jumbo shrimp, mussels, calamari, and sweet green peas.",
     summary: "A premium twist on a coastal classic. High-quality Arborio rice simmered in a rich saffron-infused seafood broth, loaded with jumbo shrimp, mussels, calamari, and sweet green peas.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_seafood_paella.webp",
     prepTime: "40m",
     readyInMinutes: 40,
     servings: 4,
@@ -1459,10 +1459,10 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dinner", "Seafood", "Paella", "Arborio Rice", "Premium", "Main Dish"],
     ingredients: [
       { name: "200g Arborio or Paella rice", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
-      { name: "300g mixed seafood (jumbo shrimp, mussels, calamari)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "300g mixed seafood (jumbo shrimp, mussels, calamari)", image: "https://images.unsplash.com/photo-1551248429-4043bcaad3be?q=80&w=150" },
       { name: "2 cups premium seafood broth", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=150" },
       { name: "A generous pinch of real saffron threads", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
-      { name: "1/2 cup diced tomatoes & bell peppers", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 cup diced tomatoes & bell peppers", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "Lemon wedges and fresh parsley", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" }
     ],
     instructions: [
@@ -1479,7 +1479,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Lamb Chops with Herb Chimichurri",
     description: "Gourmet, tender lamb chops grilled to perfection, boasting a beautiful outer crust and juicy center, topped with a vibrant, zesty fresh herb and garlic chimichurri sauce.",
     summary: "Gourmet, tender lamb chops grilled to perfection, boasting a beautiful outer crust and juicy center, topped with a vibrant, zesty fresh herb and garlic chimichurri sauce.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_lamb_chops.webp",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 2,
@@ -1490,7 +1490,7 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dinner", "Lamb Chops", "Chimichurri", "Premium", "Main Dish"],
     ingredients: [
       { name: "4-6 premium lamb chops", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=150" },
-      { name: "1 cup fresh parsley & cilantro (for chimichurri)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 cup fresh parsley & cilantro (for chimichurri)", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "3 cloves garlic, minced & 1 red chili", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "1/4 cup olive oil & 2 tbsp red wine vinegar", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" },
       { name: "Dried oregano, salt, and coarse black pepper", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" }
@@ -1508,7 +1508,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Creamy Garlic Butter Shrimp Pasta",
     description: "A viral seafood sensation. Succulent jumbo shrimp tossed with fettuccine pasta in a luxurious, velvety garlic butter and parmesan cream sauce, finished with fresh parsley.",
     summary: "A viral seafood sensation. Succulent jumbo shrimp tossed with fettuccine pasta in a luxurious, velvety garlic butter and parmesan cream sauce, finished with fresh parsley.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_shrimp_pasta.webp",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 2,
@@ -1518,7 +1518,7 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["SeafoodTrending", "GourmetPasta", "QuickLuxury"],
     dishTypes: ["Main Dish", "Seafood", "Pasta"],
     ingredients: [
-      { name: "250g jumbo shrimp, peeled", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "250g jumbo shrimp, peeled", image: "https://images.unsplash.com/photo-1551248429-4043bcaad3be?q=80&w=150" },
       { name: "200g fettuccine pasta", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "1 cup heavy cream & 1/2 cup Parmesan", image: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=150" },
       { name: "3 tbsp unsalted butter & 1 tbsp olive oil", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
@@ -1537,7 +1537,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Braised Lamb Shanks",
     description: "An upscale restaurant classic. Tender, fall-off-the-bone lamb shanks slow-braised in a rich rosemary, garlic, and aromatic broth reduction, served over smooth polenta.",
     summary: "An upscale restaurant classic. Tender, fall-off-the-bone lamb shanks slow-braised in a rich rosemary, garlic, and aromatic broth reduction, served over smooth polenta.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_braised_lamb.webp",
     prepTime: "2h 30m",
     readyInMinutes: 150,
     servings: 2,
@@ -1550,8 +1550,8 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "2 premium lamb shanks", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=150" },
       { name: "1 large onion & 2 carrots, chopped", image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=150" },
       { name: "2 cups rich beef broth", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=150" },
-      { name: "3 tbsp tomato paste", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "Fresh rosemary, thyme, and garlic", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "3 tbsp tomato paste", image: "https://images.unsplash.com/photo-1621996346565-e3bb64e0be5e?q=80&w=150" },
+      { name: "Fresh rosemary, thyme, and garlic", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Season lamb shanks generously with salt and pepper. Sear in a hot Dutch oven until browned on all sides, then remove.",
@@ -1566,7 +1566,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Crispy Hot Honey Chicken",
     description: "The ultimate sweet-and-spicy trend. Perfectly crisped chicken cutlets glazed in a glossy, fiery hot honey infusion, served alongside a refreshing slaw.",
     summary: "The ultimate sweet-and-spicy trend. Perfectly crisped chicken cutlets glazed in a glossy, fiery hot honey infusion, served alongside a refreshing slaw.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_hot_honey_chicken.webp",
     prepTime: "30m",
     readyInMinutes: 30,
     servings: 2,
@@ -1595,7 +1595,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Gourmet Beef Wellington Slices",
     description: "The legendary pinnacle of luxury dining. Tender beef tenderloin coated in rich mushroom d उनके paste, wrapped in golden, flaky puff pastry, served with red wine jus.",
     summary: "The legendary pinnacle of luxury dining. Tender beef tenderloin coated in rich mushroom paste, wrapped in golden, flaky puff pastry, served with red wine jus.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_beef_wellington.webp",
     prepTime: "1h",
     readyInMinutes: 60,
     servings: 4,
@@ -1624,7 +1624,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Thai Green Chicken Curry",
     description: "An aromatic global favorite. Tender chicken pieces simmered in a creamy, vibrant green curry paste and coconut milk broth, packed with bamboo shoots and Thai basil.",
     summary: "An aromatic global favorite. Tender chicken pieces simmered in a creamy, vibrant green curry paste and coconut milk broth, packed with bamboo shoots and Thai basil.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_green_curry.webp",
     prepTime: "30m",
     readyInMinutes: 30,
     servings: 4,
@@ -1637,8 +1637,8 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "300g chicken breast, sliced", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=150" },
       { name: "2 tbsp authentic Thai green curry paste", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
       { name: "1 can (400ml) premium coconut milk", image: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=150" },
-      { name: "1 cup bell peppers & bamboo shoots", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "1 tbsp fish sauce & fresh Thai basil", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "1 cup bell peppers & bamboo shoots", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
+      { name: "1 tbsp fish sauce & fresh Thai basil", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Heat 2 tablespoons of coconut cream in a pan over medium heat, then stir in green curry paste until highly fragrant.",
@@ -1653,7 +1653,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Sea Bass with Lemon Caper Butter",
     description: "Light, sophisticated, and upscale. Crispy pan-seared Sea Bass fillets served over a bright, glossy lemon butter emulsion studded with briny capers.",
     summary: "Light, sophisticated, and upscale. Crispy pan-seared Sea Bass fillets served over a bright, glossy lemon butter emulsion studded with briny capers.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_seabass_caper.webp",
     prepTime: "20m",
     readyInMinutes: 20,
     servings: 2,
@@ -1667,7 +1667,7 @@ export const RECIPES_DATA: Recipe[] = [
       { name: "3 tbsp unsalted butter", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
       { name: "2 tbsp premium capers, drained", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
       { name: "Juice and zest of 1 fresh lemon", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" },
-      { name: "Fresh parsley, chopped", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh parsley, chopped", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Pat sea bass fillets completely dry; score the skin slightly and season with salt and white pepper.",
@@ -1682,7 +1682,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Slow-Cooked BBQ Beef Brisket",
     description: "Rich, melt-in-your-mouth beef brisket slow-cooked to smokey perfection, coated in a sticky premium BBQ bark, served sliced with pickled onions.",
     summary: "Rich, melt-in-your-mouth beef brisket slow-cooked to smokey perfection, coated in a sticky premium BBQ bark, served sliced with pickled onions.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_beef_brisket.webp",
     prepTime: "4h",
     readyInMinutes: 240,
     servings: 6,
@@ -1694,7 +1694,7 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "800g high-quality beef brisket", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=150" },
       { name: "2 tbsp dark brown sugar & smoked paprika", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
-      { name: "1 cup artisan barbecue sauce", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 cup artisan barbecue sauce", image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd46f?q=80&w=150" },
       { name: "1/2 cup beef stock & apple cider vinegar", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=150" },
       { name: "Pickled red onions, for serving", image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=150" }
     ],
@@ -1711,7 +1711,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Creamy Mushroom Chicken Risotto",
     description: "Pure Italian comfort elegance. Rich, slow-stirred Arborio rice loaded with earthy wild mushrooms, pan-seared chicken, and heavily finished with Parmesan and truffle oil.",
     summary: "Pure Italian comfort elegance. Rich, slow-stirred Arborio rice loaded with earthy wild mushrooms, pan-seared chicken, and heavily finished with Parmesan and truffle oil.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_chicken_risotto.webp",
     prepTime: "40m",
     readyInMinutes: 40,
     servings: 4,
@@ -1740,7 +1740,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Ribeye Steak with Chimichurri Butter",
     description: "A high-protein masterpiece. Thick, juicy premium ribeye steak seared with a dark crust, topped with a melting, vibrant fresh-herb chimichurri butter compound.",
     summary: "A high-protein masterpiece. Thick, juicy premium ribeye steak seared with a dark crust, topped with a melting, vibrant fresh-herb chimichurri butter compound.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_ribeye_chimichurri.webp",
     prepTime: "20m",
     readyInMinutes: 20,
     servings: 2,
@@ -1752,7 +1752,7 @@ export const RECIPES_DATA: Recipe[] = [
     ingredients: [
       { name: "1 thick-cut premium ribeye steak (350g)", image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=150" },
       { name: "2 tbsp unsalted butter, softened", image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=150" },
-      { name: "1/4 cup finely chopped parsley & oregano", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/4 cup finely chopped parsley & oregano", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1 clove garlic, minced & red pepper flakes", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=150" },
       { name: "1 tbsp olive oil", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=150" }
     ],
@@ -1769,7 +1769,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Crispy Korean Fried Chicken Supreme",
     description: "An international sensation. Double-fried, ultra-crunchy chicken thighs coated in a savory, glossy, and mildly spicy sweet gochujang glaze, topped with sesame.",
     summary: "An international sensation. Double-fried, ultra-crunchy chicken thighs coated in a savory, glossy, and mildly spicy sweet gochujang glaze, topped with sesame.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_korean_chicken.webp",
     prepTime: "30m",
     readyInMinutes: 30,
     servings: 4,
@@ -1798,7 +1798,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Classic Italian Tiramisu Supreme",
     description: "The ultimate fine-dining dessert. Layers of coffee-dipped ladyfingers and a velvety, rich mascarpone cream, heavily dusted with premium cocoa powder.",
     summary: "The ultimate fine-dining dessert. Layers of coffee-dipped ladyfingers and a velvety, rich mascarpone cream, heavily dusted with premium cocoa powder.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_tiramisu.webp",
     prepTime: "30m",
     readyInMinutes: 30,
     servings: 4,
@@ -1826,7 +1826,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Molten Chocolate Lava Cake",
     description: "A viral favorite. A rich, decadent chocolate cake with a perfectly baked crust and an intensely glossy, oozing warm chocolate center.",
     summary: "A viral favorite. A rich, decadent chocolate cake with a perfectly baked crust and an intensely glossy, oozing warm chocolate center.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_lava_cake.webp",
     prepTime: "20m",
     readyInMinutes: 20,
     servings: 2,
@@ -1854,7 +1854,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "San Sebastian Burnt Cheesecake",
     description: "The globally trending crustless cheesecake, baked at high heat for a beautifully caramelized, burnt top and an ultra-creamy, custard-like center.",
     summary: "The globally trending crustless cheesecake, baked at high heat for a beautifully caramelized, burnt top and an ultra-creamy, custard-like center.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_burnt_cheesecake.webp",
     prepTime: "50m",
     readyInMinutes: 50,
     servings: 6,
@@ -1882,7 +1882,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "New York Strawberry Cheesecake",
     description: "A dense and incredibly smooth premium cheesecake on a buttery Graham cracker crust, topped with a glossy, vibrant fresh strawberry glaze.",
     summary: "A dense and incredibly smooth premium cheesecake on a buttery Graham cracker crust, topped with a glossy, vibrant fresh strawberry glaze.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_strawberry_cheesecake.webp",
     prepTime: "1h",
     readyInMinutes: 60,
     servings: 8,
@@ -1910,7 +1910,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Gourmet Pistachio Kunafa Croissant",
     description: "The ultimate viral pastry fusion. A flaky, buttery baked croissant stuffed with crispy toasted kunafa pastry, premium pistachio cream, and sweet syrup.",
     summary: "The ultimate viral pastry fusion. A flaky, buttery baked croissant stuffed with crispy toasted kunafa pastry, premium pistachio cream, and sweet syrup.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_kunafa_croissant.webp",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 2,
@@ -1938,7 +1938,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "French Crème Brûlée Art",
     description: "A sophisticated fine-dining classic. A rich, silky vanilla bean custard base topped with a contrasting layer of hard, beautifully shattered caramelized sugar.",
     summary: "A sophisticated fine-dining classic. A rich, silky vanilla bean custard base topped with a contrasting layer of hard, beautifully shattered caramelized sugar.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_creme_brulee.webp",
     prepTime: "45m",
     readyInMinutes: 45,
     servings: 4,
@@ -1965,7 +1965,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Premium Lotus Biscoff Mousse",
     description: "An airy, ultra-creamy layered dessert cup loaded with crushed Biscoff cookies and a velvety white chocolate and speculoos cookie butter mousse.",
     summary: "An airy, ultra-creamy layered dessert cup loaded with crushed Biscoff cookies and a velvety white chocolate and speculoos cookie butter mousse.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_lotus_mousse.webp",
     prepTime: "20m",
     readyInMinutes: 20,
     servings: 4,
@@ -1993,7 +1993,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Red Velvet Lava Cookies",
     description: "Vibrant red velvet cookies with a rich hint of cocoa, baked with a secret core of premium white chocolate that flows out warm upon the first bite.",
     summary: "Vibrant red velvet cookies with a rich hint of cocoa, baked with a secret core of premium white chocolate that flows out warm upon the first bite.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_red_velvet_cookie.webp",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 8,
@@ -2021,7 +2021,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Mango Sago Coconut Panna Cotta",
     description: "An elegant tropical fusion. A silky, smooth vanilla bean panna cotta layered with chewy sago pearls and a vibrant, fresh sweet mango purée reduction.",
     summary: "An elegant tropical fusion. A silky, smooth vanilla bean panna cotta layered with chewy sago pearls and a vibrant, fresh sweet mango purée reduction.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_mango_panna_cotta.webp",
     prepTime: "30m",
     readyInMinutes: 30,
     servings: 4,
@@ -2032,7 +2032,7 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dessert", "Panna Cotta", "Tropical"],
     ingredients: [
       { name: "1 cup Heavy Cream & 1/2 cup Coconut Milk", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
-      { name: "1 large Sweet Ripe Mango, puréed", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 large Sweet Ripe Mango, puréed", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "1.5 tsp Gelatin powder & 1/4 cup Sugar", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
       { name: "2 tbsp Mini Sago (Tapioca) pearls", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" }
     ],
@@ -2049,7 +2049,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Fudgy Hazelnut Brownie Towers",
     description: "Rich, intensely fudgy dark chocolate brownies packed with roasted hazelnuts, served warm with a shiny drizzle of gourmet chocolate ganache.",
     summary: "Rich, intensely fudgy dark chocolate brownies packed with roasted hazelnuts, served warm with a shiny drizzle of gourmet chocolate ganache.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_hazelnut_brownie.webp",
     prepTime: "35m",
     readyInMinutes: 35,
     servings: 9,
@@ -2077,7 +2077,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Matcha White Chocolate Fondant",
     description: "An exquisite East Asian-inspired dessert. A vibrant green tea matcha cake with a perfectly baked exterior and a rich, flowing white chocolate lava core.",
     summary: "An exquisite East Asian-inspired dessert. A vibrant green tea matcha cake with a perfectly baked exterior and a rich, flowing white chocolate lava core.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_matcha_fondant.webp",
     prepTime: "20m",
     readyInMinutes: 20,
     servings: 2,
@@ -2088,7 +2088,7 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Dessert", "Cake", "Matcha"],
     ingredients: [
       { name: "100g Premium White Chocolate & 50g Butter", image: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=150" },
-      { name: "1.5 tbsp Culinary Culinary Matcha Powder", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1.5 tbsp Culinary Culinary Matcha Powder", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "2 Eggs & 3 tbsp Sugar", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=150" },
       { name: "1/4 cup All-purpose Flour", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" }
     ],
@@ -2105,7 +2105,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Gourmet Salted Caramel Profiteroles",
     description: "Crisp, airy choux pastry puffs packed with luxury vanilla bean pastry cream, stacked and covered in a rich, warm handmade salted caramel glaze.",
     summary: "Crisp, airy choux pastry puffs packed with luxury vanilla bean pastry cream, stacked and covered in a rich, warm handmade salted caramel glaze.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_profiteroles.webp",
     prepTime: "1h",
     readyInMinutes: 60,
     servings: 6,
@@ -2133,7 +2133,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Vibrant Berry Pavlova Clouds",
     description: "An elegant, cloud-like crisp meringue nest with a soft, marshmallowy interior, loaded with fresh whipped cream and a mountain of tart wild berries.",
     summary: "An elegant, cloud-like crisp meringue nest with a soft, marshmallowy interior, loaded with fresh whipped cream and a mountain of tart wild berries.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_berry_pavlova.webp",
     prepTime: "1h 15m",
     readyInMinutes: 75,
     servings: 6,
@@ -2161,7 +2161,7 @@ export const RECIPES_DATA: Recipe[] = [
     title: "Artisanal Churros with Dark Ganache",
     description: "Crispy, golden-fried Spanish dough pastries rolled heavily in aromatic cinnamon sugar, served alongside a thick, rich dark chocolate dipping sauce.",
     summary: "Crispy, golden-fried Spanish dough pastries rolled heavily in aromatic cinnamon sugar, served alongside a thick, rich dark chocolate dipping sauce.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "/image_churros.webp",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 4,
@@ -2227,7 +2227,7 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["MatchaLover","IcedLatte","ViralDrink"],
     dishTypes: ["Drink"],
     ingredients: [
-      { name: "1 tsp Premium Ceremonial Matcha", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 tsp Premium Ceremonial Matcha", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1/2 cup Fresh Strawberries, muddled", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
       { name: "1 cup Whole Milk or Oat Milk", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "1 tbsp Honey or Vanilla Syrup", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" }
@@ -2281,8 +2281,8 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["TropicalTrend","MojitoLover","FreshFruit"],
     dishTypes: ["Drink"],
     ingredients: [
-      { name: "1 Fresh Passion Fruit (pulp and seeds)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "8-10 Fresh Mint leaves & 1/2 Lime", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 Fresh Passion Fruit (pulp and seeds)", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
+      { name: "8-10 Fresh Mint leaves & 1/2 Lime", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1.5 tbsp Pure Cane Sugar", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
       { name: "1 cup Chilled Sparkling Water", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" }
     ],
@@ -2335,8 +2335,8 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["ExoticTrend","HealthyPremium","VibrantColor"],
     dishTypes: ["Drink"],
     ingredients: [
-      { name: "1/2 cup Frozen Pink Pitaya (Dragon Fruit)", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "1/2 cup Ripe Mango chunks", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 cup Frozen Pink Pitaya (Dragon Fruit)", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
+      { name: "1/2 cup Ripe Mango chunks", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "1/2 cup Coconut Water", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "1 tbsp Chia seeds & Greek Yogurt", image: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=150" }
     ],
@@ -2390,7 +2390,7 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Drink"],
     ingredients: [
       { name: "1/2 cup Organic Pomegranate Juice", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
-      { name: "1/2 tsp Pure Culinary Rose Water", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 tsp Pure Culinary Rose Water", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1 tbsp Lime juice & Fresh rosemary", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" },
       { name: "1/2 cup Premium Tonic or Sparkling water", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" }
     ],
@@ -2416,7 +2416,7 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["HighProtein","HealthyPremium","CreamyDelight"],
     dishTypes: ["Drink"],
     ingredients: [
-      { name: "1/2 Large Ripe Avocado", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 Large Ripe Avocado", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
       { name: "1 tbsp Almond Butter & Raw Honey", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" },
       { name: "1 cup Chilled Milk (or Almond Milk)", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "1 tsp Flaked Almonds, toasted", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=150" }
@@ -2471,7 +2471,7 @@ export const RECIPES_DATA: Recipe[] = [
     dishTypes: ["Drink"],
     ingredients: [
       { name: "Juice of 2 large Fresh Lemons", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" },
-      { name: "2cm Fresh Ginger Root, juiced", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "2cm Fresh Ginger Root, juiced", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "2 tbsp Agave Nectar or Sugar syrup", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" },
       { name: "1.5 cups Chilled purified water & Mint", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" }
     ],
@@ -2523,7 +2523,7 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["VibrantColor","TeaArt","Refreshing"],
     dishTypes: ["Drink"],
     ingredients: [
-      { name: "2 tbsp Dried Hibiscus Flowers", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "2 tbsp Dried Hibiscus Flowers", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1.5 tbsp Mixed Berry syrup", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
       { name: "1 cup Carbonated Soda Water", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "Lemon slices for garnish", image: "https://images.unsplash.com/photo-1534531173927-aeb928d54385?q=80&w=150" }
@@ -2578,8 +2578,8 @@ export const RECIPES_DATA: Recipe[] = [
     tags: ["Refreshing","DetoxPremium","LowCarb"],
     dishTypes: ["Drink"],
     ingredients: [
-      { name: "1/2 Fresh Crisp Cucumber, peeled", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
-      { name: "10 Fresh Mint leaves & Juice of 1 Lime", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1/2 Fresh Crisp Cucumber, peeled", image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=150" },
+      { name: "10 Fresh Mint leaves & Juice of 1 Lime", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" },
       { name: "1 cup Chilled Sparkling Mineral Water", image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=150" },
       { name: "1 tsp Agave syrup for balance", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" }
     ],
@@ -2690,7 +2690,7 @@ export const fitnessMeals: Recipe[] = [
     ingredients: [
       { name: "200g Boneless Chicken Breast", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=150" },
       { name: "1 Large Sweet Potato", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=150" },
-      { name: "6-8 Fresh Asparagus Spears", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "6-8 Fresh Asparagus Spears", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Cut sweet potato into wedges, toss with a touch of paprika and olive oil, and bake at 200°C for 20 minutes.",
@@ -2774,7 +2774,7 @@ export const fitnessMeals: Recipe[] = [
       { name: "150g Cleaned Shrimp", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=150" },
       { name: "75g Whole-Wheat Spaghetti", image: "https://images.unsplash.com/photo-1546549032-9571cd6b27df?q=80&w=150" },
       { name: "1 cup Cherry Tomatoes & Spinach", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
-      { name: "2 cloves Fresh Garlic, minced", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "2 cloves Fresh Garlic, minced", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Boil whole-wheat spaghetti in salted water according to package directions; drain.",
@@ -2844,7 +2844,7 @@ export const fitnessMeals: Recipe[] = [
     title: "Lean Turkey Meatballs & Zoodles",
     description: "Baked extra-lean turkey meatballs served over fresh spiralized zucchini noodles, topped with organic marinara sauce.",
     summary: "Baked extra-lean turkey meatballs served over fresh spiralized zucchini noodles, topped with organic marinara sauce.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600",
+    image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?q=80&w=600",
     pinterestImage: "fitness_turkey_zoodles.jpg",
     prepTime: "25m",
     readyInMinutes: 25,
@@ -2995,7 +2995,7 @@ export const fitnessMeals: Recipe[] = [
       { name: "180g Lean Beef strips", image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=150" },
       { name: "1.5 cups Broccoli Florets", image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=150" },
       { name: "1/2 cup Cooked Brown Rice", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=150" },
-      { name: "Fresh Ginger & Garlic", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh Ginger & Garlic", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Sear beef strips in a hot pan until nicely browned; transfer out of the pan.",
@@ -3051,7 +3051,7 @@ export const fitnessMeals: Recipe[] = [
       { name: "3/4 cup Dry Brown Lentils", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=150" },
       { name: "2 cups Packed Baby Spinach", image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=150" },
       { name: "1 Can Diced Tomatoes", image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?q=80&w=150" },
-      { name: "Cumin, Coriander & Turmeric", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Cumin, Coriander & Turmeric", image: "https://images.unsplash.com/photo-1515471204579-465b418a72f6?q=80&w=150" }
     ],
     instructions: [
       "Rinse lentils thoroughly and simmer in vegetable broth for 20 minutes until tender.",
@@ -3086,7 +3086,7 @@ export const fitnessMeals: Recipe[] = [
       { name: "1 cup full-fat cottage cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
       { name: "1 large egg", image: "https://img.icons8.com/fluency/96/eggs.png" },
       { name: "1/2 tsp garlic powder", image: "https://img.icons8.com/fluency/96/garlic.png" },
-      { name: "1/2 tsp dried oregano", image: "https://img.icons8.com/fluency/96/salt-shaker.png" }
+      { name: "1/2 tsp dried oregano", image: "https://img.icons8.com/fluency/96/spices.png" }
     ],
     instructions: [
       "Preheat your oven to 200°C (400°F) and line a baking sheet with parchment paper.",
@@ -3100,7 +3100,7 @@ export const fitnessMeals: Recipe[] = [
     title: "Crispy Feta Fried Eggs Shredded Hash",
     description: "Crispy feta fried eggs recipe under 400 calories. A perfect energetic start for your day.",
     summary: "Crispy feta fried eggs recipe under 400 calories. A perfect energetic start for your day.",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600",
+    image: "https://images.unsplash.com/photo-1628198646949-fae26c6d3ab9?q=80&w=600",
     prepTime: "15m",
     readyInMinutes: 15,
     servings: 1,
@@ -3121,7 +3121,7 @@ export const fitnessMeals: Recipe[] = [
       { name: "2 large eggs", image: "https://img.icons8.com/fluency/96/eggs.png" },
       { name: "50g crumbled feta cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
       { name: "1 medium potato, grated and squeezed dry", image: "https://img.icons8.com/fluency/96/potato.png" },
-      { name: "1/2 tsp chili flakes", image: "https://img.icons8.com/fluency/96/salt-shaker.png" },
+      { name: "1/2 tsp chili flakes", image: "https://img.icons8.com/fluency/96/spices.png" },
       { name: "1 tsp olive oil", image: "https://img.icons8.com/fluency/96/olive-oil.png" }
     ],
     instructions: [
@@ -3136,7 +3136,7 @@ export const fitnessMeals: Recipe[] = [
     title: "High-Protein Breakfast Sandwich",
     description: "High protein breakfast sandwich for muscle gain. A hearty meal with lean proteins.",
     summary: "High protein breakfast sandwich for muscle gain. A hearty meal with lean proteins.",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600",
+    image: "https://images.unsplash.com/photo-1549590143-d585514b8ba4?q=80&w=600",
     prepTime: "15m",
     readyInMinutes: 15,
     servings: 1,
@@ -3155,7 +3155,7 @@ export const fitnessMeals: Recipe[] = [
     dishTypes: ["Breakfast", "Sandwich", "Fitness"],
     ingredients: [
       { name: "1 whole wheat English muffin or whole grain bun", image: "https://img.icons8.com/fluency/96/bread.png" },
-      { name: "120g lean turkey breast kfta patty", image: "https://img.icons8.com/fluency/96/steak.png" },
+      { name: "120g lean turkey breast kfta patty", image: "https://img.icons8.com/fluency/96/meat.png" },
       { name: "1 large egg", image: "https://img.icons8.com/fluency/96/eggs.png" },
       { name: "1 slice low-fat cheddar cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
       { name: "Handful of fresh spinach", image: "https://img.icons8.com/fluency/96/spinach.png" }
@@ -3172,7 +3172,7 @@ export const fitnessMeals: Recipe[] = [
     title: "Creamy Honey Mustard Chicken Meal Prep",
     description: "Easy chicken meal prep recipes for beginners. Flavorful honey mustard chicken with basmati rice.",
     summary: "Easy chicken meal prep recipes for beginners. Flavorful honey mustard chicken with basmati rice.",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600",
+    image: "https://images.unsplash.com/photo-1598514981165-f99a5e4d2bfb?q=80&w=600",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 1,
@@ -3209,7 +3209,7 @@ export const fitnessMeals: Recipe[] = [
     title: "Garlic Butter Steak Bites with Sweet Potato",
     description: "Healthy steak and sweet potato dinner 30 minutes. Delicious macros for muscle gain.",
     summary: "Healthy steak and sweet potato dinner 30 minutes. Delicious macros for muscle gain.",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600",
+    image: "https://images.unsplash.com/photo-1544025162-8111f42299d6?q=80&w=600",
     prepTime: "25m",
     readyInMinutes: 25,
     servings: 1,
@@ -3231,7 +3231,7 @@ export const fitnessMeals: Recipe[] = [
       { name: "150g sweet potato, cubed", image: "https://img.icons8.com/fluency/96/sweet-potato.png" },
       { name: "1 tsp light butter", image: "https://img.icons8.com/fluency/96/butter.png" },
       { name: "2 cloves garlic, finely minced", image: "https://img.icons8.com/fluency/96/garlic.png" },
-      { name: "Fresh chopped coriander for garnish", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" }
+      { name: "Fresh chopped coriander for garnish", image: "https://images.unsplash.com/photo-1534720843364-08ef3d826f3d?q=80&w=150" }
     ],
     instructions: [
       "Toss the sweet potato cubes with a pinch of salt and air-fry or bake at 200°C for 15-20 minutes until completely tender.",
@@ -3263,7 +3263,7 @@ export const fitnessMeals: Recipe[] = [
     tags: ["LowCalorie", "HighProtein", "Keto"],
     dishTypes: ["Dinner", "Fitness", "Healthy"],
     ingredients: [
-      { name: "1 can tuna in water, drained", image: "https://img.icons8.com/fluency/96/fish-food.png" },
+      { name: "1 can tuna in water, drained", image: "https://img.icons8.com/fluency/96/tuna.png" },
       { name: "1/2 ripe avocado", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=150" },
       { name: "1/4 cucumber, finely diced", image: "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?q=80&w=150" },
       { name: "2 tbsp Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
@@ -3302,7 +3302,7 @@ export const fitnessMeals: Recipe[] = [
       { name: "200g plain non-fat Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
       { name: "1/2 scoop whey protein powder (vanilla or fruit flavored)", image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=150" },
       { name: "50g fresh strawberries and blueberries", image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=150" },
-      { name: "15g low-sugar diet granola", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "15g low-sugar diet granola", image: "https://images.unsplash.com/photo-1517881917430-e70dfb3610aa?q=80&w=150" },
       { name: "1 tsp raw honey", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=150" }
     ],
     instructions: [
