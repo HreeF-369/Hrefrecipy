@@ -1,3 +1,5 @@
+export const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1495195129352-aec325b55b65?q=80&w=800&auto=format&fit=crop";
+
 /**
  * Utility to optimize Unsplash image URLs dynamically by applying sizing,
  * quality compression, and forcing the WebP format.
@@ -22,4 +24,18 @@ export function optimizeUnsplashUrl(url: string, width: number, quality = 75): s
     }
     return `${url}?auto=format&fit=crop&fm=webp&q=${quality}&w=${width}`;
   }
+}
+
+/**
+ * Ensures the image URL is safe to use and handles relative local paths.
+ */
+export function getSafeImageUrl(url: string | undefined | null): string {
+  if (!url || typeof url !== 'string') return FALLBACK_IMAGE;
+  
+  // Local paths starting with image_ should have a leading slash
+  if (url.startsWith('image_')) {
+    return `/${url}`;
+  }
+  
+  return url;
 }

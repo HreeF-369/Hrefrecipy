@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Flame, Clock, Heart, ChevronRight } from "lucide-react";
 import { Recipe } from "../types/index.js";
 import { useApp } from "../context/AppContext.js";
-import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
+import { optimizeUnsplashUrl, getSafeImageUrl, FALLBACK_IMAGE } from "../lib/imageUtils.js";
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -17,16 +17,20 @@ function cn(...classes: (string | boolean | undefined)[]) {
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }) => {
   const { favorites, toggleFavorite } = useApp();
+  const [imgError, setImgError] = React.useState(false);
 
   const handlePinterestSave = (e: React.MouseEvent) => {
     e.stopPropagation();
     const recipeUrl = encodeURIComponent(`${window.location.origin}/recipe/${recipe.id}`);
-    const mediaUrl = encodeURIComponent(recipe.image);
+    const recipeImageUrl = getSafeImageUrl(recipe.image);
+    const mediaUrl = encodeURIComponent(recipeImageUrl);
     // Pin description targets viral and macro phrases as requested in SEO strategy
     const description = encodeURIComponent(`${recipe.title} | High protein healthy recipe | Viral meal prep idea | Easy meals under 500 calories`);
     const pinterestUrl = `https://www.pinterest.com/pin/create/button/?url=${recipeUrl}&media=${mediaUrl}&description=${description}`;
     window.open(pinterestUrl, '_blank', 'noopener,noreferrer');
   };
+
+  const currentImageUrl = getSafeImageUrl(recipe.image);
 
   return (
     <motion.div
@@ -39,16 +43,17 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
       <div className="group flex flex-col p-0 rounded-[20px] bg-white border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1 h-full">
         <div className="relative aspect-[4/3] overflow-hidden">
           <img
-            src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
-              ? optimizeUnsplashUrl(recipe.image, 800) 
-              : recipe.image}
+            src={imgError ? FALLBACK_IMAGE : (currentImageUrl.includes('images.unsplash.com') 
+              ? optimizeUnsplashUrl(currentImageUrl, 800) 
+              : currentImageUrl)}
             alt={`Healthy ${recipe.title} recipe meal prep`}
             loading="lazy"
-            {...(typeof recipe.image === 'string' && (recipe.image.startsWith('image_') || recipe.image.startsWith('/image_')) ? {
-              srcSet: `${recipe.image.replace('.webp', '_mobile.webp')} 400w, ${recipe.image} 800w`,
+            onError={() => setImgError(true)}
+            {...(typeof currentImageUrl === 'string' && (currentImageUrl.startsWith('image_') || currentImageUrl.startsWith('/image_')) ? {
+              srcSet: `${currentImageUrl.replace('.webp', '_mobile.webp')} 400w, ${currentImageUrl} 800w`,
               sizes: "(max-width: 640px) 400px, 800px"
-            } : typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') ? {
-              srcSet: `${optimizeUnsplashUrl(recipe.image, 400)} 400w, ${optimizeUnsplashUrl(recipe.image, 800)} 800w`,
+            } : typeof currentImageUrl === 'string' && currentImageUrl.includes('images.unsplash.com') ? {
+              srcSet: `${optimizeUnsplashUrl(currentImageUrl, 400)} 400w, ${optimizeUnsplashUrl(currentImageUrl, 800)} 800w`,
               sizes: "(max-width: 640px) 400px, 800px"
             } : {})}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

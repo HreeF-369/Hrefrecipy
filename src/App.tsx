@@ -329,6 +329,7 @@ export default function App() {
                         <li><Link to="/recipes?cat=main-dishes" className="hover:text-brand-green transition-colors">Main Dishes</Link></li>
                         <li><Link to="/recipes?cat=desserts" className="hover:text-brand-green transition-colors">Desserts</Link></li>
                         <li><Link to="/recipes?cat=drinks" className="hover:text-brand-green transition-colors">Drinks</Link></li>
+                        <li><Link to="/recipes?cat=fitness" className="hover:text-brand-green transition-colors">Fitness Meals</Link></li>
                       </ul>
                     </div>
 

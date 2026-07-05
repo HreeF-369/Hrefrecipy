@@ -6,7 +6,7 @@ import { useApp } from '../context/AppContext.js';
 import { useNavigate } from 'react-router-dom';
 import { speakText } from '../services/speechService.js';
 import { getRecipeById } from '../services/api.js';
-import { optimizeUnsplashUrl } from '../lib/imageUtils.js';
+import { optimizeUnsplashUrl, getSafeImageUrl, FALLBACK_IMAGE } from '../lib/imageUtils.js';
 
 interface RecipeModalProps {
   recipe: Recipe | null;
@@ -57,6 +57,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
   const [recipe, setRecipe] = useState<Recipe | null>(initialRecipe);
   const [fullLoading, setFullLoading] = useState(false);
   const [checkedIngredients, setCheckedIngredients] = useState<Record<number, boolean>>({});
+  const [imgError, setImgError] = useState(false);
   const { favorites, toggleFavorite, addRecipeIngredientsToGroceryList, addToPlan, comments, addComment, deleteComment } = useApp();
   const navigate = useNavigate();
   const [showPlanMenu, setShowPlanMenu] = useState(false);
@@ -410,12 +411,13 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
               <div className="w-full md:w-[40%] p-0 border-r border-gray-100 flex flex-col">
                 <div className="relative aspect-[4/3] md:aspect-auto md:h-72 overflow-hidden shadow-inner">
                   <img
-                    src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
-                      ? optimizeUnsplashUrl(recipe.image, 800) 
-                      : recipe.image}
+                    src={imgError ? FALLBACK_IMAGE : (getSafeImageUrl(recipe.image).includes('images.unsplash.com') 
+                      ? optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 800) 
+                      : getSafeImageUrl(recipe.image))}
                     alt={recipe.title}
-                    {...(typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') ? {
-                      srcSet: `${optimizeUnsplashUrl(recipe.image, 400)} 400w, ${optimizeUnsplashUrl(recipe.image, 800)} 800w`,
+                    onError={() => setImgError(true)}
+                    {...(typeof recipe.image === 'string' && getSafeImageUrl(recipe.image).includes('images.unsplash.com') ? {
+                      srcSet: `${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 400)} 400w, ${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 800)} 800w`,
                       sizes: "(max-width: 640px) 400px, 800px"
                     } : {})}
                     className="w-full h-full object-cover"

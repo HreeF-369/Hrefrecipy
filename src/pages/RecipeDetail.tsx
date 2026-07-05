@@ -42,7 +42,7 @@ import { useApp } from "../context/AppContext.js";
 import { speakText } from "../services/speechService.js";
 import { RECIPES_DATA } from "../services/recipesData.js";
 import { RecipeCard } from "../components/RecipeCard.js";
-import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
+import { optimizeUnsplashUrl, getSafeImageUrl, FALLBACK_IMAGE } from "../lib/imageUtils.js";
 import { Breadcrumbs } from "../components/Breadcrumbs.js";
 
 const getIngredientIcon = (nameKey: string) => {
@@ -94,6 +94,7 @@ export default function RecipeDetail() {
   const [showPlanMenu, setShowPlanMenu] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [showDetailedNutrition, setShowDetailedNutrition] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const recipeComments = recipe ? (comments[recipe.id] || []) : [];
 
@@ -323,15 +324,16 @@ export default function RecipeDetail() {
         <section className="space-y-8">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] shadow-2xl">
             <img 
-              src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
-                ? optimizeUnsplashUrl(recipe.image, 1200) 
-                : recipe.image} 
+              src={imgError ? FALLBACK_IMAGE : (getSafeImageUrl(recipe.image).includes('images.unsplash.com') 
+                ? optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 1200) 
+                : getSafeImageUrl(recipe.image))} 
               alt={`High protein low calorie ${recipe.title} recipe for healthy meal planning`} 
-              {...(typeof recipe.image === 'string' && (recipe.image.startsWith('image_') || recipe.image.startsWith('/image_')) ? {
-                srcSet: `${recipe.image.replace('.webp', '_mobile.webp')} 400w, ${recipe.image} 800w`,
+              onError={() => setImgError(true)}
+              {...(typeof recipe.image === 'string' && (getSafeImageUrl(recipe.image).startsWith('image_') || getSafeImageUrl(recipe.image).startsWith('/image_')) ? {
+                srcSet: `${getSafeImageUrl(recipe.image).replace('.webp', '_mobile.webp')} 400w, ${getSafeImageUrl(recipe.image)} 800w`,
                 sizes: "(max-width: 640px) 400px, 800px"
-              } : typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') ? {
-                srcSet: `${optimizeUnsplashUrl(recipe.image, 400)} 400w, ${optimizeUnsplashUrl(recipe.image, 800)} 800w, ${optimizeUnsplashUrl(recipe.image, 1200)} 1200w`,
+              } : typeof recipe.image === 'string' && getSafeImageUrl(recipe.image).includes('images.unsplash.com') ? {
+                srcSet: `${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 400)} 400w, ${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 800)} 800w, ${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 1200)} 1200w`,
                 sizes: "(max-width: 640px) 400px, (max-width: 1200px) 800px, 1200px"
               } : {})}
               fetchPriority="high"
