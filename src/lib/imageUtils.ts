@@ -32,6 +32,10 @@ export function optimizeUnsplashUrl(url: string, width: number, quality = 75): s
 export function getSafeImageUrl(url: string | undefined | null): string {
   if (!url || typeof url !== 'string') return FALLBACK_IMAGE;
   
+  if (url === "Nano Banana") {
+    return "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?q=80&w=800";
+  }
+  
   // Local paths starting with image_ should have a leading slash
   if (url.startsWith('image_')) {
     return `/${url}`;

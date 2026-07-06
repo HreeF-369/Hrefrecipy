@@ -1,0 +1,149 @@
+[
+  {
+    "id": "fit-pancakes-01",
+    "title": "Nano Banana Protein Pancakes",
+    "category": "fitness",
+    "calories": 380,
+    "protein": "28g",
+    "carbs": "42g",
+    "fat": "6g",
+    "description": "Fluffy, delicious protein pancakes naturally sweetened with bananas and packed with protein for the perfect post-workout breakfast.",
+    "prepTime": "15m",
+    "readyInMinutes": 15,
+    "servings": 1,
+    "image": "Nano Banana",
+    "ingredients": [
+      { "name": "1 ripe banana", "image": "" },
+      { "name": "1 scoop vanilla whey protein powder", "image": "" },
+      { "name": "2 large egg whites", "image": "" },
+      { "name": "1/2 cup rolled oats", "image": "" },
+      { "name": "1/2 tsp baking powder", "image": "" },
+      { "name": "1/2 tsp cinnamon", "image": "" }
+    ],
+    "instructions": [
+      "In a blender, combine the banana, protein powder, egg whites, oats, baking powder, and cinnamon. Blend until completely smooth.",
+      "Heat a non-stick skillet over medium-low heat and lightly coat with cooking spray.",
+      "Pour batter to form pancakes of your desired size. Cook until bubbles form on the top surface.",
+      "Carefully flip and cook the other side until lightly golden brown. Repeat with remaining batter.",
+      "Stack them high, garnish with fresh berries if desired, and enjoy warm!"
+    ]
+  },
+  {
+    "id": "fit-chicken-bowl-02",
+    "title": "Gourmet Grilled Chicken & Quinoa Bowl",
+    "category": "fitness",
+    "calories": 480,
+    "protein": "40g",
+    "carbs": "45g",
+    "fat": "12g",
+    "description": "Tender, herb-marinated grilled chicken breast served over a fluffy bed of quinoa, roasted seasonal vegetables, and a light lemon-herb vinaigrette.",
+    "prepTime": "25m",
+    "readyInMinutes": 25,
+    "servings": 2,
+    "image": "Nano Banana",
+    "ingredients": [
+      { "name": "150g quality chicken breast", "image": "" },
+      { "name": "1/2 cup pre-cooked organic quinoa", "image": "" },
+      { "name": "1/2 cup fresh bell peppers, sliced", "image": "" },
+      { "name": "1/2 cup fresh green zucchini, sliced", "image": "" },
+      { "name": "1 tbsp extra virgin olive oil", "image": "" },
+      { "name": "1/2 lemon, freshly juiced", "image": "" },
+      { "name": "Fresh parsley and aromatic oregano", "image": "" }
+    ],
+    "instructions": [
+      "Marinate the chicken breast with lemon juice, half of the olive oil, and fresh minced herbs.",
+      "Grill the chicken breast and sliced vegetables over medium-high heat until cooked through and beautifully charred.",
+      "Allow the grilled chicken to rest for a couple of minutes, then slice into elegant strips.",
+      "Assemble your bowl by layering cooked quinoa at the bottom, then topping with the sliced grilled chicken and colorful vegetables.",
+      "Drizzle with the remaining olive oil and a squeeze of fresh lemon juice before serving."
+    ]
+  },
+  {
+    "id": "fit-avocado-toast-03",
+    "title": "High-Protein Avocado Toast with Poached Eggs",
+    "category": "fitness",
+    "calories": 410,
+    "protein": "22g",
+    "carbs": "30g",
+    "fat": "18g",
+    "description": "Whole-grain sourdough toast topped with creamy mashed avocado, baby spinach, and two perfectly poached eggs for a premium, clean-eating lunch.",
+    "prepTime": "10m",
+    "readyInMinutes": 10,
+    "servings": 1,
+    "image": "Nano Banana",
+    "ingredients": [
+      { "name": "2 thick slices of whole-grain sourdough bread", "image": "" },
+      { "name": "1/2 medium ripe avocado", "image": "" },
+      { "name": "2 large organic free-range eggs", "image": "" },
+      { "name": "1/2 cup baby spinach leaves", "image": "" },
+      { "name": "1 tsp fresh lemon juice", "image": "" },
+      { "name": "Pinch of red pepper flakes", "image": "" },
+      { "name": "Salt and black pepper to taste", "image": "" }
+    ],
+    "instructions": [
+      "Toast the slices of sourdough bread to golden perfection.",
+      "In a small bowl, mash the avocado flesh with lemon juice, salt, and pepper.",
+      "Poach the eggs in simmering water with a drop of vinegar for 3 to 4 minutes until the whites are set but yolks remain perfectly runny.",
+      "Spread the seasoned mashed avocado evenly over the toasted sourdough, top with baby spinach, and carefully place poached eggs on top.",
+      "Sprinkle with red pepper flakes and freshly ground black pepper."
+    ]
+  },
+  {
+    "id": "fit-tuna-salad-04",
+    "title": "Seared Sesame Crust Ahi Tuna Salad",
+    "category": "fitness",
+    "calories": 390,
+    "protein": "36g",
+    "carbs": "12g",
+    "fat": "14g",
+    "description": "A luxurious, protein-packed pan-seared sesame ahi tuna steak served over a bed of crisp greens, cucumber, and a light sesame-soy ginger dressing.",
+    "prepTime": "20m",
+    "readyInMinutes": 20,
+    "servings": 2,
+    "image": "Nano Banana",
+    "ingredients": [
+      { "name": "150g fresh Ahi tuna steak", "image": "" },
+      { "name": "2 tbsp mixed white and black sesame seeds", "image": "" },
+      { "name": "2 cups mixed fresh salad greens", "image": "" },
+      { "name": "1/2 English cucumber, sliced", "image": "" },
+      { "name": "1 tbsp low-sodium soy sauce", "image": "" },
+      { "name": "1 tsp toasted sesame oil", "image": "" },
+      { "name": "1 tsp grated fresh ginger", "image": "" }
+    ],
+    "instructions": [
+      "Coat the Ahi tuna steak evenly with the mixed sesame seeds, pressing them gently to adhere.",
+      "Heat a non-stick pan with half the sesame oil over high heat.",
+      "Sear the tuna steak for 1-2 minutes on each side for a beautiful rare center.",
+      "Whisk together the soy sauce, remaining sesame oil, and ginger to create the dressing.",
+      "Toss the mixed greens and cucumber in the dressing, arrange on a plate, slice the tuna, and lay it over the salad."
+    ]
+  },
+  {
+    "id": "fit-yogurt-pudding-05",
+    "title": "Greek Yogurt Chia Seed Pudding",
+    "category": "fitness",
+    "calories": 320,
+    "protein": "24g",
+    "carbs": "28g",
+    "fat": "8g",
+    "description": "Thick Greek yogurt blended with chia seeds, pure vanilla, and honey, chilled overnight and topped with fresh berries and almonds.",
+    "prepTime": "10m",
+    "readyInMinutes": 240,
+    "servings": 1,
+    "image": "Nano Banana",
+    "ingredients": [
+      { "name": "1 cup non-fat plain Greek yogurt", "image": "" },
+      { "name": "2 tbsp chia seeds", "image": "" },
+      { "name": "1 tsp organic honey or maple syrup", "image": "" },
+      { "name": "1/2 tsp vanilla extract", "image": "" },
+      { "name": "1/4 cup fresh blueberries and raspberries", "image": "" },
+      { "name": "1 tbsp sliced almonds", "image": "" }
+    ],
+    "instructions": [
+      "In a jar or container, thoroughly mix the Greek yogurt, chia seeds, honey, and vanilla extract.",
+      "Cover and refrigerate for at least 4 hours (or overnight) to allow the chia seeds to swell and thicken.",
+      "Stir the pudding before serving to ensure a creamy consistency.",
+      "Garnish with fresh berries and sliced almonds for a satisfying, high-protein snack."
+    ]
+  }
+]

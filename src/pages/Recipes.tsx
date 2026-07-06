@@ -1,16 +1,15 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
-import { Search, Utensils, Clock, Flame, ChevronRight, ChevronLeft, X, Sparkles, CheckCircle2, Heart } from "lucide-react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Search, Utensils, Clock, Flame, ChevronRight, ChevronLeft, Heart } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { Recipe } from "../types/index.js";
-import { searchRecipes } from "../services/api.js";
 import { RecipeModal } from "../components/RecipeModal.js";
 import { FanReviews } from "../components/FanReviews.js";
 import { useApp } from "../context/AppContext.js";
-
 import { RecipeCard } from "../components/RecipeCard.js";
 import { Breadcrumbs } from "../components/Breadcrumbs.js";
+import localRecipes from "../data/recipes.json";
 
 function cn(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ');
@@ -63,37 +62,34 @@ export default function Recipes() {
   }, [urlCat]);
 
   useEffect(() => {
-    async function fetchInitial() {
-      try {
-        setLoading(true);
-        // Just fetch all recipes since it's local now
-        const results = await searchRecipes("", "all", 100);
-        setAllRecipes(results);
-      } catch (error) {
-        console.error("Initial fetch failed:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchInitial();
-  }, []);
+    // Keep local app state in sync so other views also benefit from local data
+    setAllRecipes(localRecipes as Recipe[]);
+  }, [setAllRecipes]);
 
   const filteredRecipes = useMemo(() => {
-    let result = allRecipes;
+    let result = localRecipes as Recipe[];
     
     if (activeTab !== "ALL RECIPES") {
-      result = result.filter(recipe => 
-        recipe.category.toUpperCase() === activeTab || 
-        (recipe.tags && recipe.tags.some(t => t.toUpperCase() === activeTab))
-      );
+      result = result.filter(recipe => {
+        const cat = recipe.category.toUpperCase();
+        if (activeTab === "FITNESS MEALS") {
+          return cat === "FITNESS" || cat === "FITNESS MEALS";
+        }
+        return cat === activeTab || (recipe.tags && recipe.tags.some(t => t.toUpperCase() === activeTab));
+      });
     }
 
     if (query) {
-      result = result.filter(recipe => recipe.title.toLowerCase().includes(query.toLowerCase()));
+      const q = query.toLowerCase();
+      result = result.filter(recipe => 
+        recipe.title.toLowerCase().includes(q) ||
+        recipe.description?.toLowerCase().includes(q) ||
+        recipe.ingredients?.some(ing => ing.name.toLowerCase().includes(q))
+      );
     }
     
     return result;
-  }, [allRecipes, activeTab, query]);
+  }, [activeTab, query]);
 
   useEffect(() => {
     setVisibleCount(12);
