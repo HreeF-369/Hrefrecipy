@@ -57,6 +57,7 @@ const NotFound = lazy(() => import("./pages/NotFound.js"));
 const AIChat = lazy(() => import("./components/AIChat.js"));
 
 import CookieBanner from "./components/CookieBanner.js";
+import { ErrorBoundary } from "./components/ErrorBoundary.js";
 
 
 // Utility for tailwind classes
