@@ -62,7 +62,6 @@ export default function Recipes() {
   }, [urlCat]);
 
   useEffect(() => {
-    // Keep local app state in sync so other views also benefit from local data
     setAllRecipes(localRecipes as Recipe[]);
   }, [setAllRecipes]);
 
@@ -109,10 +108,6 @@ export default function Recipes() {
     { id: "DRINKS", name: "DRINKS" },
     { id: "FITNESS MEALS", name: "FITNESS MEALS" },
   ];
-
-  useEffect(() => {
-    document.title = "Browse Recipes | DishFit";
-  }, []);
 
   const handleOpenRecipe = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
@@ -267,7 +262,6 @@ export default function Recipes() {
         </div>
       )}
 
-      {/* Fan Reviews Section */}
       <div className="mt-12 bg-white/50 py-8 rounded-[40px]">
         <FanReviews />
       </div>
