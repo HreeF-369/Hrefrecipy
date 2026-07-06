@@ -11,7 +11,7 @@
     "prepTime": "15m",
     "readyInMinutes": 15,
     "servings": 1,
-    "image": "Nano Banana",
+    "image": "/assets/images/pancakes.jpg",
     "ingredients": [
       { "name": "1 ripe banana", "image": "" },
       { "name": "1 scoop vanilla whey protein powder", "image": "" },
@@ -40,7 +40,7 @@
     "prepTime": "25m",
     "readyInMinutes": 25,
     "servings": 2,
-    "image": "Nano Banana",
+    "image": "/assets/images/chicken-bowl.jpg",
     "ingredients": [
       { "name": "150g quality chicken breast", "image": "" },
       { "name": "1/2 cup pre-cooked organic quinoa", "image": "" },
@@ -70,7 +70,7 @@
     "prepTime": "10m",
     "readyInMinutes": 10,
     "servings": 1,
-    "image": "Nano Banana",
+    "image": "/assets/images/avocado-toast.jpg",
     "ingredients": [
       { "name": "2 thick slices of whole-grain sourdough bread", "image": "" },
       { "name": "1/2 medium ripe avocado", "image": "" },
@@ -100,7 +100,7 @@
     "prepTime": "20m",
     "readyInMinutes": 20,
     "servings": 2,
-    "image": "Nano Banana",
+    "image": "/assets/images/tuna-salad.jpg",
     "ingredients": [
       { "name": "150g fresh Ahi tuna steak", "image": "" },
       { "name": "2 tbsp mixed white and black sesame seeds", "image": "" },
@@ -130,7 +130,7 @@
     "prepTime": "10m",
     "readyInMinutes": 240,
     "servings": 1,
-    "image": "Nano Banana",
+    "image": "/assets/images/yogurt-pudding.jpg",
     "ingredients": [
       { "name": "1 cup non-fat plain Greek yogurt", "image": "" },
       { "name": "2 tbsp chia seeds", "image": "" },
