@@ -482,6 +482,7 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
     }
  
     // Inject Pre-rendered content for crawlers
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     if (preRenderedContent) {
       html = html.replace('<div id="root" class="w-full overflow-x-hidden"></div>', `<div id="root" class="w-full overflow-x-hidden">${preRenderedContent}</div>`);
     }
