@@ -270,36 +270,38 @@ export default function App() {
           
           <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 flex-1 flex flex-col w-full overflow-x-hidden min-w-0 print:pt-0 print:overflow-visible">
             <div className="w-full px-4 py-6 md:px-8 lg:py-12 lg:px-12 flex-1">
-                <AnimatePresence mode="wait">
-                  <Suspense fallback={
-                    <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
-                      <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-100 border-t-brand-green"></div>
-                      <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Loading Page...</p>
-                    </div>
-                  }>
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/recipes" element={<Recipes />} />
-                      <Route path="/blog" element={<Blog />} />
-                      <Route path="/blog/:id" element={<BlogPost />} />
-                      <Route path="/favorites" element={<Favorites />} />
-                      <Route path="/recipe/:id" element={<RecipeDetail />} />
-                      <Route path="/cook" element={<CookMode />} />
-                      <Route path="/cook/:id" element={<CookMode />} />
-                      <Route path="/planner" element={<Planner />} />
-                      <Route path="/grocery" element={<GroceryList />} />
-                      <Route path="/about" element={<About />} />
-                      <Route path="/guides" element={<HelpFAQ />} />
-                      <Route path="/help" element={<HelpFAQ />} />
-                      <Route path="/contact" element={<Contact />} />
-                      <Route path="/privacy" element={<Privacy />} />
-                      <Route path="/terms" element={<Terms />} />
-                      <Route path="/disclaimer" element={<Disclaimer />} />
-                      <Route path="/data-preference" element={<DataPreference />} />
-                      <Route path="*" element={<NotFound />} />
-                    </Routes>
-                  </Suspense>
-                </AnimatePresence>
+                <ErrorBoundary>
+                  <AnimatePresence mode="wait">
+                    <Suspense fallback={
+                      <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
+                        <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-100 border-t-brand-green"></div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Loading Page...</p>
+                      </div>
+                    }>
+                      <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/recipes" element={<Recipes />} />
+                        <Route path="/blog" element={<Blog />} />
+                        <Route path="/blog/:id" element={<BlogPost />} />
+                        <Route path="/favorites" element={<Favorites />} />
+                        <Route path="/recipe/:id" element={<RecipeDetail />} />
+                        <Route path="/cook" element={<CookMode />} />
+                        <Route path="/cook/:id" element={<CookMode />} />
+                        <Route path="/planner" element={<Planner />} />
+                        <Route path="/grocery" element={<GroceryList />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/guides" element={<HelpFAQ />} />
+                        <Route path="/help" element={<HelpFAQ />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/privacy" element={<Privacy />} />
+                        <Route path="/terms" element={<Terms />} />
+                        <Route path="/disclaimer" element={<Disclaimer />} />
+                        <Route path="/data-preference" element={<DataPreference />} />
+                        <Route path="*" element={<NotFound />} />
+                      </Routes>
+                    </Suspense>
+                  </AnimatePresence>
+                </ErrorBoundary>
               </div>
 
               {/* Cookie Consent Banner */}
