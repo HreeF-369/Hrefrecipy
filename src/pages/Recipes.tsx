@@ -49,7 +49,7 @@ export default function Recipes() {
   useEffect(() => {
     const rawCat = searchParams.get("cat");
     if (rawCat) {
-      setActiveTab(rawCat.toUpperCase().replace("-", " "));
+      setActiveTab(rawCat.toUpperCase().replace(/-/g, " "));
     } else {
       setActiveTab("ALL RECIPES");
     }
@@ -64,12 +64,13 @@ export default function Recipes() {
     
     if (activeTab !== "ALL RECIPES") {
       result = result.filter(recipe => {
-        const recipeCat = recipe.category.toLowerCase();
-        const activeTabLower = activeTab.toLowerCase().replace(" ", "-");
-        
-        return recipeCat.includes(activeTabLower) || 
-               activeTabLower.includes(recipeCat) ||
-               (recipe.tags && recipe.tags.some(t => t.toLowerCase().includes(activeTabLower)));
+        const recipeCat = recipe.category.toUpperCase();
+        const target = activeTab === "FITNESS" ? "FITNESS MEALS" : activeTab;
+
+        return recipeCat === target ||
+               recipeCat.includes(target) ||
+               target.includes(recipeCat) ||
+               (recipe.tags && recipe.tags.some(t => t.toUpperCase().includes(activeTab)));
       });
     }
 
@@ -83,6 +84,10 @@ export default function Recipes() {
     }
     
     return result;
+  }, [activeTab, query]);
+
+  useEffect(() => {
+    setVisibleCount(12);
   }, [activeTab, query]);
 
   const visibleRecipes = useMemo(() => {
@@ -129,6 +134,17 @@ export default function Recipes() {
           ))}
         </motion.div>
       </AnimatePresence>
+
+      {!loading && visibleCount < filteredRecipes.length && (
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() => setVisibleCount(prev => prev + 12)}
+            className="inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-green/25 hover:shadow-xl hover:shadow-brand-green/30 transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          >
+            Load More Recipes
+          </button>
+        </div>
+      )}
 
       <RecipeModal recipe={selectedRecipe} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </motion.div>
