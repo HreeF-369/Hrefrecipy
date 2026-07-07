@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
-import { Search, Utensils, Clock, Flame, ChevronRight, ChevronLeft, Heart } from "lucide-react";
+import { Search, Utensils, ChevronRight, ChevronLeft } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { Recipe } from "../types/index.js";
 import { RecipeModal } from "../components/RecipeModal.js";
@@ -17,7 +17,6 @@ function cn(...classes: (string | boolean | undefined)[]) {
 
 export default function Recipes() {
   const [searchParams] = useSearchParams();
-  const rawCat = searchParams.get("cat");
   
   const categoriesMapping: Record<string, string> = {
     "breakfast": "BREAKFAST",
@@ -29,15 +28,13 @@ export default function Recipes() {
     "fitness": "FITNESS MEALS"
   };
 
-  const urlCat = rawCat && categoriesMapping[rawCat] ? categoriesMapping[rawCat] : "ALL RECIPES";
-
+  const [activeTab, setActiveTab] = useState("ALL RECIPES");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState(urlCat);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(12);
-  const { favorites, toggleFavorite, allRecipes, setAllRecipes } = useApp();
+  const { setAllRecipes } = useApp();
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -58,11 +55,12 @@ export default function Recipes() {
   }, []);
 
   useEffect(() => {
-    setActiveTab(urlCat);
-  }, [urlCat]);
+    const rawCat = searchParams.get("cat");
+    const mappedCat = rawCat && categoriesMapping[rawCat] ? categoriesMapping[rawCat] : "ALL RECIPES";
+    setActiveTab(mappedCat);
+  }, [searchParams]);
 
   useEffect(() => {
-    // Keep local app state in sync so other views also benefit from local data
     setAllRecipes(localRecipes as Recipe[]);
   }, [setAllRecipes]);
 
@@ -110,10 +108,6 @@ export default function Recipes() {
     { id: "FITNESS MEALS", name: "FITNESS MEALS" },
   ];
 
-  useEffect(() => {
-    document.title = "Browse Recipes | DishFit";
-  }, []);
-
   const handleOpenRecipe = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
     setIsModalOpen(true);
@@ -128,9 +122,6 @@ export default function Recipes() {
     >
       <Helmet>
         <title>{activeTab === "ALL RECIPES" ? "High Protein Healthy Recipes & Meal Planner" : `${activeTab.charAt(0) + activeTab.slice(1).toLowerCase()} | High Protein Healthy Recipes`} | DishFit</title>
-        <meta name="description" content={`Find the best ${activeTab.toLowerCase()} for weight loss, muscle gain, and healthy living. High protein meals developed by chefs.`} />
-        <meta name="keywords" content={`high protein ${activeTab.toLowerCase()} recipes, ${activeTab.toLowerCase()} meal prep, healthy ${activeTab.toLowerCase()} ideas, fitness meals`} />
-        <link rel="canonical" href="https://dishfit.net/recipes" />
       </Helmet>
 
       <Breadcrumbs 
@@ -162,17 +153,14 @@ export default function Recipes() {
         </div>
       </header>
 
-      {/* Category Pills */}
       <div className="relative -mx-4 md:mx-0">
         {canScrollLeft && (
           <button 
             className="absolute left-1 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
-            onClick={() => {
-               scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' });
-            }}
+            onClick={() => { scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' }); }}
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+            <ChevronLeft className="w-4 h-4 text-gray-500" />
           </button>
         )}
 
@@ -189,11 +177,11 @@ export default function Recipes() {
                 setActiveTab(cat.id);
                 e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
               }}
-              className={`whitespace-nowrap shrink-0 rounded-full px-6 md:px-8 py-2.5 md:py-3 text-[10px] md:text-sm font-black tracking-widest uppercase transition-all duration-300 ${
+              className={cn("whitespace-nowrap shrink-0 rounded-full px-6 md:px-8 py-2.5 md:py-3 text-[10px] md:text-sm font-black tracking-widest uppercase transition-all duration-300",
                 activeTab === cat.id
                   ? "bg-brand-green text-white shadow-lg shadow-brand-green/30 scale-105"
                   : "bg-white text-slate-400 hover:bg-slate-50 border border-slate-100"
-              }`}
+              )}
             >
               {cat.name}
             </button>
@@ -203,12 +191,10 @@ export default function Recipes() {
         {canScrollRight && (
           <button 
             className="absolute right-1 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
-            onClick={() => {
-               scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' });
-            }}
+            onClick={() => { scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' }); }}
             aria-label="Scroll right"
           >
-            <ChevronRight className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+            <ChevronRight className="w-4 h-4 text-gray-500" />
           </button>
         )}
       </div>
@@ -219,64 +205,44 @@ export default function Recipes() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
           className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
           {loading ? (
-            Array(6).fill(0).map((_, i) => (
-              <div key={i} className="h-[28rem] animate-pulse rounded-[2.5rem] bg-slate-50 border border-slate-100" />
-            ))
+            Array(6).fill(0).map((_, i) => <div key={i} className="h-[28rem] animate-pulse rounded-[2.5rem] bg-slate-50" />)
           ) : (
             visibleRecipes.map((recipe, index) => (
-              <RecipeCard 
-                key={`${recipe.id}-${index}`}
-                recipe={recipe}
-                index={index}
-                onClick={handleOpenRecipe}
-              />
+              <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={handleOpenRecipe} />
             ))
           )}
         </motion.div>
       </AnimatePresence>
 
-      {/* Load More Button */}
       {!loading && visibleCount < filteredRecipes.length && (
         <div className="mt-12 flex justify-center">
           <button
             onClick={() => setVisibleCount(prev => prev + 12)}
-            className="inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-green/25 hover:shadow-xl hover:shadow-brand-green/30 transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="rounded-full bg-brand-green px-8 py-3.5 text-sm font-bold uppercase text-white shadow-lg hover:shadow-xl transition-all"
           >
             Load More Recipes
           </button>
         </div>
       )}
 
-      {!loading && filteredRecipes.length === 0 && (
+      {filteredRecipes.length === 0 && (
         <div className="flex flex-col items-center justify-center py-20 text-center">
-          <div className="mb-4 rounded-full bg-brand-green/10 p-6 text-brand-green">
-            <Utensils size={48} />
-          </div>
-          <h3 className="text-xl font-bold">No recipes added yet. Stay tuned!</h3>
-          <p className="text-gray-500">Check back soon for new gourmet creations</p>
-          <button 
-            onClick={() => {setQuery(""); setActiveTab("ALL RECIPES");}}
-            className="mt-6 text-brand-green font-semibold hover:underline"
-          >
+          <Utensils size={48} className="mb-4 text-brand-green" />
+          <h3 className="text-xl font-bold">No recipes found</h3>
+          <button onClick={() => {setQuery(""); setActiveTab("ALL RECIPES");}} className="mt-6 text-brand-green font-semibold hover:underline">
             Clear all filters
           </button>
         </div>
       )}
 
-      {/* Fan Reviews Section */}
       <div className="mt-12 bg-white/50 py-8 rounded-[40px]">
         <FanReviews />
       </div>
 
-      <RecipeModal 
-        recipe={selectedRecipe}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <RecipeModal recipe={selectedRecipe} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </motion.div>
   );
 }
