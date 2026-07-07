@@ -1,907 +1,454 @@
 [
-
   {
-
     "id": "fit-pancakes-01",
-
     "title": "Nano Banana Protein Pancakes",
-
     "category": "fitness",
-
     "calories": 380,
-
     "protein": "28g",
-
     "carbs": "42g",
-
     "fat": "6g",
-
     "description": "Fluffy, delicious protein pancakes naturally sweetened with bananas and packed with protein for the perfect post-workout breakfast.",
-
     "prepTime": "15m",
-
     "readyInMinutes": 15,
-
     "servings": 1,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "1 ripe banana", "image": "" },
-
       { "name": "1 scoop vanilla whey protein powder", "image": "" },
-
       { "name": "2 large egg whites", "image": "" },
-
       { "name": "1/2 cup rolled oats", "image": "" },
-
       { "name": "1/2 tsp baking powder", "image": "" },
-
       { "name": "1/2 tsp cinnamon", "image": "" }
-
     ],
-
     "instructions": [
-
       "In a blender, combine the banana, protein powder, egg whites, oats, baking powder, and cinnamon. Blend until completely smooth.",
-
       "Heat a non-stick skillet over medium-low heat and lightly coat with cooking spray.",
-
       "Pour batter to form pancakes of your desired size. Cook until bubbles form on the top surface.",
-
       "Carefully flip and cook the other side until lightly golden brown. Repeat with remaining batter.",
-
       "Stack them high, garnish with fresh berries if desired, and enjoy warm!"
-
     ]
-
   },
-
   {
-
     "id": "fit-chicken-bowl-02",
-
     "title": "Gourmet Grilled Chicken & Quinoa Bowl",
-
     "category": "fitness",
-
     "calories": 480,
-
     "protein": "40g",
-
     "carbs": "45g",
-
     "fat": "12g",
-
     "description": "Tender, herb-marinated grilled chicken breast served over a fluffy bed of quinoa, roasted seasonal vegetables, and a light lemon-herb vinaigrette.",
-
     "prepTime": "25m",
-
     "readyInMinutes": 25,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "150g quality chicken breast", "image": "" },
-
       { "name": "1/2 cup pre-cooked organic quinoa", "image": "" },
-
       { "name": "1/2 cup fresh bell peppers, sliced", "image": "" },
-
       { "name": "1/2 cup fresh green zucchini, sliced", "image": "" },
-
       { "name": "1 tbsp extra virgin olive oil", "image": "" },
-
       { "name": "1/2 lemon, freshly juiced", "image": "" },
-
       { "name": "Fresh parsley and aromatic oregano", "image": "" }
-
     ],
-
     "instructions": [
-
       "Marinate the chicken breast with lemon juice, half of the olive oil, and fresh minced herbs.",
-
       "Grill the chicken breast and sliced vegetables over medium-high heat until cooked through and beautifully charred.",
-
       "Allow the grilled chicken to rest for a couple of minutes, then slice into elegant strips.",
-
       "Assemble your bowl by layering cooked quinoa at the bottom, then topping with the sliced grilled chicken and colorful vegetables.",
-
       "Drizzle with the remaining olive oil and a squeeze of fresh lemon juice before serving."
-
     ]
-
   },
-
   {
-
     "id": "fit-avocado-toast-03",
-
     "title": "High-Protein Avocado Toast with Poached Eggs",
-
     "category": "fitness",
-
     "calories": 410,
-
     "protein": "22g",
-
     "carbs": "30g",
-
     "fat": "18g",
-
     "description": "Whole-grain sourdough toast topped with creamy mashed avocado, baby spinach, and two perfectly poached eggs for a premium, clean-eating lunch.",
-
     "prepTime": "10m",
-
     "readyInMinutes": 10,
-
     "servings": 1,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "2 thick slices of whole-grain sourdough bread", "image": "" },
-
       { "name": "1/2 medium ripe avocado", "image": "" },
-
       { "name": "2 large organic free-range eggs", "image": "" },
-
       { "name": "1/2 cup baby spinach leaves", "image": "" },
-
       { "name": "1 tsp fresh lemon juice", "image": "" },
-
       { "name": "Pinch of red pepper flakes", "image": "" },
-
       { "name": "Salt and black pepper to taste", "image": "" }
-
     ],
-
     "instructions": [
-
       "Toast the slices of sourdough bread to golden perfection.",
-
       "In a small bowl, mash the avocado flesh with lemon juice, salt, and pepper.",
-
       "Poach the eggs in simmering water with a drop of vinegar for 3 to 4 minutes until the whites are set but yolks remain perfectly runny.",
-
       "Spread the seasoned mashed avocado evenly over the toasted sourdough, top with baby spinach, and carefully place poached eggs on top.",
-
       "Sprinkle with red pepper flakes and freshly ground black pepper."
-
     ]
-
   },
-
   {
-
     "id": "fit-tuna-salad-04",
-
     "title": "Seared Sesame Crust Ahi Tuna Salad",
-
     "category": "fitness",
-
     "calories": 390,
-
     "protein": "36g",
-
     "carbs": "12g",
-
     "fat": "14g",
-
     "description": "A luxurious, protein-packed pan-seared sesame ahi tuna steak served over a bed of crisp greens, cucumber, and a light sesame-soy ginger dressing.",
-
     "prepTime": "20m",
-
     "readyInMinutes": 20,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "150g fresh Ahi tuna steak", "image": "" },
-
       { "name": "2 tbsp mixed white and black sesame seeds", "image": "" },
-
       { "name": "2 cups mixed fresh salad greens", "image": "" },
-
       { "name": "1/2 English cucumber, sliced", "image": "" },
-
       { "name": "1 tbsp low-sodium soy sauce", "image": "" },
-
       { "name": "1 tsp toasted sesame oil", "image": "" },
-
       { "name": "1 tsp grated fresh ginger", "image": "" }
-
     ],
-
     "instructions": [
-
       "Coat the Ahi tuna steak evenly with the mixed sesame seeds, pressing them gently to adhere.",
-
       "Heat a non-stick pan with half the sesame oil over high heat.",
-
       "Sear the tuna steak for 1-2 minutes on each side for a beautiful rare center.",
-
       "Whisk together the soy sauce, remaining sesame oil, and ginger to create the dressing.",
-
       "Toss the mixed greens and cucumber in the dressing, arrange on a plate, slice the tuna, and lay it over the salad."
-
     ]
-
   },
-
   {
-
     "id": "fit-yogurt-pudding-05",
-
     "title": "Greek Yogurt Chia Seed Pudding",
-
     "category": "fitness",
-
     "calories": 320,
-
     "protein": "24g",
-
     "carbs": "28g",
-
     "fat": "8g",
-
     "description": "Thick Greek yogurt blended with chia seeds, pure vanilla, and honey, chilled overnight and topped with fresh berries and almonds.",
-
     "prepTime": "10m",
-
     "readyInMinutes": 240,
-
     "servings": 1,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "1 cup non-fat plain Greek yogurt", "image": "" },
-
       { "name": "2 tbsp chia seeds", "image": "" },
-
       { "name": "1 tsp organic honey or maple syrup", "image": "" },
-
       { "name": "1/2 tsp vanilla extract", "image": "" },
-
       { "name": "1/4 cup fresh blueberries and raspberries", "image": "" },
-
       { "name": "1 tbsp sliced almonds", "image": "" }
-
     ],
-
     "instructions": [
-
       "In a jar or container, thoroughly mix the Greek yogurt, chia seeds, honey, and vanilla extract.",
-
       "Cover and refrigerate for at least 4 hours (or overnight) to allow the chia seeds to swell and thicken.",
-
       "Stir the pudding before serving to ensure a creamy consistency.",
-
       "Garnish with fresh berries and sliced almonds for a satisfying, high-protein snack."
-
     ]
-
   },
-
   {
-
     "id": "fit-salmon-06",
-
     "title": "Lemon Herb Grilled Salmon with Asparagus",
-
     "category": "fitness",
-
     "calories": 420,
-
     "protein": "38g",
-
     "carbs": "10g",
-
     "fat": "22g",
-
     "description": "Premium wild-caught grilled salmon fillet seasoned with fresh lemon zest, garlic, and dill, paired with tender, charred asparagus spears.",
-
     "prepTime": "15m",
-
     "readyInMinutes": 25,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "300g fresh wild-caught salmon fillets", "image": "" },
-
       { "name": "1 bunch fresh asparagus, trimmed", "image": "" },
-
       { "name": "1 tbsp avocado oil", "image": "" },
-
       { "name": "1 organic lemon, zested and sliced", "image": "" },
-
       { "name": "2 garlic cloves, finely minced", "image": "" },
-
       { "name": "Fresh dill, chopped", "image": "" },
-
       { "name": "Sea salt and cracked black pepper", "image": "" }
-
     ],
-
     "instructions": [
-
       "Preheat your grill or a stove-top grill pan to medium-high heat.",
-
       "Pat salmon fillets dry and brush lightly with avocado oil, then rub with minced garlic, lemon zest, dill, salt, and pepper.",
-
       "Toss the trimmed asparagus spears with the remaining avocado oil, salt, and pepper.",
-
       "Place the salmon on the grill skin-side down first and cook for 4-5 minutes, then carefully flip and cook for an additional 3-4 minutes.",
-
       "Grill the asparagus alongside the salmon for 5-7 minutes until tender and lightly charred.",
-
       "Serve hot with lemon slices and fresh dill garnish."
-
     ]
-
   },
-
   {
-
     "id": "fit-turkey-meatballs-07",
-
     "title": "Herb-Baked Turkey and Spinach Meatballs",
-
     "category": "fitness",
-
     "calories": 340,
-
     "protein": "32g",
-
     "carbs": "15g",
-
     "fat": "10g",
-
     "description": "Extra-lean ground turkey mixed with fresh finely chopped spinach, garlic, onion, and herbs, baked to juicy perfection.",
-
     "prepTime": "15m",
-
     "readyInMinutes": 35,
-
     "servings": 3,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "500g extra-lean ground turkey", "image": "" },
-
       { "name": "1 cup fresh baby spinach, very finely chopped", "image": "" },
-
       { "name": "1/2 onion, finely minced", "image": "" },
-
       { "name": "2 garlic cloves, minced", "image": "" },
-
       { "name": "1/4 cup almond flour (for binding)", "image": "" },
-
       { "name": "1 large organic egg", "image": "" },
-
       { "name": "1 tsp dried Italian seasoning", "image": "" },
-
       { "name": "Sea salt and black pepper to taste", "image": "" }
-
     ],
-
     "instructions": [
-
       "Preheat your oven to 400°F (200°C) and line a large baking sheet with parchment paper.",
-
       "In a large bowl, combine the ground turkey, chopped spinach, minced onion, garlic, almond flour, egg, Italian seasoning, salt, and pepper.",
-
       "Mix gently with your hands until just combined (do not overwork the meat).",
-
       "Roll the mixture into small, even-sized meatballs (makes about 12-15 meatballs) and arrange them on the baking sheet.",
-
       "Bake for 18-20 minutes until cooked through and the tops are lightly browned."
-
     ]
-
   },
-
   {
-
     "id": "fit-beef-broccoli-08",
-
     "title": "Clean Beef and Broccoli Stir-Fry",
-
     "category": "fitness",
-
     "calories": 450,
-
     "protein": "38g",
-
     "carbs": "22g",
-
     "fat": "14g",
-
     "description": "High-protein lean flank steak strips flash-fried with fresh broccoli florets in a low-sodium ginger, garlic, and coconut aminos savory sauce.",
-
     "prepTime": "15m",
-
     "readyInMinutes": 25,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "300g lean flank steak, sliced into thin strips", "image": "" },
-
       { "name": "2 cups fresh broccoli florets", "image": "" },
-
       { "name": "1/4 cup coconut aminos or low-sodium soy sauce", "image": "" },
-
       { "name": "1 tbsp sesame oil", "image": "" },
-
       { "name": "1 tbsp fresh ginger, finely grated", "image": "" },
-
       { "name": "2 garlic cloves, minced", "image": "" },
-
       { "name": "1 tbsp cornstarch or arrowroot powder", "image": "" },
-
       { "name": "1 tbsp sesame seeds for garnish", "image": "" }
-
     ],
-
     "instructions": [
-
       "In a small bowl, whisk coconut aminos, half the sesame oil, ginger, garlic, and cornstarch with 2 tbsp of water.",
-
       "Heat a large wok or skillet over high heat with the remaining sesame oil.",
-
       "Add the flank steak strips and cook for 3-4 minutes until nicely browned, then remove from the pan and set aside.",
-
       "Add the broccoli florets and 2 tablespoons of water to the wok, covering to steam for 2-3 minutes until tender-crisp.",
-
       "Return the steak to the wok, pour in the sauce mixture, and stir continuously for 1-2 minutes until the sauce bubbles and thickens.",
-
       "Garnish with sesame seeds and serve warm."
-
     ]
-
   },
-
   {
-
     "id": "fit-shrimp-09",
-
     "title": "Spicy Cilantro Lime Shrimp with Cauliflower Rice",
-
     "category": "fitness",
-
     "calories": 290,
-
     "protein": "34g",
-
     "carbs": "14g",
-
     "fat": "8g",
-
     "description": "Vibrant, garlic-sautéed jumbo shrimp tossed with fresh lime juice and spicy chili flakes, served over high-fiber riced cauliflower.",
-
     "prepTime": "10m",
-
     "readyInMinutes": 20,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "350g jumbo shrimp, peeled and deveined", "image": "" },
-
       { "name": "3 cups fresh cauliflower rice", "image": "" },
-
       { "name": "1 tbsp extra virgin olive oil", "image": "" },
-
       { "name": "3 garlic cloves, thinly sliced", "image": "" },
-
       { "name": "1/2 cup fresh cilantro, finely chopped", "image": "" },
-
       { "name": "1 lime, zested and juiced", "image": "" },
-
       { "name": "1/2 tsp crushed red pepper flakes", "image": "" }
-
     ],
-
     "instructions": [
-
       "Heat half of the olive oil in a large skillet over medium-high heat. Add the cauliflower rice and cook for 5-6 minutes until tender, then season lightly and transfer to serving bowls.",
-
       "In the same skillet, add the remaining olive oil and sliced garlic. Sauté for 1 minute until fragrant.",
-
       "Add the shrimp to the pan and season with red pepper flakes, salt, and pepper. Cook for 2-3 minutes per side until pink and opaque.",
-
       "Remove skillet from heat, stir in the fresh lime juice, lime zest, and chopped cilantro, tossing to coat the shrimp.",
-
       "Spoon the spicy shrimp and flavorful pan juices over the cauliflower rice and serve immediately."
-
     ]
-
   },
-
   {
-
     "id": "fit-cottage-cheese-10",
-
     "title": "High-Protein Cottage Cheese Berry Bowl",
-
     "category": "fitness",
-
     "calories": 310,
-
     "protein": "28g",
-
     "carbs": "32g",
-
     "fat": "5g",
-
     "description": "Creamy low-fat cottage cheese whipped with a touch of honey, topped with an organic berry mix, sliced almonds, and a dusting of hemp seeds.",
-
     "prepTime": "5m",
-
     "readyInMinutes": 5,
-
     "servings": 1,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "1.5 cups low-fat cottage cheese", "image": "" },
-
       { "name": "1/2 cup fresh mixed berries (blueberries, raspberries, blackberries)", "image": "" },
-
       { "name": "1 tbsp organic raw honey or pure maple syrup", "image": "" },
-
       { "name": "1 tbsp sliced almonds, toasted", "image": "" },
-
       { "name": "1 tsp organic hemp seeds", "image": "" },
-
       { "name": "Pinch of ground cinnamon", "image": "" }
-
     ],
-
     "instructions": [
-
       "For an ultra-creamy texture, blend the cottage cheese in a food processor or blender for 1 minute until completely smooth (optional).",
-
       "Spoon the cottage cheese into a wide breakfast bowl.",
-
       "Arrange the fresh mixed berries and toasted sliced almonds beautifully over the top.",
-
       "Drizzle with raw honey and sprinkle with hemp seeds and ground cinnamon."
-
     ]
-
   },
-
   {
-
     "id": "fit-tofu-11",
-
     "title": "Baked Sesame Tofu with Steamed Bok Choy",
-
     "category": "fitness",
-
     "calories": 350,
-
     "protein": "25g",
-
     "carbs": "20g",
-
     "fat": "15g",
-
     "description": "Crispy baked organic firm tofu cubes marinated in ginger-sesame soy sauce, paired with beautifully steamed fresh baby bok choy.",
-
     "prepTime": "15m",
-
     "readyInMinutes": 45,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "400g extra-firm organic tofu, pressed and cubed", "image": "" },
-
       { "name": "4 baby bok choy heads, halved lengthwise", "image": "" },
-
       { "name": "2 tbsp low-sodium soy sauce", "image": "" },
-
       { "name": "1 tbsp toasted sesame oil", "image": "" },
-
       { "name": "1 tbsp organic maple syrup", "image": "" },
-
       { "name": "1 tsp fresh ginger, grated", "image": "" },
-
       { "name": "1 tbsp cornstarch (for extra crispiness)", "image": "" },
-
       { "name": "1 tbsp white sesame seeds", "image": "" }
-
     ],
-
     "instructions": [
-
       "In a shallow dish, whisk together soy sauce, sesame oil, maple syrup, and grated ginger. Add tofu cubes, toss gently, and marinate for 15 minutes.",
-
       "Preheat oven to 400°F (200°C) and line a baking sheet with parchment paper.",
-
       "Remove tofu from marinade (reserve marinade), toss tofu cubes gently with cornstarch, and arrange on the baking sheet in a single layer.",
-
       "Bake tofu for 25-30 minutes, turning halfway through, until crispy and golden.",
-
       "Steam baby bok choy halves for 4-5 minutes until bright green and tender-crisp.",
-
       "Drizzle remaining marinade over steamed bok choy, plate with the crispy tofu, and garnish with sesame seeds."
-
     ]
-
   },
-
   {
-
     "id": "fit-chicken-salad-12",
-
     "title": "Mediterranean Herb Chicken Quinoa Salad",
-
     "category": "fitness",
-
     "calories": 460,
-
     "protein": "39g",
-
     "carbs": "38g",
-
     "fat": "14g",
-
     "description": "Juicy grilled Mediterranean-style chicken strips tossed with cooled organic quinoa, crisp cucumbers, cherry tomatoes, kalamata olives, and light feta cheese.",
-
     "prepTime": "15m",
-
     "readyInMinutes": 25,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "250g tender chicken breast", "image": "" },
-
       { "name": "1 cup cooked organic quinoa, cooled", "image": "" },
-
       { "name": "1 cup English cucumber, diced", "image": "" },
-
       { "name": "1 cup fresh cherry tomatoes, halved", "image": "" },
-
       { "name": "1/4 cup kalamata olives, pitted and halved", "image": "" },
-
       { "name": "1/4 cup low-fat feta cheese, crumbled", "image": "" },
-
       { "name": "1 tbsp extra virgin olive oil", "image": "" },
-
       { "name": "1 tbsp red wine vinegar or fresh lemon juice", "image": "" },
-
       { "name": "1 tsp dried oregano and basil", "image": "" }
-
     ],
-
     "instructions": [
-
       "Season chicken breasts with oregano, basil, salt, and pepper. Grill or pan-sear until fully cooked, then slice into strips.",
-
       "In a large salad bowl, combine the cooled quinoa, cucumber, cherry tomatoes, kalamata olives, and crumbled feta cheese.",
-
       "In a small cup, whisk together olive oil, red wine vinegar, salt, and pepper to create a dressing.",
-
       "Add the sliced grilled chicken to the bowl and drizzle with the vinaigrette dressing.",
-
       "Toss gently to integrate all ingredients and serve chilled or at room temperature."
-
     ]
-
   },
-
   {
-
     "id": "fit-egg-scramble-13",
-
     "title": "Egg White Veggie Scramble with Turkey Bacon",
-
     "category": "fitness",
-
     "calories": 280,
-
     "protein": "30g",
-
     "carbs": "10g",
-
     "fat": "8g",
-
     "description": "A clean, high-protein egg white scramble loaded with fresh bell peppers, spinach, and mushrooms, served with crispy extra-lean turkey bacon.",
-
     "prepTime": "10m",
-
     "readyInMinutes": 15,
-
     "servings": 1,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "1 cup pure liquid egg whites", "image": "" },
-
       { "name": "2 slices extra-lean turkey bacon", "image": "" },
-
       { "name": "1/2 cup fresh baby spinach", "image": "" },
-
       { "name": "1/4 cup bell peppers, finely diced", "image": "" },
-
       { "name": "1/4 cup fresh brown mushrooms, sliced", "image": "" },
-
       { "name": "1 tsp avocado oil or cooking spray", "image": "" },
-
       { "name": "Fresh chives, chopped", "image": "" }
-
     ],
-
     "instructions": [
-
       "In a small non-stick pan over medium heat, cook turkey bacon slices for 3-4 minutes per side until perfectly crispy. Remove and set aside.",
-
       "Lightly coat the same pan with avocado oil or cooking spray. Add diced bell peppers and sliced mushrooms, sautéing for 3 minutes until tender.",
-
       "Add baby spinach and stir for 1 minute until wilted.",
-
       "Lower heat to medium-low, pour in the liquid egg whites, and cook, stirring gently and continuously, until soft and fully scrambled.",
-
       "Plate the scramble warm alongside the crispy turkey bacon, and garnish with fresh chives."
-
     ]
-
   },
-
   {
-
     "id": "fit-cod-14",
-
     "title": "Ginger Teriyaki Glazed Cod with Brown Rice",
-
     "category": "fitness",
-
     "calories": 390,
-
     "protein": "35g",
-
     "carbs": "42g",
-
     "fat": "6g",
-
     "description": "Flaky, baked Atlantic cod loin lightly glazed with a home-style honey-teriyaki ginger sauce, paired with high-fiber steamed brown rice.",
-
     "prepTime": "10m",
-
     "readyInMinutes": 25,
-
     "servings": 2,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "300g fresh Atlantic cod loin fillets", "image": "" },
-
       { "name": "1 cup cooked organic brown jasmine rice", "image": "" },
-
       { "name": "2 tbsp low-sodium teriyaki sauce", "image": "" },
-
       { "name": "1 tsp organic honey", "image": "" },
-
       { "name": "1 tsp fresh ginger, grated", "image": "" },
-
       { "name": "1/2 cup sugar snap peas, steamed", "image": "" },
-
       { "name": "1 green onion, sliced", "image": "" }
-
     ],
-
     "instructions": [
-
       "Preheat oven to 375°F (190°C) and grease a small baking dish with cooking spray.",
-
       "In a small bowl, whisk together low-sodium teriyaki, honey, and fresh grated ginger.",
-
       "Place cod fillets in the baking dish and brush generously with the teriyaki-ginger glaze.",
-
       "Bake for 12-15 minutes until the fish flakes easily with a fork.",
-
       "To serve, place a bed of warm brown rice on plates, top with the baked glazed cod, arrange steamed sugar snap peas on the side, and garnish with sliced green onion."
-
     ]
-
   },
-
   {
-
     "id": "fit-oat-bran-15",
-
     "title": "Creamy Protein Oat Bran Bowl",
-
     "category": "fitness",
-
     "calories": 330,
-
     "protein": "26g",
-
     "carbs": "38g",
-
     "fat": "7g",
-
     "description": "Warm, creamy organic oat bran cooked with unsweetened almond milk, stirred with premium vanilla plant-based protein, flaxseeds, and fresh organic strawberries.",
-
     "prepTime": "5m",
-
     "readyInMinutes": 10,
-
     "servings": 1,
-
     "image": "Nano Banana",
-
     "ingredients": [
-
       { "name": "1/3 cup organic oat bran", "image": "" },
-
       { "name": "1 cup unsweetened almond milk", "image": "" },
-
       { "name": "1 scoop vanilla plant-based protein powder", "image": "" },
-
       { "name": "1 tbsp organic ground flaxseed", "image": "" },
-
       { "name": "1/2 cup fresh organic strawberries, sliced", "image": "" },
-
       { "name": "1 tsp chia seeds for topping", "image": "" }
-
     ],
-
     "instructions": [
-
       "In a small saucepan, bring the unsweetened almond milk and oat bran to a gentle boil over medium heat.",
-
       "Reduce heat to low and simmer for 2-3 minutes, stirring constantly until thick and creamy.",
-
       "Remove saucepan from heat. Let cool slightly for 1 minute, then add the protein powder and ground flaxseed, stirring vigorously until completely smooth.",
-
       "Spoon the warm oat bran into a serving bowl.",
-
       "Garnish with sliced fresh strawberries and sprinkle with chia seeds before enjoying."
-
     ]
-
   }
-
 ]
