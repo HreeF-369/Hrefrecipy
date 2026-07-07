@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { TrendingUp, Utensils, Calendar, ShoppingBag, ArrowRight, Sparkles, Coffee, Moon, Flame, Clock, ChevronRight, ChevronLeft, GlassWater, IceCream, ChefHat, Search, CheckCircle2, Heart } from "lucide-react";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Recipe } from "../types/index.js";
 import { searchRecipes, getRecipeById } from "../services/api.js";
 import { clsx, type ClassValue } from "clsx";
@@ -21,7 +21,6 @@ function cn(...inputs: ClassValue[]) {
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const catQuery = searchParams.get("cat");
-  const navigate = useNavigate();
   
   const [activeCategory, setActiveCategory] = useState("ALL RECIPES");
   const [searchQuery, setSearchQuery] = useState("");
@@ -171,7 +170,9 @@ export default function Home() {
   }, [filteredRecipes, visibleCount]);
 
   const handleOpenRecipe = (recipe: Recipe) => {
-    navigate(`/recipe/${recipe.id}`);
+    setSelectedRecipe(recipe);
+    setIsModalOpen(true);
+    window.history.pushState({ recipeId: recipe.id }, '', `/?recipe=${recipe.id}`);
   };
 
   const categories = [
@@ -480,7 +481,10 @@ export default function Home() {
       <RecipeModal 
         recipe={selectedRecipe} 
         isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        onClose={() => {
+          setIsModalOpen(false);
+          window.history.pushState(null, '', `/`);
+        }} 
       />
 
     </motion.div>
