@@ -110,7 +110,7 @@ export default function Home() {
       try {
         setLoading(true);
         // Just fetch all recipes since it's local now
-        const results = await searchRecipes("", "all", 100);
+        const results = await searchRecipes("", "all", 200);
         setAllRecipes(results);
       } catch (error) {
         console.error("Initial fetch failed:", error);
