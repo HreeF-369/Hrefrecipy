@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+iimport { useState, useEffect, useMemo, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { TrendingUp, Utensils, Calendar, ShoppingBag, ArrowRight, Sparkles, Coffee, Moon, Flame, Clock, ChevronRight, ChevronLeft, GlassWater, IceCream, ChefHat, Search, CheckCircle2, Heart } from "lucide-react";
@@ -110,7 +110,7 @@ export default function Home() {
       try {
         setLoading(true);
         // Just fetch all recipes since it's local now
-        const results = await searchRecipes("", "all", 100);
+        const results = await searchRecipes("", "all", 200);
         setAllRecipes(results);
       } catch (error) {
         console.error("Initial fetch failed:", error);
