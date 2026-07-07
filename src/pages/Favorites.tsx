@@ -5,7 +5,7 @@ import { useApp } from "../context/AppContext.js";
 import { Recipe } from "../types/index.js";
 import { getRecipeById } from "../services/api.js";
 import { RecipeModal } from "../components/RecipeModal.js";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Helmet } from "react-helmet-async";
@@ -48,10 +48,10 @@ export default function Favorites() {
     r.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const navigate = useNavigate();
-
   const handleOpenRecipe = (recipe: Recipe) => {
-    navigate(`/recipe/${recipe.id}`);
+    setSelectedRecipe(recipe);
+    setIsModalOpen(true);
+    window.history.pushState({ recipeId: recipe.id }, '', `/favorites?recipe=${recipe.id}`);
   };
 
   return (
@@ -117,9 +117,11 @@ export default function Favorites() {
       <RecipeModal 
         recipe={selectedRecipe} 
         isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        onClose={() => {
+          setIsModalOpen(false);
+          window.history.pushState(null, '', `/favorites`);
+        }} 
       />
     </motion.div>
   );
 }
-
