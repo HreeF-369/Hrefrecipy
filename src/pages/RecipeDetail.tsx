@@ -329,7 +329,7 @@ export default function RecipeDetail() {
                 : getSafeImageUrl(recipe.image))} 
               alt={`High protein low calorie ${recipe.title} recipe for healthy meal planning`} 
               onError={() => setImgError(true)}
-              {...(typeof recipe.image === 'string' && (getSafeImageUrl(recipe.image).startsWith('image_') || getSafeImageUrl(recipe.image).startsWith('/image_')) ? {
+              {...(imgError ? {} : typeof recipe.image === 'string' && (getSafeImageUrl(recipe.image).startsWith('image_') || getSafeImageUrl(recipe.image).startsWith('/image_')) ? {
                 srcSet: `${getSafeImageUrl(recipe.image).replace('.webp', '_mobile.webp')} 400w, ${getSafeImageUrl(recipe.image)} 800w`,
                 sizes: "(max-width: 640px) 400px, 800px"
               } : typeof recipe.image === 'string' && getSafeImageUrl(recipe.image).includes('images.unsplash.com') ? {

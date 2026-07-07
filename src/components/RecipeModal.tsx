@@ -416,7 +416,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
                       : getSafeImageUrl(recipe.image))}
                     alt={recipe.title}
                     onError={() => setImgError(true)}
-                    {...(typeof recipe.image === 'string' && getSafeImageUrl(recipe.image).includes('images.unsplash.com') ? {
+                    {...(imgError ? {} : typeof recipe.image === 'string' && getSafeImageUrl(recipe.image).includes('images.unsplash.com') ? {
                       srcSet: `${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 400)} 400w, ${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 800)} 800w`,
                       sizes: "(max-width: 640px) 400px, 800px"
                     } : {})}

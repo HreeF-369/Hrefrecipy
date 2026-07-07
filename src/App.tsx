@@ -59,7 +59,6 @@ const AIChat = lazy(() => import("./components/AIChat.js"));
 import CookieBanner from "./components/CookieBanner.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.js";
 
-
 // Utility for tailwind classes
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -270,14 +269,14 @@ export default function App() {
           
           <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 flex-1 flex flex-col w-full overflow-x-hidden min-w-0 print:pt-0 print:overflow-visible">
             <div className="w-full px-4 py-6 md:px-8 lg:py-12 lg:px-12 flex-1">
-                <ErrorBoundary>
-                  <AnimatePresence mode="wait">
-                    <Suspense fallback={
-                      <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
-                        <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-100 border-t-brand-green"></div>
-                        <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Loading Page...</p>
-                      </div>
-                    }>
+                <AnimatePresence mode="wait">
+                  <Suspense fallback={
+                    <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
+                      <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-100 border-t-brand-green"></div>
+                      <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Loading Page...</p>
+                    </div>
+                  }>
+                    <ErrorBoundary>
                       <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/recipes" element={<Recipes />} />
@@ -299,9 +298,9 @@ export default function App() {
                         <Route path="/data-preference" element={<DataPreference />} />
                         <Route path="*" element={<NotFound />} />
                       </Routes>
-                    </Suspense>
-                  </AnimatePresence>
-                </ErrorBoundary>
+                    </ErrorBoundary>
+                  </Suspense>
+                </AnimatePresence>
               </div>
 
               {/* Cookie Consent Banner */}

@@ -482,12 +482,6 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
     }
  
     // Inject Pre-rendered content for crawlers
-    // Never let browsers/CDNs cache the HTML shell itself. The HTML references
-    // hashed JS/CSS filenames that change on every deploy; caching it can leave
-    // a visitor with an old HTML pointing at JS chunks that no longer exist,
-    // which silently blanks out the page content (e.g. Recipes, Recipe Detail).
-    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-
     if (preRenderedContent) {
       html = html.replace('<div id="root" class="w-full overflow-x-hidden"></div>', `<div id="root" class="w-full overflow-x-hidden">${preRenderedContent}</div>`);
     }

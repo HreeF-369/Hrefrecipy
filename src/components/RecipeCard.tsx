@@ -49,7 +49,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
             alt={`Healthy ${recipe.title} recipe meal prep`}
             loading="lazy"
             onError={() => setImgError(true)}
-            {...(typeof currentImageUrl === 'string' && (currentImageUrl.startsWith('image_') || currentImageUrl.startsWith('/image_')) ? {
+            {...(imgError ? {} : typeof currentImageUrl === 'string' && (currentImageUrl.startsWith('image_') || currentImageUrl.startsWith('/image_')) ? {
               srcSet: `${currentImageUrl.replace('.webp', '_mobile.webp')} 400w, ${currentImageUrl} 800w`,
               sizes: "(max-width: 640px) 400px, 800px"
             } : typeof currentImageUrl === 'string' && currentImageUrl.includes('images.unsplash.com') ? {

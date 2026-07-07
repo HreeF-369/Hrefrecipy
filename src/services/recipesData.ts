@@ -2640,6 +2640,188 @@ export const RECIPES_DATA: Recipe[] = [
       "Top with a thick layer of mozzarella cheese and arrange pepperoni slices evenly on top.",
       "Bake at 200°C until the crust is golden brown and the cheese is bubbling perfectly."
     ]
+  },
+  {
+    id: "mediterranean-chickpea-salad-bowl",
+    title: "Mediterranean Chickpea Salad Bowl (High Protein)",
+    description: "A trending Pinterest high-protein Mediterranean chickpea salad bowl. Packed with fiber, crisp veggies, and a zesty lemon-tahini dressing. Perfect for meal prep and low-calorie lunches.",
+    summary: "A trending Pinterest high-protein Mediterranean chickpea salad bowl. Packed with fiber, crisp veggies, and a zesty lemon-tahini dressing. Perfect for meal prep and low-calorie lunches.",
+    image: "/image_chickpea_salad.jpg",
+    prepTime: "10m",
+    readyInMinutes: 10,
+    servings: 2,
+    category: "LUNCH",
+    calories: "340kcal",
+    protein: "16g",
+    carbs: "42g",
+    fat: "14g",
+    micros: {
+      fiber: 12,
+      sugar: 5,
+      sodium: 380,
+      vitaminC: 25
+    },
+    tags: ["chickpea salad", "high protein", "meal prep", "vegan", "clean eating", "healthy lunch"],
+    dishTypes: ["Lunch", "Salad", "Healthy", "Main"],
+    ingredients: [
+      { name: "1 can (15 oz) chickpeas, rinsed and drained", image: "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?q=80&w=150" },
+      { name: "1 cup cherry tomatoes, halved", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=150" },
+      { name: "1 cucumber, diced", image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=150" },
+      { name: "1/4 red onion, finely chopped", image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?q=80&w=150" },
+      { name: "2 tbsp tahini & lemon juice dressing", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" }
+    ],
+    instructions: [
+      "In a large mixing bowl, combine the drained chickpeas, cherry tomatoes, diced cucumber, and red onion.",
+      "In a small jar, whisk together tahini, fresh lemon juice, a pinch of salt, and a splash of water until smooth.",
+      "Pour the dressing over the salad and toss gently to coat all the ingredients evenly.",
+      "Serve immediately or portion into containers for a healthy, high-protein meal prep lunch."
+    ]
+  },
+  {
+    id: "cucumber-feta-mint-salad",
+    title: "Viral Cucumber & Feta Salad (Low Calorie)",
+    description: "The viral Pinterest cucumber and feta salad. Refreshing, low-calorie, and keto-friendly. Tossed with a light olive oil vinaigrette and fresh mint for the ultimate summer glow-up lunch.",
+    summary: "The viral Pinterest cucumber and feta salad. Refreshing, low-calorie, and keto-friendly. Tossed with a light olive oil vinaigrette and fresh mint for the ultimate summer glow-up lunch.",
+    image: "/image_cucumber_feta_salad.jpg",
+    prepTime: "10m",
+    readyInMinutes: 10,
+    servings: 2,
+    category: "LUNCH",
+    calories: "210kcal",
+    protein: "8g",
+    carbs: "10g",
+    fat: "16g",
+    micros: {
+      fiber: 3,
+      sugar: 4,
+      sodium: 450,
+      vitaminC: 15
+    },
+    tags: ["cucumber salad", "feta", "low calorie", "keto", "viral recipe", "clean eating"],
+    dishTypes: ["Lunch", "Salad", "Healthy", "Side"],
+    ingredients: [
+      { name: "2 large cucumbers, thinly sliced", image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=150" },
+      { name: "1/2 cup feta cheese, crumbled", image: "https://img.icons8.com/fluency/96/cheese.png" },
+      { name: "1/4 cup fresh mint leaves, chopped", image: "https://images.unsplash.com/photo-1628543105312-d9841d1ebc3d?q=80&w=150" },
+      { name: "2 tbsp extra-virgin olive oil", image: "https://img.icons8.com/fluency/96/olive-oil.png" },
+      { name: "1 tbsp red wine vinegar", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" }
+    ],
+    instructions: [
+      "Wash and thinly slice the cucumbers, transferring them to a large salad bowl.",
+      "Add the crumbled feta cheese and freshly chopped mint leaves to the cucumbers.",
+      "Drizzle the olive oil and red wine vinegar over the salad. Add a pinch of black pepper.",
+      "Toss gently until everything is well combined.",
+      "Chill in the refrigerator for 15 minutes before serving for maximum crispness."
+    ]
+  },
+  {
+    id: "healthy-berry-yogurt-parfait",
+    title: "Yummy Berry Yogurt Parfait (Healthy Dessert)",
+    description: "A Pinterest-trending aesthetic berry and yogurt parfait. A high-protein, yummy dessert alternative that layers creamy Greek yogurt, fresh mixed berries, and a touch of honey for a guilt-free sweet treat.",
+    summary: "A Pinterest-trending aesthetic berry and yogurt parfait. A high-protein, yummy dessert alternative that layers creamy Greek yogurt, fresh mixed berries, and a touch of honey for a guilt-free sweet treat.",
+    image: "/image_healthy_berry_dessert.jpg",
+    prepTime: "5m",
+    readyInMinutes: 5,
+    servings: 1,
+    category: "DESSERTS",
+    calories: "180kcal",
+    protein: "15g",
+    carbs: "24g",
+    fat: "3g",
+    micros: {
+      fiber: 4,
+      sugar: 14,
+      sodium: 60,
+      vitaminC: 20
+    },
+    tags: ["healthy dessert", "yummy dessert", "high protein", "low calorie", "parfait", "berries"],
+    dishTypes: ["Desserts", "Healthy", "Snacks"],
+    ingredients: [
+      { name: "1 cup plain non-fat Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
+      { name: "1/2 cup fresh mixed berries (strawberries, blueberries)", image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=150" },
+      { name: "1 tsp pure honey", image: "https://img.icons8.com/fluency/96/honey.png" },
+      { name: "1 tbsp crushed almonds", image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?q=80&w=150" }
+    ],
+    instructions: [
+      "In a clear dessert glass, spoon a layer of plain Greek yogurt at the bottom.",
+      "Add a layer of fresh mixed berries on top of the yogurt.",
+      "Repeat the layers until the glass is full, finishing with a beautiful berry topping.",
+      "Drizzle the pure honey over the top and sprinkle with crushed almonds for a satisfying crunch."
+    ]
+  },
+  {
+    id: "high-protein-chocolate-brownies",
+    title: "Fudgy High-Protein Chocolate Brownies",
+    description: "Viral Pinterest fudge chocolate brownies that fit your macros! These decadent, high-protein healthy brownies use whey protein and Greek yogurt to achieve a rich texture without the extra calories or fat.",
+    summary: "Viral Pinterest fudge chocolate brownies that fit your macros! These decadent, high-protein healthy brownies use whey protein and Greek yogurt to achieve a rich texture without the extra calories or fat.",
+    image: "/image_protein_chocolate_brownies.jpg",
+    prepTime: "15m",
+    readyInMinutes: 35,
+    servings: 9,
+    category: "DESSERTS",
+    calories: "140kcal",
+    protein: "12g",
+    carbs: "14g",
+    fat: "5g",
+    micros: {
+      fiber: 3,
+      sugar: 6,
+      sodium: 110,
+      vitaminC: 0
+    },
+    tags: ["chocolate brownies", "high protein", "healthy dessert", "macro-friendly", "low calorie baking"],
+    dishTypes: ["Desserts", "Healthy", "Baking"],
+    ingredients: [
+      { name: "1 cup plain Greek yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" },
+      { name: "1/2 cup unsweetened cocoa powder", image: "https://images.unsplash.com/photo-1511381939415-e440c9c41aeb?q=80&w=150" },
+      { name: "1/2 cup chocolate whey protein powder", image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=150" },
+      { name: "1/4 cup sugar-free maple syrup", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
+      { name: "1 large egg", image: "https://img.icons8.com/fluency/96/eggs.png" }
+    ],
+    instructions: [
+      "Preheat your oven to 175°C (350°F) and line an 8x8 baking dish with parchment paper.",
+      "In a large bowl, whisk together the Greek yogurt, sugar-free maple syrup, and egg until completely smooth.",
+      "Gently fold in the cocoa powder and chocolate whey protein powder until a thick brownie batter forms.",
+      "Spread the batter evenly into the prepared baking dish.",
+      "Bake for 18-20 minutes. Let the brownies cool completely before slicing into squares to maintain their fudgy texture."
+    ]
+  },
+  {
+    id: "edible-glitter-pink-lemonade",
+    title: "Edible Glitter Pink Lemonade Mocktail",
+    description: "The viral Pinterest edible glitter drink! This mesmerizing, sparkling pink lemonade mocktail uses food-grade glitter and sugar-free lemonade for a stunning, low-calorie, photo-ready refreshment.",
+    summary: "The viral Pinterest edible glitter drink! This mesmerizing, sparkling pink lemonade mocktail uses food-grade glitter and sugar-free lemonade for a stunning, low-calorie, photo-ready refreshment.",
+    image: "/image_glitter_mocktail_drink.jpg",
+    prepTime: "5m",
+    readyInMinutes: 5,
+    servings: 1,
+    category: "DRINKS",
+    calories: "15kcal",
+    protein: "0g",
+    carbs: "4g",
+    fat: "0g",
+    micros: {
+      fiber: 0,
+      sugar: 0,
+      sodium: 10,
+      vitaminC: 100
+    },
+    tags: ["edible glitter drink", "mocktail", "low calorie", "viral drink", "sparkling", "refreshing"],
+    dishTypes: ["Drinks", "Mocktails", "Healthy"],
+    ingredients: [
+      { name: "1 cup sugar-free pink lemonade", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=150" },
+      { name: "1/2 cup sparkling water", image: "https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=150" },
+      { name: "1/8 tsp food-grade edible glitter (pink or silver)", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" },
+      { name: "Ice cubes", image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=150" },
+      { name: "Lemon slice and fresh mint for garnish", image: "https://img.icons8.com/fluency/96/lemon.png" }
+    ],
+    instructions: [
+      "Fill a tall, fancy glass with ice cubes.",
+      "Pour the sugar-free pink lemonade into the glass, filling it about two-thirds of the way.",
+      "Top off the drink with sparkling water for a fizzy kick.",
+      "Sprinkle the edible glitter into the glass and stir vigorously to create a mesmerizing, swirling galaxy effect.",
+      "Garnish with a fresh lemon slice and a sprig of mint, then serve immediately."
+    ]
   }
 ];
 
@@ -3346,6 +3528,231 @@ export const fitnessMeals: Recipe[] = [
       "Layer the thin apple slices over the sweetener, overlapping them tightly, and dust generously with cinnamon.",
       "Place the cut sheet of light phyllo dough directly over the top of the apples, tucking the edges in neatly.",
       "Brush the dough with egg white and bake at 190°C (375°F) for 12-15 minutes until golden-crisp. Carefully flip upside down onto a plate to reveal the caramelized topping."
+    ]
+  },
+  {
+    id: "viral-avocado-egg-boat",
+    title: "Viral Avocado Egg Boat (2026 High Protein Hack)",
+    description: "The ultimate 2026 viral high protein, low calorie snack. A ripe avocado half baked with a fresh egg cracked inside, wrapped in crispy turkey bacon and air-fried. Clean eating and macro-friendly.",
+    summary: "The ultimate 2026 viral high protein, low calorie snack. A ripe avocado half baked with a fresh egg cracked inside, wrapped in crispy turkey bacon and air-fried. Clean eating and macro-friendly.",
+    image: "/images/egg_avocado_boat_1783307825516.jpg",
+    prepTime: "10m",
+    readyInMinutes: 10,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "320kcal",
+    protein: "22g",
+    carbs: "6g",
+    fat: "22g",
+    micros: {
+      fiber: 8,
+      sugar: 1,
+      sodium: 340,
+      vitaminC: 15
+    },
+    tags: ["viral 2026 recipe", "high protein", "low carb", "post-workout", "macro-friendly"],
+    dishTypes: ["Breakfast", "Fitness", "Healthy", "Snacks"],
+    ingredients: [
+      { name: "1 large ripe avocado, cut in half and pitted", image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=150" },
+      { name: "2 large eggs", image: "https://img.icons8.com/fluency/96/eggs.png" },
+      { name: "4 slices turkey bacon", image: "https://img.icons8.com/fluency/96/meat.png" },
+      { name: "1/2 tsp chili flakes & black pepper", image: "https://img.icons8.com/fluency/96/spices.png" }
+    ],
+    instructions: [
+      "Scoop out a little extra avocado flesh from the center of each half to make room for the egg.",
+      "Crack one egg gently into the center cavity of each avocado half.",
+      "Carefully wrap two slices of turkey bacon tightly around each stuffed avocado half to seal the egg inside.",
+      "Place the wrapped avocado boats in the air fryer basket.",
+      "Air-fry at 190°C (375°F) for 10-12 minutes until the turkey bacon is crispy and the egg white is fully set.",
+      "Garnish with chili flakes and freshly ground black pepper before serving hot."
+    ]
+  },
+  {
+    id: "crispy-protein-tofu-airfryer",
+    title: "Crispy Air-Fryer Tofu (Low Calorie & Clean Eating)",
+    description: "The viral 2026 clean eating plant-based meal prep. Extra-firm tofu cubes coated in savory nutritional yeast and cornstarch, air-fried to a golden crunch. High protein, low fat, and macro-friendly.",
+    summary: "The viral 2026 clean eating plant-based meal prep. Extra-firm tofu cubes coated in savory nutritional yeast and cornstarch, air-fried to a golden crunch. High protein, low fat, and macro-friendly.",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600",
+    prepTime: "15m",
+    readyInMinutes: 15,
+    servings: 2,
+    category: "FITNESS MEALS",
+    calories: "280kcal",
+    protein: "26g",
+    carbs: "12g",
+    fat: "14g",
+    micros: {
+      fiber: 6,
+      sugar: 1,
+      sodium: 280,
+      vitaminC: 2
+    },
+    tags: ["viral 2026 recipe", "high protein", "low calorie", "clean eating", "meal prep", "vegan"],
+    dishTypes: ["Lunch", "Fitness", "Healthy", "Main"],
+    ingredients: [
+      { name: "400g extra-firm tofu, pressed and cubed", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150" },
+      { name: "1 tbsp cornstarch", image: "https://img.icons8.com/fluency/96/flour.png" },
+      { name: "2 tbsp nutritional yeast", image: "https://img.icons8.com/fluency/96/cheese.png" },
+      { name: "1 tbsp low-sodium soy sauce", image: "https://img.icons8.com/fluency/96/soy-sauce.png" },
+      { name: "1 tsp garlic powder & smoked paprika", image: "https://img.icons8.com/fluency/96/spices.png" }
+    ],
+    instructions: [
+      "Ensure the tofu is pressed thoroughly to remove excess water, then cut into 1-inch cubes.",
+      "In a medium bowl, toss tofu cubes with soy sauce until evenly coated.",
+      "Add cornstarch, nutritional yeast, garlic powder, and smoked paprika to the bowl. Toss gently to coat each cube evenly.",
+      "Preheat your air fryer to 200°C (400°F).",
+      "Arrange the coated tofu in a single layer in the air fryer basket.",
+      "Air-fry for 12-15 minutes, shaking the basket halfway through, until tofu cubes are golden and extra crispy."
+    ]
+  },
+  {
+    id: "viral-high-protein-chia-pudding",
+    title: "Viral Berries & Cream Chia Pudding (Post-Workout & Weight Loss)",
+    description: "The viral 2026 aesthetic fitness breakfast for quick weight loss and optimal muscle recovery. High-protein chia pudding whipped with clean vanilla whey isolate and topped with fresh strawberries. Perfect post-workout sweet fix.",
+    summary: "The viral 2026 aesthetic fitness breakfast for quick weight loss and optimal muscle recovery. High-protein chia pudding whipped with clean vanilla whey isolate and topped with fresh strawberries. Perfect post-workout sweet fix.",
+    image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=600",
+    prepTime: "10m",
+    readyInMinutes: 10,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "270kcal",
+    protein: "28g",
+    carbs: "18g",
+    fat: "9g",
+    micros: {
+      fiber: 11,
+      sugar: 4,
+      sodium: 140,
+      vitaminC: 30
+    },
+    tags: ["viral 2026 recipe", "high protein", "weight loss", "post-workout", "macro-friendly", "clean eating"],
+    dishTypes: ["Breakfast", "Snacks", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "3 tbsp chia seeds", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=150" },
+      { name: "1 cup unsweetened almond milk", image: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=150" },
+      { name: "1 scoop vanilla whey isolate protein", image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=150" },
+      { name: "1/2 cup fresh strawberries and blueberries", image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=150" },
+      { name: "1 tsp pure honey for drizzle", image: "https://img.icons8.com/fluency/96/honey.png" }
+    ],
+    instructions: [
+      "In a jar or small bowl, whisk together the unsweetened almond milk and vanilla whey isolate until smooth.",
+      "Stir in the chia seeds vigorously to prevent clumping.",
+      "Let the mixture sit for 5 minutes, then stir again to ensure the seeds are well distributed.",
+      "Cover and refrigerate for at least 4 hours, or overnight, until it thickens into a creamy pudding consistency.",
+      "Before serving, stir the pudding once more to make it silky.",
+      "Top with fresh sliced strawberries, blueberries, and a drizzle of honey."
+    ]
+  },
+  {
+    id: "viral-loaded-protein-bagel-panini",
+    title: "Viral Loaded Protein Bagel Panini (Muscle Gain & Post-Workout)",
+    description: "The ultimate heavy-hitting 2026 muscle gain fuel. An everything protein bagel loaded with sliced roasted turkey, fluffy egg whites, fresh spinach, and melted low-fat mozzarella, pressed to panini perfection. High protein, high carb, and macro-friendly.",
+    summary: "The ultimate heavy-hitting 2026 muscle gain fuel. An everything protein bagel loaded with sliced roasted turkey, fluffy egg whites, fresh spinach, and melted low-fat mozzarella, pressed to panini perfection. High protein, high carb, and macro-friendly.",
+    image: "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?q=80&w=600",
+    prepTime: "10m",
+    readyInMinutes: 10,
+    servings: 1,
+    category: "FITNESS MEALS",
+    calories: "480kcal",
+    protein: "42g",
+    carbs: "38g",
+    fat: "12g",
+    micros: {
+      fiber: 6,
+      sugar: 2,
+      sodium: 680,
+      vitaminC: 12
+    },
+    tags: ["viral 2026 recipe", "high protein", "muscle gain", "post-workout", "meal prep", "macro-friendly"],
+    dishTypes: ["Breakfast", "Sandwich", "Fitness", "Healthy"],
+    ingredients: [
+      { name: "1 high-protein everything bagel, sliced", image: "https://img.icons8.com/fluency/96/bread.png" },
+      { name: "100g sliced lean deli turkey breast", image: "https://img.icons8.com/fluency/96/meat.png" },
+      { name: "1/2 cup liquid egg whites", image: "https://img.icons8.com/fluency/96/eggs.png" },
+      { name: "1 slice low-fat mozzarella cheese", image: "https://img.icons8.com/fluency/96/cheese.png" },
+      { name: "1 cup fresh baby spinach", image: "https://img.icons8.com/fluency/96/spinach.png" }
+    ],
+    instructions: [
+      "In a non-stick skillet over medium-low heat, pour in the liquid egg whites and cook into a small folded omelet shape.",
+      "Lightly toast the cut sides of the everything protein bagel.",
+      "Assemble the panini: place the low-fat mozzarella cheese on the bottom bagel half, then layer on the spinach, turkey slices, and warm egg white omelet.",
+      "Top with the other half of the bagel and place the sandwich onto a preheated panini press or George Foreman grill.",
+      "Press firmly and cook for 4-5 minutes until the cheese is completely melted and the bagel is crispy and golden.",
+      "Cut in half and serve hot."
+    ]
+  },
+  {
+    id: "viral-green-goddess-chicken-bowl",
+    title: "Viral Green Goddess Chicken Bowl (Clean Eating & Meal Prep)",
+    description: "A vibrant, macro-friendly clean eating bowl designed for beginners. Sliced grilled chicken breast over fluffy tri-color quinoa, roasted broccoli, and edamame, dressed in an high-protein Greek yogurt green goddess dressing.",
+    summary: "A vibrant, macro-friendly clean eating bowl designed for beginners. Sliced grilled chicken breast over fluffy tri-color quinoa, roasted broccoli, and edamame, dressed in an high-protein Greek yogurt green goddess dressing.",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600",
+    prepTime: "20m",
+    readyInMinutes: 20,
+    servings: 2,
+    category: "FITNESS MEALS",
+    calories: "450kcal",
+    protein: "44g",
+    carbs: "32g",
+    fat: "10g",
+    micros: {
+      fiber: 8,
+      sugar: 3,
+      sodium: 410,
+      vitaminC: 45
+    },
+    tags: ["viral 2026 recipe", "high protein", "clean eating", "meal prep", "weight loss", "macro-friendly"],
+    dishTypes: ["Lunch", "Fitness", "Healthy", "Main"],
+    ingredients: [
+      { name: "300g boneless chicken breast, marinated", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=150" },
+      { name: "1 cup cooked tri-color quinoa", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=150" },
+      { name: "1.5 cups broccoli florets", image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=150" },
+      { name: "1/2 cup shelled edamame", image: "https://img.icons8.com/fluency/96/green-beans.png" },
+      { name: "3 tbsp Greek yogurt green goddess dressing", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=150" }
+    ],
+    instructions: [
+      "Grill the marinated chicken breast over medium-high heat for 6-7 minutes per side until fully cooked and juicy, then slice into thin strips.",
+      "Steam the broccoli florets and edamame together for 4-5 minutes until tender-crisp.",
+      "In a meal prep bowl, lay a base of fluffy tri-color quinoa.",
+      "Arrange the sliced grilled chicken, steamed broccoli, and bright green edamame neatly in separate sections over the quinoa.",
+      "Drizzle the rich, high-protein green goddess dressing generously over the top just before serving or storing."
+    ]
+  },
+  {
+    id: "viral-bison-sweet-potato-bowl",
+    title: "Viral Bison & Sweet Potato Bowl (High Protein Muscle Gain)",
+    description: "The elite post-workout meal of 2026. Highly nutritious and lean ground bison sautéed with peppers and garlic, paired with sweet potato wedges, broccoli, and light sriracha drizzle. Optimized for clean bulking and muscle recovery.",
+    summary: "The elite post-workout meal of 2026. Highly nutritious and lean ground bison sautéed with peppers and garlic, paired with sweet potato wedges, broccoli, and light sriracha drizzle. Optimized for clean bulking and muscle recovery.",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600",
+    prepTime: "25m",
+    readyInMinutes: 25,
+    servings: 2,
+    category: "FITNESS MEALS",
+    calories: "510kcal",
+    protein: "45g",
+    carbs: "38g",
+    fat: "12g",
+    micros: {
+      fiber: 7,
+      sugar: 5,
+      sodium: 460,
+      vitaminC: 25
+    },
+    tags: ["viral 2026 recipe", "high protein", "muscle gain", "post-workout", "clean eating", "meal prep"],
+    dishTypes: ["Dinner", "Fitness", "Healthy", "Main"],
+    ingredients: [
+      { name: "300g lean ground bison or beef", image: "https://img.icons8.com/fluency/96/steak.png" },
+      { name: "2 medium sweet potatoes, cubed", image: "https://img.icons8.com/fluency/96/sweet-potato.png" },
+      { name: "1 cup broccoli florets", image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=150" },
+      { name: "1 small bell pepper, diced", image: "https://img.icons8.com/fluency/96/garlic.png" },
+      { name: "1 tbsp sriracha & light mayo mix", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=150" }
+    ],
+    instructions: [
+      "Toss sweet potato cubes with a pinch of paprika, salt, and black pepper, then air-fry at 200°C (400°F) for 15-18 minutes until tender and caramelized.",
+      "In a non-stick skillet over medium-high heat, brown the lean ground bison along with diced bell peppers and garlic salt until cooked through.",
+      "Steam or pan-fry the broccoli florets for 4 minutes with a splash of water until bright green.",
+      "Assemble your fitness meal prep bowls by dividing the roasted sweet potato cubes, sautéed bison, and steamed broccoli evenly.",
+      "Top with a drizzle of sriracha mixed with light mayo for a fiery, macro-friendly kick."
     ]
   }
 ];

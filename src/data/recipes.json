@@ -2,7 +2,7 @@
   {
     "id": "fit-pancakes-01",
     "title": "Nano Banana Protein Pancakes",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 380,
     "protein": "28g",
     "carbs": "42g",
@@ -31,7 +31,7 @@
   {
     "id": "fit-chicken-bowl-02",
     "title": "Gourmet Grilled Chicken & Quinoa Bowl",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 480,
     "protein": "40g",
     "carbs": "45g",
@@ -61,7 +61,7 @@
   {
     "id": "fit-avocado-toast-03",
     "title": "High-Protein Avocado Toast with Poached Eggs",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 410,
     "protein": "22g",
     "carbs": "30g",
@@ -91,7 +91,7 @@
   {
     "id": "fit-tuna-salad-04",
     "title": "Seared Sesame Crust Ahi Tuna Salad",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 390,
     "protein": "36g",
     "carbs": "12g",
@@ -121,7 +121,7 @@
   {
     "id": "fit-yogurt-pudding-05",
     "title": "Greek Yogurt Chia Seed Pudding",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 320,
     "protein": "24g",
     "carbs": "28g",
@@ -149,7 +149,7 @@
   {
     "id": "fit-salmon-06",
     "title": "Lemon Herb Grilled Salmon with Asparagus",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 420,
     "protein": "38g",
     "carbs": "10g",
@@ -180,7 +180,7 @@
   {
     "id": "fit-turkey-meatballs-07",
     "title": "Herb-Baked Turkey and Spinach Meatballs",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 340,
     "protein": "32g",
     "carbs": "15g",
@@ -211,7 +211,7 @@
   {
     "id": "fit-beef-broccoli-08",
     "title": "Clean Beef and Broccoli Stir-Fry",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 450,
     "protein": "38g",
     "carbs": "22g",
@@ -243,7 +243,7 @@
   {
     "id": "fit-shrimp-09",
     "title": "Spicy Cilantro Lime Shrimp with Cauliflower Rice",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 290,
     "protein": "34g",
     "carbs": "14g",
@@ -273,7 +273,7 @@
   {
     "id": "fit-cottage-cheese-10",
     "title": "High-Protein Cottage Cheese Berry Bowl",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 310,
     "protein": "28g",
     "carbs": "32g",
@@ -301,7 +301,7 @@
   {
     "id": "fit-tofu-11",
     "title": "Baked Sesame Tofu with Steamed Bok Choy",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 350,
     "protein": "25g",
     "carbs": "20g",
@@ -333,7 +333,7 @@
   {
     "id": "fit-chicken-salad-12",
     "title": "Mediterranean Herb Chicken Quinoa Salad",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 460,
     "protein": "39g",
     "carbs": "38g",
@@ -365,7 +365,7 @@
   {
     "id": "fit-egg-scramble-13",
     "title": "Egg White Veggie Scramble with Turkey Bacon",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 280,
     "protein": "30g",
     "carbs": "10g",
@@ -395,7 +395,7 @@
   {
     "id": "fit-cod-14",
     "title": "Ginger Teriyaki Glazed Cod with Brown Rice",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 390,
     "protein": "35g",
     "carbs": "42g",
@@ -425,7 +425,7 @@
   {
     "id": "fit-oat-bran-15",
     "title": "Creamy Protein Oat Bran Bowl",
-    "category": "FITNESS MEALS",
+    "category": "fitness",
     "calories": 330,
     "protein": "26g",
     "carbs": "38g",
