@@ -26,7 +26,7 @@ export default function Recipes() {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(12);
-  const { setAllRecipes } = useApp();
+  const { setAllRecipes, favorites } = useApp();
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -46,9 +46,22 @@ export default function Recipes() {
     return () => window.removeEventListener('resize', checkScroll);
   }, []);
 
+  const categoriesMapping: Record<string, string> = {
+    "breakfast": "BREAKFAST",
+    "lunch": "LUNCH",
+    "dinner": "DINNER",
+    "main-dishes": "MAIN DISHES",
+    "desserts": "DESSERTS",
+    "drinks": "DRINKS",
+    "fitness": "FITNESS MEALS",
+    "favorites": "FAVORITES"
+  };
+
   useEffect(() => {
     const rawCat = searchParams.get("cat");
-    if (rawCat) {
+    if (rawCat && categoriesMapping[rawCat]) {
+      setActiveTab(categoriesMapping[rawCat]);
+    } else if (rawCat) {
       setActiveTab(rawCat.toUpperCase().replace(/-/g, " "));
     } else {
       setActiveTab("ALL RECIPES");
@@ -62,10 +75,12 @@ export default function Recipes() {
   const filteredRecipes = useMemo(() => {
     let result = localRecipes as Recipe[];
     
-    if (activeTab !== "ALL RECIPES") {
+    if (activeTab === "FAVORITES") {
+      result = result.filter(recipe => favorites.includes(recipe.id));
+    } else if (activeTab !== "ALL RECIPES") {
       result = result.filter(recipe => {
         const recipeCat = recipe.category.toUpperCase();
-        const target = activeTab === "FITNESS" ? "FITNESS MEALS" : activeTab;
+        const target = activeTab;
 
         return recipeCat === target ||
                recipeCat.includes(target) ||
@@ -95,14 +110,7 @@ export default function Recipes() {
   }, [filteredRecipes, visibleCount]);
 
   const categories = [
-    { id: "ALL RECIPES", name: "ALL RECIPES" },
-    { id: "BREAKFAST", name: "BREAKFAST" },
-    { id: "LUNCH", name: "LUNCH" },
-    { id: "DINNER", name: "DINNER" },
-    { id: "MAIN DISHES", name: "MAIN DISHES" },
-    { id: "DESSERTS", name: "DESSERTS" },
-    { id: "DRINKS", name: "DRINKS" },
-    { id: "FITNESS", name: "FITNESS" }
+    "ALL RECIPES", "FAVORITES", "BREAKFAST", "LUNCH", "DINNER", "MAIN DISHES", "DESSERTS", "DRINKS", "FITNESS MEALS"
   ];
 
   return (
@@ -112,19 +120,54 @@ export default function Recipes() {
       </Helmet>
 
       <div className="relative -mx-4 md:mx-0">
-        <div ref={scrollContainerRef} onScroll={checkScroll} className="flex overflow-x-auto gap-3 px-4 py-2 scrollbar-hide">
+        {canScrollLeft && (
+          <button
+            className="absolute left-1 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+            onClick={() => {
+              scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' });
+            }}
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+          </button>
+        )}
+
+        <div
+          ref={scrollContainerRef}
+          onScroll={checkScroll}
+          className="flex overflow-x-auto whitespace-nowrap gap-3 px-4 py-2 scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
           {categories.map((cat) => (
             <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={cn("px-6 py-2.5 text-[10px] md:text-sm font-black uppercase rounded-full",
-                activeTab === cat.id ? "bg-brand-green text-white" : "bg-white text-slate-400 border border-slate-100"
+              key={cat}
+              onClick={(e) => {
+                setActiveTab(cat);
+                e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+              }}
+              className={cn(
+                "whitespace-nowrap rounded-full px-6 md:px-8 py-3 md:py-3.5 text-[10px] md:text-[11px] font-black uppercase tracking-widest transition-all shrink-0",
+                cat === activeTab
+                  ? "bg-brand-green text-white shadow-lg shadow-brand-green/20"
+                  : "bg-slate-100 text-slate-500 hover:bg-slate-200"
               )}
             >
-              {cat.name}
+              {cat}
             </button>
           ))}
         </div>
+
+        {canScrollRight && (
+          <button
+            className="absolute right-1 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all active:scale-95 cursor-pointer"
+            onClick={() => {
+              scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' });
+            }}
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-4 h-4 text-gray-500 hover:text-gray-800" />
+          </button>
+        )}
       </div>
 
       <AnimatePresence mode="wait">
