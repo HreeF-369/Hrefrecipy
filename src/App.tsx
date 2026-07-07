@@ -94,13 +94,13 @@ const Navigation = ({ onOpenAI }: { onOpenAI: (open: boolean) => void }) => {
     { name: "Journal", path: "/blog", icon: BookOpen },
     { name: "Favorites", path: "/favorites", icon: Heart },
     { name: "Grocery List", path: "/grocery", icon: ShoppingCart },
-    { name: "Breakfast", path: "/?cat=breakfast", icon: Coffee },
-    { name: "Lunch", path: "/?cat=lunch", icon: Utensils },
-    { name: "Dinner", path: "/?cat=dinner", icon: Moon },
-    { name: "Main Dishes", path: "/?cat=main-dishes", icon: ChefHat },
-    { name: "Desserts", path: "/?cat=desserts", icon: IceCream },
-    { name: "Drinks", path: "/?cat=drinks", icon: GlassWater },
-    { name: "Fitness", path: "/?cat=fitness", icon: Dumbbell },
+    { name: "Breakfast", path: "/recipes?cat=breakfast", icon: Coffee },
+    { name: "Lunch", path: "/recipes?cat=lunch", icon: Utensils },
+    { name: "Dinner", path: "/recipes?cat=dinner", icon: Moon },
+    { name: "Main Dishes", path: "/recipes?cat=main-dishes", icon: ChefHat },
+    { name: "Desserts", path: "/recipes?cat=desserts", icon: IceCream },
+    { name: "Drinks", path: "/recipes?cat=drinks", icon: GlassWater },
+    { name: "Fitness", path: "/recipes?cat=fitness", icon: Dumbbell },
   ];
 
   return (
