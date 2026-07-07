@@ -9,7 +9,9 @@ import { FanReviews } from "../components/FanReviews.js";
 import { useApp } from "../context/AppContext.js";
 import { RecipeCard } from "../components/RecipeCard.js";
 import { Breadcrumbs } from "../components/Breadcrumbs.js";
-import localRecipes from "../data/recipes.json";
+import { RECIPES_DATA } from "../services/recipesData.js";
+
+const localRecipes = RECIPES_DATA;
 
 function cn(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ');
