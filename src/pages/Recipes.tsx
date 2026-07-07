@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Utensils, ChevronRight, ChevronLeft } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { Recipe } from "../types/index.js";
 import { RecipeModal } from "../components/RecipeModal.js";
 import { FanReviews } from "../components/FanReviews.js";
@@ -19,6 +19,7 @@ function cn(...classes: (string | boolean | undefined)[]) {
 
 export default function Recipes() {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   
   const [activeTab, setActiveTab] = useState("ALL RECIPES");
   const [query, setQuery] = useState("");
@@ -173,7 +174,7 @@ export default function Recipes() {
       <AnimatePresence mode="wait">
         <motion.div key={activeTab + query} className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {visibleRecipes.map((recipe, index) => (
-            <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={(r) => { setSelectedRecipe(r); setIsModalOpen(true); }} />
+            <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={(r) => navigate(`/recipe/${r.id}`)} />
           ))}
         </motion.div>
       </AnimatePresence>
