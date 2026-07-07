@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Utensils, ChevronRight, ChevronLeft } from "lucide-react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { Recipe } from "../types/index.js";
 import { RecipeModal } from "../components/RecipeModal.js";
 import { FanReviews } from "../components/FanReviews.js";
@@ -19,7 +19,6 @@ function cn(...classes: (string | boolean | undefined)[]) {
 
 export default function Recipes() {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   
   const [activeTab, setActiveTab] = useState("ALL RECIPES");
   const [query, setQuery] = useState("");
@@ -47,22 +46,9 @@ export default function Recipes() {
     return () => window.removeEventListener('resize', checkScroll);
   }, []);
 
-  const categoriesMapping: Record<string, string> = {
-    "breakfast": "BREAKFAST",
-    "lunch": "LUNCH",
-    "dinner": "DINNER",
-    "main-dishes": "MAIN DISHES",
-    "desserts": "DESSERTS",
-    "drinks": "DRINKS",
-    "fitness": "FITNESS MEALS",
-    "favorites": "FAVORITES"
-  };
-
   useEffect(() => {
     const rawCat = searchParams.get("cat");
-    if (rawCat && categoriesMapping[rawCat]) {
-      setActiveTab(categoriesMapping[rawCat]);
-    } else if (rawCat) {
+    if (rawCat) {
       setActiveTab(rawCat.toUpperCase().replace(/-/g, " "));
     } else {
       setActiveTab("ALL RECIPES");
@@ -142,10 +128,7 @@ export default function Recipes() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={(e) => {
-                setActiveTab(cat);
-                e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-              }}
+              onClick={() => setActiveTab(cat)}
               className={cn(
                 "whitespace-nowrap rounded-full px-6 md:px-8 py-3 md:py-3.5 text-[10px] md:text-[11px] font-black uppercase tracking-widest transition-all shrink-0",
                 cat === activeTab
@@ -174,7 +157,11 @@ export default function Recipes() {
       <AnimatePresence mode="wait">
         <motion.div key={activeTab + query} className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {visibleRecipes.map((recipe, index) => (
-            <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={(r) => navigate(`/recipe/${r.id}`)} />
+            <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={(r) => { 
+              setSelectedRecipe(r); 
+              setIsModalOpen(true);
+              window.history.pushState({ recipeId: r.id }, '', `/recipes?recipe=${r.id}`);
+            }} />
           ))}
         </motion.div>
       </AnimatePresence>
@@ -190,7 +177,10 @@ export default function Recipes() {
         </div>
       )}
 
-      <RecipeModal recipe={selectedRecipe} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <RecipeModal recipe={selectedRecipe} isOpen={isModalOpen} onClose={() => {
+        setIsModalOpen(false);
+        window.history.pushState(null, '', `/recipes`);
+      }} />
     </motion.div>
   );
 }
