@@ -32,6 +32,7 @@ import { AppProvider } from "./context/AppContext.js";
 import { motion, AnimatePresence } from "motion/react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Analytics } from '@vercel/analytics/react';
 
 // Eagerly loaded entry page for maximum initial speed
 import Home from "./pages/Home.js";
@@ -399,6 +400,7 @@ export default function App() {
             <AIChat isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
           </Suspense>
         )}
+        <Analytics />
       </Router>
     </AppProvider>
   );
