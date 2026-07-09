@@ -209,20 +209,25 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
 
         // Map instructions defensively
         const mappedInstructions: any[] = [];
+        const recipeUrl = `https://dishfit.net/recipe/${recipe.id}`;
         const rawInstructions = recipe.instructions;
         if (Array.isArray(rawInstructions)) {
-          rawInstructions.forEach((step: any) => {
+          rawInstructions.forEach((step: any, stepIndex: number) => {
             if (typeof step === 'string') {
               mappedInstructions.push({
                 "@type": "HowToStep",
-                "text": step
+                "text": step,
+                "url": `${recipeUrl}#step-${stepIndex + 1}`,
+                "image": imageUrl
               });
             } else if (step && typeof step === 'object') {
               const text = step.text || step.step || '';
               if (text) {
                 mappedInstructions.push({
                   "@type": "HowToStep",
-                  "text": text
+                  "text": text,
+                  "url": `${recipeUrl}#step-${stepIndex + 1}`,
+                  "image": imageUrl
                 });
               }
             }
@@ -230,10 +235,19 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
         } else if (rawInstructions && typeof rawInstructions === 'string') {
           mappedInstructions.push({
             "@type": "HowToStep",
-            "text": rawInstructions
+            "text": rawInstructions,
+            "url": `${recipeUrl}#step-1`,
+            "image": imageUrl
           });
         }
-        
+
+        // prepTime is the hands-on time; cookTime approximates any remaining
+        // active/cooking time from readyInMinutes so Google's cookTime field
+        // is never left empty.
+        const prepMinutes = recipe.prepTime ? parseInt(String(recipe.prepTime)) || 15 : 15;
+        const totalMinutes = recipe.readyInMinutes ? parseInt(String(recipe.readyInMinutes)) || prepMinutes : prepMinutes;
+        const cookMinutes = Math.max(totalMinutes - prepMinutes, 5);
+
         // Build Recipe Schema
         const recipeSchema = {
           "@context": "https://schema.org/",
@@ -248,8 +262,14 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           "description": description,
           "recipeYield": `${recipe.servings || 2} servings`,
           "recipeCategory": recipe.category || "General Healthy",
-          "url": `https://dishfit.net/recipe/${recipe.id}`,
-          "prepTime": recipe.prepTime ? `PT${parseInt(String(recipe.prepTime))}M` : "PT15M",
+          "recipeCuisine": recipe.cuisine || "American",
+          "keywords": (recipe.tags && recipe.tags.length > 0)
+            ? recipe.tags.join(", ")
+            : `${String(recipe.category || 'healthy').toLowerCase()}, high protein, low calorie, ${recipe.title.toLowerCase()}`,
+          "url": recipeUrl,
+          "prepTime": `PT${prepMinutes}M`,
+          "cookTime": `PT${cookMinutes}M`,
+          "totalTime": `PT${totalMinutes}M`,
           "recipeIngredient": mappedIngredients,
           "recipeInstructions": mappedInstructions,
           "nutrition": {
