@@ -285,15 +285,29 @@ export default function RecipeDetail() {
             "description": recipe.description,
             "recipeYield": `${recipe.servings} servings`,
             "recipeCategory": recipe.category,
+            "recipeCuisine": recipe.cuisine || "American",
+            "keywords": (recipe.tags && recipe.tags.length > 0)
+              ? recipe.tags.join(", ")
+              : `${String(recipe.category || 'healthy').toLowerCase()}, high protein, low calorie, ${recipe.title.toLowerCase()}`,
             "url": `https://dishfit.net/recipe/${recipe.id}`,
             "prepTime": recipe.prepTime ? `PT${parseInt(recipe.prepTime)}M` : "PT15M",
+            "cookTime": (() => {
+              const prepMin = recipe.prepTime ? parseInt(recipe.prepTime) || 15 : 15;
+              const totalMin = recipe.readyInMinutes ? parseInt(String(recipe.readyInMinutes)) || prepMin : prepMin;
+              return `PT${Math.max(totalMin - prepMin, 5)}M`;
+            })(),
+            "totalTime": recipe.readyInMinutes ? `PT${parseInt(String(recipe.readyInMinutes))}M` : "PT20M",
             "recipeIngredient": recipe.ingredients ? recipe.ingredients.map(i => i.name) : (recipe.extendedIngredients || []).map(i => i.original || i.name),
-            "recipeInstructions": recipe.instructions ? recipe.instructions.map((inst) => ({
+            "recipeInstructions": recipe.instructions ? recipe.instructions.map((inst, idx) => ({
               "@type": "HowToStep",
-              "text": inst
-            })) : (recipe.analyzedInstructions?.[0]?.steps || []).map(s => ({
+              "text": inst,
+              "url": `https://dishfit.net/recipe/${recipe.id}#step-${idx + 1}`,
+              "image": recipe.image
+            })) : (recipe.analyzedInstructions?.[0]?.steps || []).map((s, idx) => ({
               "@type": "HowToStep",
-              "text": s.step
+              "text": s.step,
+              "url": `https://dishfit.net/recipe/${recipe.id}#step-${idx + 1}`,
+              "image": recipe.image
             })),
             "nutrition": {
               "@type": "NutritionInformation",
@@ -340,7 +354,6 @@ export default function RecipeDetail() {
               loading="eager"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div className="absolute top-4 !left-4 flex gap-2 z-10">
               <button 
                 onClick={handleToggleFavorite}
@@ -368,17 +381,12 @@ export default function RecipeDetail() {
                 <Printer size={20} />
               </button>
             </div>
-            <div className="absolute bottom-6 left-8 right-8">
-              <span className="inline-block px-3 py-1 bg-brand-green text-white text-[10px] font-black uppercase tracking-widest rounded-lg mb-2 shadow-md">
-                {recipe.category}
-              </span>
-              <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-white drop-shadow-sm">
-                {recipe.title}
-              </h1>
-            </div>
           </div>
 
           <div className="space-y-4">
+            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-gray-900">
+              {recipe.title}
+            </h1>
             
             <div className="flex gap-4 relative py-4 no-print">
               <Link 
