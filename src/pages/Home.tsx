@@ -172,6 +172,7 @@ export default function Home() {
   const handleOpenRecipe = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
     setIsModalOpen(true);
+    window.history.pushState({ recipeId: recipe.id }, '', `/recipe/${recipe.id}`);
   };
 
   const categories = [
@@ -482,6 +483,7 @@ export default function Home() {
         isOpen={isModalOpen} 
         onClose={() => {
           setIsModalOpen(false);
+          window.history.pushState(null, '', `/`);
         }} 
       />
 
