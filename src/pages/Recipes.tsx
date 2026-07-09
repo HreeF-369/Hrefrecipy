@@ -160,6 +160,7 @@ export default function Recipes() {
             <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={(r) => { 
               setSelectedRecipe(r); 
               setIsModalOpen(true);
+              window.history.pushState({ recipeId: r.id }, '', `/recipe/${r.id}`);
             }} />
           ))}
         </motion.div>
@@ -178,6 +179,7 @@ export default function Recipes() {
 
       <RecipeModal recipe={selectedRecipe} isOpen={isModalOpen} onClose={() => {
         setIsModalOpen(false);
+        window.history.pushState(null, '', `/recipes`);
       }} />
     </motion.div>
   );
