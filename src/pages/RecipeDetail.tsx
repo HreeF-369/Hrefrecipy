@@ -285,29 +285,15 @@ export default function RecipeDetail() {
             "description": recipe.description,
             "recipeYield": `${recipe.servings} servings`,
             "recipeCategory": recipe.category,
-            "recipeCuisine": recipe.cuisine || "American",
-            "keywords": (recipe.tags && recipe.tags.length > 0)
-              ? recipe.tags.join(", ")
-              : `${String(recipe.category || 'healthy').toLowerCase()}, high protein, low calorie, ${recipe.title.toLowerCase()}`,
             "url": `https://dishfit.net/recipe/${recipe.id}`,
             "prepTime": recipe.prepTime ? `PT${parseInt(recipe.prepTime)}M` : "PT15M",
-            "cookTime": (() => {
-              const prepMin = recipe.prepTime ? parseInt(recipe.prepTime) || 15 : 15;
-              const totalMin = recipe.readyInMinutes ? parseInt(String(recipe.readyInMinutes)) || prepMin : prepMin;
-              return `PT${Math.max(totalMin - prepMin, 5)}M`;
-            })(),
-            "totalTime": recipe.readyInMinutes ? `PT${parseInt(String(recipe.readyInMinutes))}M` : "PT20M",
             "recipeIngredient": recipe.ingredients ? recipe.ingredients.map(i => i.name) : (recipe.extendedIngredients || []).map(i => i.original || i.name),
-            "recipeInstructions": recipe.instructions ? recipe.instructions.map((inst, idx) => ({
+            "recipeInstructions": recipe.instructions ? recipe.instructions.map((inst) => ({
               "@type": "HowToStep",
-              "text": inst,
-              "url": `https://dishfit.net/recipe/${recipe.id}#step-${idx + 1}`,
-              "image": recipe.image
-            })) : (recipe.analyzedInstructions?.[0]?.steps || []).map((s, idx) => ({
+              "text": inst
+            })) : (recipe.analyzedInstructions?.[0]?.steps || []).map(s => ({
               "@type": "HowToStep",
-              "text": s.step,
-              "url": `https://dishfit.net/recipe/${recipe.id}#step-${idx + 1}`,
-              "image": recipe.image
+              "text": s.step
             })),
             "nutrition": {
               "@type": "NutritionInformation",
