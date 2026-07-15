@@ -43,10 +43,12 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
       <div className="group flex flex-col p-0 rounded-[20px] bg-white border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1 h-full">
         <div className="relative aspect-[4/3] overflow-hidden">
           <img
+            width="800"
+            height="600"
             src={imgError ? FALLBACK_IMAGE : (currentImageUrl.includes('images.unsplash.com') 
               ? optimizeUnsplashUrl(currentImageUrl, 800) 
               : currentImageUrl)}
-            alt={`Healthy ${recipe.title} recipe meal prep`}
+            alt={`${recipe.title} - recette haute protéine faible calorie - DishFit`}
             loading="lazy"
             onError={() => setImgError(true)}
             {...(imgError ? {} : typeof currentImageUrl === 'string' && (currentImageUrl.startsWith('image_') || currentImageUrl.startsWith('/image_')) ? {

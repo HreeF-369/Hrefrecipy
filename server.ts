@@ -275,6 +275,11 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           "totalTime": `PT${totalMinutes}M`,
           "recipeIngredient": mappedIngredients,
           "recipeInstructions": mappedInstructions,
+          "aggregateRating": recipe.rating ? {
+            "@type": "AggregateRating",
+            "ratingValue": recipe.rating,
+            "ratingCount": recipe.ratingCount || 10
+          } : undefined,
           "nutrition": {
             "@type": "NutritionInformation",
             "calories": `${caloriesVal} kcal`,
@@ -300,7 +305,7 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
             <h1>${recipe.title}</h1>
             <p>Category: <strong>Healthy ${recipe.category || ''}</strong> | Calories: <strong>${recipe.calories || ''}</strong> | Protein: <strong>${recipe.protein || ''}</strong></p>
-            <img src="${imageUrl}" alt="High protein low calorie ${recipe.title} recipe" style="max-width: 100%; height: auto; border-radius: 12px;"/>
+            <img src="${imageUrl}" alt="${recipe.title} - recette haute protéine faible calorie - DishFit" width="1200" height="900" style="max-width: 100%; height: auto; border-radius: 12px;"/>
             <p style="font-size: 1.1em; line-height: 1.6;">${description}</p>
             <h2>Ingredients for ${recipe.title}</h2>
             <ul>
@@ -730,7 +735,7 @@ app.get("/sitemap.xml", (req, res) => {
   // we'll just serve the static ones as the primary map.
   
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n';
   
   staticRoutes.forEach(route => {
     xml += '  <url>\n';
@@ -748,6 +753,16 @@ app.get("/sitemap.xml", (req, res) => {
   RECIPES_DATA.forEach(recipe => {
     xml += '  <url>\n';
     xml += `    <loc>${baseUrl}/recipe/${recipe.id}</loc>\n`;
+    
+    // Add image sitemap tag
+    if (recipe.image) {
+      let absoluteImage = recipe.image.startsWith("/") ? `${baseUrl}${recipe.image}` : recipe.image;
+      xml += `    <image:image>\n`;
+      xml += `      <image:loc>${absoluteImage}</image:loc>\n`;
+      xml += `      <image:title>${recipe.title}</image:title>\n`;
+      xml += `    </image:image>\n`;
+    }
+
     xml += '    <changefreq>monthly</changefreq>\n';
     xml += '    <priority>0.6</priority>\n';
     xml += '  </url>\n';

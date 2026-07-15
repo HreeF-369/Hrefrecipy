@@ -40,6 +40,8 @@ import { Recipe } from "../types/index.js";
 import { getRecipeById } from "../services/api.js";
 import { useApp } from "../context/AppContext.js";
 import { speakText } from "../services/speechService.js";
+import { HighlightedText } from "../components/HighlightedText.js";
+import { useMemo } from "react";
 import { RECIPES_DATA } from "../services/recipesData.js";
 import { RecipeCard } from "../components/RecipeCard.js";
 import { optimizeUnsplashUrl, getSafeImageUrl, FALLBACK_IMAGE } from "../lib/imageUtils.js";
@@ -92,6 +94,31 @@ export default function RecipeDetail() {
   const [activeSegment, setActiveSegment] = useState("ingredients");
   const [checkedIngredients, setCheckedIngredients] = useState<(number | string)[]>([]);
   const [showPlanMenu, setShowPlanMenu] = useState(false);
+  const [spokenCharIndex, setSpokenCharIndex] = useState(-1);
+
+  const stepOffsets = useMemo(() => {
+    if (!recipe) return [];
+    let currentLength = 0;
+    const offsets = [];
+    
+    if (recipe.instructions) {
+      recipe.instructions.forEach((step, idx) => {
+        const prefix = `Step ${idx + 1}: `;
+        const fullStep = `${prefix}${step}. `;
+        offsets.push({ start: currentLength + prefix.length, end: currentLength + fullStep.length });
+        currentLength += fullStep.length;
+      });
+    } else {
+      const steps = recipe.analyzedInstructions?.[0]?.steps || [];
+      steps.forEach((s) => {
+        const prefix = `Step ${s.number}: `;
+        const fullStep = `${prefix}${s.step}. `;
+        offsets.push({ start: currentLength + prefix.length, end: currentLength + fullStep.length });
+        currentLength += fullStep.length;
+      });
+    }
+    return offsets;
+  }, [recipe]);
   const [commentText, setCommentText] = useState("");
   const [showDetailedNutrition, setShowDetailedNutrition] = useState(false);
   const [imgError, setImgError] = useState(false);
@@ -180,16 +207,29 @@ export default function RecipeDetail() {
   const handleSpeakInstructions = () => {
     if (!recipe) return;
     let textToSpeak = "";
-    
     if (recipe.instructions) {
-      textToSpeak = recipe.instructions.map((step, idx) => `Step ${idx + 1}: ${step}`).join(". ");
+      recipe.instructions.forEach((step, idx) => {
+        textToSpeak += `Step ${idx + 1}: ${step}. `;
+      });
     } else {
       const steps = recipe.analyzedInstructions?.[0]?.steps || [];
       if (steps.length === 0) return;
-      textToSpeak = steps.map(s => `Step ${s.number}: ${s.step}`).join(". ");
+      steps.forEach((s) => {
+        textToSpeak += `Step ${s.number}: ${s.step}. `;
+      });
     }
     
-    speakText(textToSpeak);
+    speakText(textToSpeak, {
+      onBoundary: (e) => {
+        setSpokenCharIndex(e.charIndex);
+      },
+      onEnd: () => {
+        setSpokenCharIndex(-1);
+      },
+      onStart: () => {
+        setSpokenCharIndex(0);
+      }
+    });
   };
 
   const handlePlanMeal = (day: string) => {
@@ -250,7 +290,17 @@ export default function RecipeDetail() {
       exit={{ opacity: 0 }}
       className="relative pb-32 lg:pb-10"
     >
-      <Helmet>
+      {(() => {
+        let absImg = getSafeImageUrl(recipe.image);
+        if (absImg && absImg.startsWith('/')) {
+            absImg = 'https://dishfit.net' + absImg;
+        }
+        const prepMinutes = recipe.prepTime ? parseInt(String(recipe.prepTime)) || 15 : 15;
+        const totalMinutes = recipe.readyInMinutes ? parseInt(String(recipe.readyInMinutes)) || prepMinutes : prepMinutes;
+        const cookMinutes = Math.max(totalMinutes - prepMinutes, 5);
+
+        return (
+          <Helmet>
         <title>{recipe.title} Recipe | DishFit</title>
         <meta name="description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
         <meta name="keywords" content={`${recipe.title.toLowerCase()} recipe, high protein ${recipe.title.toLowerCase()}, healthy meals under 30 minutes, healthy ${recipe.title.toLowerCase()} under 500 calories`} />
@@ -259,7 +309,7 @@ export default function RecipeDetail() {
         {/* Open Graph / Pinterest Rich Pin Meta Tags */}
         <meta property="og:title" content={`${recipe.title} Recipe | DishFit`} />
         <meta property="og:description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
-        <meta property="og:image" content={recipe.image} />
+        <meta property="og:image" content={absImg} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://dishfit.net/recipe/${recipe.id}`} />
         <meta property="og:site_name" content="DishFit" />
@@ -268,7 +318,7 @@ export default function RecipeDetail() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${recipe.title} Recipe | DishFit`} />
         <meta name="twitter:description" content={`Make this delicious ${recipe.title} recipe at home. High protein, healthy meals under ${Math.ceil(caloriesVal/100)*100} calories.`} />
-        <meta name="twitter:image" content={recipe.image} />
+        <meta name="twitter:image" content={absImg} />
 
         {/* Structured Data / JSON-LD for Recipe Schema */}
         <script type="application/ld+json">
@@ -276,7 +326,7 @@ export default function RecipeDetail() {
             "@context": "https://schema.org/",
             "@type": "Recipe",
             "name": recipe.title,
-            "image": [recipe.image],
+            "image": [absImg],
             "author": {
               "@type": "Organization",
               "name": "DishFit"
@@ -286,7 +336,9 @@ export default function RecipeDetail() {
             "recipeYield": `${recipe.servings} servings`,
             "recipeCategory": recipe.category,
             "url": `https://dishfit.net/recipe/${recipe.id}`,
-            "prepTime": recipe.prepTime ? `PT${parseInt(recipe.prepTime)}M` : "PT15M",
+            "prepTime": `PT${prepMinutes}M`,
+            "cookTime": `PT${cookMinutes}M`,
+            "totalTime": `PT${totalMinutes}M`,
             "recipeIngredient": recipe.ingredients ? recipe.ingredients.map(i => i.name) : (recipe.extendedIngredients || []).map(i => i.original || i.name),
             "recipeInstructions": recipe.instructions ? recipe.instructions.map((inst) => ({
               "@type": "HowToStep",
@@ -295,6 +347,11 @@ export default function RecipeDetail() {
               "@type": "HowToStep",
               "text": s.step
             })),
+            "aggregateRating": recipe.rating ? {
+              "@type": "AggregateRating",
+              "ratingValue": recipe.rating,
+              "ratingCount": recipe.ratingCount || 10
+            } : undefined,
             "nutrition": {
               "@type": "NutritionInformation",
               "calories": `${caloriesVal} kcal`,
@@ -303,6 +360,8 @@ export default function RecipeDetail() {
           })}
         </script>
       </Helmet>
+        );
+      })()}
 
       <Breadcrumbs 
         items={[
@@ -323,11 +382,13 @@ export default function RecipeDetail() {
         {/* Left Col: Image and Basic Info */}
         <section className="space-y-8">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] shadow-2xl">
-            <img 
+            <img
+              width="1200"
+              height="900"
               src={imgError ? FALLBACK_IMAGE : (getSafeImageUrl(recipe.image).includes('images.unsplash.com') 
                 ? optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 1200) 
                 : getSafeImageUrl(recipe.image))} 
-              alt={`High protein low calorie ${recipe.title} recipe for healthy meal planning`} 
+              alt={`${recipe.title} - recette haute protéine faible calorie - DishFit`} 
               onError={() => setImgError(true)}
               {...(imgError ? {} : typeof recipe.image === 'string' && (getSafeImageUrl(recipe.image).startsWith('image_') || getSafeImageUrl(recipe.image).startsWith('/image_')) ? {
                 srcSet: `${getSafeImageUrl(recipe.image).replace('.webp', '_mobile.webp')} 400w, ${getSafeImageUrl(recipe.image)} 800w`,
@@ -598,7 +659,9 @@ export default function RecipeDetail() {
                           {idx + 1}
                         </div>
                         <div className="space-y-2 flex-1 min-w-0 pt-0.5">
-                          <p className="text-base text-slate-800 leading-relaxed font-sans break-words">{step}</p>
+                          <p className="text-base text-slate-800 leading-relaxed font-sans break-words">
+                            <HighlightedText text={step} active={spokenCharIndex >= (stepOffsets[idx]?.start || 0) && spokenCharIndex < (stepOffsets[idx]?.end || 0)} localCharIndex={spokenCharIndex - (stepOffsets[idx]?.start || 0)} />
+                          </p>
                         </div>
                       </div>
                     ))
@@ -610,7 +673,9 @@ export default function RecipeDetail() {
                         </div>
                         <div className="space-y-2 flex-1 min-w-0 pt-0.5">
                           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 flex-wrap">
-                            <p className="text-base text-slate-800 leading-relaxed font-sans break-words">{step.step}</p>
+                            <p className="text-base text-slate-800 leading-relaxed font-sans break-words">
+                            <HighlightedText text={step.step} active={spokenCharIndex >= (stepOffsets[idx]?.start || 0) && spokenCharIndex < (stepOffsets[idx]?.end || 0)} localCharIndex={spokenCharIndex - (stepOffsets[idx]?.start || 0)} />
+                          </p>
                             {step.length && (
                               <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 px-2 py-1 rounded-full text-xs font-bold text-slate-600 shrink-0 h-fit">
                                 <Clock size={12} className="text-brand-green" /> {step.length.number} {step.length.unit}

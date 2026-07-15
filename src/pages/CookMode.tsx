@@ -25,6 +25,7 @@ function cn(...inputs: ClassValue[]) {
 }
 
 import NotFound from "./NotFound.js";
+import { HighlightedText } from "../components/HighlightedText.js";
 
 export default function CookMode() {
   const { id } = useParams();
@@ -34,6 +35,7 @@ export default function CookMode() {
   const [isMuted, setIsMuted] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [spokenCharIndex, setSpokenCharIndex] = useState(-1);
   
   // Timer State
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
@@ -110,9 +112,20 @@ export default function CookMode() {
   }, [isTimerRunning, timeLeft]);
 
   // Voice logic
-  const speak = useCallback((text: string) => {
+  const speak = useCallback((text: string, offset: number = 0) => {
     if (isMuted) return;
-    speakText(text);
+    setSpokenCharIndex(0 - offset);
+    speakText(text, {
+      onBoundary: (e) => {
+        setSpokenCharIndex(e.charIndex - offset);
+      },
+      onEnd: () => {
+        setSpokenCharIndex(-1);
+      },
+      onStart: () => {
+        setSpokenCharIndex(0 - offset);
+      }
+    });
   }, [isMuted]);
 
   useEffect(() => {
@@ -131,10 +144,10 @@ export default function CookMode() {
 
   useEffect(() => {
     if (!loading && recipe && steps[currentStep] && !isCompleted && !isMuted) {
-      const stepText = `Step ${currentStep + 1}. ${steps[currentStep].step}`;
-      // Small delay to ensure clean state transitions
+      const prefix = `Step ${currentStep + 1}. `;
+      const stepText = `${prefix}${steps[currentStep].step}`;
       const timer = setTimeout(() => {
-        speak(stepText);
+        speak(stepText, prefix.length);
       }, 500);
       return () => {
         clearTimeout(timer);
@@ -244,7 +257,7 @@ export default function CookMode() {
                        </span>
                        <div className="h-px flex-1 bg-slate-100"></div>
                        <button 
-                         onClick={() => speak(steps[currentStep].step)}
+                         onClick={() => speak(steps[currentStep].step, 0)}
                          className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-brand-green bg-brand-green-light px-4 py-2 rounded-xl"
                        >
                          <Volume2 size={14} /> Replay
@@ -252,7 +265,7 @@ export default function CookMode() {
                     </div>
                     
                     <h2 className="text-xl sm:text-3xl font-bold leading-relaxed md:leading-tight md:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight">
-                      {steps[currentStep]?.step}
+                      <HighlightedText text={steps[currentStep]?.step || ""} active={spokenCharIndex >= 0} localCharIndex={spokenCharIndex} />
                     </h2>
                   </div>
 

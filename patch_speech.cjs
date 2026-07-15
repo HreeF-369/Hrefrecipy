@@ -1,5 +1,10 @@
+const fs = require('fs');
 
-export const getBestVoice = (): SpeechSynthesisVoice | null => {
+let speech = fs.readFileSync('src/services/speechService.ts', 'utf8');
+
+speech = speech.replace(
+  /export const getBestVoice = \(\): SpeechSynthesisVoice \| null => \{[\s\S]*?return sorted\[0\];\n\};/,
+  `export const getBestVoice = (): SpeechSynthesisVoice | null => {
   if (typeof window === 'undefined' || !window.speechSynthesis) return null;
   const voices = window.speechSynthesis.getVoices();
   if (voices.length === 0) return null;
@@ -45,31 +50,27 @@ export const getBestVoice = (): SpeechSynthesisVoice | null => {
 
   const sorted = (englishVoices.length > 0 ? englishVoices : voices).sort((a, b) => getScore(b) - getScore(a));
   return sorted[0];
-};
+};`
+);
 
-export const speakText = (text: string, options: { rate?: number; pitch?: number; onBoundary?: (event: SpeechSynthesisEvent) => void; onEnd?: (event: SpeechSynthesisEvent) => void; onStart?: (event: SpeechSynthesisEvent) => void; } = {}) => {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return;
-  
-  // Force stop any previous active utterance
-  window.speechSynthesis.cancel();
-  
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  const voice = getBestVoice();
-  
-  if (voice) {
-    utterance.voice = voice;
-  }
-  
-  utterance.rate = options.rate || 0.9;
-  utterance.pitch = options.pitch || 1.0;
-  utterance.volume = 1.0;
+speech = speech.replace(
+  /export const speakText = \(text: string, options: \{ rate\?: number; pitch\?: number \} = \{\}\) => \{/,
+  `export const speakText = (text: string, options: { rate?: number; pitch?: number; onBoundary?: (event: SpeechSynthesisEvent) => void; onEnd?: (event: SpeechSynthesisEvent) => void; onStart?: (event: SpeechSynthesisEvent) => void; } = {}) => {`
+);
 
-  if (options.onBoundary) utterance.onboundary = options.onBoundary;
-  if (options.onEnd) utterance.onend = options.onEnd;
-  if (options.onStart) utterance.onstart = options.onStart;
+speech = speech.replace(
+  /const utterance = new SpeechSynthesisUtterance\(text\);\n  const voice = getBestVoice\(\);/,
+  `const utterance = new SpeechSynthesisUtterance(text);\n  utterance.lang = "en-US";\n  const voice = getBestVoice();`
+);
 
-  // Double check that we canceled before speaking to prevent any overlapping speech layers
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(utterance);
-};
+speech = speech.replace(
+  /utterance\.rate = options\.rate \|\| 0\.95;/,
+  `utterance.rate = options.rate || 0.9;`
+);
+
+speech = speech.replace(
+  /utterance\.volume = 1\.0;/,
+  `utterance.volume = 1.0;\n\n  if (options.onBoundary) utterance.onboundary = options.onBoundary;\n  if (options.onEnd) utterance.onend = options.onEnd;\n  if (options.onStart) utterance.onstart = options.onStart;`
+);
+
+fs.writeFileSync('src/services/speechService.ts', speech, 'utf8');

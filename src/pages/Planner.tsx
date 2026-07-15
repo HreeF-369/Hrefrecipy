@@ -184,7 +184,7 @@ export default function Planner() {
                                 src={typeof meal.image === 'string' && meal.image.includes('images.unsplash.com') 
                                   ? optimizeUnsplashUrl(meal.image, 100) 
                                   : meal.image} 
-                                alt={meal.title} 
+                                alt={`${meal.title} - recette haute protéine faible calorie - DishFit`} width="100" height="100" loading="lazy" 
                                 className="w-10 h-10 object-cover rounded-xl shrink-0" 
                               />
                               <p className="text-xs font-bold text-slate-800 truncate leading-tight">{meal.title}</p>
@@ -253,7 +253,7 @@ export default function Planner() {
                             src={typeof meal.image === 'string' && meal.image.includes('images.unsplash.com') 
                               ? optimizeUnsplashUrl(meal.image, 300) 
                               : meal.image} 
-                            alt={meal.title} 
+                            alt={`${meal.title} - recette haute protéine faible calorie - DishFit`} width="100" height="100" loading="lazy" 
                             className="w-full h-full object-cover rounded-2xl" 
                           />
                           <div className="absolute inset-x-0 bottom-0 p-2 opacity-0 group-hover:opacity-100 bg-black/60 rounded-b-2xl backdrop-blur-sm transition-opacity">
@@ -392,7 +392,7 @@ export default function Planner() {
                                 src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
                                   ? optimizeUnsplashUrl(recipe.image, 200) 
                                   : recipe.image} 
-                                alt={recipe.title} 
+                                alt={`${recipe.title} - recette haute protéine faible calorie - DishFit`} width="100" height="100" loading="lazy" 
                                 className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" 
                               />
                             </div>
@@ -430,7 +430,7 @@ export default function Planner() {
                                 src={typeof recipe.image === 'string' && recipe.image.includes('images.unsplash.com') 
                                   ? optimizeUnsplashUrl(recipe.image, 200) 
                                   : recipe.image} 
-                                alt={recipe.title} 
+                                alt={`${recipe.title} - recette haute protéine faible calorie - DishFit`} width="100" height="100" loading="lazy" 
                                 className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" 
                               />
                             </div>

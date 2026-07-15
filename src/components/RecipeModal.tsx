@@ -5,6 +5,8 @@ import { Recipe } from '../types/index.js';
 import { useApp } from '../context/AppContext.js';
 import { useNavigate } from 'react-router-dom';
 import { speakText } from '../services/speechService.js';
+import { HighlightedText } from "./HighlightedText.js";
+import { useMemo } from "react";
 import { getRecipeById } from '../services/api.js';
 import { optimizeUnsplashUrl, getSafeImageUrl, FALLBACK_IMAGE } from '../lib/imageUtils.js';
 
@@ -62,6 +64,31 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
   const navigate = useNavigate();
   const [showPlanMenu, setShowPlanMenu] = useState(false);
   const [addedToGrocery, setAddedToGrocery] = useState(false);
+  const [spokenCharIndex, setSpokenCharIndex] = useState(-1);
+
+  const stepOffsets = useMemo(() => {
+    if (!recipe) return [];
+    let currentLength = 0;
+    const offsets = [];
+    
+    if (recipe.instructions) {
+      recipe.instructions.forEach((step, idx) => {
+        const prefix = `Step ${idx + 1}: `;
+        const fullStep = `${prefix}${step}. `;
+        offsets.push({ start: currentLength + prefix.length, end: currentLength + fullStep.length });
+        currentLength += fullStep.length;
+      });
+    } else {
+      const steps = recipe.analyzedInstructions?.[0]?.steps || [];
+      steps.forEach((s) => {
+        const prefix = `Step ${s.number}: `;
+        const fullStep = `${prefix}${s.step}. `;
+        offsets.push({ start: currentLength + prefix.length, end: currentLength + fullStep.length });
+        currentLength += fullStep.length;
+      });
+    }
+    return offsets;
+  }, [recipe]);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [isPlanning, setIsPlanning] = useState(false);
   const [planSuccess, setPlanSuccess] = useState('');
@@ -353,16 +380,29 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
   const handleSpeakInstructions = () => {
     if (!recipe) return;
     let textToSpeak = "";
-    
     if (recipe.instructions) {
-      textToSpeak = recipe.instructions.map((step, idx) => `Step ${idx + 1}: ${step}`).join(". ");
+      recipe.instructions.forEach((step, idx) => {
+        textToSpeak += `Step ${idx + 1}: ${step}. `;
+      });
     } else {
       const steps = recipe.analyzedInstructions?.[0]?.steps || [];
       if (steps.length === 0) return;
-      textToSpeak = steps.map(s => `Step ${s.number}: ${s.step}`).join(". ");
+      steps.forEach((s) => {
+        textToSpeak += `Step ${s.number}: ${s.step}. `;
+      });
     }
     
-    speakText(textToSpeak);
+    speakText(textToSpeak, {
+      onBoundary: (e) => {
+        setSpokenCharIndex(e.charIndex);
+      },
+      onEnd: () => {
+        setSpokenCharIndex(-1);
+      },
+      onStart: () => {
+        setSpokenCharIndex(0);
+      }
+    });
   };
 
   const tabs: { id: TabType; label: string }[] = [
@@ -411,16 +451,18 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe: initialRecipe,
               <div className="w-full md:w-[40%] p-0 border-r border-gray-100 flex flex-col">
                 <div className="relative aspect-[4/3] md:aspect-auto md:h-72 overflow-hidden shadow-inner">
                   <img
+                    width="800"
+                    height="600"
                     src={imgError ? FALLBACK_IMAGE : (getSafeImageUrl(recipe.image).includes('images.unsplash.com') 
                       ? optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 800) 
                       : getSafeImageUrl(recipe.image))}
-                    alt={recipe.title}
+                    alt={`${recipe.title} - recette haute protéine faible calorie - DishFit`}
                     onError={() => setImgError(true)}
                     {...(imgError ? {} : typeof recipe.image === 'string' && getSafeImageUrl(recipe.image).includes('images.unsplash.com') ? {
                       srcSet: `${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 400)} 400w, ${optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 800)} 800w`,
                       sizes: "(max-width: 640px) 400px, 800px"
                     } : {})}
-                    className="w-full h-full object-cover"
+                    loading="lazy" className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div className="absolute top-4 !left-4 flex gap-2 z-[70]">

@@ -24,6 +24,8 @@ export interface Recipe {
   diets?: string[];
   spoonacularScore?: number;
   healthScore?: number;
+  rating?: number;
+  ratingCount?: number;
   calories: string | number;
   protein?: string;
   fat?: string;
