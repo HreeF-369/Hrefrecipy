@@ -3535,7 +3535,7 @@ export const fitnessMeals: Recipe[] = [
     title: "Viral Avocado Egg Boat (2026 High Protein Hack)",
     description: "The ultimate 2026 viral high protein, low calorie snack. A ripe avocado half baked with a fresh egg cracked inside, wrapped in crispy turkey bacon and air-fried. Clean eating and macro-friendly.",
     summary: "The ultimate 2026 viral high protein, low calorie snack. A ripe avocado half baked with a fresh egg cracked inside, wrapped in crispy turkey bacon and air-fried. Clean eating and macro-friendly.",
-    image: "/images/oeuf-avocat-bateau.jpg",
+    image: "https://i.pinimg.com/736x/9f/94/3c/9f943ca67f1b99005181d293160f4d52.jpg",
     prepTime: "10m",
     readyInMinutes: 10,
     servings: 1,

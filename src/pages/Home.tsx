@@ -13,6 +13,7 @@ import { useApp } from "../context/AppContext.js";
 
 import { RecipeCard } from "../components/RecipeCard.js";
 import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
+import { NativeBanner } from "../components/AdUnits.js";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -441,14 +442,24 @@ export default function Home() {
                 <div key={i} className="h-72 animate-pulse rounded-[2.5rem] bg-slate-50" />
               ))
             ) : filteredRecipes.length > 0 ? (
-              visibleRecipes.map((recipe, index) => (
-                <RecipeCard 
-                  key={`${recipe.id}-${index}`}
-                  recipe={recipe}
-                  index={index}
-                  onClick={handleOpenRecipe}
-                />
-              ))
+              visibleRecipes.flatMap((recipe, index) => {
+                const cards = [
+                  <RecipeCard 
+                    key={`${recipe.id}-${index}`}
+                    recipe={recipe}
+                    index={index}
+                    onClick={handleOpenRecipe}
+                  />
+                ];
+                if ((index + 1) % 6 === 0) {
+                  cards.push(
+                    <div key={`native-ad-${index}`} className="col-span-1 sm:col-span-2 lg:col-span-3">
+                      <NativeBanner />
+                    </div>
+                  );
+                }
+                return cards;
+              })
             ) : (
             <div className="col-span-full py-20 text-center">
               <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-slate-100 text-slate-400 mb-4">

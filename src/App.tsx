@@ -58,6 +58,7 @@ const AIChat = lazy(() => import("./components/AIChat.js"));
 
 import CookieBanner from "./components/CookieBanner.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.js";
+import { SocialBarAd, HeaderAdBanner } from "./components/AdUnits.js";
 
 // Utility for tailwind classes
 function cn(...inputs: ClassValue[]) {
@@ -264,10 +265,12 @@ export default function App() {
     <AppProvider>
       <Router>
         <ScrollToTop />
+        <SocialBarAd />
         <div className="min-h-screen w-full bg-white flex flex-col lg:grid lg:grid-cols-[260px_1fr] relative print:block print:w-full">
           <Navigation onOpenAI={setIsAIChatOpen} />
           
           <main className="pt-20 pb-24 lg:pt-0 lg:pb-0 flex-1 flex flex-col w-full overflow-x-hidden min-w-0 print:pt-0 print:overflow-visible">
+            <HeaderAdBanner />
             <div className="w-full px-4 py-6 md:px-8 lg:py-12 lg:px-12 flex-1">
                 <AnimatePresence mode="wait">
                   <Suspense fallback={

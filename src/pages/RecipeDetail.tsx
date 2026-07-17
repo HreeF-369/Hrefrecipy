@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Banner300x250 } from "../components/AdUnits.js";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowLeft, 
@@ -944,6 +945,8 @@ export default function RecipeDetail() {
                 </div>
               </motion.div>
             </div>
+            
+            <Banner300x250 />
           </div>
         </section>
       </div>

@@ -5,6 +5,7 @@ import { BLOG_POSTS } from "../services/blogData.js";
 import { useEffect } from "react";
 import { optimizeUnsplashUrl } from "../lib/imageUtils.js";
 import { Helmet } from "react-helmet-async";
+import { Banner300x250 } from "../components/AdUnits.js";
 
 export default function BlogPost() {
   const { id } = useParams();
@@ -166,6 +167,8 @@ export default function BlogPost() {
                 prose-strong:text-brand-ink prose-strong:font-bold"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
+
+            <Banner300x250 />
 
             <div className="mt-16 pt-12 border-t border-slate-100">
               <div className="rounded-[2rem] bg-slate-50 p-8 text-center">

@@ -10,6 +10,7 @@ import { useApp } from "../context/AppContext.js";
 import { RecipeCard } from "../components/RecipeCard.js";
 import { Breadcrumbs } from "../components/Breadcrumbs.js";
 import { RECIPES_DATA } from "../services/recipesData.js";
+import { NativeBanner } from "../components/AdUnits.js";
 
 const localRecipes = RECIPES_DATA;
 
@@ -156,13 +157,23 @@ export default function Recipes() {
 
       <AnimatePresence mode="wait">
         <motion.div key={activeTab + query} className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {visibleRecipes.map((recipe, index) => (
-            <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={(r) => { 
-              setSelectedRecipe(r); 
-              setIsModalOpen(true);
-              window.history.pushState({ recipeId: r.id }, '', `/recipe/${r.id}`);
-            }} />
-          ))}
+          {visibleRecipes.flatMap((recipe, index) => {
+            const cards = [
+              <RecipeCard key={`${recipe.id}-${index}`} recipe={recipe} index={index} onClick={(r) => { 
+                setSelectedRecipe(r); 
+                setIsModalOpen(true);
+                window.history.pushState({ recipeId: r.id }, '', `/recipe/${r.id}`);
+              }} />
+            ];
+            if ((index + 1) % 6 === 0) {
+              cards.push(
+                <div key={`native-ad-${index}`} className="col-span-1 sm:col-span-2 lg:col-span-3">
+                  <NativeBanner />
+                </div>
+              );
+            }
+            return cards;
+          })}
         </motion.div>
       </AnimatePresence>
 
