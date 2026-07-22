@@ -709,6 +709,16 @@ app.post("/api/generic_reminders/create", async (req, res) => {
   }
 });
 
+
+function escapeXml(unsafe) {
+  if (typeof unsafe !== 'string') return '';
+  return unsafe.replace(/&(?!amp;|lt;|gt;|quot;|apos;)/g, '&amp;')
+               .replace(/</g, '&lt;')
+               .replace(/>/g, '&gt;')
+               .replace(/"/g, '&quot;')
+               .replace(/'/g, '&apos;');
+}
+
 app.get("/sitemap.xml", (req, res) => {
   res.header("Content-Type", "application/xml");
   const baseUrl = "https://dishfit.net";
@@ -739,7 +749,7 @@ app.get("/sitemap.xml", (req, res) => {
   
   staticRoutes.forEach(route => {
     xml += '  <url>\n';
-    xml += `    <loc>${baseUrl}${route}</loc>\n`;
+    xml += `    <loc>${escapeXml(baseUrl + route)}</loc>\n`;
     xml += '    <changefreq>weekly</changefreq>\n';
     if (route === "") {
         xml += '    <priority>1.0</priority>\n';
@@ -752,14 +762,14 @@ app.get("/sitemap.xml", (req, res) => {
   // Dynamic Recipe Routes
   RECIPES_DATA.forEach(recipe => {
     xml += '  <url>\n';
-    xml += `    <loc>${baseUrl}/recipe/${recipe.id}</loc>\n`;
+    xml += `    <loc>${escapeXml(baseUrl + "/recipe/" + recipe.id)}</loc>\n`;
     
     // Add image sitemap tag
     if (recipe.image) {
       let absoluteImage = recipe.image.startsWith("/") ? `${baseUrl}${recipe.image}` : recipe.image;
       xml += `    <image:image>\n`;
-      xml += `      <image:loc>${absoluteImage}</image:loc>\n`;
-      xml += `      <image:title>${recipe.title}</image:title>\n`;
+      xml += `      <image:loc>${escapeXml(absoluteImage)}</image:loc>\n`;
+      xml += `      <image:title>${escapeXml(recipe.title)}</image:title>\n`;
       xml += `    </image:image>\n`;
     }
 
