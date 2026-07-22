@@ -188,8 +188,8 @@ export default function Home() {
       className="space-y-16"
     >
       <Helmet>
-        <title>DishFit | High-Protein, Low-Calorie Recipes & Meal Planning</title>
-        <meta name="description" content="Discover DishFit's delicious high-protein, low-calorie recipes. Master your health with personalized portion-controlled meals and weekly meal planning." />
+        <title>High Protein Meals for Muscle Gain & Low Calorie Dinner Ideas</title>
+        <meta name="description" content="Discover healthy meals under 30 minutes, weekly meal plans for weight loss, and easy meal prep recipes for beginners. Professional recipes for fitness goals." />
         <meta name="keywords" content="high protein meals for muscle gain, low calorie dinner ideas, healthy meals under 30 minutes, weekly meal plan for weight loss, easy meal prep recipes for beginners" />
         <link rel="canonical" href="https://dishfit.net/" />
       </Helmet>

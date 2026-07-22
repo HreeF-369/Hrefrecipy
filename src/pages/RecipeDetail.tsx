@@ -394,7 +394,7 @@ export default function RecipeDetail() {
               src={imgError ? FALLBACK_IMAGE : (getSafeImageUrl(recipe.image).includes('images.unsplash.com') 
                 ? optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 1200) 
                 : getSafeImageUrl(recipe.image))} 
-              alt={`DishFit ${recipe.title}`} 
+              alt={`${recipe.title} - recette haute protéine faible calorie - DishFit`} 
               onError={() => setImgError(true)}
               {...(imgError ? {} : typeof recipe.image === 'string' && (getSafeImageUrl(recipe.image).startsWith('image_') || getSafeImageUrl(recipe.image).startsWith('/image_')) ? {
                 srcSet: `${getSafeImageUrl(recipe.image).replace('.webp', '_mobile.webp')} 400w, ${getSafeImageUrl(recipe.image)} 800w`,
