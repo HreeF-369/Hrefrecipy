@@ -1,0 +1,1256 @@
+Total Updated: 271
+Ambiguous Cuisines (Defaulted to American): 167
+
+Summary List:
+- Croissant Breakfast Sandwich
+  Cuisine: American
+  Keywords: "croissant breakfast sandwich", "american recipe", "healthy breakfast", "morning meal"
+
+- Crispy Feta Fried Eggs
+  Cuisine: Mediterranean
+  Keywords: "crispy feta fried eggs", "mediterranean recipe", "healthy breakfast", "morning meal"
+
+- Viral Shaved Fruit Yogurt Bowl
+  Cuisine: American
+  Keywords: "viral shaved fruit yogurt bowl", "american recipe", "healthy salad", "low carb dinner"
+
+- Viral Turkish Eggs (Cilbir)
+  Cuisine: American
+  Keywords: "viral turkish eggs cilbir", "american recipe", "healthy breakfast", "morning meal"
+
+- Viral Upside-Down Apple Pastry
+  Cuisine: American
+  Keywords: "viral upsidedown apple pastry", "american recipe", "healthy eating", "easy recipe"
+
+- Gourmet Avocado Toast
+  Cuisine: American
+  Keywords: "gourmet avocado toast", "american recipe", "healthy breakfast", "morning meal"
+
+- Glow Breakfast Platter
+  Cuisine: American
+  Keywords: "glow breakfast platter", "american recipe", "healthy breakfast", "morning meal"
+
+- Poached Avocado Toast
+  Cuisine: American
+  Keywords: "poached avocado toast", "american recipe", "healthy breakfast", "morning meal"
+
+- Everything Bagel Sandwich
+  Cuisine: American
+  Keywords: "everything bagel sandwich", "american recipe", "healthy eating", "easy recipe"
+
+- Salmon & Avocado Toast
+  Cuisine: American
+  Keywords: "salmon  avocado toast", "american recipe", "seafood recipe", "healthy pescatarian", "healthy breakfast"
+
+- Classic Shakshuka
+  Cuisine: Middle Eastern
+  Keywords: "classic shakshuka", "middle eastern recipe", "healthy eating", "easy recipe"
+
+- Garlic Egg Pasta
+  Cuisine: Italian
+  Keywords: "garlic egg pasta", "italian recipe", "healthy breakfast", "morning meal", "healthy pasta"
+
+- Spanish Tortilla
+  Cuisine: American
+  Keywords: "spanish tortilla", "american recipe", "healthy eating", "easy recipe"
+
+- Breakfast Burrito
+  Cuisine: Mexican
+  Keywords: "breakfast burrito", "mexican recipe", "healthy breakfast", "morning meal"
+
+- Pistachio Baklava
+  Cuisine: American
+  Keywords: "pistachio baklava", "american recipe", "healthy eating", "easy recipe"
+
+- Beef Quesadilla
+  Cuisine: Mexican
+  Keywords: "beef quesadilla", "mexican recipe", "beef recipe", "high protein meal"
+
+- Double Cheeseburger
+  Cuisine: American
+  Keywords: "double cheeseburger", "american recipe", "beef recipe", "high protein meal"
+
+- Salmon Grilled Cheese
+  Cuisine: American
+  Keywords: "salmon grilled cheese", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Chicken Caesar Wrap
+  Cuisine: American
+  Keywords: "chicken caesar wrap", "american recipe", "chicken dinner", "high protein"
+
+- Garlic Butter Steak & Mash
+  Cuisine: American
+  Keywords: "garlic butter steak  mash", "american recipe", "beef recipe", "high protein meal"
+
+- Gourmet T-Bone & Wedges
+  Cuisine: American
+  Keywords: "gourmet tbone  wedges", "american recipe", "healthy eating", "easy recipe"
+
+- Honey Garlic Glazed Salmon
+  Cuisine: American
+  Keywords: "honey garlic glazed salmon", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Crispy Chicken Caesar Wrap
+  Cuisine: American
+  Keywords: "crispy chicken caesar wrap", "american recipe", "chicken dinner", "high protein"
+
+- Cheesy Beef Quesadilla
+  Cuisine: Mexican
+  Keywords: "cheesy beef quesadilla", "mexican recipe", "beef recipe", "high protein meal"
+
+- Garlic Chicken Pasta
+  Cuisine: Italian
+  Keywords: "garlic chicken pasta", "italian recipe", "chicken dinner", "high protein", "healthy pasta"
+
+- Crispy Chicken & Fries
+  Cuisine: American
+  Keywords: "crispy chicken  fries", "american recipe", "chicken dinner", "high protein"
+
+- Roasted Chicken & Veggies
+  Cuisine: American
+  Keywords: "roasted chicken  veggies", "american recipe", "chicken dinner", "high protein", "healthy breakfast"
+
+- Creamy Garlic Shrimp
+  Cuisine: American
+  Keywords: "creamy garlic shrimp", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Chicken Shawarma Wrap
+  Cuisine: Mediterranean
+  Keywords: "chicken shawarma wrap", "mediterranean recipe", "chicken dinner", "high protein"
+
+- Salmon Teriyaki Bowl
+  Cuisine: Asian
+  Keywords: "salmon teriyaki bowl", "asian recipe", "seafood recipe", "healthy pescatarian", "healthy salad"
+
+- Garlic Butter Salmon
+  Cuisine: American
+  Keywords: "garlic butter salmon", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Gourmet Grilled Sea Bass
+  Cuisine: American
+  Keywords: "gourmet grilled sea bass", "american recipe", "healthy eating", "easy recipe"
+
+- Garlic Butter Steak
+  Cuisine: American
+  Keywords: "garlic butter steak", "american recipe", "beef recipe", "high protein meal"
+
+- Cheesy Beef Penne Pasta
+  Cuisine: Italian
+  Keywords: "cheesy beef penne pasta", "italian recipe", "beef recipe", "high protein meal", "healthy pasta"
+
+- Gourmet Beef Lasagna
+  Cuisine: Italian
+  Keywords: "gourmet beef lasagna", "italian recipe", "beef recipe", "high protein meal"
+
+- Premium Beef Shish Kebabs
+  Cuisine: American
+  Keywords: "premium beef shish kebabs", "american recipe", "beef recipe", "high protein meal"
+
+- Chicken Shawarma Wrap
+  Cuisine: Mediterranean
+  Keywords: "chicken shawarma wrap", "mediterranean recipe", "chicken dinner", "high protein"
+
+- Gourmet Pepperoni & Basil Pizza
+  Cuisine: Italian
+  Keywords: "gourmet pepperoni  basil pizza", "italian recipe", "healthy eating", "easy recipe"
+
+- Gourmet Deep Dish Pepperoni Pizza
+  Cuisine: Italian
+  Keywords: "gourmet deep dish pepperoni pizza", "italian recipe", "healthy eating", "easy recipe"
+
+- Honey Garlic Glazed Salmon
+  Cuisine: American
+  Keywords: "honey garlic glazed salmon", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Tuscan Garlic Chicken
+  Cuisine: Italian
+  Keywords: "tuscan garlic chicken", "italian recipe", "chicken dinner", "high protein"
+
+- Creamy Sun-Dried Tomato Gnocchi
+  Cuisine: Italian
+  Keywords: "creamy sundried tomato gnocchi", "italian recipe", "healthy eating", "easy recipe"
+
+- Gourmet Smash Burger
+  Cuisine: American
+  Keywords: "gourmet smash burger", "american recipe", "beef recipe", "high protein meal"
+
+- Slow-Cooked Beef Ribs
+  Cuisine: American
+  Keywords: "slowcooked beef ribs", "american recipe", "beef recipe", "high protein meal"
+
+- Pan-Seared Duck Breast
+  Cuisine: American
+  Keywords: "panseared duck breast", "american recipe", "healthy eating", "easy recipe"
+
+- Creamy Seafood Paella
+  Cuisine: American
+  Keywords: "creamy seafood paella", "american recipe", "healthy eating", "easy recipe"
+
+- Lamb Chops with Herb Chimichurri
+  Cuisine: American
+  Keywords: "lamb chops with herb chimichurri", "american recipe", "healthy eating", "easy recipe"
+
+- Creamy Garlic Butter Shrimp Pasta
+  Cuisine: Italian
+  Keywords: "creamy garlic butter shrimp pasta", "italian recipe", "seafood recipe", "healthy pescatarian", "healthy pasta"
+
+- Braised Lamb Shanks
+  Cuisine: American
+  Keywords: "braised lamb shanks", "american recipe", "healthy eating", "easy recipe"
+
+- Crispy Hot Honey Chicken
+  Cuisine: American
+  Keywords: "crispy hot honey chicken", "american recipe", "chicken dinner", "high protein"
+
+- Gourmet Beef Wellington Slices
+  Cuisine: American
+  Keywords: "gourmet beef wellington slices", "american recipe", "beef recipe", "high protein meal"
+
+- Thai Green Chicken Curry
+  Cuisine: Asian
+  Keywords: "thai green chicken curry", "asian recipe", "chicken dinner", "high protein"
+
+- Sea Bass with Lemon Caper Butter
+  Cuisine: American
+  Keywords: "sea bass with lemon caper butter", "american recipe", "healthy eating", "easy recipe"
+
+- Slow-Cooked BBQ Beef Brisket
+  Cuisine: American
+  Keywords: "slowcooked bbq beef brisket", "american recipe", "beef recipe", "high protein meal"
+
+- Creamy Mushroom Chicken Risotto
+  Cuisine: Italian
+  Keywords: "creamy mushroom chicken risotto", "italian recipe", "chicken dinner", "high protein"
+
+- Ribeye Steak with Chimichurri Butter
+  Cuisine: American
+  Keywords: "ribeye steak with chimichurri butter", "american recipe", "beef recipe", "high protein meal"
+
+- Crispy Korean Fried Chicken Supreme
+  Cuisine: Asian
+  Keywords: "crispy korean fried chicken supreme", "asian recipe", "chicken dinner", "high protein"
+
+- Classic Italian Tiramisu Supreme
+  Cuisine: Italian
+  Keywords: "classic italian tiramisu supreme", "italian recipe", "healthy eating", "easy recipe"
+
+- Molten Chocolate Lava Cake
+  Cuisine: American
+  Keywords: "molten chocolate lava cake", "american recipe", "healthy eating", "easy recipe"
+
+- San Sebastian Burnt Cheesecake
+  Cuisine: American
+  Keywords: "san sebastian burnt cheesecake", "american recipe", "healthy eating", "easy recipe"
+
+- New York Strawberry Cheesecake
+  Cuisine: American
+  Keywords: "new york strawberry cheesecake", "american recipe", "healthy eating", "easy recipe"
+
+- Gourmet Pistachio Kunafa Croissant
+  Cuisine: French
+  Keywords: "gourmet pistachio kunafa croissant", "french recipe", "healthy eating", "easy recipe"
+
+- French Crème Brûlée Art
+  Cuisine: French
+  Keywords: "french crme brle art", "french recipe", "healthy eating", "easy recipe"
+
+- Premium Lotus Biscoff Mousse
+  Cuisine: American
+  Keywords: "premium lotus biscoff mousse", "american recipe", "healthy eating", "easy recipe"
+
+- Red Velvet Lava Cookies
+  Cuisine: American
+  Keywords: "red velvet lava cookies", "american recipe", "healthy eating", "easy recipe"
+
+- Mango Sago Coconut Panna Cotta
+  Cuisine: American
+  Keywords: "mango sago coconut panna cotta", "american recipe", "healthy eating", "easy recipe"
+
+- Fudgy Hazelnut Brownie Towers
+  Cuisine: American
+  Keywords: "fudgy hazelnut brownie towers", "american recipe", "healthy eating", "easy recipe"
+
+- Matcha White Chocolate Fondant
+  Cuisine: Asian
+  Keywords: "matcha white chocolate fondant", "asian recipe", "healthy eating", "easy recipe"
+
+- Gourmet Salted Caramel Profiteroles
+  Cuisine: American
+  Keywords: "gourmet salted caramel profiteroles", "american recipe", "healthy eating", "easy recipe"
+
+- Vibrant Berry Pavlova Clouds
+  Cuisine: American
+  Keywords: "vibrant berry pavlova clouds", "american recipe", "healthy eating", "easy recipe"
+
+- Artisanal Churros with Dark Ganache
+  Cuisine: American
+  Keywords: "artisanal churros with dark ganache", "american recipe", "healthy eating", "easy recipe"
+
+- Gourmet White Chocolate Raspberry Macarons
+  Cuisine: American
+  Keywords: "gourmet white chocolate raspberry macarons", "american recipe", "healthy eating", "easy recipe"
+
+- Vibrant Iced Matcha Strawberry Latte
+  Cuisine: Asian
+  Keywords: "vibrant iced matcha strawberry latte", "asian recipe", "healthy eating", "easy recipe"
+
+- Premium Blue Lagoon Mocktail
+  Cuisine: American
+  Keywords: "premium blue lagoon mocktail", "american recipe", "healthy eating", "easy recipe"
+
+- Classic Fresh Passion Fruit Mojito
+  Cuisine: American
+  Keywords: "classic fresh passion fruit mojito", "american recipe", "healthy eating", "easy recipe"
+
+- Creamy Spanish Iced Latte (Café con Bonbón)
+  Cuisine: American
+  Keywords: "creamy spanish iced latte caf con bonbn", "american recipe", "healthy eating", "easy recipe"
+
+- Vibrant Dragon Fruit Mango Smoothie
+  Cuisine: American
+  Keywords: "vibrant dragon fruit mango smoothie", "american recipe", "healthy breakfast", "morning meal"
+
+- Gourmet Creamy Pistachio Milkshake
+  Cuisine: American
+  Keywords: "gourmet creamy pistachio milkshake", "american recipe", "healthy eating", "easy recipe"
+
+- Sparkling Pomegranate Rose Mocktail
+  Cuisine: American
+  Keywords: "sparkling pomegranate rose mocktail", "american recipe", "healthy eating", "easy recipe"
+
+- Avocado Almond Honey Smoothie
+  Cuisine: American
+  Keywords: "avocado almond honey smoothie", "american recipe", "healthy breakfast", "morning meal"
+
+- Salted Caramel Cold Brew Foam
+  Cuisine: American
+  Keywords: "salted caramel cold brew foam", "american recipe", "healthy eating", "easy recipe"
+
+- Fresh Ginger Lemonade Infusion
+  Cuisine: American
+  Keywords: "fresh ginger lemonade infusion", "american recipe", "healthy eating", "easy recipe"
+
+- Creamy Lotus Biscoff Frappé
+  Cuisine: American
+  Keywords: "creamy lotus biscoff frapp", "american recipe", "healthy eating", "easy recipe"
+
+- Sparkling Hibiscus Berry Tea
+  Cuisine: American
+  Keywords: "sparkling hibiscus berry tea", "american recipe", "healthy eating", "easy recipe"
+
+- Creamy Iced Taro Bubble Tea
+  Cuisine: American
+  Keywords: "creamy iced taro bubble tea", "american recipe", "healthy eating", "easy recipe"
+
+- Fresh Cucumber Mint Cooler
+  Cuisine: American
+  Keywords: "fresh cucumber mint cooler", "american recipe", "healthy eating", "easy recipe"
+
+- Ultimate Belgian Hot Chocolate
+  Cuisine: American
+  Keywords: "ultimate belgian hot chocolate", "american recipe", "healthy eating", "easy recipe"
+
+- Gourmet Deep-Dish Pepperoni Meat Pie
+  Cuisine: American
+  Keywords: "gourmet deepdish pepperoni meat pie", "american recipe", "healthy eating", "easy recipe"
+
+- Mediterranean Chickpea Salad Bowl (High Protein)
+  Cuisine: Mediterranean
+  Keywords: "mediterranean chickpea salad bowl high protein", "mediterranean recipe", "healthy salad", "low carb dinner"
+
+- Viral Cucumber & Feta Salad (Low Calorie)
+  Cuisine: Mediterranean
+  Keywords: "viral cucumber  feta salad low calorie", "mediterranean recipe", "healthy salad", "low carb dinner"
+
+- Yummy Berry Yogurt Parfait (Healthy Dessert)
+  Cuisine: American
+  Keywords: "yummy berry yogurt parfait healthy dessert", "american recipe", "healthy eating", "easy recipe"
+
+- Fudgy High-Protein Chocolate Brownies
+  Cuisine: American
+  Keywords: "fudgy highprotein chocolate brownies", "american recipe", "healthy eating", "easy recipe"
+
+- Edible Glitter Pink Lemonade Mocktail
+  Cuisine: American
+  Keywords: "edible glitter pink lemonade mocktail", "american recipe", "healthy eating", "easy recipe"
+
+- High-Protein Salmon & Quinoa Bowl
+  Cuisine: American
+  Keywords: "highprotein salmon  quinoa bowl", "american recipe", "seafood recipe", "healthy pescatarian", "healthy salad"
+
+- Lean Grilled Chicken Breast & Sweet Potato
+  Cuisine: American
+  Keywords: "lean grilled chicken breast  sweet potato", "american recipe", "chicken dinner", "high protein"
+
+- Gourmet Avocado Beef Stir-Fry
+  Cuisine: Asian
+  Keywords: "gourmet avocado beef stirfry", "asian recipe", "beef recipe", "high protein meal"
+
+- Creamy Protein Oatmeal Bowl
+  Cuisine: American
+  Keywords: "creamy protein oatmeal bowl", "american recipe", "healthy salad", "low carb dinner", "healthy breakfast"
+
+- Zesty Garlic Shrimp Pasta
+  Cuisine: Italian
+  Keywords: "zesty garlic shrimp pasta", "italian recipe", "seafood recipe", "healthy pescatarian", "healthy pasta"
+
+- Mediterranean Tuna Salad Wrap
+  Cuisine: Mediterranean
+  Keywords: "mediterranean tuna salad wrap", "mediterranean recipe", "seafood recipe", "healthy pescatarian", "healthy salad"
+
+- Egg White & Turkey Bacon Frittata
+  Cuisine: American
+  Keywords: "egg white  turkey bacon frittata", "american recipe", "healthy breakfast", "morning meal"
+
+- Lean Turkey Meatballs & Zoodles
+  Cuisine: American
+  Keywords: "lean turkey meatballs  zoodles", "american recipe", "beef recipe", "high protein meal"
+
+- Teriyaki Tofu Edamame Power Bowl
+  Cuisine: Asian
+  Keywords: "teriyaki tofu edamame power bowl", "asian recipe", "healthy salad", "low carb dinner", "vegan recipe"
+
+- High-Protein Berry Cottage Cheese Bowl
+  Cuisine: American
+  Keywords: "highprotein berry cottage cheese bowl", "american recipe", "healthy salad", "low carb dinner"
+
+- Premium Cod Fillet & Jasmine Rice
+  Cuisine: American
+  Keywords: "premium cod fillet  jasmine rice", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Healthy Chicken Avocado Salad
+  Cuisine: American
+  Keywords: "healthy chicken avocado salad", "american recipe", "chicken dinner", "high protein", "healthy salad"
+
+- Savory Lean Beef & Broccoli Bowl
+  Cuisine: American
+  Keywords: "savory lean beef  broccoli bowl", "american recipe", "beef recipe", "high protein meal", "healthy salad"
+
+- Protein Pancake Stack
+  Cuisine: American
+  Keywords: "protein pancake stack", "american recipe", "healthy breakfast", "morning meal"
+
+- Spiced Lentil & Spinach Stew
+  Cuisine: American
+  Keywords: "spiced lentil  spinach stew", "american recipe", "healthy soup", "comfort food"
+
+- Viral Cottage Cheese Flatbread
+  Cuisine: American
+  Keywords: "viral cottage cheese flatbread", "american recipe", "healthy eating", "easy recipe"
+
+- Crispy Feta Fried Eggs Shredded Hash
+  Cuisine: Mediterranean
+  Keywords: "crispy feta fried eggs shredded hash", "mediterranean recipe", "healthy breakfast", "morning meal"
+
+- High-Protein Breakfast Sandwich
+  Cuisine: American
+  Keywords: "highprotein breakfast sandwich", "american recipe", "healthy breakfast", "morning meal"
+
+- Creamy Honey Mustard Chicken Meal Prep
+  Cuisine: American
+  Keywords: "creamy honey mustard chicken meal prep", "american recipe", "chicken dinner", "high protein"
+
+- Garlic Butter Steak Bites with Sweet Potato
+  Cuisine: American
+  Keywords: "garlic butter steak bites with sweet potato", "american recipe", "beef recipe", "high protein meal"
+
+- Green Goddess Tuna Salad Boat
+  Cuisine: American
+  Keywords: "green goddess tuna salad boat", "american recipe", "seafood recipe", "healthy pescatarian", "healthy salad"
+
+- Viral Yogurt Bowl
+  Cuisine: American
+  Keywords: "viral yogurt bowl", "american recipe", "healthy salad", "low carb dinner"
+
+- Upside Down Apple Pastry (Diet Version)
+  Cuisine: American
+  Keywords: "upside down apple pastry diet version", "american recipe", "healthy eating", "easy recipe"
+
+- Viral Avocado Egg Boat (2026 High Protein Hack)
+  Cuisine: American
+  Keywords: "viral avocado egg boat 2026 high protein hack", "american recipe", "healthy breakfast", "morning meal"
+
+- Crispy Air-Fryer Tofu (Low Calorie & Clean Eating)
+  Cuisine: American
+  Keywords: "crispy airfryer tofu low calorie  clean eating", "american recipe", "vegan recipe", "plant based meal"
+
+- Viral Berries & Cream Chia Pudding (Post-Workout & Weight Loss)
+  Cuisine: American
+  Keywords: "viral berries  cream chia pudding postworkout  weight loss", "american recipe", "healthy eating", "easy recipe"
+
+- Viral Loaded Protein Bagel Panini (Muscle Gain & Post-Workout)
+  Cuisine: American
+  Keywords: "viral loaded protein bagel panini muscle gain  postworkout", "american recipe", "healthy eating", "easy recipe"
+
+- Viral Green Goddess Chicken Bowl (Clean Eating & Meal Prep)
+  Cuisine: American
+  Keywords: "viral green goddess chicken bowl clean eating  meal prep", "american recipe", "chicken dinner", "high protein", "healthy salad"
+
+- Viral Bison & Sweet Potato Bowl (High Protein Muscle Gain)
+  Cuisine: American
+  Keywords: "viral bison  sweet potato bowl high protein muscle gain", "american recipe", "healthy salad", "low carb dinner"
+
+- Avocado & Poached Egg Sourdough
+  Cuisine: American
+  Keywords: "avocado  poached egg sourdough", "american recipe", "healthy breakfast", "morning meal"
+
+- Blueberry Oat Protein Pancakes
+  Cuisine: American
+  Keywords: "blueberry oat protein pancakes", "american recipe", "healthy breakfast", "morning meal"
+
+- Classic Shakshuka with Feta
+  Cuisine: Mediterranean
+  Keywords: "classic shakshuka with feta", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Greek Yogurt Berry Parfait
+  Cuisine: Mediterranean
+  Keywords: "greek yogurt berry parfait", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Spinach & Goat Cheese Frittata
+  Cuisine: American
+  Keywords: "spinach  goat cheese frittata", "american recipe", "healthy breakfast", "morning meal"
+
+- Smoked Salmon & Caper Bagel
+  Cuisine: American
+  Keywords: "smoked salmon  caper bagel", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Almond Butter & Berry Oatmeal
+  Cuisine: American
+  Keywords: "almond butter  berry oatmeal", "american recipe", "healthy breakfast", "morning meal"
+
+- Smoothie Bowl with Tropical Fruit
+  Cuisine: American
+  Keywords: "smoothie bowl with tropical fruit", "american recipe", "healthy salad", "low carb dinner", "healthy breakfast"
+
+- Turkish Eggs (Cilbir)
+  Cuisine: American
+  Keywords: "turkish eggs cilbir", "american recipe", "healthy breakfast", "morning meal"
+
+- Japanese Soufflé Pancakes
+  Cuisine: Asian
+  Keywords: "japanese souffl pancakes", "asian recipe", "healthy breakfast", "morning meal"
+
+- Chilaquiles Verdes
+  Cuisine: American
+  Keywords: "chilaquiles verdes", "american recipe", "healthy eating", "easy recipe"
+
+- Croque Madame
+  Cuisine: American
+  Keywords: "croque madame", "american recipe", "healthy eating", "easy recipe"
+
+- Moroccan Msemen with Honey
+  Cuisine: Mediterranean
+  Keywords: "moroccan msemen with honey", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Classic Eggs Benedict
+  Cuisine: American
+  Keywords: "classic eggs benedict", "american recipe", "healthy breakfast", "morning meal"
+
+- Indian Masala Omelette
+  Cuisine: Indian
+  Keywords: "indian masala omelette", "indian recipe", "healthy eating", "easy recipe"
+
+- Belgian Waffles with Strawberry Compote
+  Cuisine: American
+  Keywords: "belgian waffles with strawberry compote", "american recipe", "healthy breakfast", "morning meal"
+
+- Tofu Scramble with Turmeric & Kale
+  Cuisine: American
+  Keywords: "tofu scramble with turmeric  kale", "american recipe", "vegan recipe", "plant based meal"
+
+- Swedish Cardamom Buns
+  Cuisine: American
+  Keywords: "swedish cardamom buns", "american recipe", "healthy eating", "easy recipe"
+
+- Smoked Salmon & Avocado Eggs Benedict
+  Cuisine: American
+  Keywords: "smoked salmon  avocado eggs benedict", "american recipe", "seafood recipe", "healthy pescatarian", "healthy breakfast"
+
+- Baked Apple Cinnamon Steel-Cut Oats
+  Cuisine: American
+  Keywords: "baked apple cinnamon steelcut oats", "american recipe", "healthy breakfast", "morning meal"
+
+- Pan-Seared Salmon with Asparagus
+  Cuisine: American
+  Keywords: "panseared salmon with asparagus", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Beef & Broccoli Stir-Fry
+  Cuisine: Asian
+  Keywords: "beef  broccoli stirfry", "asian recipe", "beef recipe", "high protein meal"
+
+- Wild Mushroom Risotto
+  Cuisine: Italian
+  Keywords: "wild mushroom risotto", "italian recipe", "healthy eating", "easy recipe"
+
+- Lemon Garlic Shrimp Scampi
+  Cuisine: American
+  Keywords: "lemon garlic shrimp scampi", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Classic Roast Chicken with Herbs
+  Cuisine: American
+  Keywords: "classic roast chicken with herbs", "american recipe", "chicken dinner", "high protein"
+
+- Pesto Stuffed Chicken Breast
+  Cuisine: Italian
+  Keywords: "pesto stuffed chicken breast", "italian recipe", "chicken dinner", "high protein"
+
+- Cauliflower Steak with Chimichurri
+  Cuisine: American
+  Keywords: "cauliflower steak with chimichurri", "american recipe", "beef recipe", "high protein meal"
+
+- Honey Soy Glazed Duck Breast
+  Cuisine: American
+  Keywords: "honey soy glazed duck breast", "american recipe", "healthy eating", "easy recipe"
+
+- French Coq au Vin
+  Cuisine: French
+  Keywords: "french coq au vin", "french recipe", "healthy eating", "easy recipe"
+
+- Indian Butter Chicken (Murgh Makhani)
+  Cuisine: Indian
+  Keywords: "indian butter chicken murgh makhani", "indian recipe", "chicken dinner", "high protein"
+
+- Chicken Teriyaki with Steamed Broccoli
+  Cuisine: Asian
+  Keywords: "chicken teriyaki with steamed broccoli", "asian recipe", "chicken dinner", "high protein"
+
+- Beef Enchiladas with Red Sauce
+  Cuisine: American
+  Keywords: "beef enchiladas with red sauce", "american recipe", "beef recipe", "high protein meal"
+
+- Peruvian Lomo Saltado
+  Cuisine: American
+  Keywords: "peruvian lomo saltado", "american recipe", "healthy eating", "easy recipe"
+
+- Greek Moussaka
+  Cuisine: Mediterranean
+  Keywords: "greek moussaka", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Thai Green Curry
+  Cuisine: Asian
+  Keywords: "thai green curry", "asian recipe", "healthy eating", "easy recipe"
+
+- Herb-Crusted Rack of Lamb
+  Cuisine: American
+  Keywords: "herbcrusted rack of lamb", "american recipe", "healthy eating", "easy recipe"
+
+- Crispy Skin Duck Breast with Cherry Sauce
+  Cuisine: American
+  Keywords: "crispy skin duck breast with cherry sauce", "american recipe", "healthy eating", "easy recipe"
+
+- Thai Red Curry with Roasted Duck
+  Cuisine: Asian
+  Keywords: "thai red curry with roasted duck", "asian recipe", "healthy eating", "easy recipe"
+
+- Coq au Vin (French Chicken in Red Wine)
+  Cuisine: French
+  Keywords: "coq au vin french chicken in red wine", "french recipe", "chicken dinner", "high protein"
+
+- Moroccan Lamb Tagine
+  Cuisine: Mediterranean
+  Keywords: "moroccan lamb tagine", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Hearty Beef Lasagna
+  Cuisine: Italian
+  Keywords: "hearty beef lasagna", "italian recipe", "beef recipe", "high protein meal"
+
+- Whole Roasted Mediterranean Sea Bass
+  Cuisine: Mediterranean
+  Keywords: "whole roasted mediterranean sea bass", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Vegetarian Eggplant Mousaka
+  Cuisine: American
+  Keywords: "vegetarian eggplant mousaka", "american recipe", "vegan recipe", "plant based meal", "healthy breakfast"
+
+- Crispy Korean Fried Chicken
+  Cuisine: Asian
+  Keywords: "crispy korean fried chicken", "asian recipe", "chicken dinner", "high protein"
+
+- Swedish Meatballs with Lingonberry Jam
+  Cuisine: American
+  Keywords: "swedish meatballs with lingonberry jam", "american recipe", "beef recipe", "high protein meal"
+
+- Indian Butter Chicken (Murgh Makhani)
+  Cuisine: Indian
+  Keywords: "indian butter chicken murgh makhani", "indian recipe", "chicken dinner", "high protein"
+
+- Grilled Ribeye with Garlic Butter
+  Cuisine: American
+  Keywords: "grilled ribeye with garlic butter", "american recipe", "healthy eating", "easy recipe"
+
+- Seafood Paella with Saffron
+  Cuisine: American
+  Keywords: "seafood paella with saffron", "american recipe", "healthy eating", "easy recipe"
+
+- Chicken Tikka Masala
+  Cuisine: Indian
+  Keywords: "chicken tikka masala", "indian recipe", "chicken dinner", "high protein"
+
+- Herb-Crusted Rack of Lamb
+  Cuisine: American
+  Keywords: "herbcrusted rack of lamb", "american recipe", "healthy eating", "easy recipe"
+
+- Vegetarian Buddha Bowl
+  Cuisine: American
+  Keywords: "vegetarian buddha bowl", "american recipe", "healthy salad", "low carb dinner"
+
+- Osso Buco with Risotto
+  Cuisine: Italian
+  Keywords: "osso buco with risotto", "italian recipe", "healthy eating", "easy recipe"
+
+- Duck à l
+  Cuisine: American
+  Keywords: "duck  l", "american recipe", "healthy eating", "easy recipe"
+
+- Japanese Wagyu Ribeye Steak
+  Cuisine: Asian
+  Keywords: "japanese wagyu ribeye steak", "asian recipe", "beef recipe", "high protein meal"
+
+- Marseille-Style Bouillabaisse
+  Cuisine: American
+  Keywords: "marseillestyle bouillabaisse", "american recipe", "healthy eating", "easy recipe"
+
+- Lucknowi Lamb Biryani
+  Cuisine: American
+  Keywords: "lucknowi lamb biryani", "american recipe", "healthy eating", "easy recipe"
+
+- Veal Saltimbocca alla Romana
+  Cuisine: American
+  Keywords: "veal saltimbocca alla romana", "american recipe", "healthy eating", "easy recipe"
+
+- Moroccan Beef & Prune Tagine
+  Cuisine: Mediterranean
+  Keywords: "moroccan beef  prune tagine", "mediterranean recipe", "beef recipe", "high protein meal"
+
+- Thai Massaman Beef Curry
+  Cuisine: Asian
+  Keywords: "thai massaman beef curry", "asian recipe", "beef recipe", "high protein meal"
+
+- Mexican Chicken Mole Poblano
+  Cuisine: Mexican
+  Keywords: "mexican chicken mole poblano", "mexican recipe", "chicken dinner", "high protein"
+
+- Grilled Chicken Caesar Salad
+  Cuisine: American
+  Keywords: "grilled chicken caesar salad", "american recipe", "chicken dinner", "high protein", "healthy salad"
+
+- Mediterranean Quinoa Bowl
+  Cuisine: Mediterranean
+  Keywords: "mediterranean quinoa bowl", "mediterranean recipe", "healthy salad", "low carb dinner"
+
+- Thai Chicken Peanut Wraps
+  Cuisine: Asian
+  Keywords: "thai chicken peanut wraps", "asian recipe", "chicken dinner", "high protein"
+
+- Roasted Tomato & Basil Soup
+  Cuisine: American
+  Keywords: "roasted tomato  basil soup", "american recipe", "healthy soup", "comfort food"
+
+- Fusilli Pesto Pasta Salad
+  Cuisine: Italian
+  Keywords: "fusilli pesto pasta salad", "italian recipe", "healthy salad", "low carb dinner", "healthy pasta"
+
+- Spicy Tuna Sushi Bowl
+  Cuisine: Asian
+  Keywords: "spicy tuna sushi bowl", "asian recipe", "seafood recipe", "healthy pescatarian", "healthy salad"
+
+- Gourmet Chicken Club Sandwich
+  Cuisine: American
+  Keywords: "gourmet chicken club sandwich", "american recipe", "chicken dinner", "high protein"
+
+- Herb Lentil & Spinach Salad
+  Cuisine: American
+  Keywords: "herb lentil  spinach salad", "american recipe", "healthy salad", "low carb dinner"
+
+- Vietnamese Chicken Banh Mi
+  Cuisine: American
+  Keywords: "vietnamese chicken banh mi", "american recipe", "chicken dinner", "high protein"
+
+- Mediterranean Falafel Wrap
+  Cuisine: Mediterranean
+  Keywords: "mediterranean falafel wrap", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Classic Hawaiian Poke Bowl
+  Cuisine: American
+  Keywords: "classic hawaiian poke bowl", "american recipe", "healthy salad", "low carb dinner"
+
+- Andalusian Gazpacho Soup
+  Cuisine: American
+  Keywords: "andalusian gazpacho soup", "american recipe", "healthy soup", "comfort food"
+
+- Thai Pomelo Salad (Yam Som-O)
+  Cuisine: Asian
+  Keywords: "thai pomelo salad yam somo", "asian recipe", "healthy salad", "low carb dinner"
+
+- Moroccan Couscous Salad
+  Cuisine: Mediterranean
+  Keywords: "moroccan couscous salad", "mediterranean recipe", "healthy salad", "low carb dinner"
+
+- Baja Shrimp Tacos
+  Cuisine: Mexican
+  Keywords: "baja shrimp tacos", "mexican recipe", "seafood recipe", "healthy pescatarian"
+
+- Mediterranean Mezze Platter
+  Cuisine: Mediterranean
+  Keywords: "mediterranean mezze platter", "mediterranean recipe", "healthy eating", "easy recipe"
+
+- Vietnamese Chicken Banh Mi
+  Cuisine: American
+  Keywords: "vietnamese chicken banh mi", "american recipe", "chicken dinner", "high protein"
+
+- Classic Cobb Salad with Avocado
+  Cuisine: American
+  Keywords: "classic cobb salad with avocado", "american recipe", "healthy salad", "low carb dinner"
+
+- Thai Green Papaya Salad (Som Tum)
+  Cuisine: Asian
+  Keywords: "thai green papaya salad som tum", "asian recipe", "healthy salad", "low carb dinner"
+
+- Spinach & Goat Cheese Frittata
+  Cuisine: American
+  Keywords: "spinach  goat cheese frittata", "american recipe", "healthy breakfast", "morning meal"
+
+- Double Chocolate Lava Cake
+  Cuisine: American
+  Keywords: "double chocolate lava cake", "american recipe", "healthy eating", "easy recipe"
+
+- Classic Tiramisu
+  Cuisine: American
+  Keywords: "classic tiramisu", "american recipe", "healthy eating", "easy recipe"
+
+- Fresh Strawberry Cheescake
+  Cuisine: American
+  Keywords: "fresh strawberry cheescake", "american recipe", "healthy eating", "easy recipe"
+
+- Vanilla Bean Crème Brûlée
+  Cuisine: American
+  Keywords: "vanilla bean crme brle", "american recipe", "healthy eating", "easy recipe"
+
+- Lemon Meringue Tart
+  Cuisine: American
+  Keywords: "lemon meringue tart", "american recipe", "healthy eating", "easy recipe"
+
+- Warm Apple Crumble
+  Cuisine: American
+  Keywords: "warm apple crumble", "american recipe", "healthy eating", "easy recipe"
+
+- Fudgy Walnut Brownies
+  Cuisine: American
+  Keywords: "fudgy walnut brownies", "american recipe", "healthy eating", "easy recipe"
+
+- Mango Sticky Rice
+  Cuisine: American
+  Keywords: "mango sticky rice", "american recipe", "healthy eating", "easy recipe"
+
+- Parisian Almond Macarons
+  Cuisine: American
+  Keywords: "parisian almond macarons", "american recipe", "healthy eating", "easy recipe"
+
+- Sicilian Pistachio Cannoli
+  Cuisine: American
+  Keywords: "sicilian pistachio cannoli", "american recipe", "healthy eating", "easy recipe"
+
+- Matcha Mille Crepe Cake
+  Cuisine: Asian
+  Keywords: "matcha mille crepe cake", "asian recipe", "healthy eating", "easy recipe"
+
+- Churros with Chocolate Ganache
+  Cuisine: American
+  Keywords: "churros with chocolate ganache", "american recipe", "healthy eating", "easy recipe"
+
+- Turkish Pistachio Baklava
+  Cuisine: American
+  Keywords: "turkish pistachio baklava", "american recipe", "healthy eating", "easy recipe"
+
+- Arabic Rosewater Muhallabia
+  Cuisine: American
+  Keywords: "arabic rosewater muhallabia", "american recipe", "healthy eating", "easy recipe"
+
+- Croquembouche Profiteroles
+  Cuisine: American
+  Keywords: "croquembouche profiteroles", "american recipe", "healthy eating", "easy recipe"
+
+- Iced Matcha Latte
+  Cuisine: Asian
+  Keywords: "iced matcha latte", "asian recipe", "healthy eating", "easy recipe"
+
+- Classic Mojito Mocktail
+  Cuisine: American
+  Keywords: "classic mojito mocktail", "american recipe", "healthy eating", "easy recipe"
+
+- Green Detox Smoothie
+  Cuisine: American
+  Keywords: "green detox smoothie", "american recipe", "healthy breakfast", "morning meal"
+
+- Berry Hibiscus Iced Tea
+  Cuisine: American
+  Keywords: "berry hibiscus iced tea", "american recipe", "healthy eating", "easy recipe"
+
+- Turmeric Ginger Golden Milk
+  Cuisine: American
+  Keywords: "turmeric ginger golden milk", "american recipe", "healthy eating", "easy recipe"
+
+- Double Espresso Macchiato
+  Cuisine: American
+  Keywords: "double espresso macchiato", "american recipe", "healthy eating", "easy recipe"
+
+- Fresh Watermelon Cooler
+  Cuisine: American
+  Keywords: "fresh watermelon cooler", "american recipe", "healthy eating", "easy recipe"
+
+- Chai Tea Latte
+  Cuisine: American
+  Keywords: "chai tea latte", "american recipe", "healthy eating", "easy recipe"
+
+- Anti-Inflammatory Ginger Turmeric Tea
+  Cuisine: American
+  Keywords: "antiinflammatory ginger turmeric tea", "american recipe", "healthy eating", "easy recipe"
+
+- Mint & Cucumber Spa Water
+  Cuisine: American
+  Keywords: "mint  cucumber spa water", "american recipe", "healthy eating", "easy recipe"
+
+- Watermelon Lime Hydrator
+  Cuisine: American
+  Keywords: "watermelon lime hydrator", "american recipe", "healthy eating", "easy recipe"
+
+- Healthy Cacao Hot Chocolate
+  Cuisine: American
+  Keywords: "healthy cacao hot chocolate", "american recipe", "healthy eating", "easy recipe"
+
+- Blue Butterfly Pea flower Tea
+  Cuisine: American
+  Keywords: "blue butterfly pea flower tea", "american recipe", "healthy eating", "easy recipe"
+
+- Traditional Egyptian Karkade Tea
+  Cuisine: American
+  Keywords: "traditional egyptian karkade tea", "american recipe", "healthy eating", "easy recipe"
+
+- Ultimate Green Detox Juice
+  Cuisine: American
+  Keywords: "ultimate green detox juice", "american recipe", "healthy eating", "easy recipe"
+
+- Mango Lassi with Cardamom
+  Cuisine: American
+  Keywords: "mango lassi with cardamom", "american recipe", "healthy eating", "easy recipe"
+
+- Classic Mojito Mocktail
+  Cuisine: American
+  Keywords: "classic mojito mocktail", "american recipe", "healthy eating", "easy recipe"
+
+- Homemade Fresh Lemonade
+  Cuisine: American
+  Keywords: "homemade fresh lemonade", "american recipe", "healthy eating", "easy recipe"
+
+- Iced Caramel Macchiato
+  Cuisine: American
+  Keywords: "iced caramel macchiato", "american recipe", "healthy eating", "easy recipe"
+
+- Watermelon Mint Cooler
+  Cuisine: American
+  Keywords: "watermelon mint cooler", "american recipe", "healthy eating", "easy recipe"
+
+- Dragon Fruit Lemonade
+  Cuisine: American
+  Keywords: "dragon fruit lemonade", "american recipe", "healthy eating", "easy recipe"
+
+- Magic Butterfly Pea Lemonade
+  Cuisine: American
+  Keywords: "magic butterfly pea lemonade", "american recipe", "healthy eating", "easy recipe"
+
+- Whipped Strawberry Milk
+  Cuisine: American
+  Keywords: "whipped strawberry milk", "american recipe", "healthy eating", "easy recipe"
+
+- Iced Lavender Honey Latte
+  Cuisine: American
+  Keywords: "iced lavender honey latte", "american recipe", "healthy eating", "easy recipe"
+
+- Lean Turkey Power Bowl
+  Cuisine: American
+  Keywords: "lean turkey power bowl", "american recipe", "healthy salad", "low carb dinner"
+
+- Post-Workout Berry Protein Shake
+  Cuisine: American
+  Keywords: "postworkout berry protein shake", "american recipe", "healthy eating", "easy recipe"
+
+- Egg White & Spinach Omelette
+  Cuisine: American
+  Keywords: "egg white  spinach omelette", "american recipe", "healthy breakfast", "morning meal"
+
+- Low-Carb Zucchini Noodles (Zoodles)
+  Cuisine: American
+  Keywords: "lowcarb zucchini noodles zoodles", "american recipe", "healthy eating", "easy recipe"
+
+- Quinoa and Black Bean Salad
+  Cuisine: American
+  Keywords: "quinoa and black bean salad", "american recipe", "healthy salad", "low carb dinner"
+
+- Grilled Tuna Steak & Greens
+  Cuisine: American
+  Keywords: "grilled tuna steak  greens", "american recipe", "beef recipe", "high protein meal", "seafood recipe"
+
+- Sweet Potato and Lentil Curry
+  Cuisine: Indian
+  Keywords: "sweet potato and lentil curry", "indian recipe", "healthy eating", "easy recipe"
+
+- Healthy Greek Chicken Skewers
+  Cuisine: Mediterranean
+  Keywords: "healthy greek chicken skewers", "mediterranean recipe", "chicken dinner", "high protein"
+
+- Mediterranean Baked Cod with Lemon
+  Cuisine: Mediterranean
+  Keywords: "mediterranean baked cod with lemon", "mediterranean recipe", "seafood recipe", "healthy pescatarian"
+
+- High-Protein Lentil & Halloumi Bowl
+  Cuisine: Mediterranean
+  Keywords: "highprotein lentil  halloumi bowl", "mediterranean recipe", "healthy salad", "low carb dinner"
+
+- Lean Turkey and Spinach Meatballs
+  Cuisine: American
+  Keywords: "lean turkey and spinach meatballs", "american recipe", "beef recipe", "high protein meal"
+
+- Protein Berry Breakfast Bowl
+  Cuisine: American
+  Keywords: "protein berry breakfast bowl", "american recipe", "healthy salad", "low carb dinner", "healthy breakfast"
+
+- Teriyaki Tofu Fitness Stir-Fry
+  Cuisine: Asian
+  Keywords: "teriyaki tofu fitness stirfry", "asian recipe", "vegan recipe", "plant based meal"
+
+- Mexican Shredded Chicken Salad
+  Cuisine: Mexican
+  Keywords: "mexican shredded chicken salad", "mexican recipe", "chicken dinner", "high protein", "healthy salad"
+
+- Quick Protein Oat Pancakes
+  Cuisine: American
+  Keywords: "quick protein oat pancakes", "american recipe", "healthy breakfast", "morning meal"
+
+- Zesty Lemon Thyme Tilapia
+  Cuisine: American
+  Keywords: "zesty lemon thyme tilapia", "american recipe", "healthy eating", "easy recipe"
+
+- Lentil and Spinach Superfood Soup
+  Cuisine: American
+  Keywords: "lentil and spinach superfood soup", "american recipe", "healthy soup", "comfort food"
+
+- Mediterranean Egg White Omelet
+  Cuisine: Mediterranean
+  Keywords: "mediterranean egg white omelet", "mediterranean recipe", "healthy breakfast", "morning meal"
+
+- Buffalo Cauliflower Bites
+  Cuisine: American
+  Keywords: "buffalo cauliflower bites", "american recipe", "healthy eating", "easy recipe"
+
+- Chipotle Lime Shrimp Tacos
+  Cuisine: Mexican
+  Keywords: "chipotle lime shrimp tacos", "mexican recipe", "seafood recipe", "healthy pescatarian"
+
+- Honey Garlic Chicken Meal Prep
+  Cuisine: American
+  Keywords: "honey garlic chicken meal prep", "american recipe", "chicken dinner", "high protein"
+
+- Tiramisu Overnight Oats
+  Cuisine: American
+  Keywords: "tiramisu overnight oats", "american recipe", "healthy breakfast", "morning meal"
+
+- Strawberry Spinach Salad
+  Cuisine: American
+  Keywords: "strawberry spinach salad", "american recipe", "healthy salad", "low carb dinner"
+
+- Air Fryer Crispy Parmesan Potatoes
+  Cuisine: Italian
+  Keywords: "air fryer crispy parmesan potatoes", "italian recipe", "healthy eating", "easy recipe"
+
+- The Ultimate Iced Pistachio Latte
+  Cuisine: American
+  Keywords: "the ultimate iced pistachio latte", "american recipe", "healthy eating", "easy recipe"
+
+- Viral 10-Minute High Protein Wrap
+  Cuisine: American
+  Keywords: "viral 10minute high protein wrap", "american recipe", "healthy eating", "easy recipe"
+
+- Avocado & Hot Honey Halloumi Toast
+  Cuisine: Mediterranean
+  Keywords: "avocado  hot honey halloumi toast", "mediterranean recipe", "healthy breakfast", "morning meal"
+
+- Crispy Rice & Spicy Salmon Bites
+  Cuisine: American
+  Keywords: "crispy rice  spicy salmon bites", "american recipe", "seafood recipe", "healthy pescatarian"
+
+- Matcha Chia Pudding with Berries
+  Cuisine: Asian
+  Keywords: "matcha chia pudding with berries", "asian recipe", "healthy eating", "easy recipe"
+
+- Mediterranean Hummus Board
+  Cuisine: Mediterranean
+  Keywords: "mediterranean hummus board", "mediterranean recipe", "healthy eating", "easy recipe"
+
+Ambiguous List:
+- Viral Shaved Fruit Yogurt Bowl
+- Viral Turkish Eggs (Cilbir)
+- Viral Upside-Down Apple Pastry
+- Glow Breakfast Platter
+- Spanish Tortilla
+- Pistachio Baklava
+- Double Cheeseburger
+- Salmon Grilled Cheese
+- Garlic Butter Steak & Mash
+- Gourmet T-Bone & Wedges
+- Honey Garlic Glazed Salmon
+- Crispy Chicken & Fries
+- Roasted Chicken & Veggies
+- Creamy Garlic Shrimp
+- Garlic Butter Salmon
+- Gourmet Grilled Sea Bass
+- Garlic Butter Steak
+- Premium Beef Shish Kebabs
+- Honey Garlic Glazed Salmon
+- Slow-Cooked Beef Ribs
+- Pan-Seared Duck Breast
+- Creamy Seafood Paella
+- Lamb Chops with Herb Chimichurri
+- Braised Lamb Shanks
+- Crispy Hot Honey Chicken
+- Gourmet Beef Wellington Slices
+- Sea Bass with Lemon Caper Butter
+- Ribeye Steak with Chimichurri Butter
+- Molten Chocolate Lava Cake
+- San Sebastian Burnt Cheesecake
+- New York Strawberry Cheesecake
+- Premium Lotus Biscoff Mousse
+- Red Velvet Lava Cookies
+- Mango Sago Coconut Panna Cotta
+- Fudgy Hazelnut Brownie Towers
+- Gourmet Salted Caramel Profiteroles
+- Vibrant Berry Pavlova Clouds
+- Artisanal Churros with Dark Ganache
+- Gourmet White Chocolate Raspberry Macarons
+- Premium Blue Lagoon Mocktail
+- Classic Fresh Passion Fruit Mojito
+- Creamy Spanish Iced Latte (Café con Bonbón)
+- Gourmet Creamy Pistachio Milkshake
+- Sparkling Pomegranate Rose Mocktail
+- Salted Caramel Cold Brew Foam
+- Fresh Ginger Lemonade Infusion
+- Creamy Lotus Biscoff Frappé
+- Sparkling Hibiscus Berry Tea
+- Creamy Iced Taro Bubble Tea
+- Fresh Cucumber Mint Cooler
+- Ultimate Belgian Hot Chocolate
+- Gourmet Deep-Dish Pepperoni Meat Pie
+- Yummy Berry Yogurt Parfait (Healthy Dessert)
+- Fudgy High-Protein Chocolate Brownies
+- Edible Glitter Pink Lemonade Mocktail
+- High-Protein Salmon & Quinoa Bowl
+- Lean Grilled Chicken Breast & Sweet Potato
+- Egg White & Turkey Bacon Frittata
+- Lean Turkey Meatballs & Zoodles
+- High-Protein Berry Cottage Cheese Bowl
+- Premium Cod Fillet & Jasmine Rice
+- Healthy Chicken Avocado Salad
+- Savory Lean Beef & Broccoli Bowl
+- Spiced Lentil & Spinach Stew
+- Viral Cottage Cheese Flatbread
+- Creamy Honey Mustard Chicken Meal Prep
+- Green Goddess Tuna Salad Boat
+- Viral Yogurt Bowl
+- Upside Down Apple Pastry (Diet Version)
+- Viral Avocado Egg Boat (2026 High Protein Hack)
+- Crispy Air-Fryer Tofu (Low Calorie & Clean Eating)
+- Viral Berries & Cream Chia Pudding (Post-Workout & Weight Loss)
+- Viral Loaded Protein Bagel Panini (Muscle Gain & Post-Workout)
+- Viral Green Goddess Chicken Bowl (Clean Eating & Meal Prep)
+- Viral Bison & Sweet Potato Bowl (High Protein Muscle Gain)
+- Avocado & Poached Egg Sourdough
+- Blueberry Oat Protein Pancakes
+- Spinach & Goat Cheese Frittata
+- Smoked Salmon & Caper Bagel
+- Turkish Eggs (Cilbir)
+- Chilaquiles Verdes
+- Croque Madame
+- Classic Eggs Benedict
+- Belgian Waffles with Strawberry Compote
+- Tofu Scramble with Turmeric & Kale
+- Swedish Cardamom Buns
+- Smoked Salmon & Avocado Eggs Benedict
+- Baked Apple Cinnamon Steel-Cut Oats
+- Pan-Seared Salmon with Asparagus
+- Lemon Garlic Shrimp Scampi
+- Classic Roast Chicken with Herbs
+- Cauliflower Steak with Chimichurri
+- Honey Soy Glazed Duck Breast
+- Beef Enchiladas with Red Sauce
+- Peruvian Lomo Saltado
+- Herb-Crusted Rack of Lamb
+- Crispy Skin Duck Breast with Cherry Sauce
+- Vegetarian Eggplant Mousaka
+- Swedish Meatballs with Lingonberry Jam
+- Grilled Ribeye with Garlic Butter
+- Seafood Paella with Saffron
+- Herb-Crusted Rack of Lamb
+- Vegetarian Buddha Bowl
+- Duck à l
+- Marseille-Style Bouillabaisse
+- Lucknowi Lamb Biryani
+- Veal Saltimbocca alla Romana
+- Grilled Chicken Caesar Salad
+- Roasted Tomato & Basil Soup
+- Herb Lentil & Spinach Salad
+- Vietnamese Chicken Banh Mi
+- Classic Hawaiian Poke Bowl
+- Andalusian Gazpacho Soup
+- Vietnamese Chicken Banh Mi
+- Classic Cobb Salad with Avocado
+- Spinach & Goat Cheese Frittata
+- Double Chocolate Lava Cake
+- Classic Tiramisu
+- Fresh Strawberry Cheescake
+- Vanilla Bean Crème Brûlée
+- Lemon Meringue Tart
+- Warm Apple Crumble
+- Fudgy Walnut Brownies
+- Mango Sticky Rice
+- Parisian Almond Macarons
+- Sicilian Pistachio Cannoli
+- Churros with Chocolate Ganache
+- Turkish Pistachio Baklava
+- Arabic Rosewater Muhallabia
+- Croquembouche Profiteroles
+- Classic Mojito Mocktail
+- Berry Hibiscus Iced Tea
+- Turmeric Ginger Golden Milk
+- Double Espresso Macchiato
+- Fresh Watermelon Cooler
+- Chai Tea Latte
+- Anti-Inflammatory Ginger Turmeric Tea
+- Mint & Cucumber Spa Water
+- Watermelon Lime Hydrator
+- Healthy Cacao Hot Chocolate
+- Blue Butterfly Pea flower Tea
+- Traditional Egyptian Karkade Tea
+- Ultimate Green Detox Juice
+- Mango Lassi with Cardamom
+- Classic Mojito Mocktail
+- Homemade Fresh Lemonade
+- Iced Caramel Macchiato
+- Watermelon Mint Cooler
+- Dragon Fruit Lemonade
+- Magic Butterfly Pea Lemonade
+- Whipped Strawberry Milk
+- Iced Lavender Honey Latte
+- Lean Turkey Power Bowl
+- Post-Workout Berry Protein Shake
+- Egg White & Spinach Omelette
+- Low-Carb Zucchini Noodles (Zoodles)
+- Quinoa and Black Bean Salad
+- Grilled Tuna Steak & Greens
+- Lean Turkey and Spinach Meatballs
+- Protein Berry Breakfast Bowl
+- Quick Protein Oat Pancakes
+- Zesty Lemon Thyme Tilapia
+- Lentil and Spinach Superfood Soup
+- Honey Garlic Chicken Meal Prep
+- Tiramisu Overnight Oats
+- Strawberry Spinach Salad
+- The Ultimate Iced Pistachio Latte

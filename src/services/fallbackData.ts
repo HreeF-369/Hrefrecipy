@@ -5,6 +5,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1001,
     title: "Avocado & Poached Egg Sourdough",
+    keywords: ["avocado  poached egg sourdough", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -41,6 +43,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1002,
     title: "Blueberry Oat Protein Pancakes",
+    keywords: ["blueberry oat protein pancakes", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -77,6 +81,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1003,
     title: "Classic Shakshuka with Feta",
+    keywords: ["classic shakshuka with feta", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1590412200988-a436970781fa?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -113,6 +119,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1004,
     title: "Greek Yogurt Berry Parfait",
+    keywords: ["greek yogurt berry parfait", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -149,6 +157,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1005,
     title: "Spinach & Goat Cheese Frittata",
+    keywords: ["spinach  goat cheese frittata", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1510629954389-c1e0da47d414?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -185,6 +195,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1006,
     title: "Smoked Salmon & Caper Bagel",
+    keywords: ["smoked salmon  caper bagel", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1493770348161-3695013b281f?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -221,6 +233,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1007,
     title: "Almond Butter & Berry Oatmeal",
+    keywords: ["almond butter  berry oatmeal", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1490645935967-1356e8918bf5?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -257,6 +271,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1008,
     title: "Smoothie Bowl with Tropical Fruit",
+    keywords: ["smoothie bowl with tropical fruit", "american recipe", "healthy salad", "low carb dinner", "healthy breakfast"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1533089860861-bb08cb0f29c0?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -293,6 +309,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1009,
     title: "Turkish Eggs (Cilbir)",
+    keywords: ["turkish eggs cilbir", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -329,6 +347,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1010,
     title: "Japanese Soufflé Pancakes",
+    keywords: ["japanese souffl pancakes", "asian recipe", "healthy breakfast", "morning meal"],
+    cuisine: "Asian",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -365,6 +385,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1011,
     title: "Chilaquiles Verdes",
+    keywords: ["chilaquiles verdes", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -401,6 +423,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1012,
     title: "Croque Madame",
+    keywords: ["croque madame", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1493770348161-3695013b281f?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -437,6 +461,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1013,
     title: "Moroccan Msemen with Honey",
+    keywords: ["moroccan msemen with honey", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1549931319-a5d13ea95146?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -473,6 +499,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1014,
     title: "Classic Eggs Benedict",
+    keywords: ["classic eggs benedict", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1600335895229-6e75511ee94b?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -509,6 +537,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1015,
     title: "Indian Masala Omelette",
+    keywords: ["indian masala omelette", "indian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Indian",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1494597564530-8595aa459aa3?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -545,6 +575,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1016,
     title: "Belgian Waffles with Strawberry Compote",
+    keywords: ["belgian waffles with strawberry compote", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -581,6 +613,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1017,
     title: "Tofu Scramble with Turmeric & Kale",
+    keywords: ["tofu scramble with turmeric  kale", "american recipe", "vegan recipe", "plant based meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -617,6 +651,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1018,
     title: "Swedish Cardamom Buns",
+    keywords: ["swedish cardamom buns", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 120,
@@ -653,6 +689,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1019,
     title: "Smoked Salmon & Avocado Eggs Benedict",
+    keywords: ["smoked salmon  avocado eggs benedict", "american recipe", "seafood recipe", "healthy pescatarian", "healthy breakfast"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1600335895229-6e75511ee94b?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -689,6 +727,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 1020,
     title: "Baked Apple Cinnamon Steel-Cut Oats",
+    keywords: ["baked apple cinnamon steelcut oats", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1490645935967-1356e8918bf5?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 50,
@@ -727,6 +767,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3001,
     title: "Pan-Seared Salmon with Asparagus",
+    keywords: ["panseared salmon with asparagus", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -763,6 +805,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3002,
     title: "Beef & Broccoli Stir-Fry",
+    keywords: ["beef  broccoli stirfry", "asian recipe", "beef recipe", "high protein meal"],
+    cuisine: "Asian",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1512058560566-42724afbc1db?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -799,6 +843,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3003,
     title: "Wild Mushroom Risotto",
+    keywords: ["wild mushroom risotto", "italian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Italian",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -835,6 +881,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3004,
     title: "Lemon Garlic Shrimp Scampi",
+    keywords: ["lemon garlic shrimp scampi", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -871,6 +919,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3005,
     title: "Classic Roast Chicken with Herbs",
+    keywords: ["classic roast chicken with herbs", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 90,
@@ -907,6 +957,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3006,
     title: "Pesto Stuffed Chicken Breast",
+    keywords: ["pesto stuffed chicken breast", "italian recipe", "chicken dinner", "high protein"],
+    cuisine: "Italian",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 35,
@@ -943,6 +995,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3007,
     title: "Cauliflower Steak with Chimichurri",
+    keywords: ["cauliflower steak with chimichurri", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1625943555419-56a2cb596640?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -979,6 +1033,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3008,
     title: "Honey Soy Glazed Duck Breast",
+    keywords: ["honey soy glazed duck breast", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -1015,6 +1071,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3009,
     title: "French Coq au Vin",
+    keywords: ["french coq au vin", "french recipe", "healthy eating", "easy recipe"],
+    cuisine: "French",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 90,
@@ -1051,6 +1109,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3010,
     title: "Indian Butter Chicken (Murgh Makhani)",
+    keywords: ["indian butter chicken murgh makhani", "indian recipe", "chicken dinner", "high protein"],
+    cuisine: "Indian",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1603894584202-9ca82439f092?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -1087,6 +1147,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3011,
     title: "Chicken Teriyaki with Steamed Broccoli",
+    keywords: ["chicken teriyaki with steamed broccoli", "asian recipe", "chicken dinner", "high protein"],
+    cuisine: "Asian",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1598514983318-29141990e14c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -1123,6 +1185,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3012,
     title: "Beef Enchiladas with Red Sauce",
+    keywords: ["beef enchiladas with red sauce", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1533777324565-a040eb52faf1?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -1159,6 +1223,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3013,
     title: "Peruvian Lomo Saltado",
+    keywords: ["peruvian lomo saltado", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -1195,6 +1261,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3014,
     title: "Greek Moussaka",
+    keywords: ["greek moussaka", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1540185373-b39f1df93a11?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 75,
@@ -1231,6 +1299,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3015,
     title: "Thai Green Curry",
+    keywords: ["thai green curry", "asian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Asian",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -1267,6 +1337,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3016,
     title: "Herb-Crusted Rack of Lamb",
+    keywords: ["herbcrusted rack of lamb", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1544025162-d7659a7a8d14?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -1303,6 +1375,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3017,
     title: "Crispy Skin Duck Breast with Cherry Sauce",
+    keywords: ["crispy skin duck breast with cherry sauce", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1511910849309-0dffb8785146?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -1339,6 +1413,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3018,
     title: "Thai Red Curry with Roasted Duck",
+    keywords: ["thai red curry with roasted duck", "asian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Asian",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 35,
@@ -1375,6 +1451,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3019,
     title: "Coq au Vin (French Chicken in Red Wine)",
+    keywords: ["coq au vin french chicken in red wine", "french recipe", "chicken dinner", "high protein"],
+    cuisine: "French",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 90,
@@ -1411,6 +1489,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 3020,
     title: "Moroccan Lamb Tagine",
+    keywords: ["moroccan lamb tagine", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "dinner",
     image: "https://images.unsplash.com/photo-1541518763669-279f0491753a?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 120,
@@ -1449,6 +1529,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4001,
     title: "Hearty Beef Lasagna",
+    keywords: ["hearty beef lasagna", "italian recipe", "beef recipe", "high protein meal"],
+    cuisine: "Italian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 75,
@@ -1485,6 +1567,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4016,
     title: "Whole Roasted Mediterranean Sea Bass",
+    keywords: ["whole roasted mediterranean sea bass", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -1521,6 +1605,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4017,
     title: "Vegetarian Eggplant Mousaka",
+    keywords: ["vegetarian eggplant mousaka", "american recipe", "vegan recipe", "plant based meal", "healthy breakfast"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1540185373-b39f1df93a11?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 60,
@@ -1557,6 +1643,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4018,
     title: "Crispy Korean Fried Chicken",
+    keywords: ["crispy korean fried chicken", "asian recipe", "chicken dinner", "high protein"],
+    cuisine: "Asian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -1593,6 +1681,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4019,
     title: "Swedish Meatballs with Lingonberry Jam",
+    keywords: ["swedish meatballs with lingonberry jam", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1529692236671-fd7668612fab?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -1629,6 +1719,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4020,
     title: "Indian Butter Chicken (Murgh Makhani)",
+    keywords: ["indian butter chicken murgh makhani", "indian recipe", "chicken dinner", "high protein"],
+    cuisine: "Indian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 50,
@@ -1665,6 +1757,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4002,
     title: "Grilled Ribeye with Garlic Butter",
+    keywords: ["grilled ribeye with garlic butter", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1546241072-48010ad28c2c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -1701,6 +1795,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4003,
     title: "Seafood Paella with Saffron",
+    keywords: ["seafood paella with saffron", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1534080564617-319a94168019?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 50,
@@ -1737,6 +1833,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4004,
     title: "Chicken Tikka Masala",
+    keywords: ["chicken tikka masala", "indian recipe", "chicken dinner", "high protein"],
+    cuisine: "Indian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -1773,6 +1871,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4005,
     title: "Herb-Crusted Rack of Lamb",
+    keywords: ["herbcrusted rack of lamb", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -1809,6 +1909,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4006,
     title: "Vegetarian Buddha Bowl",
+    keywords: ["vegetarian buddha bowl", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -1845,6 +1947,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4007,
     title: "Osso Buco with Risotto",
+    keywords: ["osso buco with risotto", "italian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Italian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 120,
@@ -1917,6 +2021,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4009,
     title: "Japanese Wagyu Ribeye Steak",
+    keywords: ["japanese wagyu ribeye steak", "asian recipe", "beef recipe", "high protein meal"],
+    cuisine: "Asian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -1951,6 +2057,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4010,
     title: "Marseille-Style Bouillabaisse",
+    keywords: ["marseillestyle bouillabaisse", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1534080564617-319a94168019?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 60,
@@ -1987,6 +2095,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4011,
     title: "Lucknowi Lamb Biryani",
+    keywords: ["lucknowi lamb biryani", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 80,
@@ -2023,6 +2133,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4012,
     title: "Veal Saltimbocca alla Romana",
+    keywords: ["veal saltimbocca alla romana", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2057,6 +2169,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4013,
     title: "Moroccan Beef & Prune Tagine",
+    keywords: ["moroccan beef  prune tagine", "mediterranean recipe", "beef recipe", "high protein meal"],
+    cuisine: "Mediterranean",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 120,
@@ -2093,6 +2207,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4014,
     title: "Thai Massaman Beef Curry",
+    keywords: ["thai massaman beef curry", "asian recipe", "beef recipe", "high protein meal"],
+    cuisine: "Asian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -2129,6 +2245,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 4015,
     title: "Mexican Chicken Mole Poblano",
+    keywords: ["mexican chicken mole poblano", "mexican recipe", "chicken dinner", "high protein"],
+    cuisine: "Mexican",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 60,
@@ -2166,6 +2284,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2001,
     title: "Grilled Chicken Caesar Salad",
+    keywords: ["grilled chicken caesar salad", "american recipe", "chicken dinner", "high protein", "healthy salad"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -2202,6 +2322,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2002,
     title: "Mediterranean Quinoa Bowl",
+    keywords: ["mediterranean quinoa bowl", "mediterranean recipe", "healthy salad", "low carb dinner"],
+    cuisine: "Mediterranean",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2238,6 +2360,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2003,
     title: "Thai Chicken Peanut Wraps",
+    keywords: ["thai chicken peanut wraps", "asian recipe", "chicken dinner", "high protein"],
+    cuisine: "Asian",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1544618779-40b9dc65d35d?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2274,6 +2398,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2004,
     title: "Roasted Tomato & Basil Soup",
+    keywords: ["roasted tomato  basil soup", "american recipe", "healthy soup", "comfort food"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -2310,6 +2436,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2005,
     title: "Fusilli Pesto Pasta Salad",
+    keywords: ["fusilli pesto pasta salad", "italian recipe", "healthy salad", "low carb dinner", "healthy pasta"],
+    cuisine: "Italian",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2346,6 +2474,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2006,
     title: "Spicy Tuna Sushi Bowl",
+    keywords: ["spicy tuna sushi bowl", "asian recipe", "seafood recipe", "healthy pescatarian", "healthy salad"],
+    cuisine: "Asian",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1540185373-b39f1df93a11?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2382,6 +2512,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2007,
     title: "Gourmet Chicken Club Sandwich",
+    keywords: ["gourmet chicken club sandwich", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1606755968532-0262111d95f7?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2418,6 +2550,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2008,
     title: "Herb Lentil & Spinach Salad",
+    keywords: ["herb lentil  spinach salad", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1540420753444-42ea95267191?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2454,6 +2588,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2009,
     title: "Vietnamese Chicken Banh Mi",
+    keywords: ["vietnamese chicken banh mi", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -2490,6 +2626,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2010,
     title: "Mediterranean Falafel Wrap",
+    keywords: ["mediterranean falafel wrap", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1593504049359-74330189a345?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2526,6 +2664,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2011,
     title: "Classic Hawaiian Poke Bowl",
+    keywords: ["classic hawaiian poke bowl", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2562,6 +2702,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2012,
     title: "Andalusian Gazpacho Soup",
+    keywords: ["andalusian gazpacho soup", "american recipe", "healthy soup", "comfort food"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2598,6 +2740,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2013,
     title: "Thai Pomelo Salad (Yam Som-O)",
+    keywords: ["thai pomelo salad yam somo", "asian recipe", "healthy salad", "low carb dinner"],
+    cuisine: "Asian",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1546793665-c74683f339cf?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2634,6 +2778,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2014,
     title: "Moroccan Couscous Salad",
+    keywords: ["moroccan couscous salad", "mediterranean recipe", "healthy salad", "low carb dinner"],
+    cuisine: "Mediterranean",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2670,6 +2816,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2015,
     title: "Baja Shrimp Tacos",
+    keywords: ["baja shrimp tacos", "mexican recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "Mexican",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1512838243191-e81e8f66f1fd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2706,6 +2854,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2016,
     title: "Mediterranean Mezze Platter",
+    keywords: ["mediterranean mezze platter", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1544124499-58912cbddada?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -2742,6 +2892,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2017,
     title: "Vietnamese Chicken Banh Mi",
+    keywords: ["vietnamese chicken banh mi", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1600454021970-351feb4a503e?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2778,6 +2930,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2018,
     title: "Classic Cobb Salad with Avocado",
+    keywords: ["classic cobb salad with avocado", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2814,6 +2968,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2019,
     title: "Thai Green Papaya Salad (Som Tum)",
+    keywords: ["thai green papaya salad som tum", "asian recipe", "healthy salad", "low carb dinner"],
+    cuisine: "Asian",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1569058242253-92a9c73f0803?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2850,6 +3006,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 2020,
     title: "Spinach & Goat Cheese Frittata",
+    keywords: ["spinach  goat cheese frittata", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1594968973184-9140fa24776e?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2888,6 +3046,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5001,
     title: "Double Chocolate Lava Cake",
+    keywords: ["double chocolate lava cake", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -2924,6 +3084,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5002,
     title: "Classic Tiramisu",
+    keywords: ["classic tiramisu", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -2960,6 +3122,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5003,
     title: "Fresh Strawberry Cheescake",
+    keywords: ["fresh strawberry cheescake", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 60,
@@ -2996,6 +3160,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5004,
     title: "Vanilla Bean Crème Brûlée",
+    keywords: ["vanilla bean crme brle", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1470333738027-56ef4bc82b89?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -3032,6 +3198,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5005,
     title: "Lemon Meringue Tart",
+    keywords: ["lemon meringue tart", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 50,
@@ -3068,6 +3236,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5006,
     title: "Warm Apple Crumble",
+    keywords: ["warm apple crumble", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -3104,6 +3274,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5007,
     title: "Fudgy Walnut Brownies",
+    keywords: ["fudgy walnut brownies", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1543255006-d6395b6f1171?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -3140,6 +3312,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5008,
     title: "Mango Sticky Rice",
+    keywords: ["mango sticky rice", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 45,
@@ -3176,6 +3350,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5009,
     title: "Parisian Almond Macarons",
+    keywords: ["parisian almond macarons", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1558961776-6f5ec273639d?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 90,
@@ -3212,6 +3388,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5010,
     title: "Sicilian Pistachio Cannoli",
+    keywords: ["sicilian pistachio cannoli", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 40,
@@ -3248,6 +3426,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5011,
     title: "Matcha Mille Crepe Cake",
+    keywords: ["matcha mille crepe cake", "asian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Asian",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1536551061288-29424859a68a?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 120,
@@ -3284,6 +3464,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5012,
     title: "Churros with Chocolate Ganache",
+    keywords: ["churros with chocolate ganache", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1577224216956-65be797378fc?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -3320,6 +3502,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5013,
     title: "Turkish Pistachio Baklava",
+    keywords: ["turkish pistachio baklava", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 120,
@@ -3356,6 +3540,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5014,
     title: "Arabic Rosewater Muhallabia",
+    keywords: ["arabic rosewater muhallabia", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -3392,6 +3578,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5015,
     title: "Croquembouche Profiteroles",
+    keywords: ["croquembouche profiteroles", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "desserts",
     image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 90,
@@ -3430,6 +3618,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6001,
     title: "Iced Matcha Latte",
+    keywords: ["iced matcha latte", "asian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Asian",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3466,6 +3656,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6002,
     title: "Classic Mojito Mocktail",
+    keywords: ["classic mojito mocktail", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3502,6 +3694,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6003,
     title: "Green Detox Smoothie",
+    keywords: ["green detox smoothie", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1610970881699-44a55b4cfd93?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3538,6 +3732,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6004,
     title: "Berry Hibiscus Iced Tea",
+    keywords: ["berry hibiscus iced tea", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -3574,6 +3770,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6005,
     title: "Turmeric Ginger Golden Milk",
+    keywords: ["turmeric ginger golden milk", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544833095-18456729354d?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -3610,6 +3808,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6006,
     title: "Double Espresso Macchiato",
+    keywords: ["double espresso macchiato", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3646,6 +3846,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6007,
     title: "Fresh Watermelon Cooler",
+    keywords: ["fresh watermelon cooler", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1493606394243-7473b647000e?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3682,6 +3884,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6008,
     title: "Chai Tea Latte",
+    keywords: ["chai tea latte", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544787210-282aa592277d?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -3718,6 +3922,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6009,
     title: "Anti-Inflammatory Ginger Turmeric Tea",
+    keywords: ["antiinflammatory ginger turmeric tea", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -3754,6 +3960,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6010,
     title: "Mint & Cucumber Spa Water",
+    keywords: ["mint  cucumber spa water", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3787,6 +3995,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6011,
     title: "Watermelon Lime Hydrator",
+    keywords: ["watermelon lime hydrator", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1525904097878-94fb15835963?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3819,6 +4029,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6012,
     title: "Healthy Cacao Hot Chocolate",
+    keywords: ["healthy cacao hot chocolate", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -3853,6 +4065,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6013,
     title: "Blue Butterfly Pea flower Tea",
+    keywords: ["blue butterfly pea flower tea", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 8,
@@ -3886,6 +4100,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6014,
     title: "Traditional Egyptian Karkade Tea",
+    keywords: ["traditional egyptian karkade tea", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -3919,6 +4135,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6015,
     title: "Ultimate Green Detox Juice",
+    keywords: ["ultimate green detox juice", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -3955,6 +4173,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6016,
     title: "Mango Lassi with Cardamom",
+    keywords: ["mango lassi with cardamom", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1571006682855-3fc35578c658?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -3989,6 +4209,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6017,
     title: "Classic Mojito Mocktail",
+    keywords: ["classic mojito mocktail", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -4022,6 +4244,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6018,
     title: "Homemade Fresh Lemonade",
+    keywords: ["homemade fresh lemonade", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1523472721958-978152f4d69b?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4055,6 +4279,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6019,
     title: "Iced Caramel Macchiato",
+    keywords: ["iced caramel macchiato", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -4088,6 +4314,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6020,
     title: "Watermelon Mint Cooler",
+    keywords: ["watermelon mint cooler", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1547514701-427ec4462bdd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -4120,6 +4348,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6021,
     title: "Dragon Fruit Lemonade",
+    keywords: ["dragon fruit lemonade", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1546173159-315724a93c90?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -4154,6 +4384,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6022,
     title: "Magic Butterfly Pea Lemonade",
+    keywords: ["magic butterfly pea lemonade", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4187,6 +4419,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6023,
     title: "Whipped Strawberry Milk",
+    keywords: ["whipped strawberry milk", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1546452249-0b4caea408fe?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -4221,6 +4455,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 6024,
     title: "Iced Lavender Honey Latte",
+    keywords: ["iced lavender honey latte", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1572286258217-4e559c74539c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -4256,6 +4492,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7001,
     title: "Lean Turkey Power Bowl",
+    keywords: ["lean turkey power bowl", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -4292,6 +4530,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7002,
     title: "Post-Workout Berry Protein Shake",
+    keywords: ["postworkout berry protein shake", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1556810100-29b2955818d7?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -4328,6 +4568,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7003,
     title: "Egg White & Spinach Omelette",
+    keywords: ["egg white  spinach omelette", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1510629954389-c1e0da47d414?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -4364,6 +4606,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7004,
     title: "Low-Carb Zucchini Noodles (Zoodles)",
+    keywords: ["lowcarb zucchini noodles zoodles", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4400,6 +4644,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7005,
     title: "Quinoa and Black Bean Salad",
+    keywords: ["quinoa and black bean salad", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4436,6 +4682,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7006,
     title: "Grilled Tuna Steak & Greens",
+    keywords: ["grilled tuna steak  greens", "american recipe", "beef recipe", "high protein meal", "seafood recipe"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1540185373-b39f1df93a11?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4472,6 +4720,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7007,
     title: "Sweet Potato and Lentil Curry",
+    keywords: ["sweet potato and lentil curry", "indian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Indian",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1540420753444-42ea95267191?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -4508,6 +4758,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7008,
     title: "Healthy Greek Chicken Skewers",
+    keywords: ["healthy greek chicken skewers", "mediterranean recipe", "chicken dinner", "high protein"],
+    cuisine: "Mediterranean",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1598511726623-d306509f7a93?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -4544,6 +4796,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7009,
     title: "Mediterranean Baked Cod with Lemon",
+    keywords: ["mediterranean baked cod with lemon", "mediterranean recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "Mediterranean",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -4580,6 +4834,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7010,
     title: "High-Protein Lentil & Halloumi Bowl",
+    keywords: ["highprotein lentil  halloumi bowl", "mediterranean recipe", "healthy salad", "low carb dinner"],
+    cuisine: "Mediterranean",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1540420753444-42ea95267191?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4616,6 +4872,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7011,
     title: "Lean Turkey and Spinach Meatballs",
+    keywords: ["lean turkey and spinach meatballs", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -4652,6 +4910,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7012,
     title: "Protein Berry Breakfast Bowl",
+    keywords: ["protein berry breakfast bowl", "american recipe", "healthy salad", "low carb dinner", "healthy breakfast"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -4688,6 +4948,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7013,
     title: "Teriyaki Tofu Fitness Stir-Fry",
+    keywords: ["teriyaki tofu fitness stirfry", "asian recipe", "vegan recipe", "plant based meal"],
+    cuisine: "Asian",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -4724,6 +4986,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7014,
     title: "Mexican Shredded Chicken Salad",
+    keywords: ["mexican shredded chicken salad", "mexican recipe", "chicken dinner", "high protein", "healthy salad"],
+    cuisine: "Mexican",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4760,6 +5024,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7015,
     title: "Quick Protein Oat Pancakes",
+    keywords: ["quick protein oat pancakes", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -4796,6 +5062,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7016,
     title: "Zesty Lemon Thyme Tilapia",
+    keywords: ["zesty lemon thyme tilapia", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 20,
@@ -4830,6 +5098,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7017,
     title: "Lentil and Spinach Superfood Soup",
+    keywords: ["lentil and spinach superfood soup", "american recipe", "healthy soup", "comfort food"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 35,
@@ -4866,6 +5136,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7018,
     title: "Mediterranean Egg White Omelet",
+    keywords: ["mediterranean egg white omelet", "mediterranean recipe", "healthy breakfast", "morning meal"],
+    cuisine: "Mediterranean",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -4900,6 +5172,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7019,
     title: "Buffalo Cauliflower Bites",
+    keywords: ["buffalo cauliflower bites", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -4934,6 +5208,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 7020,
     title: "Chipotle Lime Shrimp Tacos",
+    keywords: ["chipotle lime shrimp tacos", "mexican recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "Mexican",
     category: "fitness",
     image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -4969,6 +5245,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5001,
     title: "Honey Garlic Chicken Meal Prep",
+    keywords: ["honey garlic chicken meal prep", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 30,
@@ -5004,6 +5282,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5002,
     title: "Tiramisu Overnight Oats",
+    keywords: ["tiramisu overnight oats", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1541339946196-5eb5b23a56f2?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -5038,6 +5318,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5003,
     title: "Strawberry Spinach Salad",
+    keywords: ["strawberry spinach salad", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -5071,6 +5353,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5004,
     title: "Air Fryer Crispy Parmesan Potatoes",
+    keywords: ["air fryer crispy parmesan potatoes", "italian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Italian",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1518013391915-e44359849fbf?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 25,
@@ -5103,6 +5387,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5005,
     title: "The Ultimate Iced Pistachio Latte",
+    keywords: ["the ultimate iced pistachio latte", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "drinks",
     image: "https://images.unsplash.com/photo-1572286258217-3067332f143c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 5,
@@ -5135,6 +5421,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5006,
     title: "Viral 10-Minute High Protein Wrap",
+    keywords: ["viral 10minute high protein wrap", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     category: "lunch",
     image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -5167,6 +5455,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5007,
     title: "Avocado & Hot Honey Halloumi Toast",
+    keywords: ["avocado  hot honey halloumi toast", "mediterranean recipe", "healthy breakfast", "morning meal"],
+    cuisine: "Mediterranean",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,
@@ -5199,6 +5489,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5008,
     title: "Crispy Rice & Spicy Salmon Bites",
+    keywords: ["crispy rice  spicy salmon bites", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 35,
@@ -5231,6 +5523,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5009,
     title: "Matcha Chia Pudding with Berries",
+    keywords: ["matcha chia pudding with berries", "asian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Asian",
     category: "breakfast",
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 10,
@@ -5263,6 +5557,8 @@ export const FALLBACK_RECIPES: Recipe[] = [
   {
     id: 5010,
     title: "Mediterranean Hummus Board",
+    keywords: ["mediterranean hummus board", "mediterranean recipe", "healthy eating", "easy recipe"],
+    cuisine: "Mediterranean",
     category: "main-dishes",
     image: "https://images.unsplash.com/photo-1541518763669-279f0491753a?auto=format&fit=crop&q=80&w=800",
     readyInMinutes: 15,

@@ -266,20 +266,14 @@ async function servePreRenderedHtml(req: any, res: any, indexHtmlPath: string) {
           "recipeYield": `${recipe.servings || 2} servings`,
           "recipeCategory": recipe.category || "General Healthy",
           "recipeCuisine": recipe.cuisine || "American",
-          "keywords": (recipe.tags && recipe.tags.length > 0)
-            ? recipe.tags.join(", ")
-            : `${String(recipe.category || 'healthy').toLowerCase()}, high protein, low calorie, ${recipe.title.toLowerCase()}`,
+          "keywords": (recipe.keywords && recipe.keywords.length > 0) ? recipe.keywords.join(", ") : (recipe.tags && recipe.tags.length > 0 ? recipe.tags.join(", ") : `${String(recipe.category || 'healthy').toLowerCase()}, high protein, low calorie, ${recipe.title.toLowerCase()}`),
           "url": recipeUrl,
           "prepTime": `PT${prepMinutes}M`,
           "cookTime": `PT${cookMinutes}M`,
           "totalTime": `PT${totalMinutes}M`,
           "recipeIngredient": mappedIngredients,
           "recipeInstructions": mappedInstructions,
-          "aggregateRating": recipe.rating ? {
-            "@type": "AggregateRating",
-            "ratingValue": recipe.rating,
-            "ratingCount": recipe.ratingCount || 10
-          } : undefined,
+          
           "nutrition": {
             "@type": "NutritionInformation",
             "calories": `${caloriesVal} kcal`,

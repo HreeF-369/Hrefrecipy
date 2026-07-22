@@ -4,9 +4,11 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-euro-01",
     title: "Croissant Breakfast Sandwich",
+    keywords: ["croissant breakfast sandwich", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "The ultimate European café breakfast. Flaky, buttery croissant filled with soft scrambled eggs, melted cheese, and bacon.",
     summary: "The ultimate European café breakfast. Flaky, buttery croissant filled with soft scrambled eggs, melted cheese, and bacon.",
-    image: "https://www.delscookingtwist.com/wp-content/uploads/2022/03/Scrambled-Egg-Croissant-Breakfast-Sandwich_2.jpg",
+    image: "/images/croissant_breakfast_sandwich.jpg",
     prepTime: "15m",
     readyInMinutes: 15,
     servings: 2,
@@ -37,9 +39,11 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-02",
     title: "Crispy Feta Fried Eggs",
+    keywords: ["crispy feta fried eggs", "mediterranean recipe", "healthy breakfast", "morning meal"],
+    cuisine: "Mediterranean",
     description: "The elevated 2026 Pinterest trend. Seasoned, flour-dredged feta cheese fried to golden perfection, served alongside perfectly cooked fried eggs and fresh herbs.",
     summary: "The elevated 2026 Pinterest trend. Seasoned, flour-dredged feta cheese fried to golden perfection, served alongside perfectly cooked fried eggs and fresh herbs.",
-    image: "https://www.cookingwithmanuela.com/wp-content/uploads/2023/09/viral-feta-fried-egg-tortilla-recipe-scaled.jpg",
+    image: "/images/feta_fried_eggs.jpg",
     prepTime: "15m",
     readyInMinutes: 15,
     servings: 2,
@@ -76,9 +80,11 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-03",
     title: "Viral Shaved Fruit Yogurt Bowl",
+    keywords: ["viral shaved fruit yogurt bowl", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     description: "The ultimate refreshing 2026 Pinterest trend. Creamy Greek yogurt flavored with vanilla and lemon, topped with snow-like shaved frozen berries, crunchy granola, and fresh mint.",
     summary: "The ultimate refreshing 2026 Pinterest trend. Creamy Greek yogurt flavored with vanilla and lemon, topped with snow-like shaved frozen berries, crunchy granola, and fresh mint.",
-    image: "https://i.pinimg.com/736x/ad/a2/98/ada29843fef79a231214d969035486f2.jpg",
+    image: "/images/shaved_fruit_yogurt.jpg",
     prepTime: "15m",
     readyInMinutes: 15,
     servings: 1,
@@ -110,6 +116,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-04",
     title: "Viral Turkish Eggs (Cilbir)",
+    keywords: ["viral turkish eggs cilbir", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "The ultimate savory Mediterranean breakfast trend. Perfectly poached eggs served over a smooth bed of garlic-infused Greek yogurt, drizzled with warm, fragrant smoked paprika and chili butter.",
     summary: "The ultimate savory Mediterranean breakfast trend. Perfectly poached eggs served over a smooth bed of garlic-infused Greek yogurt, drizzled with warm, fragrant smoked paprika and chili butter.",
     image: "https://i.pinimg.com/736x/15/b2/02/15b202ea2c30b0e6c1b317d3cc3a4743.jpg",
@@ -148,6 +156,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-06",
     title: "Viral Upside-Down Apple Pastry",
+    keywords: ["viral upsidedown apple pastry", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The viral 2026 Pinterest pastry trend. Flaky puff pastry baked upside-down over a rich caramelized bed of sliced apples, brown sugar, honey, and warm spices.",
     summary: "The viral 2026 Pinterest pastry trend. Flaky puff pastry baked upside-down over a rich caramelized bed of sliced apples, brown sugar, honey, and warm spices.",
     image: "https://www.cookinginmygenes.com/wp-content/uploads/2023/06/viral-upside-down-puff-pastry-dessert-tarts-9584.jpg",
@@ -187,6 +197,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-10",
     title: "Gourmet Avocado Toast",
+    keywords: ["gourmet avocado toast", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "The ultimate 2026 Pinterest breakfast icon. Crispy toasted sourdough layered with fresh, citrusy mashed avocado, topped with crispy fried eggs, everything bagel seasoning, and red pepper flakes.",
     summary: "The ultimate 2026 Pinterest breakfast icon. Crispy toasted sourdough layered with fresh, citrusy mashed avocado, topped with crispy fried eggs, everything bagel seasoning, and red pepper flakes.",
     image: "https://i.pinimg.com/736x/93/fd/65/93fd65ef591821dc6dd6beba48a0a155.jpg",
@@ -227,6 +239,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-11",
     title: "Glow Breakfast Platter",
+    keywords: ["glow breakfast platter", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "The ultimate 2026 Pinterest breakfast icon. A vibrant, high-protein platter featuring creamy scrambled eggs, fresh strawberries, blueberries, sliced kiwi, avocado, and a crisp kale salad with cherry tomatoes.",
     summary: "The ultimate 2026 Pinterest breakfast icon. A vibrant, high-protein platter featuring creamy scrambled eggs, fresh strawberries, blueberries, sliced kiwi, avocado, and a crisp kale salad with cherry tomatoes.",
     image: "https://i.pinimg.com/736x/39/0d/37/390d37924abd0c5fadc43a6f4db42c24.jpg",
@@ -262,6 +276,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-12",
     title: "Poached Avocado Toast",
+    keywords: ["poached avocado toast", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "The quintessential 2026 Pinterest breakfast icon. Crispy toasted artisan bread topped with neatly shingled avocado slices, a perfectly soft poached egg with a runny yolk, and a sprinkle of chili flakes.",
     summary: "The quintessential 2026 Pinterest breakfast icon. Crispy toasted artisan bread topped with neatly shingled avocado slices, a perfectly soft poached egg with a runny yolk, and a sprinkle of chili flakes.",
     image: "https://i.pinimg.com/736x/8d/41/88/8d4188906f1551166d566b73debe7f1e.jpg",
@@ -296,6 +312,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-13",
     title: "Everything Bagel Sandwich",
+    keywords: ["everything bagel sandwich", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The ultimate loaded 2026 Pinterest breakfast sandwich. A toasted everything bagel packed with a runny fried egg, creamy avocado, crispy bacon, fresh tomato, spinach, and melted cheddar cheese.",
     summary: "The ultimate loaded 2026 Pinterest breakfast sandwich. A toasted everything bagel packed with a runny fried egg, creamy avocado, crispy bacon, fresh tomato, spinach, and melted cheddar cheese.",
     image: "https://i.pinimg.com/736x/75/8c/b4/758cb475f2369cfb25ab6cd95dcf4ea3.jpg",
@@ -330,6 +348,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-14",
     title: "Salmon & Avocado Toast",
+    keywords: ["salmon  avocado toast", "american recipe", "seafood recipe", "healthy pescatarian", "healthy breakfast"],
+    cuisine: "American",
     description: "The quintessence of an aesthetic and healthy 2026 breakfast. Toasted artisan sourdough topped with creamy mashed avocado, delicate smoked salmon, a perfectly soft poached egg with a runny yolk, and fresh greens.",
     summary: "The quintessence of an aesthetic and healthy 2026 breakfast. Toasted artisan sourdough topped with creamy mashed avocado, delicate smoked salmon, a perfectly soft poached egg with a runny yolk, and fresh greens.",
     image: "https://i.pinimg.com/736x/c4/81/fe/c481fe86d6f4431068d7faa10f651ca2.jpg",
@@ -364,6 +384,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-15",
     title: "Classic Shakshuka",
+    keywords: ["classic shakshuka", "middle eastern recipe", "healthy eating", "easy recipe"],
+    cuisine: "Middle Eastern",
     description: "The ultimate 2026 Pinterest savory brunch trend. Perfectly poached eggs nestled in a rich, deeply spiced tomato and bell pepper sauce, topped with crumbled feta and fresh parsley.",
     summary: "The ultimate 2026 Pinterest savory brunch trend. Perfectly poached eggs nestled in a rich, deeply spiced tomato and bell pepper sauce, topped with crumbled feta and fresh parsley.",
     image: "https://i.pinimg.com/1200x/5e/ec/94/5eec94376caa726f17f0ddc73e010ebb.jpg",
@@ -399,6 +421,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ln-trend-01",
     title: "Garlic Egg Pasta",
+    keywords: ["garlic egg pasta", "italian recipe", "healthy breakfast", "morning meal", "healthy pasta"],
+    cuisine: "Italian",
     description: "The ultimate quick 2026 Pinterest comfort lunch. Al dente spaghetti tossed in a rich garlic butter sauce, topped with crispy fried eggs, grated parmesan, and fresh rosemary.",
     summary: "The ultimate quick 2026 Pinterest comfort lunch. Al dente spaghetti tossed in a rich garlic butter sauce, topped with crispy fried eggs, grated parmesan, and fresh rosemary.",
     image: "https://i.pinimg.com/1200x/ff/29/03/ff2903113f754f4e0ef3fcec802c6c85.jpg",
@@ -431,6 +455,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ln-trend-02",
     title: "Spanish Tortilla",
+    keywords: ["spanish tortilla", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A thick, traditional 2026 Pinterest lunch favorite. Layers of tender sliced potatoes and caramelized onions bound together in a fluffy, golden egg omelet.",
     summary: "A thick, traditional 2026 Pinterest lunch favorite. Layers of tender sliced potatoes and caramelized onions bound together in a fluffy, golden egg omelet.",
     image: "https://i.pinimg.com/736x/04/0e/5a/040e5a7ceb31d74a6b4ddfa509717b88.jpg",
@@ -463,6 +489,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "br-trend-17",
     title: "Breakfast Burrito",
+    keywords: ["breakfast burrito", "mexican recipe", "healthy breakfast", "morning meal"],
+    cuisine: "Mexican",
     description: "A loaded, comforting 2026 Pinterest breakfast staple. A warm flour tortilla packed with creamy scrambled eggs, diced avocado, fresh tomatoes, and melted cheese, toasted to perfection.",
     summary: "A loaded, comforting 2026 Pinterest breakfast staple. A warm flour tortilla packed with creamy scrambled eggs, diced avocado, fresh tomatoes, and melted cheese, toasted to perfection.",
     image: "https://i.pinimg.com/1200x/47/d8/d6/47d8d68397116df608df4f0602a2cb5c.jpg",
@@ -495,6 +523,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-01",
     title: "Pistachio Baklava",
+    keywords: ["pistachio baklava", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The ultimate sweet indulgence. Layers of crisp, golden phyllo pastry packed with finely crushed pistachios and walnuts, deeply drenched in a fragrant honey syrup.",
     summary: "The ultimate sweet indulgence. Layers of crisp, golden phyllo pastry packed with finely crushed pistachios and walnuts, deeply drenched in a fragrant honey syrup.",
     image: "https://i.pinimg.com/736x/62/4f/bb/624fbb4dc47ab008aa3f7d0342c9da28.jpg",
@@ -528,6 +558,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ln-trend-04",
     title: "Beef Quesadilla",
+    keywords: ["beef quesadilla", "mexican recipe", "beef recipe", "high protein meal"],
+    cuisine: "Mexican",
     description: "The ultimate cheesy 2026 Pinterest lunch. Crispy, golden-brown tortillas packed with deeply seasoned minced beef and a mountain of melted cheddar, served with fresh pico de gallo and sour cream.",
     summary: "The ultimate cheesy 2026 Pinterest lunch. Crispy, golden-brown tortillas packed with deeply seasoned minced beef and a mountain of melted cheddar, served with fresh pico de gallo and sour cream.",
     image: "https://i.pinimg.com/1200x/d5/d3/d9/d5d3d97331e6d831bc59bc3d45c55f8d.jpg",
@@ -560,6 +592,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ln-trend-06",
     title: "Double Cheeseburger",
+    keywords: ["double cheeseburger", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "The ultimate comfort lunch. Two juicy, flame-grilled beef patties layered with melted cheddar cheese, fresh tomatoes, crisp lettuce, and signature burger sauce inside a toasted sesame brioche bun.",
     summary: "The ultimate comfort lunch. Two juicy, flame-grilled beef patties layered with melted cheddar cheese, fresh tomatoes, crisp lettuce, and signature burger sauce inside a toasted sesame brioche bun.",
     image: "https://i.pinimg.com/736x/c5/6e/cb/c56ecba09df22d525589f1947d790e0b.jpg",
@@ -591,6 +625,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ln-trend-07",
     title: "Salmon Grilled Cheese",
+    keywords: ["salmon grilled cheese", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     description: "A luxurious, comforting 2026 Pinterest lunch. Crispy, butter-toasted seeded sourdough packed with layers of premium smoked salmon, melted gooey cheese, and fresh dill.",
     summary: "A luxurious, comforting 2026 Pinterest lunch. Crispy, butter-toasted seeded sourdough packed with layers of premium smoked salmon, melted gooey cheese, and fresh dill.",
     image: "https://i.pinimg.com/736x/bc/c8/f7/bcc8f7de1fc510b239a466fc171cc381.jpg",
@@ -622,6 +658,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ln-trend-08",
     title: "Chicken Caesar Wrap",
+    keywords: ["chicken caesar wrap", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     description: "The ultimate Pinterest-ready lunch. Tender grilled chicken breast, crisp romaine lettuce, diced tomatoes, and crunchy garlic croutons, all tossed in a rich, creamy Caesar dressing and wrapped tightly in a toasted flour tortilla.",
     summary: "The ultimate Pinterest-ready lunch. Tender grilled chicken breast, crisp romaine lettuce, diced tomatoes, and crunchy garlic croutons, all tossed in a rich, creamy Caesar dressing and wrapped tightly in a toasted flour tortilla.",
     image: "https://i.pinimg.com/736x/a8/e8/a1/a8e8a18c1ee50bee36ee984aff9143af.jpg",
@@ -654,6 +692,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dn-premium-09",
     title: "Garlic Butter Steak & Mash",
+    keywords: ["garlic butter steak  mash", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "A luxurious dinner staple. Perfectly seared, juicy ribeye steak slices served over rich, velvety garlic mashed potatoes, finished with a savory herb gravy drizzle.",
     summary: "A luxurious dinner staple. Perfectly seared, juicy ribeye steak slices served over rich, velvety garlic mashed potatoes, finished with a savory herb gravy drizzle.",
     image: "https://i.pinimg.com/736x/78/a4/77/78a477ac02a42fe91da8e3d20c18b43f.jpg",
@@ -686,6 +726,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dn-premium-10",
     title: "Gourmet T-Bone & Wedges",
+    keywords: ["gourmet tbone  wedges", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An absolute masterpiece for steak lovers. A thick, juicy T-bone steak seared to perfection, served with crispy seasoned potato wedges and a vibrant, tangy zesty herb chimichurri sauce.",
     summary: "An absolute masterpiece for steak lovers. A thick, juicy T-bone steak seared to perfection, served with crispy seasoned potato wedges and a vibrant, tangy zesty herb chimichurri sauce.",
     image: "https://i.pinimg.com/1200x/7f/99/60/7f996085558763959ce85983727d6ec1.jpg",
@@ -718,6 +760,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "fish-premium-11",
     title: "Honey Garlic Glazed Salmon",
+    keywords: ["honey garlic glazed salmon", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     description: "A premium, restaurant-quality seafood dish. Pan-seared salmon fillets coated in a sticky, sweet, and savory honey garlic glaze, finished with fresh lemon juice and chopped parsley.",
     summary: "A premium, restaurant-quality seafood dish. Pan-seared salmon fillets coated in a sticky, sweet, and savory honey garlic glaze, finished with fresh lemon juice and chopped parsley.",
     image: "https://i.pinimg.com/736x/0d/b1/26/0db126965f368a717b90045bfaee206f.jpg",
@@ -750,6 +794,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ch-premium-14",
     title: "Crispy Chicken Caesar Wrap",
+    keywords: ["crispy chicken caesar wrap", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     description: "A fresh and satisfying lunch favorite. Sliced grilled chicken breast tossed with crisp romaine lettuce, crunchy herb croutons, juicy tomatoes, and creamy Caesar dressing, all rolled into a soft flour tortilla.",
     summary: "A fresh and satisfying lunch favorite. Sliced grilled chicken breast tossed with crisp romaine lettuce, crunchy herb croutons, juicy tomatoes, and creamy Caesar dressing, all rolled into a soft flour tortilla.",
     image: "https://i.pinimg.com/1200x/0c/ee/44/0cee447a6c22199a775d911e3ea5f27c.jpg",
@@ -782,6 +828,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "mex-premium-15",
     title: "Cheesy Beef Quesadilla",
+    keywords: ["cheesy beef quesadilla", "mexican recipe", "beef recipe", "high protein meal"],
+    cuisine: "Mexican",
     description: "A Mexican-inspired comfort food masterpiece. Crispy, golden-brown flour tortillas packed with seasoned, juicy minced beef and a mountain of melted cheddar and mozzarella, served with fresh pico de gallo and sour cream.",
     summary: "A Mexican-inspired comfort food masterpiece. Crispy, golden-brown flour tortillas packed with seasoned, juicy minced beef and a mountain of melted cheddar and mozzarella, served with fresh pico de gallo and sour cream.",
     image: "https://i.pinimg.com/736x/8b/b1/3d/8bb13dab097b0c0b098d7f4cba248e8e.jpg",
@@ -813,6 +861,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ch-premium-16",
     title: "Garlic Chicken Pasta",
+    keywords: ["garlic chicken pasta", "italian recipe", "chicken dinner", "high protein", "healthy pasta"],
+    cuisine: "Italian",
     description: "Al dente spaghetti tossed in aromatic extra virgin olive oil, minced garlic, and red pepper flakes, topped with juicy grilled chicken breast strips and fresh Parmesan.",
     summary: "Al dente spaghetti tossed in aromatic extra virgin olive oil, minced garlic, and red pepper flakes, topped with juicy grilled chicken breast strips and fresh Parmesan.",
     image: "https://i.pinimg.com/1200x/42/7a/bf/427abf168a4cd94417212ef13e1ac0e1.jpg",
@@ -844,6 +894,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ch-premium-18",
     title: "Crispy Chicken & Fries",
+    keywords: ["crispy chicken  fries", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     description: "Golden, ultra-crispy buttermilk fried chicken strips served alongside perfectly seasoned French fries and a rich, tangy ketchup dipping sauce.",
     summary: "Golden, ultra-crispy buttermilk fried chicken strips served alongside perfectly seasoned French fries and a rich, tangy ketchup dipping sauce.",
     image: "https://i.pinimg.com/736x/c6/d6/3a/c6d63a6782592f63de2002a16025aea7.jpg",
@@ -874,6 +926,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ch-premium-19",
     title: "Roasted Chicken & Veggies",
+    keywords: ["roasted chicken  veggies", "american recipe", "chicken dinner", "high protein", "healthy breakfast"],
+    cuisine: "American",
     description: "A comforting Sunday classic. Whole chicken seasoned with garlic, lemon, and fresh herbs, roasted to golden perfection alongside tender baby potatoes, carrots, and caramelized onions.",
     summary: "A comforting Sunday classic. Whole chicken seasoned with garlic, lemon, and fresh herbs, roasted to golden perfection alongside tender baby potatoes, carrots, and caramelized onions.",
     image: "https://i.pinimg.com/736x/a2/e2/8f/a2e28fa812ac73afe5780a1a59c06968.jpg",
@@ -905,6 +959,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "sh-premium-21",
     title: "Creamy Garlic Shrimp",
+    keywords: ["creamy garlic shrimp", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     description: "A luxurious seafood delight. Succulent jumbo shrimp sautéed in a rich, velvety garlic cream sauce infused with herbs, served alongside perfectly fluffy steamed white rice.",
     summary: "A luxurious seafood delight. Succulent jumbo shrimp sautéed in a rich, velvety garlic cream sauce infused with herbs, served alongside perfectly fluffy steamed white rice.",
     image: "https://i.pinimg.com/736x/c1/a8/ab/c1a8abb2bf7e90e350fd8be23d1c03c5.jpg",
@@ -937,6 +993,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ch-premium-22",
     title: "Chicken Shawarma Wrap",
+    keywords: ["chicken shawarma wrap", "mediterranean recipe", "chicken dinner", "high protein"],
+    cuisine: "Mediterranean",
     description: "A flavorful gourmet wrap. Tender, spiced grilled chicken shawarma rolled in a perfectly toasted tortilla, packed with crisp cucumbers, tomatoes, red onions, and smothered in a rich, herbed garlic yogurt sauce.",
     summary: "A flavorful gourmet wrap. Tender, spiced grilled chicken shawarma rolled in a perfectly toasted tortilla, packed with crisp cucumbers, tomatoes, red onions, and smothered in a rich, herbed garlic yogurt sauce.",
     image: "https://i.pinimg.com/1200x/ba/97/a1/ba97a1356f9c0558217ef509a55638bd.jpg",
@@ -968,6 +1026,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "sf-premium-23",
     title: "Salmon Teriyaki Bowl",
+    keywords: ["salmon teriyaki bowl", "asian recipe", "seafood recipe", "healthy pescatarian", "healthy salad"],
+    cuisine: "Asian",
     description: "A vibrant gourmet rice bowl featuring perfectly seared salmon glazed in rich teriyaki sauce, layered with creamy avocado cubes, fresh cherry tomatoes, and a shower of chopped herbs over fluffy white rice.",
     summary: "A vibrant gourmet rice bowl featuring perfectly seared salmon glazed in rich teriyaki sauce, layered with creamy avocado cubes, fresh cherry tomatoes, and a shower of chopped herbs over fluffy white rice.",
     image: "https://images.squarespace-cdn.com/content/v1/5ed666a6924cd0017d343b01/1593466332546-0FAWQJ5DT3ZMVIRO9H38/bite-me-more-apple-teriyaki-salmon-rice-bowl-recipe.jpg",
@@ -998,6 +1058,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "sf-premium-24",
     title: "Garlic Butter Salmon",
+    keywords: ["garlic butter salmon", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     description: "Succulent, oven-baked salmon fillets coated in a rich glaze of melted garlic butter, fresh lemon juice, and a heavy sprinkle of finely chopped Italian parsley.",
     summary: "Succulent, oven-baked salmon fillets coated in a rich glaze of melted garlic butter, fresh lemon juice, and a heavy sprinkle of finely chopped Italian parsley.",
     image: "https://i1-e.pinimg.com/1200x/90/3c/9f/903c9f3eca2797a11cc41fda67da19a2.jpg",
@@ -1026,6 +1088,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "sf-premium-25",
     title: "Gourmet Grilled Sea Bass",
+    keywords: ["gourmet grilled sea bass", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A spectacular whole grilled Sea Bass seasoned with Mediterranean spices, served over a vibrant garlic-herb emulsion, accompanied by fresh rice and a tomato-onion salsa.",
     summary: "A spectacular whole grilled Sea Bass seasoned with Mediterranean spices, served over a vibrant garlic-herb emulsion, accompanied by fresh rice and a tomato-onion salsa.",
     image: "https://i1-e.pinimg.com/1200x/63/dd/58/63dd5822b9fff0b14fda245e9374ac25.jpg",
@@ -1054,6 +1118,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "st-premium-27",
     title: "Garlic Butter Steak",
+    keywords: ["garlic butter steak", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "A magnificent, juicy premium steak seared to tender perfection, sliced and basted in a rich, foaming garlic and herb butter sauce, garnished with fresh chives.",
     summary: "A magnificent, juicy premium steak seared to tender perfection, sliced and basted in a rich, foaming garlic and herb butter sauce, garnished with fresh chives.",
     image: "https://i.pinimg.com/736x/9a/e9/67/9ae967960854412d9b05cc431af12a7c.jpg",
@@ -1085,6 +1151,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "pa-premium-28",
     title: "Cheesy Beef Penne Pasta",
+    keywords: ["cheesy beef penne pasta", "italian recipe", "beef recipe", "high protein meal", "healthy pasta"],
+    cuisine: "Italian",
     description: "A comforting, premium pasta dish featuring perfectly cooked penne tossed in a rich, savory tomato cream sauce with seasoned ground beef, smothered in layers of melted cheddar and mozzarella cheese, garnished with fresh herbs.",
     summary: "A comforting, premium pasta dish featuring perfectly cooked penne tossed in a rich, savory tomato cream sauce with seasoned ground beef, smothered in layers of melted cheddar and mozzarella cheese, garnished with fresh herbs.",
     image: "https://i.pinimg.com/736x/84/4d/80/844d8088463c4ffce52c3d5dd27c2491.jpg",
@@ -1116,6 +1184,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "la-premium-29",
     title: "Gourmet Beef Lasagna",
+    keywords: ["gourmet beef lasagna", "italian recipe", "beef recipe", "high protein meal"],
+    cuisine: "Italian",
     description: "An exquisite Italian classic featuring layers of tender lasagna sheets, a rich and savory beef bolognese sauce, and a velvety béchamel, all topped with a golden, bubbling crust of melted mozzarella and parmesan cheese.",
     summary: "An exquisite Italian classic featuring layers of tender lasagna sheets, a rich and savory beef bolognese sauce, and a velvety béchamel, all topped with a golden, bubbling crust of melted mozzarella and parmesan cheese.",
     image: "https://i.pinimg.com/736x/4f/38/27/4f3827c2d67d1fed40f77d6a76f3cb36.jpg",
@@ -1147,6 +1217,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "kb-premium-30",
     title: "Premium Beef Shish Kebabs",
+    keywords: ["premium beef shish kebabs", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "Exquisite gourmet skewers featuring tender, marinated cubes of premium beef grilled to perfection, interlocked with vibrant bell peppers, red onions, and zucchini, served with grilled lemon and fresh rosemary.",
     summary: "Exquisite gourmet skewers featuring tender, marinated cubes of premium beef grilled to perfection, interlocked with vibrant bell peppers, red onions, and zucchini, served with grilled lemon and fresh rosemary.",
     image: "https://i.pinimg.com/736x/c8/bc/20/c8bc208063546fde6b53ee3f7a5db837.jpg",
@@ -1178,6 +1250,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "sw-premium-31",
     title: "Chicken Shawarma Wrap",
+    keywords: ["chicken shawarma wrap", "mediterranean recipe", "chicken dinner", "high protein"],
+    cuisine: "Mediterranean",
     description: "A flavorful Mediterranean classic featuring tender, thinly sliced chicken breast marinated in aromatic shawarma spices, wrapped in warm Arabic flatbread with crisp fresh veggies and a rich, creamy garlic-yogurt sauce.",
     summary: "A flavorful Mediterranean classic featuring tender, thinly sliced chicken breast marinated in aromatic shawarma spices, wrapped in warm Arabic flatbread with crisp fresh veggies and a rich, creamy garlic-yogurt sauce.",
     image: "https://i.pinimg.com/736x/c6/d6/3a/c6d63a6782592f63de2002a16025aea7.jpg",
@@ -1209,6 +1283,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "pi-premium-32",
     title: "Gourmet Pepperoni & Basil Pizza",
+    keywords: ["gourmet pepperoni  basil pizza", "italian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Italian",
     description: "A spectacular Italian masterpiece featuring a crispy, golden crust topped with rich tomato herb sauce, layers of bubbling melted mozzarella cheese, premium sliced pepperoni, black olives, fresh mushrooms, and aromatic fresh basil leaves.",
     summary: "A spectacular Italian masterpiece featuring a crispy, golden crust topped with rich tomato herb sauce, layers of bubbling melted mozzarella cheese, premium sliced pepperoni, black olives, fresh mushrooms, and aromatic fresh basil leaves.",
     image: "https://i.pinimg.com/736x/d9/cb/5f/d9cb5fb5c6d0d7d3dc6f9a2926f47100.jpg",
@@ -1240,6 +1316,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dd-premium-33",
     title: "Gourmet Deep Dish Pepperoni Pizza",
+    keywords: ["gourmet deep dish pepperoni pizza", "italian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Italian",
     description: "A spectacular Chicago-style deep-dish masterpiece featuring a thick, buttery crust packed with a deep layer of seasoned ground beef, rich savory tomato sauce, and a mountain of melted mozzarella cheese, topped with premium sliced pepperoni.",
     summary: "A spectacular Chicago-style deep-dish masterpiece featuring a thick, buttery crust packed with a deep layer of seasoned ground beef, rich savory tomato sauce, and a mountain of melted mozzarella cheese, topped with premium sliced pepperoni.",
     image: "https://i.pinimg.com/736x/c6/04/d0/c604d055f16d52ea2183f3629ba22afd.jpg",
@@ -1271,6 +1349,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "tr-premium-34",
     title: "Honey Garlic Glazed Salmon",
+    keywords: ["honey garlic glazed salmon", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     description: "A top-trending seafood dish featuring pan-seared premium salmon fillets locked in a sticky, sweet, and savory honey garlic sauce, finished with a squeeze of fresh lemon and a sprinkle of sesame seeds.",
     summary: "A top-trending seafood dish featuring pan-seared premium salmon fillets locked in a sticky, sweet, and savory honey garlic sauce, finished with a squeeze of fresh lemon and a sprinkle of sesame seeds.",
     image: "https://i.pinimg.com/736x/0d/b1/26/0db126965f368a717b90045bfaee206f.jpg",
@@ -1300,6 +1380,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "tr-premium-35",
     title: "Tuscan Garlic Chicken",
+    keywords: ["tuscan garlic chicken", "italian recipe", "chicken dinner", "high protein"],
+    cuisine: "Italian",
     description: "An elegant, highly popular creamy Italian dish. Tender chicken breasts simmered in a luxurious, rich garlic cream sauce packed with sun-dried tomatoes and fresh spinach leaves.",
     summary: "An elegant, highly popular creamy Italian dish. Tender chicken breasts simmered in a luxurious, rich garlic cream sauce packed with sun-dried tomatoes and fresh spinach leaves.",
     image: "https://i.pinimg.com/736x/5a/31/eb/5a31eb669c486c504ada5f6aab933e9e.jpg",
@@ -1329,6 +1411,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "tr-premium-36",
     title: "Creamy Sun-Dried Tomato Gnocchi",
+    keywords: ["creamy sundried tomato gnocchi", "italian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Italian",
     description: "The ultimate vegetarian trend. Pillowy, soft potato gnocchi tossed in a velvety, rich sun-dried tomato and basil cream sauce, topped with melted fresh mozzarella.",
     summary: "The ultimate vegetarian trend. Pillowy, soft potato gnocchi tossed in a velvety, rich sun-dried tomato and basil cream sauce, topped with melted fresh mozzarella.",
     image: "https://i.pinimg.com/736x/aa/47/a1/aa47a12a5c6e441a2f0d12566aba6d5d.jpg",
@@ -1358,6 +1442,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "tr-premium-37",
     title: "Gourmet Smash Burger",
+    keywords: ["gourmet smash burger", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "The internet's favorite burger. Two ultra-thin, crispy-edged smashed beef patties topped with melted American cheese, caramelized onions, and a signature premium burger sauce inside a toasted brioche bun.",
     summary: "The internet's favorite burger. Two ultra-thin, crispy-edged smashed beef patties topped with melted American cheese, caramelized onions, and a signature premium burger sauce inside a toasted brioche bun.",
     image: "https://i.pinimg.com/736x/d0/68/52/d068524bf9fb263085e2d1ee6493c313.jpg",
@@ -1388,6 +1474,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-premium-01",
     title: "Slow-Cooked Beef Ribs",
+    keywords: ["slowcooked beef ribs", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "Magnificent premium beef ribs slow-cooked to melt-in-your-mouth perfection, glazed with a rich hickory barbecue reduction, and served over a bed of creamy garlic mashed potatoes.",
     summary: "Magnificent premium beef ribs slow-cooked to melt-in-your-mouth perfection, glazed with a rich hickory barbecue reduction, and served over a bed of creamy garlic mashed potatoes.",
     image: "https://i.pinimg.com/736x/15/0a/3b/150a3b8d0cd84cecf571568e89e13e28.jpg",
@@ -1417,6 +1505,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-premium-02",
     title: "Pan-Seared Duck Breast",
+    keywords: ["panseared duck breast", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An exquisite fine-dining staple. Crispy-skinned premium duck breast scored and pan-seared to a perfect medium-rare, drizzled with a sophisticated orange and balsamic reduction.",
     summary: "An exquisite fine-dining staple. Crispy-skinned premium duck breast scored and pan-seared to a perfect medium-rare, drizzled with a sophisticated orange and balsamic reduction.",
     image: "https://i.pinimg.com/736x/95/89/61/958961c73dee440663773952fd26b950.jpg",
@@ -1446,6 +1536,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-premium-03",
     title: "Creamy Seafood Paella",
+    keywords: ["creamy seafood paella", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A premium twist on a coastal classic. High-quality Arborio rice simmered in a rich saffron-infused seafood broth, loaded with jumbo shrimp, mussels, calamari, and sweet green peas.",
     summary: "A premium twist on a coastal classic. High-quality Arborio rice simmered in a rich saffron-infused seafood broth, loaded with jumbo shrimp, mussels, calamari, and sweet green peas.",
     image: "https://i.pinimg.com/736x/61/85/3f/61853f65b740a96793f991e4e29ba1e7.jpg",
@@ -1477,6 +1569,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-premium-04",
     title: "Lamb Chops with Herb Chimichurri",
+    keywords: ["lamb chops with herb chimichurri", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Gourmet, tender lamb chops grilled to perfection, boasting a beautiful outer crust and juicy center, topped with a vibrant, zesty fresh herb and garlic chimichurri sauce.",
     summary: "Gourmet, tender lamb chops grilled to perfection, boasting a beautiful outer crust and juicy center, topped with a vibrant, zesty fresh herb and garlic chimichurri sauce.",
     image: "https://i.pinimg.com/736x/95/50/bc/9550bcedd4bfe5441b7d4db025fa2fbd.jpg",
@@ -1506,6 +1600,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-05",
     title: "Creamy Garlic Butter Shrimp Pasta",
+    keywords: ["creamy garlic butter shrimp pasta", "italian recipe", "seafood recipe", "healthy pescatarian", "healthy pasta"],
+    cuisine: "Italian",
     description: "A viral seafood sensation. Succulent jumbo shrimp tossed with fettuccine pasta in a luxurious, velvety garlic butter and parmesan cream sauce, finished with fresh parsley.",
     summary: "A viral seafood sensation. Succulent jumbo shrimp tossed with fettuccine pasta in a luxurious, velvety garlic butter and parmesan cream sauce, finished with fresh parsley.",
     image: "https://i.pinimg.com/736x/63/71/f8/6371f8f0f8e20550c8f7df11b73231e6.jpg",
@@ -1535,6 +1631,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-06",
     title: "Braised Lamb Shanks",
+    keywords: ["braised lamb shanks", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An upscale restaurant classic. Tender, fall-off-the-bone lamb shanks slow-braised in a rich rosemary, garlic, and aromatic broth reduction, served over smooth polenta.",
     summary: "An upscale restaurant classic. Tender, fall-off-the-bone lamb shanks slow-braised in a rich rosemary, garlic, and aromatic broth reduction, served over smooth polenta.",
     image: "https://i.pinimg.com/736x/30/ff/38/30ff383446b1180d2aec7affc4a398c0.jpg",
@@ -1564,6 +1662,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-07",
     title: "Crispy Hot Honey Chicken",
+    keywords: ["crispy hot honey chicken", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     description: "The ultimate sweet-and-spicy trend. Perfectly crisped chicken cutlets glazed in a glossy, fiery hot honey infusion, served alongside a refreshing slaw.",
     summary: "The ultimate sweet-and-spicy trend. Perfectly crisped chicken cutlets glazed in a glossy, fiery hot honey infusion, served alongside a refreshing slaw.",
     image: "https://i.pinimg.com/736x/ac/1b/35/ac1b35226b0865f86a39a2aba7786d4f.jpg",
@@ -1593,6 +1693,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-08",
     title: "Gourmet Beef Wellington Slices",
+    keywords: ["gourmet beef wellington slices", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "The legendary pinnacle of luxury dining. Tender beef tenderloin coated in rich mushroom d उनके paste, wrapped in golden, flaky puff pastry, served with red wine jus.",
     summary: "The legendary pinnacle of luxury dining. Tender beef tenderloin coated in rich mushroom paste, wrapped in golden, flaky puff pastry, served with red wine jus.",
     image: "https://i.pinimg.com/736x/50/f1/71/50f171eeb671c95573a1b6bc884f98ba.jpg",
@@ -1622,6 +1724,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-09",
     title: "Thai Green Chicken Curry",
+    keywords: ["thai green chicken curry", "asian recipe", "chicken dinner", "high protein"],
+    cuisine: "Asian",
     description: "An aromatic global favorite. Tender chicken pieces simmered in a creamy, vibrant green curry paste and coconut milk broth, packed with bamboo shoots and Thai basil.",
     summary: "An aromatic global favorite. Tender chicken pieces simmered in a creamy, vibrant green curry paste and coconut milk broth, packed with bamboo shoots and Thai basil.",
     image: "https://i.pinimg.com/736x/5f/91/01/5f910116c69aaac122245c74a1bd5b24.jpg",
@@ -1651,6 +1755,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-10",
     title: "Sea Bass with Lemon Caper Butter",
+    keywords: ["sea bass with lemon caper butter", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Light, sophisticated, and upscale. Crispy pan-seared Sea Bass fillets served over a bright, glossy lemon butter emulsion studded with briny capers.",
     summary: "Light, sophisticated, and upscale. Crispy pan-seared Sea Bass fillets served over a bright, glossy lemon butter emulsion studded with briny capers.",
     image: "https://i.pinimg.com/736x/79/d8/4f/79d84fb593a0ef00fa4dde20afb7fd20.jpg",
@@ -1680,6 +1786,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-11",
     title: "Slow-Cooked BBQ Beef Brisket",
+    keywords: ["slowcooked bbq beef brisket", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "Rich, melt-in-your-mouth beef brisket slow-cooked to smokey perfection, coated in a sticky premium BBQ bark, served sliced with pickled onions.",
     summary: "Rich, melt-in-your-mouth beef brisket slow-cooked to smokey perfection, coated in a sticky premium BBQ bark, served sliced with pickled onions.",
     image: "https://i.pinimg.com/736x/d0/03/fe/d003fe1ef8101664e7b804cd042cb0fa.jpg",
@@ -1709,6 +1817,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-12",
     title: "Creamy Mushroom Chicken Risotto",
+    keywords: ["creamy mushroom chicken risotto", "italian recipe", "chicken dinner", "high protein"],
+    cuisine: "Italian",
     description: "Pure Italian comfort elegance. Rich, slow-stirred Arborio rice loaded with earthy wild mushrooms, pan-seared chicken, and heavily finished with Parmesan and truffle oil.",
     summary: "Pure Italian comfort elegance. Rich, slow-stirred Arborio rice loaded with earthy wild mushrooms, pan-seared chicken, and heavily finished with Parmesan and truffle oil.",
     image: "https://i.pinimg.com/736x/32/cf/04/32cf04abb203c6a4b2132733bbf3af3c.jpg",
@@ -1738,6 +1848,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-13",
     title: "Ribeye Steak with Chimichurri Butter",
+    keywords: ["ribeye steak with chimichurri butter", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "A high-protein masterpiece. Thick, juicy premium ribeye steak seared with a dark crust, topped with a melting, vibrant fresh-herb chimichurri butter compound.",
     summary: "A high-protein masterpiece. Thick, juicy premium ribeye steak seared with a dark crust, topped with a melting, vibrant fresh-herb chimichurri butter compound.",
     image: "https://i.pinimg.com/736x/9a/e9/67/9ae967960854412d9b05cc431af12a7c.jpg",
@@ -1767,6 +1879,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "md-trend-14",
     title: "Crispy Korean Fried Chicken Supreme",
+    keywords: ["crispy korean fried chicken supreme", "asian recipe", "chicken dinner", "high protein"],
+    cuisine: "Asian",
     description: "An international sensation. Double-fried, ultra-crunchy chicken thighs coated in a savory, glossy, and mildly spicy sweet gochujang glaze, topped with sesame.",
     summary: "An international sensation. Double-fried, ultra-crunchy chicken thighs coated in a savory, glossy, and mildly spicy sweet gochujang glaze, topped with sesame.",
     image: "https://i.pinimg.com/736x/f1/35/8d/f1358de590e8ba133b6f71c0aff83270.jpg",
@@ -1796,6 +1910,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-16",
     title: "Classic Italian Tiramisu Supreme",
+    keywords: ["classic italian tiramisu supreme", "italian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Italian",
     description: "The ultimate fine-dining dessert. Layers of coffee-dipped ladyfingers and a velvety, rich mascarpone cream, heavily dusted with premium cocoa powder.",
     summary: "The ultimate fine-dining dessert. Layers of coffee-dipped ladyfingers and a velvety, rich mascarpone cream, heavily dusted with premium cocoa powder.",
     image: "https://www.marcellinaincucina.com/wp-content/uploads/2019/11/Tiramisu-blog-1.jpg",
@@ -1824,6 +1940,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-02",
     title: "Molten Chocolate Lava Cake",
+    keywords: ["molten chocolate lava cake", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A viral favorite. A rich, decadent chocolate cake with a perfectly baked crust and an intensely glossy, oozing warm chocolate center.",
     summary: "A viral favorite. A rich, decadent chocolate cake with a perfectly baked crust and an intensely glossy, oozing warm chocolate center.",
     image: "https://i.pinimg.com/736x/70/7a/dc/707adc2fa66e3e4863942121832531ee.jpg",
@@ -1852,6 +1970,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-03",
     title: "San Sebastian Burnt Cheesecake",
+    keywords: ["san sebastian burnt cheesecake", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The globally trending crustless cheesecake, baked at high heat for a beautifully caramelized, burnt top and an ultra-creamy, custard-like center.",
     summary: "The globally trending crustless cheesecake, baked at high heat for a beautifully caramelized, burnt top and an ultra-creamy, custard-like center.",
     image: "https://i.pinimg.com/1200x/8f/20/0c/8f200cf31a884cb8a86ad2c5b76daf80.jpg",
@@ -1880,6 +2000,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-04",
     title: "New York Strawberry Cheesecake",
+    keywords: ["new york strawberry cheesecake", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A dense and incredibly smooth premium cheesecake on a buttery Graham cracker crust, topped with a glossy, vibrant fresh strawberry glaze.",
     summary: "A dense and incredibly smooth premium cheesecake on a buttery Graham cracker crust, topped with a glossy, vibrant fresh strawberry glaze.",
     image: "https://i.pinimg.com/736x/17/a5/a6/17a5a6e3299a4d43c2880a68dba3e235.jpg",
@@ -1908,6 +2030,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-05",
     title: "Gourmet Pistachio Kunafa Croissant",
+    keywords: ["gourmet pistachio kunafa croissant", "french recipe", "healthy eating", "easy recipe"],
+    cuisine: "French",
     description: "The ultimate viral pastry fusion. A flaky, buttery baked croissant stuffed with crispy toasted kunafa pastry, premium pistachio cream, and sweet syrup.",
     summary: "The ultimate viral pastry fusion. A flaky, buttery baked croissant stuffed with crispy toasted kunafa pastry, premium pistachio cream, and sweet syrup.",
     image: "https://i.pinimg.com/736x/68/4e/17/684e179cf30d0b891742ce4abd4ab0c7.jpg",
@@ -1936,6 +2060,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-06",
     title: "French Crème Brûlée Art",
+    keywords: ["french crme brle art", "french recipe", "healthy eating", "easy recipe"],
+    cuisine: "French",
     description: "A sophisticated fine-dining classic. A rich, silky vanilla bean custard base topped with a contrasting layer of hard, beautifully shattered caramelized sugar.",
     summary: "A sophisticated fine-dining classic. A rich, silky vanilla bean custard base topped with a contrasting layer of hard, beautifully shattered caramelized sugar.",
     image: "https://emmaduckworthbakes.com/wp-content/uploads/2024/03/French-Creme-Brulee.jpg",
@@ -1963,6 +2089,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-07",
     title: "Premium Lotus Biscoff Mousse",
+    keywords: ["premium lotus biscoff mousse", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An airy, ultra-creamy layered dessert cup loaded with crushed Biscoff cookies and a velvety white chocolate and speculoos cookie butter mousse.",
     summary: "An airy, ultra-creamy layered dessert cup loaded with crushed Biscoff cookies and a velvety white chocolate and speculoos cookie butter mousse.",
     image: "https://i.pinimg.com/736x/35/e9/90/35e99025a86cfd54b1c53afe0f222381.jpg",
@@ -1991,6 +2119,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-08",
     title: "Red Velvet Lava Cookies",
+    keywords: ["red velvet lava cookies", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Vibrant red velvet cookies with a rich hint of cocoa, baked with a secret core of premium white chocolate that flows out warm upon the first bite.",
     summary: "Vibrant red velvet cookies with a rich hint of cocoa, baked with a secret core of premium white chocolate that flows out warm upon the first bite.",
     image: "https://i.pinimg.com/736x/a8/61/20/a861208ca410688586d383874da37350.jpg",
@@ -2019,6 +2149,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-09",
     title: "Mango Sago Coconut Panna Cotta",
+    keywords: ["mango sago coconut panna cotta", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An elegant tropical fusion. A silky, smooth vanilla bean panna cotta layered with chewy sago pearls and a vibrant, fresh sweet mango purée reduction.",
     summary: "An elegant tropical fusion. A silky, smooth vanilla bean panna cotta layered with chewy sago pearls and a vibrant, fresh sweet mango purée reduction.",
     image: "https://i.pinimg.com/736x/50/bd/11/50bd1115604a7a409458233d4022eb44.jpg",
@@ -2047,6 +2179,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-10",
     title: "Fudgy Hazelnut Brownie Towers",
+    keywords: ["fudgy hazelnut brownie towers", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Rich, intensely fudgy dark chocolate brownies packed with roasted hazelnuts, served warm with a shiny drizzle of gourmet chocolate ganache.",
     summary: "Rich, intensely fudgy dark chocolate brownies packed with roasted hazelnuts, served warm with a shiny drizzle of gourmet chocolate ganache.",
     image: "https://i.pinimg.com/736x/18/39/b5/1839b51798c581c9219f3d7ccd62cbda.jpg",
@@ -2075,6 +2209,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-11",
     title: "Matcha White Chocolate Fondant",
+    keywords: ["matcha white chocolate fondant", "asian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Asian",
     description: "An exquisite East Asian-inspired dessert. A vibrant green tea matcha cake with a perfectly baked exterior and a rich, flowing white chocolate lava core.",
     summary: "An exquisite East Asian-inspired dessert. A vibrant green tea matcha cake with a perfectly baked exterior and a rich, flowing white chocolate lava core.",
     image: "https://i.pinimg.com/1200x/85/11/e1/8511e161dc248719a78ed6e1d77e4053.jpg",
@@ -2103,6 +2239,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-12",
     title: "Gourmet Salted Caramel Profiteroles",
+    keywords: ["gourmet salted caramel profiteroles", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Crisp, airy choux pastry puffs packed with luxury vanilla bean pastry cream, stacked and covered in a rich, warm handmade salted caramel glaze.",
     summary: "Crisp, airy choux pastry puffs packed with luxury vanilla bean pastry cream, stacked and covered in a rich, warm handmade salted caramel glaze.",
     image: "https://i.pinimg.com/736x/a9/57/c6/a957c649ee7ca4f95d5a2faf1521afaf.jpg",
@@ -2131,6 +2269,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-13",
     title: "Vibrant Berry Pavlova Clouds",
+    keywords: ["vibrant berry pavlova clouds", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An elegant, cloud-like crisp meringue nest with a soft, marshmallowy interior, loaded with fresh whipped cream and a mountain of tart wild berries.",
     summary: "An elegant, cloud-like crisp meringue nest with a soft, marshmallowy interior, loaded with fresh whipped cream and a mountain of tart wild berries.",
     image: "https://i.pinimg.com/736x/a1/18/b5/a118b59daa5a434ef22ec083c22087c8.jpg",
@@ -2159,6 +2299,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-14",
     title: "Artisanal Churros with Dark Ganache",
+    keywords: ["artisanal churros with dark ganache", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Crispy, golden-fried Spanish dough pastries rolled heavily in aromatic cinnamon sugar, served alongside a thick, rich dark chocolate dipping sauce.",
     summary: "Crispy, golden-fried Spanish dough pastries rolled heavily in aromatic cinnamon sugar, served alongside a thick, rich dark chocolate dipping sauce.",
     image: "https://i.pinimg.com/736x/ad/b0/2a/adb02a74f4bd10ef0fc50c84b102692d.jpg",
@@ -2187,6 +2329,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "ds-trend-15",
     title: "Gourmet White Chocolate Raspberry Macarons",
+    keywords: ["gourmet white chocolate raspberry macarons", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Premium, delicate French almond meringue shells with a perfect chew, sandwiched around a velvety white chocolate ganache and a tangy raspberry center.",
     summary: "Premium, delicate French almond meringue shells with a perfect chew, sandwiched around a velvety white chocolate ganache and a tangy raspberry center.",
     image: "https://i.pinimg.com/736x/6d/2d/25/6d2d2571595a4adc10b7152c255f1047.jpg",
@@ -2215,6 +2359,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-01",
     title: "Vibrant Iced Matcha Strawberry Latte",
+    keywords: ["vibrant iced matcha strawberry latte", "asian recipe", "healthy eating", "easy recipe"],
+    cuisine: "Asian",
     description: "The ultimate global café trend. Layers of sweet, fresh strawberry purée, creamy milk, and a bold, vibrant green layer of premium ceremonial matcha.",
     summary: "The ultimate global café trend. Layers of sweet, fresh strawberry purée, creamy milk, and a bold, vibrant green layer of premium ceremonial matcha.",
     image: "https://i.pinimg.com/736x/fe/f8/9a/fef89a3c951484f6fa7b15dee822d1cc.jpg",
@@ -2242,6 +2388,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-02",
     title: "Premium Blue Lagoon Mocktail",
+    keywords: ["premium blue lagoon mocktail", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An upscale, intensely refreshing summer mocktail. A vibrant blue infusion of citrusy blue curaçao syrup, fresh lime juice, and sparkling sprite.",
     summary: "An upscale, intensely refreshing summer mocktail. A vibrant blue infusion of citrusy blue curaçao syrup, fresh lime juice, and sparkling sprite.",
     image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600",
@@ -2269,6 +2417,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-03",
     title: "Classic Fresh Passion Fruit Mojito",
+    keywords: ["classic fresh passion fruit mojito", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A tropical twist on a classic. Muddled fresh mint, lime, and tart passion fruit pulp topped with sparkling water and plenty of crushed ice.",
     summary: "A tropical twist on a classic. Muddled fresh mint, lime, and tart passion fruit pulp topped with sparkling water and plenty of crushed ice.",
     image: "https://images.unsplash.com/photo-1546171753-97d7676e4602?q=80&w=600",
@@ -2296,6 +2446,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-04",
     title: "Creamy Spanish Iced Latte (Café con Bonbón)",
+    keywords: ["creamy spanish iced latte caf con bonbn", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A viral, velvety coffee delight. Strong, rich espresso poured over a sweet layer of premium condensed milk and chilled creamy whole milk.",
     summary: "A viral, velvety coffee delight. Strong, rich espresso poured over a sweet layer of premium condensed milk and chilled creamy whole milk.",
     image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=600",
@@ -2323,6 +2475,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-05",
     title: "Vibrant Dragon Fruit Mango Smoothie",
+    keywords: ["vibrant dragon fruit mango smoothie", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "An incredibly striking, exotic smoothie. Packed with rich antioxidants, combining deep pink pitaya (dragon fruit) and sweet sun-ripened mango chunks.",
     summary: "An incredibly striking, exotic smoothie. Packed with rich antioxidants, combining deep pink pitaya (dragon fruit) and sweet sun-ripened mango chunks.",
     image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=600",
@@ -2350,6 +2504,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-06",
     title: "Gourmet Creamy Pistachio Milkshake",
+    keywords: ["gourmet creamy pistachio milkshake", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Luxury in a glass. High-quality vanilla bean ice cream blended with authentic Italian pistachio paste, topped with fresh whipped cream and crushed green pistachios.",
     summary: "Luxury in a glass. High-quality vanilla bean ice cream blended with authentic Italian pistachio paste, topped with fresh whipped cream and crushed green pistachios.",
     image: "https://i.pinimg.com/736x/cb/08/0f/cb080f7051f5b2a383c554aa75cad199.jpg",
@@ -2377,6 +2533,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-07",
     title: "Sparkling Pomegranate Rose Mocktail",
+    keywords: ["sparkling pomegranate rose mocktail", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "An elegant, floral fine-dining mocktail. Deep ruby pomegranate juice combined with a hint of sweet rose water, fresh lime, and premium tonic.",
     summary: "An elegant, floral fine-dining mocktail. Deep ruby pomegranate juice combined with a hint of sweet rose water, fresh lime, and premium tonic.",
     image: "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=600",
@@ -2404,6 +2562,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-08",
     title: "Avocado Almond Honey Smoothie",
+    keywords: ["avocado almond honey smoothie", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "A ultra-creamy, high-energy gourmet staple. Velvety ripe avocado blended with cold milk, raw honey, and rich almond butter, topped with sliced almonds.",
     summary: "A ultra-creamy, high-energy gourmet staple. Velvety ripe avocado blended with cold milk, raw honey, and rich almond butter, topped with sliced almonds.",
     image: "https://images.unsplash.com/photo-1528498033373-3c6c08e93d79?q=80&w=600",
@@ -2431,6 +2591,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-09",
     title: "Salted Caramel Cold Brew Foam",
+    keywords: ["salted caramel cold brew foam", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The coffee shop favorite. Smooth, slow-steeped specialty cold brew coffee topped with a thick, velvety layer of salted caramel cold milk foam.",
     summary: "The coffee shop favorite. Smooth, slow-steeped specialty cold brew coffee topped with a thick, velvety layer of salted caramel cold milk foam.",
     image: "https://foxeslovelemons.com/wp-content/uploads/2022/08/Salted-Caramel-Cream-Cold-Brew-5-728x1094.jpg",
@@ -2458,6 +2620,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-10",
     title: "Fresh Ginger Lemonade Infusion",
+    keywords: ["fresh ginger lemonade infusion", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Zesty, sharp, and deeply refreshing. Freshly squeezed lemons blended with pungent ginger root juice, sweetened lightly and served ice cold.",
     summary: "Zesty, sharp, and deeply refreshing. Freshly squeezed lemons blended with pungent ginger root juice, sweetened lightly and served ice cold.",
     image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600",
@@ -2485,6 +2649,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-11",
     title: "Creamy Lotus Biscoff Frappé",
+    keywords: ["creamy lotus biscoff frapp", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The ultimate blended indulgent coffee. A thick frappé made with espresso, ice, cookie butter, and milk, finished with whipped cream and cookie crumbs.",
     summary: "The ultimate blended indulgent coffee. A thick frappé made with espresso, ice, cookie butter, and milk, finished with whipped cream and cookie crumbs.",
     image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600",
@@ -2511,6 +2677,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-12",
     title: "Sparkling Hibiscus Berry Tea",
+    keywords: ["sparkling hibiscus berry tea", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Vibrant and tart. Brewed premium dried hibiscus flowers infused with mixed berry syrup, topped with sparkling soda water for an effervescent touch.",
     summary: "Vibrant and tart. Brewed premium dried hibiscus flowers infused with mixed berry syrup, topped with sparkling soda water for an effervescent touch.",
     image: "https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=600",
@@ -2538,6 +2706,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-13",
     title: "Creamy Iced Taro Bubble Tea",
+    keywords: ["creamy iced taro bubble tea", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The world-famous boba sensation. Sweet, purple taro root powder shaken with creamy milk and ice, layered over soft, chewy brown sugar tapioca pearls.",
     summary: "The world-famous boba sensation. Sweet, purple taro root powder shaken with creamy milk and ice, layered over soft, chewy brown sugar tapioca pearls.",
     image: "https://tyberrymuch.com/wp-content/uploads/2022/07/taro-milk-tea-recipe-1-735x735.jpg",
@@ -2566,6 +2736,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-trend-15",
     title: "Fresh Cucumber Mint Cooler",
+    keywords: ["fresh cucumber mint cooler", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The ultimate detox refreshment. Crisp english cucumber blended with fresh mint leaves, lime juice, and sparkling mineral water. Light and crisp.",
     summary: "The ultimate detox refreshment. Crisp english cucumber blended with fresh mint leaves, lime juice, and sparkling mineral water. Light and crisp.",
     image: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?q=80&w=600",
@@ -2593,6 +2765,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dr-premium-hot-choco",
     title: "Ultimate Belgian Hot Chocolate",
+    keywords: ["ultimate belgian hot chocolate", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Rich, comforting winter luxury. Pure high-quality Belgian dark and milk chocolate melted directly into steaming whole milk, topped with a mountain of fresh whipped cream and chocolate drizzle.",
     summary: "Rich, comforting winter luxury. Pure high-quality Belgian dark and milk chocolate melted directly into steaming whole milk, topped with a mountain of fresh whipped cream and chocolate drizzle.",
     image: "https://i.pinimg.com/1200x/4e/f3/70/4ef370df00bc4064e86e6b5fa1d4a2da.jpg",
@@ -2618,6 +2792,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "dish-deep-pie",
     title: "Gourmet Deep-Dish Pepperoni Meat Pie",
+    keywords: ["gourmet deepdish pepperoni meat pie", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A spectacular, ultra-savory deep-dish creation. Layers of seasoned minced meat, melted mozzarella cheese, and crispy premium pepperoni slices inside a golden, buttery crust.",
     summary: "A spectacular, ultra-savory deep-dish creation. Layers of seasoned minced meat, melted mozzarella cheese, and crispy premium pepperoni slices inside a golden, buttery crust.",
     image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600",
@@ -2644,6 +2820,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "mediterranean-chickpea-salad-bowl",
     title: "Mediterranean Chickpea Salad Bowl (High Protein)",
+    keywords: ["mediterranean chickpea salad bowl high protein", "mediterranean recipe", "healthy salad", "low carb dinner"],
+    cuisine: "Mediterranean",
     description: "A trending Pinterest high-protein Mediterranean chickpea salad bowl. Packed with fiber, crisp veggies, and a zesty lemon-tahini dressing. Perfect for meal prep and low-calorie lunches.",
     summary: "A trending Pinterest high-protein Mediterranean chickpea salad bowl. Packed with fiber, crisp veggies, and a zesty lemon-tahini dressing. Perfect for meal prep and low-calorie lunches.",
     image: "https://cleananddelicious.com/wp-content/uploads/2022/07/Mediterranean-Chickpea-Salad-F-scaled.jpg",
@@ -2680,6 +2858,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "cucumber-feta-mint-salad",
     title: "Viral Cucumber & Feta Salad (Low Calorie)",
+    keywords: ["viral cucumber  feta salad low calorie", "mediterranean recipe", "healthy salad", "low carb dinner"],
+    cuisine: "Mediterranean",
     description: "The viral Pinterest cucumber and feta salad. Refreshing, low-calorie, and keto-friendly. Tossed with a light olive oil vinaigrette and fresh mint for the ultimate summer glow-up lunch.",
     summary: "The viral Pinterest cucumber and feta salad. Refreshing, low-calorie, and keto-friendly. Tossed with a light olive oil vinaigrette and fresh mint for the ultimate summer glow-up lunch.",
     image: "https://www.lowcarb-nocarb.com/wp-content/uploads/2025/08/Tomato-and-Cucumber-Salad-with-Feta-MSN-LCNC.jpeg",
@@ -2717,6 +2897,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "healthy-berry-yogurt-parfait",
     title: "Yummy Berry Yogurt Parfait (Healthy Dessert)",
+    keywords: ["yummy berry yogurt parfait healthy dessert", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "A Pinterest-trending aesthetic berry and yogurt parfait. A high-protein, yummy dessert alternative that layers creamy Greek yogurt, fresh mixed berries, and a touch of honey for a guilt-free sweet treat.",
     summary: "A Pinterest-trending aesthetic berry and yogurt parfait. A high-protein, yummy dessert alternative that layers creamy Greek yogurt, fresh mixed berries, and a touch of honey for a guilt-free sweet treat.",
     image: "https://i.pinimg.com/736x/88/a3/7e/88a37e5041ca0ae1cc88e2109eaa9be7.jpg",
@@ -2752,6 +2934,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "high-protein-chocolate-brownies",
     title: "Fudgy High-Protein Chocolate Brownies",
+    keywords: ["fudgy highprotein chocolate brownies", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Viral Pinterest fudge chocolate brownies that fit your macros! These decadent, high-protein healthy brownies use whey protein and Greek yogurt to achieve a rich texture without the extra calories or fat.",
     summary: "Viral Pinterest fudge chocolate brownies that fit your macros! These decadent, high-protein healthy brownies use whey protein and Greek yogurt to achieve a rich texture without the extra calories or fat.",
     image: "https://i.pinimg.com/736x/de/7e/14/de7e145a2dcfb94597d927b1017aeb73.jpg",
@@ -2789,6 +2973,8 @@ export const RECIPES_DATA: Recipe[] = [
   {
     id: "edible-glitter-pink-lemonade",
     title: "Edible Glitter Pink Lemonade Mocktail",
+    keywords: ["edible glitter pink lemonade mocktail", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The viral Pinterest edible glitter drink! This mesmerizing, sparkling pink lemonade mocktail uses food-grade glitter and sugar-free lemonade for a stunning, low-calorie, photo-ready refreshment.",
     summary: "The viral Pinterest edible glitter drink! This mesmerizing, sparkling pink lemonade mocktail uses food-grade glitter and sugar-free lemonade for a stunning, low-calorie, photo-ready refreshment.",
     image: "https://familyspice.com/wp-content/uploads/2026/02/pink-mimosa1-1200.jpg",
@@ -2829,6 +3015,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-01",
     title: "High-Protein Salmon & Quinoa Bowl",
+    keywords: ["highprotein salmon  quinoa bowl", "american recipe", "seafood recipe", "healthy pescatarian", "healthy salad"],
+    cuisine: "American",
     description: "Premium grilled Atlantic salmon fillet served over a bed of fluffy tri-color quinoa, steamed broccoli florets, and a light lemon-herb drizzle.",
     summary: "Premium grilled Atlantic salmon fillet served over a bed of fluffy tri-color quinoa, steamed broccoli florets, and a light lemon-herb drizzle.",
     image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=600",
@@ -2857,6 +3045,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-02",
     title: "Lean Grilled Chicken Breast & Sweet Potato",
+    keywords: ["lean grilled chicken breast  sweet potato", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     description: "Juicy, tender marinated chicken breast grilled to perfection, served with roasted sweet potato wedges and crisp asparagus spears.",
     summary: "Juicy, tender marinated chicken breast grilled to perfection, served with roasted sweet potato wedges and crisp asparagus spears.",
     image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=80&w=600",
@@ -2884,6 +3074,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-03",
     title: "Gourmet Avocado Beef Stir-Fry",
+    keywords: ["gourmet avocado beef stirfry", "asian recipe", "beef recipe", "high protein meal"],
+    cuisine: "Asian",
     description: "Lean beef strips flash-fried with colorful bell peppers, sweet onions, and finished with fresh avocado slices for healthy fats.",
     summary: "Lean beef strips flash-fried with colorful bell peppers, sweet onions, and finished with fresh avocado slices for healthy fats.",
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600",
@@ -2912,6 +3104,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-04",
     title: "Creamy Protein Oatmeal Bowl",
+    keywords: ["creamy protein oatmeal bowl", "american recipe", "healthy salad", "low carb dinner", "healthy breakfast"],
+    cuisine: "American",
     description: "Rolled oats cooked in almond milk, mixed with premium whey protein powder, topped with fresh berries, chia seeds, and almond butter.",
     summary: "Rolled oats cooked in almond milk, mixed with premium whey protein powder, topped with fresh berries, chia seeds, and almond butter.",
     image: "https://www.simplyquinoa.com/wp-content/uploads/2023/08/protein-oatmeal-21.jpg",
@@ -2940,6 +3134,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-05",
     title: "Zesty Garlic Shrimp Pasta",
+    keywords: ["zesty garlic shrimp pasta", "italian recipe", "seafood recipe", "healthy pescatarian", "healthy pasta"],
+    cuisine: "Italian",
     description: "High-protein shrimp sautéed with garlic and red pepper flakes, tossed with whole-wheat spaghetti and fresh cherry tomatoes.",
     summary: "High-protein shrimp sautéed with garlic and red pepper flakes, tossed with whole-wheat spaghetti and fresh cherry tomatoes.",
     image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600",
@@ -2968,6 +3164,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-06",
     title: "Mediterranean Tuna Salad Wrap",
+    keywords: ["mediterranean tuna salad wrap", "mediterranean recipe", "seafood recipe", "healthy pescatarian", "healthy salad"],
+    cuisine: "Mediterranean",
     description: "Flaked albacore tuna mixed with Greek yogurt, red onions, and cucumbers, wrapped tightly in a high-fiber whole-wheat tortilla.",
     summary: "Flaked albacore tuna mixed with Greek yogurt, red onions, and cucumbers, wrapped tightly in a high-fiber whole-wheat tortilla.",
     image: "https://i.pinimg.com/736x/86/43/a8/8643a880a09de38f011ca48bbd2c1bac.jpg",
@@ -2996,6 +3194,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-07",
     title: "Egg White & Turkey Bacon Frittata",
+    keywords: ["egg white  turkey bacon frittata", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "Fluffy baked egg whites packed with diced turkey bacon, baby spinach, mushrooms, and a sprinkle of low-fat feta cheese.",
     summary: "Fluffy baked egg whites packed with diced turkey bacon, baby spinach, mushrooms, and a sprinkle of low-fat feta cheese.",
     image: "https://i.pinimg.com/736x/9d/52/7d/9d527da2240a21395d80cae1e8a24c1f.jpg",
@@ -3024,6 +3224,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-08",
     title: "Lean Turkey Meatballs & Zoodles",
+    keywords: ["lean turkey meatballs  zoodles", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "Baked extra-lean turkey meatballs served over fresh spiralized zucchini noodles, topped with organic marinara sauce.",
     summary: "Baked extra-lean turkey meatballs served over fresh spiralized zucchini noodles, topped with organic marinara sauce.",
     image: "https://i.pinimg.com/736x/15/f6/54/15f654407c9806e842badf05cd712377.jpg",
@@ -3051,6 +3253,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-09",
     title: "Teriyaki Tofu Edamame Power Bowl",
+    keywords: ["teriyaki tofu edamame power bowl", "asian recipe", "healthy salad", "low carb dinner", "vegan recipe"],
+    cuisine: "Asian",
     description: "Crispy baked organic tofu cubes tossed in a light homemade teriyaki glaze, paired with shelled edamame and brown rice.",
     summary: "Crispy baked organic tofu cubes tossed in a light homemade teriyaki glaze, paired with shelled edamame and brown rice.",
     image: "https://i.pinimg.com/1200x/5a/9c/bf/5a9cbf21c8599bc7e64c190db067f483.jpg",
@@ -3079,6 +3283,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-10",
     title: "High-Protein Berry Cottage Cheese Bowl",
+    keywords: ["highprotein berry cottage cheese bowl", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     description: "Low-fat cottage cheese whipped until velvety smooth, loaded with fresh blueberries, sliced strawberries, hemp seeds, and a touch of honey.",
     summary: "Low-fat cottage cheese whipped until velvety smooth, loaded with fresh blueberries, sliced strawberries, hemp seeds, and a touch of honey.",
     image: "https://thedizzycook.com/wp-content/uploads/2023/05/Cottage-cheese-with-fruit-2.jpg",
@@ -3106,6 +3312,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-11",
     title: "Premium Cod Fillet & Jasmine Rice",
+    keywords: ["premium cod fillet  jasmine rice", "american recipe", "seafood recipe", "healthy pescatarian"],
+    cuisine: "American",
     description: "Flaky baked Pacific cod seasoned with lemon pepper, served over clean steamed jasmine rice and roasted green beans.",
     summary: "Flaky baked Pacific cod seasoned with lemon pepper, served over clean steamed jasmine rice and roasted green beans.",
     image: "https://i.pinimg.com/1200x/83/2b/86/832b86cf5768353347503abf0d452c7c.jpg",
@@ -3133,6 +3341,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-12",
     title: "Healthy Chicken Avocado Salad",
+    keywords: ["healthy chicken avocado salad", "american recipe", "chicken dinner", "high protein", "healthy salad"],
+    cuisine: "American",
     description: "Diced grilled chicken mixed with ripe avocado cubes, crisp cucumbers, cherry tomatoes, and a light lime dressing.",
     summary: "Diced grilled chicken mixed with ripe avocado cubes, crisp cucumbers, cherry tomatoes, and a light lime dressing.",
     image: "https://i.pinimg.com/1200x/e1/07/d4/e107d406f18410f2dd80e20238d4328b.jpg",
@@ -3161,6 +3371,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-13",
     title: "Savory Lean Beef & Broccoli Bowl",
+    keywords: ["savory lean beef  broccoli bowl", "american recipe", "beef recipe", "high protein meal", "healthy salad"],
+    cuisine: "American",
     description: "Tender lean beef strips wok-tossed with fresh broccoli florets in a clean, low-sugar garlic-ginger sauce over brown rice.",
     summary: "Tender lean beef strips wok-tossed with fresh broccoli florets in a clean, low-sugar garlic-ginger sauce over brown rice.",
     image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=600",
@@ -3189,6 +3401,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-14",
     title: "Protein Pancake Stack",
+    keywords: ["protein pancake stack", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "Fluffy, high-protein fitness pancakes made from oat flour, banana, and egg whites, served with sugar-free maple syrup.",
     summary: "Fluffy, high-protein fitness pancakes made from oat flour, banana, and egg whites, served with sugar-free maple syrup.",
     image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=600",
@@ -3217,6 +3431,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "fit-meal-15",
     title: "Spiced Lentil & Spinach Stew",
+    keywords: ["spiced lentil  spinach stew", "american recipe", "healthy soup", "comfort food"],
+    cuisine: "American",
     description: "A comforting, high-fiber, and high-protein vegan stew combining brown lentils, diced tomatoes, baby spinach, and warm Mediterranean spices.",
     summary: "A comforting, high-fiber, and high-protein vegan stew combining brown lentils, diced tomatoes, baby spinach, and warm Mediterranean spices.",
     image: "https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=600",
@@ -3245,6 +3461,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "viral-cottage-cheese-flatbread",
     title: "Viral Cottage Cheese Flatbread",
+    keywords: ["viral cottage cheese flatbread", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The viral low carb high protein flatbread made effortlessly with cottage cheese.",
     summary: "The viral low carb high protein flatbread made effortlessly with cottage cheese.",
     image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600",
@@ -3280,6 +3498,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "crispy-feta-fried-eggs",
     title: "Crispy Feta Fried Eggs Shredded Hash",
+    keywords: ["crispy feta fried eggs shredded hash", "mediterranean recipe", "healthy breakfast", "morning meal"],
+    cuisine: "Mediterranean",
     description: "Crispy feta fried eggs recipe under 400 calories. A perfect energetic start for your day.",
     summary: "Crispy feta fried eggs recipe under 400 calories. A perfect energetic start for your day.",
     image: "https://i.pinimg.com/736x/ce/1c/86/ce1c8651ad7db69cf11eba4ced2c816a.jpg",
@@ -3316,6 +3536,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "high-protein-breakfast-sandwich",
     title: "High-Protein Breakfast Sandwich",
+    keywords: ["highprotein breakfast sandwich", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "High protein breakfast sandwich for muscle gain. A hearty meal with lean proteins.",
     summary: "High protein breakfast sandwich for muscle gain. A hearty meal with lean proteins.",
     image: "https://i.pinimg.com/736x/9e/87/4a/9e874adc46ddf22d844f8452152f6c88.jpg",
@@ -3352,6 +3574,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "honey-mustard-chicken-prep",
     title: "Creamy Honey Mustard Chicken Meal Prep",
+    keywords: ["creamy honey mustard chicken meal prep", "american recipe", "chicken dinner", "high protein"],
+    cuisine: "American",
     description: "Easy chicken meal prep recipes for beginners. Flavorful honey mustard chicken with basmati rice.",
     summary: "Easy chicken meal prep recipes for beginners. Flavorful honey mustard chicken with basmati rice.",
     image: "https://i.pinimg.com/736x/79/31/df/7931df2d6259366b0767b5c99c6d36b8.jpg",
@@ -3389,6 +3613,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "garlic-butter-steak-bites",
     title: "Garlic Butter Steak Bites with Sweet Potato",
+    keywords: ["garlic butter steak bites with sweet potato", "american recipe", "beef recipe", "high protein meal"],
+    cuisine: "American",
     description: "Healthy steak and sweet potato dinner 30 minutes. Delicious macros for muscle gain.",
     summary: "Healthy steak and sweet potato dinner 30 minutes. Delicious macros for muscle gain.",
     image: "https://i.pinimg.com/736x/ed/23/c1/ed23c17ec1188f44003fb82eb55a28f9.jpg",
@@ -3425,6 +3651,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "green-goddess-tuna-boat",
     title: "Green Goddess Tuna Salad Boat",
+    keywords: ["green goddess tuna salad boat", "american recipe", "seafood recipe", "healthy pescatarian", "healthy salad"],
+    cuisine: "American",
     description: "Low calorie high protein dinner ideas. Refreshing tuna boat in zucchini.",
     summary: "Low calorie high protein dinner ideas. Refreshing tuna boat in zucchini.",
     image: "https://i.pinimg.com/1200x/6f/f3/a4/6ff3a414dde11bcc9002873d058f32a0.jpg",
@@ -3461,6 +3689,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "viral-yogurt-bowl",
     title: "Viral Yogurt Bowl",
+    keywords: ["viral yogurt bowl", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     description: "Viral yogurt bowl recipe with high protein performance. Creamy base layered with fresh berries and dietary granola.",
     summary: "Viral yogurt bowl recipe with high protein performance. Creamy base layered with fresh berries and dietary granola.",
     image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600",
@@ -3497,6 +3727,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "healthy-apple-pastry",
     title: "Upside Down Apple Pastry (Diet Version)",
+    keywords: ["upside down apple pastry diet version", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "Healthy upside down apple pastry recipe for guilt-free sweet tooth.",
     summary: "Healthy upside down apple pastry recipe for guilt-free sweet tooth.",
     image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=600",
@@ -3533,6 +3765,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "viral-avocado-egg-boat",
     title: "Viral Avocado Egg Boat (2026 High Protein Hack)",
+    keywords: ["viral avocado egg boat 2026 high protein hack", "american recipe", "healthy breakfast", "morning meal"],
+    cuisine: "American",
     description: "The ultimate 2026 viral high protein, low calorie snack. A ripe avocado half baked with a fresh egg cracked inside, wrapped in crispy turkey bacon and air-fried. Clean eating and macro-friendly.",
     summary: "The ultimate 2026 viral high protein, low calorie snack. A ripe avocado half baked with a fresh egg cracked inside, wrapped in crispy turkey bacon and air-fried. Clean eating and macro-friendly.",
     image: "https://i.pinimg.com/736x/9f/94/3c/9f943ca67f1b99005181d293160f4d52.jpg",
@@ -3570,6 +3804,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "crispy-protein-tofu-airfryer",
     title: "Crispy Air-Fryer Tofu (Low Calorie & Clean Eating)",
+    keywords: ["crispy airfryer tofu low calorie  clean eating", "american recipe", "vegan recipe", "plant based meal"],
+    cuisine: "American",
     description: "The viral 2026 clean eating plant-based meal prep. Extra-firm tofu cubes coated in savory nutritional yeast and cornstarch, air-fried to a golden crunch. High protein, low fat, and macro-friendly.",
     summary: "The viral 2026 clean eating plant-based meal prep. Extra-firm tofu cubes coated in savory nutritional yeast and cornstarch, air-fried to a golden crunch. High protein, low fat, and macro-friendly.",
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600",
@@ -3608,6 +3844,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "viral-high-protein-chia-pudding",
     title: "Viral Berries & Cream Chia Pudding (Post-Workout & Weight Loss)",
+    keywords: ["viral berries  cream chia pudding postworkout  weight loss", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The viral 2026 aesthetic fitness breakfast for quick weight loss and optimal muscle recovery. High-protein chia pudding whipped with clean vanilla whey isolate and topped with fresh strawberries. Perfect post-workout sweet fix.",
     summary: "The viral 2026 aesthetic fitness breakfast for quick weight loss and optimal muscle recovery. High-protein chia pudding whipped with clean vanilla whey isolate and topped with fresh strawberries. Perfect post-workout sweet fix.",
     image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=600",
@@ -3646,6 +3884,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "viral-loaded-protein-bagel-panini",
     title: "Viral Loaded Protein Bagel Panini (Muscle Gain & Post-Workout)",
+    keywords: ["viral loaded protein bagel panini muscle gain  postworkout", "american recipe", "healthy eating", "easy recipe"],
+    cuisine: "American",
     description: "The ultimate heavy-hitting 2026 muscle gain fuel. An everything protein bagel loaded with sliced roasted turkey, fluffy egg whites, fresh spinach, and melted low-fat mozzarella, pressed to panini perfection. High protein, high carb, and macro-friendly.",
     summary: "The ultimate heavy-hitting 2026 muscle gain fuel. An everything protein bagel loaded with sliced roasted turkey, fluffy egg whites, fresh spinach, and melted low-fat mozzarella, pressed to panini perfection. High protein, high carb, and macro-friendly.",
     image: "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?q=80&w=600",
@@ -3684,6 +3924,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "viral-green-goddess-chicken-bowl",
     title: "Viral Green Goddess Chicken Bowl (Clean Eating & Meal Prep)",
+    keywords: ["viral green goddess chicken bowl clean eating  meal prep", "american recipe", "chicken dinner", "high protein", "healthy salad"],
+    cuisine: "American",
     description: "A vibrant, macro-friendly clean eating bowl designed for beginners. Sliced grilled chicken breast over fluffy tri-color quinoa, roasted broccoli, and edamame, dressed in an high-protein Greek yogurt green goddess dressing.",
     summary: "A vibrant, macro-friendly clean eating bowl designed for beginners. Sliced grilled chicken breast over fluffy tri-color quinoa, roasted broccoli, and edamame, dressed in an high-protein Greek yogurt green goddess dressing.",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600",
@@ -3721,6 +3963,8 @@ export const fitnessMeals: Recipe[] = [
   {
     id: "viral-bison-sweet-potato-bowl",
     title: "Viral Bison & Sweet Potato Bowl (High Protein Muscle Gain)",
+    keywords: ["viral bison  sweet potato bowl high protein muscle gain", "american recipe", "healthy salad", "low carb dinner"],
+    cuisine: "American",
     description: "The elite post-workout meal of 2026. Highly nutritious and lean ground bison sautéed with peppers and garlic, paired with sweet potato wedges, broccoli, and light sriracha drizzle. Optimized for clean bulking and muscle recovery.",
     summary: "The elite post-workout meal of 2026. Highly nutritious and lean ground bison sautéed with peppers and garlic, paired with sweet potato wedges, broccoli, and light sriracha drizzle. Optimized for clean bulking and muscle recovery.",
     image: "https://i.pinimg.com/1200x/e6/2a/93/e62a939d18b71c4b74ce98ee24d4e947.jpg",

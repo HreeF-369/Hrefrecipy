@@ -1,0 +1,498 @@
+{
+  "1": {
+    "cuisine": "American",
+    "keywords": "blueberry oat protein pancakes, american recipe, healthy breakfast, morning meal"
+  },
+  "1001": {
+    "cuisine": "American",
+    "keywords": "avocado  poached egg sourdough, american recipe, healthy breakfast, morning meal"
+  },
+  "br-euro-01": {
+    "cuisine": "American",
+    "keywords": "croissant breakfast sandwich, american recipe, healthy breakfast, morning meal"
+  },
+  "br-trend-02": {
+    "cuisine": "Mediterranean",
+    "keywords": "crispy feta fried eggs, mediterranean recipe, healthy breakfast, morning meal"
+  },
+  "br-trend-03": {
+    "cuisine": "American",
+    "keywords": "viral shaved fruit yogurt bowl, american recipe, healthy salad, low carb dinner"
+  },
+  "br-trend-04": {
+    "cuisine": "American",
+    "keywords": "viral turkish eggs cilbir, american recipe, healthy breakfast, morning meal"
+  },
+  "br-trend-06": {
+    "cuisine": "American",
+    "keywords": "viral upsidedown apple pastry, american recipe, healthy eating, easy recipe"
+  },
+  "br-trend-10": {
+    "cuisine": "American",
+    "keywords": "gourmet avocado toast, american recipe, healthy breakfast, morning meal"
+  },
+  "br-trend-11": {
+    "cuisine": "American",
+    "keywords": "glow breakfast platter, american recipe, healthy breakfast, morning meal"
+  },
+  "br-trend-12": {
+    "cuisine": "American",
+    "keywords": "poached avocado toast, american recipe, healthy breakfast, morning meal"
+  },
+  "br-trend-13": {
+    "cuisine": "American",
+    "keywords": "everything bagel sandwich, american recipe, healthy eating, easy recipe"
+  },
+  "br-trend-14": {
+    "cuisine": "American",
+    "keywords": "salmon  avocado toast, american recipe, seafood recipe, healthy pescatarian, healthy breakfast"
+  },
+  "br-trend-15": {
+    "cuisine": "Middle Eastern",
+    "keywords": "classic shakshuka, middle eastern recipe, healthy eating, easy recipe"
+  },
+  "ln-trend-01": {
+    "cuisine": "Italian",
+    "keywords": "garlic egg pasta, italian recipe, healthy breakfast, morning meal, healthy pasta"
+  },
+  "ln-trend-02": {
+    "cuisine": "American",
+    "keywords": "spanish tortilla, american recipe, healthy eating, easy recipe"
+  },
+  "br-trend-17": {
+    "cuisine": "Mexican",
+    "keywords": "breakfast burrito, mexican recipe, healthy breakfast, morning meal"
+  },
+  "ds-trend-01": {
+    "cuisine": "American",
+    "keywords": "pistachio baklava, american recipe, healthy eating, easy recipe"
+  },
+  "ln-trend-04": {
+    "cuisine": "Mexican",
+    "keywords": "beef quesadilla, mexican recipe, beef recipe, high protein meal"
+  },
+  "ln-trend-06": {
+    "cuisine": "American",
+    "keywords": "double cheeseburger, american recipe, beef recipe, high protein meal"
+  },
+  "ln-trend-07": {
+    "cuisine": "American",
+    "keywords": "salmon grilled cheese, american recipe, seafood recipe, healthy pescatarian"
+  },
+  "ln-trend-08": {
+    "cuisine": "American",
+    "keywords": "chicken caesar wrap, american recipe, chicken dinner, high protein"
+  },
+  "dn-premium-09": {
+    "cuisine": "American",
+    "keywords": "garlic butter steak  mash, american recipe, beef recipe, high protein meal"
+  },
+  "dn-premium-10": {
+    "cuisine": "American",
+    "keywords": "gourmet tbone  wedges, american recipe, healthy eating, easy recipe"
+  },
+  "fish-premium-11": {
+    "cuisine": "American",
+    "keywords": "honey garlic glazed salmon, american recipe, seafood recipe, healthy pescatarian"
+  },
+  "ch-premium-14": {
+    "cuisine": "American",
+    "keywords": "crispy chicken caesar wrap, american recipe, chicken dinner, high protein"
+  },
+  "mex-premium-15": {
+    "cuisine": "Mexican",
+    "keywords": "cheesy beef quesadilla, mexican recipe, beef recipe, high protein meal"
+  },
+  "ch-premium-16": {
+    "cuisine": "Italian",
+    "keywords": "garlic chicken pasta, italian recipe, chicken dinner, high protein, healthy pasta"
+  },
+  "ch-premium-18": {
+    "cuisine": "American",
+    "keywords": "crispy chicken  fries, american recipe, chicken dinner, high protein"
+  },
+  "ch-premium-19": {
+    "cuisine": "American",
+    "keywords": "roasted chicken  veggies, american recipe, chicken dinner, high protein, healthy breakfast"
+  },
+  "sh-premium-21": {
+    "cuisine": "American",
+    "keywords": "creamy garlic shrimp, american recipe, seafood recipe, healthy pescatarian"
+  },
+  "ch-premium-22": {
+    "cuisine": "Mediterranean",
+    "keywords": "chicken shawarma wrap, mediterranean recipe, chicken dinner, high protein"
+  },
+  "sf-premium-23": {
+    "cuisine": "Asian",
+    "keywords": "salmon teriyaki bowl, asian recipe, seafood recipe, healthy pescatarian, healthy salad"
+  },
+  "sf-premium-24": {
+    "cuisine": "American",
+    "keywords": "garlic butter salmon, american recipe, seafood recipe, healthy pescatarian"
+  },
+  "sf-premium-25": {
+    "cuisine": "American",
+    "keywords": "gourmet grilled sea bass, american recipe, healthy eating, easy recipe"
+  },
+  "st-premium-27": {
+    "cuisine": "American",
+    "keywords": "garlic butter steak, american recipe, beef recipe, high protein meal"
+  },
+  "pa-premium-28": {
+    "cuisine": "Italian",
+    "keywords": "cheesy beef penne pasta, italian recipe, beef recipe, high protein meal, healthy pasta"
+  },
+  "la-premium-29": {
+    "cuisine": "Italian",
+    "keywords": "gourmet beef lasagna, italian recipe, beef recipe, high protein meal"
+  },
+  "kb-premium-30": {
+    "cuisine": "American",
+    "keywords": "premium beef shish kebabs, american recipe, beef recipe, high protein meal"
+  },
+  "sw-premium-31": {
+    "cuisine": "Mediterranean",
+    "keywords": "chicken shawarma wrap, mediterranean recipe, chicken dinner, high protein"
+  },
+  "pi-premium-32": {
+    "cuisine": "Italian",
+    "keywords": "gourmet pepperoni  basil pizza, italian recipe, healthy eating, easy recipe"
+  },
+  "dd-premium-33": {
+    "cuisine": "Italian",
+    "keywords": "gourmet deep dish pepperoni pizza, italian recipe, healthy eating, easy recipe"
+  },
+  "tr-premium-34": {
+    "cuisine": "American",
+    "keywords": "honey garlic glazed salmon, american recipe, seafood recipe, healthy pescatarian"
+  },
+  "tr-premium-35": {
+    "cuisine": "Italian",
+    "keywords": "tuscan garlic chicken, italian recipe, chicken dinner, high protein"
+  },
+  "tr-premium-36": {
+    "cuisine": "Italian",
+    "keywords": "creamy sundried tomato gnocchi, italian recipe, healthy eating, easy recipe"
+  },
+  "tr-premium-37": {
+    "cuisine": "American",
+    "keywords": "gourmet smash burger, american recipe, beef recipe, high protein meal"
+  },
+  "md-premium-01": {
+    "cuisine": "American",
+    "keywords": "slowcooked beef ribs, american recipe, beef recipe, high protein meal"
+  },
+  "md-premium-02": {
+    "cuisine": "American",
+    "keywords": "panseared duck breast, american recipe, healthy eating, easy recipe"
+  },
+  "md-premium-03": {
+    "cuisine": "American",
+    "keywords": "creamy seafood paella, american recipe, healthy eating, easy recipe"
+  },
+  "md-premium-04": {
+    "cuisine": "American",
+    "keywords": "lamb chops with herb chimichurri, american recipe, healthy eating, easy recipe"
+  },
+  "md-trend-05": {
+    "cuisine": "Italian",
+    "keywords": "creamy garlic butter shrimp pasta, italian recipe, seafood recipe, healthy pescatarian, healthy pasta"
+  },
+  "md-trend-06": {
+    "cuisine": "American",
+    "keywords": "braised lamb shanks, american recipe, healthy eating, easy recipe"
+  },
+  "md-trend-07": {
+    "cuisine": "American",
+    "keywords": "crispy hot honey chicken, american recipe, chicken dinner, high protein"
+  },
+  "md-trend-08": {
+    "cuisine": "American",
+    "keywords": "gourmet beef wellington slices, american recipe, beef recipe, high protein meal"
+  },
+  "md-trend-09": {
+    "cuisine": "Asian",
+    "keywords": "thai green chicken curry, asian recipe, chicken dinner, high protein"
+  },
+  "md-trend-10": {
+    "cuisine": "American",
+    "keywords": "sea bass with lemon caper butter, american recipe, healthy eating, easy recipe"
+  },
+  "md-trend-11": {
+    "cuisine": "American",
+    "keywords": "slowcooked bbq beef brisket, american recipe, beef recipe, high protein meal"
+  },
+  "md-trend-12": {
+    "cuisine": "Italian",
+    "keywords": "creamy mushroom chicken risotto, italian recipe, chicken dinner, high protein"
+  },
+  "md-trend-13": {
+    "cuisine": "American",
+    "keywords": "ribeye steak with chimichurri butter, american recipe, beef recipe, high protein meal"
+  },
+  "md-trend-14": {
+    "cuisine": "Asian",
+    "keywords": "crispy korean fried chicken supreme, asian recipe, chicken dinner, high protein"
+  },
+  "ds-trend-16": {
+    "cuisine": "Italian",
+    "keywords": "classic italian tiramisu supreme, italian recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-02": {
+    "cuisine": "American",
+    "keywords": "molten chocolate lava cake, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-03": {
+    "cuisine": "American",
+    "keywords": "san sebastian burnt cheesecake, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-04": {
+    "cuisine": "American",
+    "keywords": "new york strawberry cheesecake, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-05": {
+    "cuisine": "French",
+    "keywords": "gourmet pistachio kunafa croissant, french recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-06": {
+    "cuisine": "French",
+    "keywords": "french crme brle art, french recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-07": {
+    "cuisine": "American",
+    "keywords": "premium lotus biscoff mousse, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-08": {
+    "cuisine": "American",
+    "keywords": "red velvet lava cookies, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-09": {
+    "cuisine": "American",
+    "keywords": "mango sago coconut panna cotta, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-10": {
+    "cuisine": "American",
+    "keywords": "fudgy hazelnut brownie towers, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-11": {
+    "cuisine": "American",
+    "keywords": "matcha white chocolate fondant, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-12": {
+    "cuisine": "American",
+    "keywords": "gourmet salted caramel profiteroles, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-13": {
+    "cuisine": "American",
+    "keywords": "vibrant berry pavlova clouds, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-14": {
+    "cuisine": "American",
+    "keywords": "artisanal churros with dark ganache, american recipe, healthy eating, easy recipe"
+  },
+  "ds-trend-15": {
+    "cuisine": "American",
+    "keywords": "gourmet white chocolate raspberry macarons, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-01": {
+    "cuisine": "American",
+    "keywords": "vibrant iced matcha strawberry latte, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-02": {
+    "cuisine": "American",
+    "keywords": "premium blue lagoon mocktail, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-03": {
+    "cuisine": "American",
+    "keywords": "classic fresh passion fruit mojito, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-04": {
+    "cuisine": "American",
+    "keywords": "creamy spanish iced latte caf con bonbn, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-05": {
+    "cuisine": "American",
+    "keywords": "vibrant dragon fruit mango smoothie, american recipe, healthy smoothie, breakfast drink"
+  },
+  "dr-trend-06": {
+    "cuisine": "American",
+    "keywords": "gourmet creamy pistachio milkshake, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-07": {
+    "cuisine": "American",
+    "keywords": "sparkling pomegranate rose mocktail, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-08": {
+    "cuisine": "American",
+    "keywords": "avocado almond honey smoothie, american recipe, healthy smoothie, breakfast drink"
+  },
+  "dr-trend-09": {
+    "cuisine": "American",
+    "keywords": "salted caramel cold brew foam, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-10": {
+    "cuisine": "American",
+    "keywords": "fresh ginger lemonade infusion, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-11": {
+    "cuisine": "American",
+    "keywords": "creamy lotus biscoff frapp, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-12": {
+    "cuisine": "American",
+    "keywords": "sparkling hibiscus berry tea, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-13": {
+    "cuisine": "American",
+    "keywords": "creamy iced taro bubble tea, american recipe, healthy eating, easy recipe"
+  },
+  "dr-trend-15": {
+    "cuisine": "American",
+    "keywords": "fresh cucumber mint cooler, american recipe, healthy eating, easy recipe"
+  },
+  "dr-premium-hot-choco": {
+    "cuisine": "American",
+    "keywords": "ultimate belgian hot chocolate, american recipe, healthy eating, easy recipe"
+  },
+  "dish-deep-pie": {
+    "cuisine": "American",
+    "keywords": "gourmet deepdish pepperoni meat pie, american recipe, healthy eating, easy recipe"
+  },
+  "mediterranean-chickpea-salad-bowl": {
+    "cuisine": "Mediterranean",
+    "keywords": "mediterranean chickpea salad bowl high protein, mediterranean recipe, healthy salad, low carb dinner"
+  },
+  "cucumber-feta-mint-salad": {
+    "cuisine": "Mediterranean",
+    "keywords": "viral cucumber  feta salad low calorie, mediterranean recipe, healthy salad, low carb dinner"
+  },
+  "healthy-berry-yogurt-parfait": {
+    "cuisine": "American",
+    "keywords": "yummy berry yogurt parfait healthy dessert, american recipe, healthy eating, easy recipe"
+  },
+  "high-protein-chocolate-brownies": {
+    "cuisine": "American",
+    "keywords": "fudgy highprotein chocolate brownies, american recipe, healthy eating, easy recipe"
+  },
+  "edible-glitter-pink-lemonade": {
+    "cuisine": "American",
+    "keywords": "edible glitter pink lemonade mocktail, american recipe, healthy eating, easy recipe"
+  },
+  "fit-meal-01": {
+    "cuisine": "American",
+    "keywords": "highprotein salmon  quinoa bowl, american recipe, seafood recipe, healthy pescatarian, healthy salad"
+  },
+  "fit-meal-02": {
+    "cuisine": "American",
+    "keywords": "lean grilled chicken breast  sweet potato, american recipe, chicken dinner, high protein"
+  },
+  "fit-meal-03": {
+    "cuisine": "Asian",
+    "keywords": "gourmet avocado beef stirfry, asian recipe, beef recipe, high protein meal"
+  },
+  "fit-meal-04": {
+    "cuisine": "American",
+    "keywords": "creamy protein oatmeal bowl, american recipe, healthy salad, low carb dinner, healthy breakfast"
+  },
+  "fit-meal-05": {
+    "cuisine": "Italian",
+    "keywords": "zesty garlic shrimp pasta, italian recipe, seafood recipe, healthy pescatarian, healthy pasta"
+  },
+  "fit-meal-06": {
+    "cuisine": "Mediterranean",
+    "keywords": "mediterranean tuna salad wrap, mediterranean recipe, seafood recipe, healthy pescatarian, healthy salad"
+  },
+  "fit-meal-07": {
+    "cuisine": "American",
+    "keywords": "egg white  turkey bacon frittata, american recipe, healthy breakfast, morning meal"
+  },
+  "fit-meal-08": {
+    "cuisine": "American",
+    "keywords": "lean turkey meatballs  zoodles, american recipe, beef recipe, high protein meal"
+  },
+  "fit-meal-09": {
+    "cuisine": "Asian",
+    "keywords": "teriyaki tofu edamame power bowl, asian recipe, healthy salad, low carb dinner, vegan recipe"
+  },
+  "fit-meal-10": {
+    "cuisine": "American",
+    "keywords": "highprotein berry cottage cheese bowl, american recipe, healthy salad, low carb dinner"
+  },
+  "fit-meal-11": {
+    "cuisine": "American",
+    "keywords": "premium cod fillet  jasmine rice, american recipe, seafood recipe, healthy pescatarian"
+  },
+  "fit-meal-12": {
+    "cuisine": "American",
+    "keywords": "healthy chicken avocado salad, american recipe, chicken dinner, high protein, healthy salad"
+  },
+  "fit-meal-13": {
+    "cuisine": "American",
+    "keywords": "savory lean beef  broccoli bowl, american recipe, beef recipe, high protein meal, healthy salad"
+  },
+  "fit-meal-14": {
+    "cuisine": "American",
+    "keywords": "protein pancake stack, american recipe, healthy breakfast, morning meal"
+  },
+  "fit-meal-15": {
+    "cuisine": "American",
+    "keywords": "spiced lentil  spinach stew, american recipe, healthy soup, comfort food"
+  },
+  "viral-cottage-cheese-flatbread": {
+    "cuisine": "American",
+    "keywords": "viral cottage cheese flatbread, american recipe, healthy eating, easy recipe"
+  },
+  "crispy-feta-fried-eggs": {
+    "cuisine": "Mediterranean",
+    "keywords": "crispy feta fried eggs shredded hash, mediterranean recipe, healthy breakfast, morning meal"
+  },
+  "high-protein-breakfast-sandwich": {
+    "cuisine": "American",
+    "keywords": "highprotein breakfast sandwich, american recipe, healthy breakfast, morning meal"
+  },
+  "honey-mustard-chicken-prep": {
+    "cuisine": "American",
+    "keywords": "creamy honey mustard chicken meal prep, american recipe, chicken dinner, high protein"
+  },
+  "garlic-butter-steak-bites": {
+    "cuisine": "American",
+    "keywords": "garlic butter steak bites with sweet potato, american recipe, beef recipe, high protein meal"
+  },
+  "green-goddess-tuna-boat": {
+    "cuisine": "American",
+    "keywords": "green goddess tuna salad boat, american recipe, seafood recipe, healthy pescatarian, healthy salad"
+  },
+  "viral-yogurt-bowl": {
+    "cuisine": "American",
+    "keywords": "viral yogurt bowl, american recipe, healthy salad, low carb dinner"
+  },
+  "healthy-apple-pastry": {
+    "cuisine": "American",
+    "keywords": "upside down apple pastry diet version, american recipe, healthy eating, easy recipe"
+  },
+  "viral-avocado-egg-boat": {
+    "cuisine": "American",
+    "keywords": "viral avocado egg boat 2026 high protein hack, american recipe, healthy breakfast, morning meal"
+  },
+  "crispy-protein-tofu-airfryer": {
+    "cuisine": "American",
+    "keywords": "crispy airfryer tofu low calorie  clean eating, american recipe, vegan recipe, plant based meal"
+  },
+  "viral-high-protein-chia-pudding": {
+    "cuisine": "American",
+    "keywords": "viral berries  cream chia pudding postworkout  weight loss, american recipe, healthy eating, easy recipe"
+  },
+  "viral-loaded-protein-bagel-panini": {
+    "cuisine": "American",
+    "keywords": "viral loaded protein bagel panini muscle gain  postworkout, american recipe, healthy eating, easy recipe"
+  },
+  "viral-green-goddess-chicken-bowl": {
+    "cuisine": "American",
+    "keywords": "viral green goddess chicken bowl clean eating  meal prep, american recipe, chicken dinner, high protein, healthy salad"
+  },
+  "viral-bison-sweet-potato-bowl": {
+    "cuisine": "American",
+    "keywords": "viral bison  sweet potato bowl high protein muscle gain, american recipe, healthy salad, low carb dinner"
+  }
+}

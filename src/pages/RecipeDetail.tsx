@@ -96,6 +96,13 @@ export default function RecipeDetail() {
   const [checkedIngredients, setCheckedIngredients] = useState<(number | string)[]>([]);
   const [showPlanMenu, setShowPlanMenu] = useState(false);
   const [spokenCharIndex, setSpokenCharIndex] = useState(-1);
+  const [userRating, setUserRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  
+  const handleRate = (rating: number) => {
+    setUserRating(rating);
+    // Real implementation would save to DB here
+  };
 
   const stepOffsets = useMemo(() => {
     if (!recipe) return [];
@@ -336,6 +343,8 @@ export default function RecipeDetail() {
             "description": recipe.description,
             "recipeYield": `${recipe.servings} servings`,
             "recipeCategory": recipe.category,
+            "recipeCuisine": recipe.cuisine || "American",
+            "keywords": (recipe.keywords && recipe.keywords.length > 0) ? recipe.keywords.join(", ") : (recipe.tags && recipe.tags.length > 0 ? recipe.tags.join(", ") : ""),
             "url": `https://dishfit.net/recipe/${recipe.id}`,
             "prepTime": `PT${prepMinutes}M`,
             "cookTime": `PT${cookMinutes}M`,
@@ -348,11 +357,7 @@ export default function RecipeDetail() {
               "@type": "HowToStep",
               "text": s.step
             })),
-            "aggregateRating": recipe.rating ? {
-              "@type": "AggregateRating",
-              "ratingValue": recipe.rating,
-              "ratingCount": recipe.ratingCount || 10
-            } : undefined,
+            
             "nutrition": {
               "@type": "NutritionInformation",
               "calories": `${caloriesVal} kcal`,
@@ -389,7 +394,7 @@ export default function RecipeDetail() {
               src={imgError ? FALLBACK_IMAGE : (getSafeImageUrl(recipe.image).includes('images.unsplash.com') 
                 ? optimizeUnsplashUrl(getSafeImageUrl(recipe.image), 1200) 
                 : getSafeImageUrl(recipe.image))} 
-              alt={`${recipe.title} - recette haute protéine faible calorie - DishFit`} 
+              alt={`DishFit ${recipe.title}`} 
               onError={() => setImgError(true)}
               {...(imgError ? {} : typeof recipe.image === 'string' && (getSafeImageUrl(recipe.image).startsWith('image_') || getSafeImageUrl(recipe.image).startsWith('/image_')) ? {
                 srcSet: `${getSafeImageUrl(recipe.image).replace('.webp', '_mobile.webp')} 400w, ${getSafeImageUrl(recipe.image)} 800w`,
@@ -435,6 +440,20 @@ export default function RecipeDetail() {
             <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-gray-900">
               {recipe.title}
             </h1>
+            
+            {recipe.rating && (
+              <div className="flex items-center gap-2">
+                <div className="flex items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className={`text-[15px] ${i < Math.round(recipe.rating!) ? 'text-yellow-400' : 'text-slate-200'}`}>
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <span className="text-sm font-bold text-slate-700">{recipe.rating.toFixed(1)}</span>
+                <span className="text-sm text-slate-400">({recipe.ratingCount || 10} ratings)</span>
+              </div>
+            )}
             
             <div className="flex gap-4 relative py-4 no-print">
               <Link 
@@ -694,6 +713,7 @@ export default function RecipeDetail() {
                     </div>
                   )}
                 </div>
+                
               </motion.div>
             </div>
 
@@ -946,9 +966,39 @@ export default function RecipeDetail() {
               </motion.div>
             </div>
             
-            <Banner300x250 />
+
+                
+
+            
+            <div className="mt-6"><Banner300x250 /></div>
           </div>
         </section>
+      </div>
+
+      <div className="mt-12 max-w-3xl mx-auto py-10 px-8 bg-white border border-slate-100 shadow-sm rounded-3xl text-center no-print">
+        <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">How did it turn out?</h3>
+        <p className="text-slate-500 mb-6">Rate this recipe and let others know what you think.</p>
+        <div className="flex gap-2 justify-center">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <button
+              key={star}
+              onClick={() => handleRate(star)}
+              onMouseEnter={() => setHoverRating(star)}
+              onMouseLeave={() => setHoverRating(0)}
+              className="p-2 transition-transform hover:scale-110 focus:outline-none"
+              aria-label={`Rate ${star} stars`}
+            >
+              <span className={`text-4xl leading-none ${(hoverRating || userRating) >= star ? 'text-yellow-400 drop-shadow-sm' : 'text-slate-200'}`}>
+                ★
+              </span>
+            </button>
+          ))}
+        </div>
+        {userRating > 0 && (
+          <p className="text-sm font-bold text-brand-green mt-4 bg-brand-green/10 inline-block px-4 py-2 rounded-full">
+            Thanks for rating! ({userRating} stars)
+          </p>
+        )}
       </div>
 
       {relatedRecipes.length > 0 && (

@@ -114,7 +114,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
         </div>
         
         <div className="p-5 flex flex-1 flex-col">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-2 flex-wrap">
             <span className="text-[10px] font-black uppercase tracking-[0.1em] text-brand-green">
               {recipe.category.toUpperCase()}
             </span>
@@ -122,6 +122,14 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, index, onClick }
             <span className="text-[10px] font-black uppercase tracking-[0.1em] text-slate-400">
               {recipe.servings} Servings
             </span>
+            {recipe.rating && (
+              <>
+                <div className="h-1 w-1 rounded-full bg-slate-200" />
+                <span className="flex items-center gap-1 text-[11px] font-bold text-slate-500">
+                  <span className="text-yellow-400 text-[13px] leading-none mb-[1px]">★</span> {recipe.rating.toFixed(1)}
+                </span>
+              </>
+            )}
           </div>
           
           <h3 className="line-clamp-2 text-base font-bold text-slate-900 group-hover:text-brand-green transition-colors leading-tight mb-4">

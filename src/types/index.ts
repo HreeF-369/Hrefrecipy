@@ -21,6 +21,8 @@ export interface Recipe {
   ingredients?: { name: string; image: string }[]; // New field from user
   dishTypes: string[];
   tags?: string[]; // New field from user
+  cuisine?: string;
+  keywords?: string[];
   diets?: string[];
   spoonacularScore?: number;
   healthScore?: number;
