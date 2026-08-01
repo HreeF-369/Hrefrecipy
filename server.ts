@@ -777,6 +777,35 @@ app.get("/sitemap.xml", (req, res) => {
   res.send(xml);
 });
 
+
+// Kill switch for old Service Workers
+app.get(['/sw.js', '/service-worker.js', '/workbox-*.js'], (req, res) => {
+  res.setHeader('Content-Type', 'application/javascript');
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Clear-Site-Data', '"cache", "executionContexts"');
+  res.send(`
+    self.addEventListener('install', (e) => {
+      self.skipWaiting();
+    });
+    self.addEventListener('activate', (e) => {
+      e.waitUntil(
+        caches.keys().then((keyList) => {
+          return Promise.all(keyList.map((key) => caches.delete(key)));
+        }).then(() => {
+          return self.registration.unregister();
+        }).then(() => {
+          return self.clients.matchAll();
+        }).then((clients) => {
+          clients.forEach(client => client.navigate(client.url));
+        })
+      );
+    });
+    self.addEventListener('fetch', (event) => {
+      event.respondWith(fetch(event.request).catch(() => new Response('Offline')));
+    });
+  `);
+});
+
 const staticOptions = {
   index: false,
   setHeaders: (res: any, filePath: string) => {
@@ -815,8 +844,28 @@ async function startServer() {
 
       const lastSegment = req.path.split("/").pop() || "";
       if (lastSegment.includes(".") && !req.path.startsWith("/recipe/") && !lastSegment.startsWith("recipe")) {
-        return next();
+      if (req.path.endsWith('.js')) {
+        res.setHeader("Content-Type", "application/javascript");
+        return res.send(`
+          if (!sessionStorage.getItem('df_sw_reloaded')) {
+            sessionStorage.setItem('df_sw_reloaded', '1');
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.getRegistrations().then(function(regs) {
+                for (var i = 0; i < regs.length; i++) { regs[i].unregister(); }
+                window.location.reload(true);
+              }).catch(function() {
+                window.location.reload(true);
+              });
+            } else {
+              window.location.reload(true);
+            }
+          } else {
+            console.error("DishFit: Missing JS file intercepted. Reload loop prevented.");
+          }
+        `);
       }
+      return next();
+    }
 
       try {
         const url = req.originalUrl || req.url;
@@ -844,8 +893,28 @@ async function startServer() {
 
       const lastSegment = req.path.split("/").pop() || "";
       if (lastSegment.includes(".") && !req.path.startsWith("/recipe/") && !lastSegment.startsWith("recipe")) {
-        return next();
+      if (req.path.endsWith('.js')) {
+        res.setHeader("Content-Type", "application/javascript");
+        return res.send(`
+          if (!sessionStorage.getItem('df_sw_reloaded')) {
+            sessionStorage.setItem('df_sw_reloaded', '1');
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.getRegistrations().then(function(regs) {
+                for (var i = 0; i < regs.length; i++) { regs[i].unregister(); }
+                window.location.reload(true);
+              }).catch(function() {
+                window.location.reload(true);
+              });
+            } else {
+              window.location.reload(true);
+            }
+          } else {
+            console.error("DishFit: Missing JS file intercepted. Reload loop prevented.");
+          }
+        `);
       }
+      return next();
+    }
 
       servePreRenderedHtml(req, res, path.join(distPath, "index.html")).catch(next);
     });
@@ -868,6 +937,26 @@ if (!process.env.VERCEL) {
 
     const lastSegment = req.path.split("/").pop() || "";
     if (lastSegment.includes(".") && !req.path.startsWith("/recipe/") && !lastSegment.startsWith("recipe")) {
+      if (req.path.endsWith('.js')) {
+        res.setHeader("Content-Type", "application/javascript");
+        return res.send(`
+          if (!sessionStorage.getItem('df_sw_reloaded')) {
+            sessionStorage.setItem('df_sw_reloaded', '1');
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.getRegistrations().then(function(regs) {
+                for (var i = 0; i < regs.length; i++) { regs[i].unregister(); }
+                window.location.reload(true);
+              }).catch(function() {
+                window.location.reload(true);
+              });
+            } else {
+              window.location.reload(true);
+            }
+          } else {
+            console.error("DishFit: Missing JS file intercepted. Reload loop prevented.");
+          }
+        `);
+      }
       return next();
     }
 
