@@ -102,9 +102,7 @@ export default function Home() {
     }
   }, [catQuery]);
 
-  useEffect(() => {
-    document.title = "DishFit - Premium World-Class Recipes";
-  }, []);
+
 
   useEffect(() => {
     async function fetchInitial() {
@@ -188,8 +186,8 @@ export default function Home() {
       className="space-y-16"
     >
       <Helmet>
-        <title>High Protein Meals for Muscle Gain & Low Calorie Dinner Ideas</title>
-        <meta name="description" content="Discover healthy meals under 30 minutes, weekly meal plans for weight loss, and easy meal prep recipes for beginners. Professional recipes for fitness goals." />
+        <title>DishFit | High-Protein, Low-Calorie Recipes & Meal Planning</title>
+        <meta name="description" content="DishFit is the home for healthy, high-protein, low-calorie recipes under 500 kcal. Browse hundreds of clean-eating meals, build weekly meal plans, and generate grocery lists — all in one place." />
         <meta name="keywords" content="high protein meals for muscle gain, low calorie dinner ideas, healthy meals under 30 minutes, weekly meal plan for weight loss, easy meal prep recipes for beginners" />
         <link rel="canonical" href="https://dishfit.net/" />
       </Helmet>
