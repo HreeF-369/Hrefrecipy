@@ -1,38 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script>
-      // Aggressively unregister all Service Workers and clear caches
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          if (registrations.length > 0) {
-            let unregisterPromises = registrations.map(function(registration) {
-              return registration.unregister();
-            });
-            Promise.all(unregisterPromises).then(function() {
-              if ('caches' in window) {
-                caches.keys().then(function(keyList) {
-                  Promise.all(keyList.map(function(key) {
-                    return caches.delete(key);
-                  })).then(function() {
-                    window.location.reload(true);
-                  });
-                });
-              } else {
-                window.location.reload(true);
-              }
-            });
-          }
-        });
-      }
-      if ('caches' in window) {
-        caches.keys().then(function(keyList) {
-          Promise.all(keyList.map(function(key) {
-            return caches.delete(key);
-          }));
-        });
-      }
-    </script>
     <meta name="p:domain_verify" content="575dbdf541b2cbb60e412138cc72c8b9"/>
     <!-- Google Tag Manager -->
     <script>
